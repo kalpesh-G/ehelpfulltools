@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eHelpFullTools</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script>
+</head>
+<style>
+    /* loader css */
+    .loader-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: linear-gradient(135deg, #001F3F, #0074D9);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        z-index: 9999;
+        overflow: hidden;
+        transition: opacity 1s ease-out;
+    }
+
+    /* Animated Letters */
+    .loader-text {
+        font-size: 6vw;
+        /* Responsive font size */
+        font-weight: bold;
+        color: #ffffff;
+        display: flex;
+        gap: 0.5vw;
+        font-family: Arial, sans-serif;
+        flex-wrap: wrap;
+        /* Ensures letters wrap on smaller screens */
+        justify-content: center;
+    }
+
+    .letter {
+        display: inline-block;
+        opacity: 0;
+        transform: translateY(30px) rotate(20deg) scale(0.8);
+        animation: letterAppear 1.2s forwards;
+    }
+
+    /* Different delays for each letter */
+    .letter:nth-child(1) {
+        animation-delay: 0s;
+    }
+
+    .letter:nth-child(2) {
+        animation-delay: 0.1s;
+    }
+
+    .letter:nth-child(3) {
+        animation-delay: 0.2s;
+    }
+
+    .letter:nth-child(4) {
+        animation-delay: 0.3s;
+    }
+
+    .letter:nth-child(5) {
+        animation-delay: 0.4s;
+    }
+
+    .letter:nth-child(6) {
+        animation-delay: 0.5s;
+    }
+
+    .letter:nth-child(7) {
+        animation-delay: 0.6s;
+    }
+
+    .letter:nth-child(8) {
+        animation-delay: 0.7s;
+    }
+
+    .letter:nth-child(9) {
+        animation-delay: 0.8s;
+    }
+
+    .letter:nth-child(10) {
+        animation-delay: 0.9s;
+    }
+
+    .letter:nth-child(11) {
+        animation-delay: 1s;
+    }
+
+    .letter:nth-child(12) {
+        animation-delay: 1.1s;
+    }
+
+    .letter:nth-child(13) {
+        animation-delay: 1.2s;
+    }
+
+    /* Letter Appearance Animation */
+    @keyframes letterAppear {
+        0% {
+            opacity: 0;
+            transform: translateY(30px) rotate(20deg) scale(0.8);
+        }
+
+        50% {
+            opacity: 0.5;
+            transform: translateY(-10px) rotate(-10deg) scale(1.1);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0) rotate(0deg) scale(1);
+        }
+    }
+
+    /* Glowing Dots Below Text */
+    .dots {
+        display: flex;
+        gap: 1vw;
+        margin-top: 1vw;
+    }
+
+    .dot {
+        width: 1.5vw;
+        height: 1.5vw;
+        background-color: white;
+        border-radius: 50%;
+        animation: blink 1.5s infinite;
+    }
+
+    .dot:nth-child(1) {
+        animation-delay: 0s;
+    }
+
+    .dot:nth-child(2) {
+        animation-delay: 0.3s;
+    }
+
+    .dot:nth-child(3) {
+        animation-delay: 0.6s;
+    }
+
+    @keyframes blink {
+
+        0%,
+        100% {
+            opacity: 0.3;
+        }
+
+        50% {
+            opacity: 1;
+        }
+    }
+
+    /* Fade Out Effect */
+    .hidden {
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 1s ease-out;
+    }
+
+    /* Page Content Initially Hidden */
+    .main-content {
+        opacity: 0;
+        transform: scale(0.95);
+        transition: opacity 1s ease-in, transform 1s ease-in;
+        /* Responsive text size */
+    }
+
+    /* Class to Show Main Content Smoothly */
+    .show {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 600px) {
+        .loader-text {
+            font-size: 8vw;
+        }
+
+        .dot {
+            width: 3vw;
+            height: 3vw;
+        }
+
+        .main-content {
+            font-size: 4vw;
+        }
+    }
+</style>
+
+<body>
+    <div class="loader-container" id="loader">
+        <div class="loader-text">
+            <span class="letter">e</span>
+            <span class="letter">H</span>
+            <span class="letter">e</span>
+            <span class="letter">l</span>
+            <span class="letter">p</span>
+            <span class="letter">F</span>
+            <span class="letter">u</span>
+            <span class="letter">l</span>
+            <span class="letter">l</span>
+            <span class="letter">T</span>
+            <span class="letter">o</span>
+            <span class="letter">o</span>
+            <span class="letter">l</span>
+            <span class="letter">s</span>
+        </div>
+        <div class="dots">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <div class="header">
+        <h1>eHelpFullTools</h1>
+    </div>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href="index.html" class="active">Home</a>
+        <a href="OnlineTools.html">Online Tools</a>
+        <a href="service.html">Services</a>
+        <a href="contact.html">Contact Us</a>
+    </div>
+    <!-- Welcome Section -->
+
+    <div class="main-content" id="mainContent">
+        <section class="welcome-section">
+            <div class="welcome-text">
+                <h1>Welcome to eHelpFullTools</h1>
+                <h3>The platform for quick and efficient online tools and calculators</h3>
+                <p>eHelpFullTools is a convenient online platform that offers a variety of free tools and calculators,
+                    including a text editor, fuel cost estimator, and unit converter. Designed for ease of use, the site
+                    allows users to access these resources quickly without any downloads. Whether you need to edit
+                    documents, estimate travel expenses, or convert measurements, eHelpFullTools provides reliable
+                    solutions
+                    to enhance your productivity and simplify everyday tasks. Explore the site to discover how these
+                    helpful
+                    tools can assist you!</p>
+                <a href="contact.html" style="text-decoration: none;"><button type="button" id="bt">Get in
+                        Touch</button></a>
+            </div>
+            <div class="welcome-image">
+                <img src="home1.jpeg" alt="Illustration of eHelpFullTools features">
+                <!-- Replace with your image path -->
+            </div>
+        </section>
+        <hr>
+        <!-- Floating Call-to-Action Button -->
+        <!-- Tool Section -->
+        <section id="tools" class="tools-section">
+            <h2>Explore Our Online Tools 📝</h2>
+            <p class="pp">Discover a range of helpful tools designed to make your tasks easier and faster!</p>
+
+            <div class="tools-container">
+                <!-- Tool Cards -->
+                <a href="text-editor.html" class="tool-card2">
+                    <h3>📝 Online Text Editor</h3>
+                    <p>Edit and format text effortlessly.</p>
+                </a>
+
+                <a href="FuelCalculator.html" class="tool-card2">
+                    <h3>⛽ Fuel Cost Estimator</h3>
+                    <p>Plan your fuel expenses for any trip.</p>
+                </a>
+
+                <a href="split-bill.html" class="tool-card2">
+                    <h3>💰 Advanced Split Bill Calculator</h3>
+                    <p>Split the equal amount between friends.</p>
+                </a>
+                <a href="cooking-converter.html" class="tool-card2">
+                    <h3>🥣 Cooking Measurement Converter</h3>
+                    <p>Convert Cooking Measurements Easily.</p>
+                </a>
+                <a href="unit-converter.html" class="tool-card2">
+                    <h3>📏 Unit Converter</h3>
+                    <p>Convert length, weight, and more.</p>
+                </a>
+
+                <a href="age-calculator.html" class="tool-card2">
+                    <h3>🎂 Advanced Age Calculator</h3>
+                    <p>Estimate your Age with our advance age Calculator.</p>
+                </a>
+                <a href="meditation-timer.html" class="tool-card2">
+                    <h3>🧘‍♂️ Meditation Timer</h3>
+                    <p>Promotes relaxation and reduces stress.</p>
+                </a>
+                <a href="drawing-board.html" class="tool-card2">
+                    <h3>🎨 Online Drawing Board</h3>
+                    <p>feature-rich digital canvas designed for creativity.</p>
+                </a>
+
+            </div>
+            <h2>Explore Our Fun Tools 😄</h2>
+            <div class="tools-container">
+                <a href="colour-tool.html" class="tool-card2">
+                    <h3>🎨 Fun Color Picker & Mixer</h3>
+                    <p>Choose,pick,mix,copy and download the colour.</p>
+                </a>
+
+                <a href="ascii-art.html" class="tool-card2">
+                    <h3>ᓚ₍ ^. .^₎ ASCII Art Generator</h3>
+                    <p>Transforms texts into beautiful ASCII art.</p>
+                </a>
+                <a href="personalitycheck.html" class="tool-card2">
+                    <h3>🎭 Ultimate Personality Quiz</h3>
+                    <p>Answer the questions and discover your true personality!</p>
+                </a>
+                <a href="coin-flip.html" class="tool-card2">
+                    <h3>🪙 Flip the Coin</h3>
+                    <p>Easy and fast coin flipper.</p>
+                </a>
+            </div>
+        </section>
+        <!-- Description Section -->
+        <section id="description" class="description-section">
+            <h2>Why Choose eHelpFullTools?</h2>
+            <p class="description-text">
+                eHelpFullTools is a <strong> one-stop platform </strong> for online tools that simplify your daily
+                tasks. Whether you need to
+                <strong> edit text, calculate fuel costs, convert units, or manage finances</strong>, we’ve got you
+                covered.
+            </p>
+        </section>
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="testimonials">
+            <h2>What Users Say</h2>
+            <div class="testimonial-card">
+                <p>"This site has made my work so much easier! The fuel estimator helped me save money on my road
+                    trips." 🚗</p>
+                <h4>- Rahul Sharma</h4>
+            </div>
+
+            <div class="testimonial-card">
+                <p>"The text editor is simple and fast, exactly what I needed for my projects!" 📝</p>
+                <h4>- Priya Verma</h4>
+            </div>
+            <div class="testimonial-card">
+                <p>Good tools</p>
+                <h4>- kalpesh G</h4>
+            </div>
+        </section>
+        <!-- FAQ Section -->
+        <section id="faq" class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <h3 class="faq-question">📌 How do I use the fuel cost estimator?</h3>
+                <p class="faq-answer">Simply enter your distance, fuel efficiency, and fuel price to get the estimated
+                    cost.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">📌 Is the text editor free to use?</h3>
+                <p class="faq-answer">Yes! Our online text editor is completely free and requires no sign-up.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">📌 Can I access these tools on my mobile?</h3>
+                <p class="faq-answer">Absolutely! eHelpFullTools is mobile-friendly and works on any device.</p>
+            </div>
+        </section>
+
+
+        <hr>
+        <footer class="footer">
+            <p>&copy; 2024 by eHelpFullTools. All rights reserved.</p>
+        </footer>
+        
+    </div><div class="floating-cta">
+        <a href="OnlineTools.html"> Explore Tools 🛠️</a>
+    </div>
+    <script>  window.addEventListener("load", () => {
+            setTimeout(() => {
+                document.getElementById("loader").classList.add("hidden");
+                document.getElementById("mainContent").classList.add("show");
+            }, 2500);
+        });
+    </script>
+</body>
+
+</html>

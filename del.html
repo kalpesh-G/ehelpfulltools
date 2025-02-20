@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eHelpFullTools</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<style>
+    /* loader css */
+/* Full-Screen Loader */
+.loader-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .loader {
+            position: relative;
+            width: 100px;
+            height: 100px;
+        }
+
+        /* Rotating Hexagon */
+        .hexagon {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.8);
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            animation: rotateHexagon 2s linear infinite;
+        }
+
+        @keyframes rotateHexagon {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.2); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+
+        /* Spinning Triangle */
+        .triangle {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.7);
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            top: 10px;
+            left: 10px;
+            animation: spinTriangle 1.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes spinTriangle {
+            0% { transform: translateY(0px) rotate(0deg); }
+            100% { transform: translateY(-15px) rotate(30deg); }
+        }
+
+        /* Pulsating Circle */
+        .circle {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: pulseCircle 1.2s ease-in-out infinite;
+        }
+
+        @keyframes pulseCircle {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.4); opacity: 0.5; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* Page Content (Hidden Initially) */
+        .content {
+            display: none;
+            text-align: center;
+            padding: 50px;
+            font-size: 24px;
+        }
+
+        /* Smooth Fade-In Effect */
+        .fade-in {
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+/* Contact Information & Business Inquiries */
+.contact-info, .business-inquiries {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.contact-info h2, .business-inquiries h2 {
+    color: #007BFF;
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: left;
+    padding: 10px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 18px;
+    padding: 10px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.contact-item i {
+    font-size: 24px;
+    color: #007BFF;
+}
+
+.contact-item p {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.contact-item a {
+    text-decoration: none;
+    color: #007BFF;
+    font-weight: bold;
+}
+
+.contact-item a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-details {
+        flex-direction: column;
+    }
+    
+    .contact-item {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* Contact Extra Section */
+.contact-extra {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+/* 🌍 Social Media */
+.social-media h2, .support-hours h2, .faqs h2 {
+    color: #007BFF;
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.social-link {
+    font-size: 28px;
+    color: #007BFF;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-link:hover {
+    transform: scale(1.2);
+    color: #0056b3;
+}
+
+/* ⏰ Support Hours */
+.support-hours ul {
+    list-style: none;
+    padding: 0;
+}
+
+.support-hours li {
+    font-size: 18px;
+    padding: 5px 0;
+    color: #333;
+}
+
+/* ❓ FAQs Section */
+.faqs {
+    margin-top: 30px;
+    text-align: left;
+}
+
+.faq {
+    margin-bottom: 10px;
+}
+
+.faq-question {
+    width: 100%;
+    background: #f4f4f4;
+    border: none;
+    padding: 12px;
+    text-align: left;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 6px;
+    transition: background 0.3s;
+}
+
+.faq-question:hover {
+    background: #e0e0e0;
+}
+
+.faq-answer {
+    display: none;
+    padding: 10px;
+    font-size: 16px;
+    border-left: 4px solid #007BFF;
+    margin-top: 5px;
+    background: #f9f9f9;
+    border-radius: 6px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .social-icons {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    .faq-question {
+        font-size: 16px;
+    }
+}
+
+</style>
+<body>
+
+    <div class="loader-container">
+        <div class="loader">
+            <div class="hexagon"></div>
+            <div class="triangle"></div>
+            <div class="circle"></div>
+        </div>
+    </div>
+    <!-- Header -->
+    <div class="header">
+        <h1>eHelpFullTools</h1>
+    </div>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="OnlineTools.html">Online Tools</a>
+        <a href="service.html">Services</a>
+        <a href="contact.html" class="active">Contact Us</a>
+    </div>
+    <!-- Welcome Section -->
+    <section class="welcome-section">
+        <div class="welcome-text">
+            <h1 style="font-size: 60px;">About</h1>
+            <p>eHelpFullTools is a user-friendly website that offers a variety of free online tools and calculators to simplify everyday tasks. With features like a text editor, fuel cost estimator, and unit converter, it caters to a wide range of needs for students, professionals, and anyone looking for quick solutions. Users can access these tools effortlessly, without the need for downloads or installations. Whether you’re planning a trip, working on a project, or just need to edit text, eHelpFullTools provides reliable resources to enhance your productivity and make your life easier. Explore the site today and discover the convenience of these helpful online tools!</p>
+            <p>The platform for quick and efficient text editing and is developed by GK.</p>
+        </div>
+        <div class="welcome-image">
+            <img src="about.jpg" alt="Illustration of eHelpFullTools features"> <!-- Replace with your image path -->
+        </div>
+    </section>
+    <hr>
+    <section class="contact-info">
+        <h2>📞 Contact Information</h2>
+        <div class="contact-details">
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <p><strong>Email:</strong> <a href="mailto:support@ehelpfulltools.com">support@ehelpfulltools.com</a></p>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-phone-alt"></i>
+                <p><strong>Phone:</strong> +1 234 567 890</p>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <p><strong>Address:</strong> 123 Tool Street, Web City, WC 12345</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="business-inquiries">
+        <h2>🤝 Business Inquiries</h2>
+        <p>We are open to collaborations, sponsorships, and partnerships. If you're interested in working with us, feel free to reach out.</p>
+        <div class="contact-item">
+            <i class="fas fa-briefcase"></i>
+            <p><strong>Business Email:</strong> <a href="mailto:business@ehelpfulltools.com">business@ehelpfulltools.com</a></p>
+        </div>
+    </section>
+    <section class="contact-extra">
+        <!-- Social Media Links -->
+        <div class="social-media">
+            <h2>🌍 Connect With Us</h2>
+            <div class="contact-details">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <p><strong>Email:</strong> <a href="mailto:support@ehelpfulltools.com">support@ehelpfulltools.com</a></p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <p><strong>Phone:</strong> +1 234 567 890</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p><strong>Address:</strong> 123 Tool Street, Web City, WC 12345</p>
+                </div>
+            </div>
+            <p>Follow us on social media to stay updated with our latest tools and updates.</p>
+            <div class="social-icons">
+                <a href="#" target="_blank" class="social-link"><i class="fab fa-facebook"></i></a>
+                <a href="#" target="_blank" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="#" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank" class="social-link"><i class="fab fa-linkedin"></i></a>
+                <a href="#" target="_blank" class="social-link"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    
+        <!-- Support Hours -->
+        <div class="support-hours">
+            <h2>⏰ Support Hours</h2>
+            <p>We are available to assist you during the following hours:</p>
+            <ul>
+                <li><strong>Monday - Friday:</strong> 9:00 AM - 6:00 PM</li>
+                <li><strong>Saturday:</strong> 10:00 AM - 4:00 PM</li>
+                <li><strong>Sunday & Holidays:</strong> Closed</li>
+            </ul>
+        </div>
+    
+        <!-- Frequently Asked Questions (FAQs) -->
+        <div class="faqs">
+            <h2>❓ Frequently Asked Questions</h2>
+            <div class="faq">
+                <button class="faq-question">How can I contact support? <i class="fas fa-chevron-down"></i></button>
+                <div class="faq-answer">
+                    <p>You can reach us through our contact form or email us at <a href="mailto:support@ehelpfulltools.com">support@ehelpfulltools.com</a>.</p>
+                </div>
+            </div>
+    
+            <div class="faq">
+                <button class="faq-question">Are all the tools free to use? <i class="fas fa-chevron-down"></i></button>
+                <div class="faq-answer">
+                    <p>Yes, all our tools are completely free to use with no hidden charges.</p>
+                </div>
+            </div>
+    
+            <div class="faq">
+                <button class="faq-question">Do I need to sign up to use the tools? <i class="fas fa-chevron-down"></i></button>
+                <div class="faq-answer">
+                    <p>No sign-up or registration is required. Simply visit our website and start using the tools instantly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- subscribe sectio-->
+    <section class="subscribe-section">
+        <h2>SUBSCRIBE FOR <br> LATEST TOOLS</h2>
+        <form class="subscribe-form">
+            <label for="email">Enter your email here *</label>
+            <input type="email" id="email" name="email" placeholder="Your Email">
+            <div class="checkbox-wrapper">
+                <input type="checkbox" id="newsletter" name="newsletter">
+                <label for="newsletter">Yes, subscribe me to your newsletter.</label>
+            </div>
+            <button type="submit">Subscribe</button>
+        </form>
+    </section>
+    
+    <hr>
+    <footer class="footer">
+        <p>&copy; 2024 by eHelpFullTools. All rights reserved.</p>
+    </footer>   
+    <div class="floating-cta">
+        <a href="OnlineTools.html"> Explore Tools 🛠️</a>
+     </div>    
+     <script> window.addEventListener("load", () => {
+        const loader = document.querySelector(".loader-container");
+        const content = document.querySelector(".content");
+
+       // Smooth fade-out loader
+       loader.style.transition = "opacity 2.8s ease-out";
+        loader.style.opacity = "0";
+
+        setTimeout(() => {
+loader.style.display = "none";
+content.style.display = "block";
+content.classList.add("fade-in");
+}, 2800); // Loader hides after 800ms (0.8 seconds)
+
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+    const faqQuestions = document.querySelectorAll(".faq-question");
+
+    faqQuestions.forEach((question) => {
+        question.addEventListener("click", () => {
+            const answer = question.nextElementSibling;
+            answer.style.display = answer.style.display === "block" ? "none" : "block";
+        });
+    });
+});
+</script>
+</body>
+
+</html>
