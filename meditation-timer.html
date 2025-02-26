@@ -510,12 +510,12 @@ display: flex;
         }
 
         /* Page Content (Hidden Initially) */
-        .content {
+        /* .content {
             display: none;
             text-align: center;
             padding: 50px;
             font-size: 24px;
-        }
+        } */
 
         /* Smooth Fade-In Effect */
         .fade-in {
@@ -692,6 +692,9 @@ display: flex;
             <div class="tool-card">
                 <a href="coin-flip.html">🪙 Flip the Coin</a>
             </div>
+            <div class="tool-card">
+                <a href="typing-test.html">⌨ Typing Speed Test
+            </div>
         </div>
     </div>
     
@@ -840,7 +843,7 @@ display: flex;
 });
 window.addEventListener("load", () => {
             const loader = document.querySelector(".loader-container");
-            const content = document.querySelector(".content");
+            // const content = document.querySelector(".content");
 
          // Smooth fade-out loader
          loader.style.transition = "opacity 2.8s ease-out";
@@ -848,8 +851,8 @@ window.addEventListener("load", () => {
 
         setTimeout(() => {
 loader.style.display = "none";
-content.style.display = "block";
-content.classList.add("fade-in");
+// content.style.display = "block";
+// content.classList.add("fade-in");
 }, 2800); // Loader hides after 800ms (0.8 seconds)
 
         });

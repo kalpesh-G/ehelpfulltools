@@ -100,6 +100,7 @@ display: flex;
         flex-direction: column;
         align-items: center;
         text-align: center;
+        padding: 20px 10px;
     }
     .welcome-text h1 {
         font-size: 1.8em;
@@ -621,4 +622,19 @@ overflow-y: auto; /* Added scrollability */
     left: 0;
     color: #007BFF;
     font-size: 1.2rem;
+}
+.gbutton {
+    width: 150px;
+    background: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.gbutton:hover {
+    background: #0056b3;
 }

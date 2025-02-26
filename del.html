@@ -4,444 +4,296 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>eHelpFullTools</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script>
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
-<style>
-    /* loader css */
-/* Full-Screen Loader */
-.loader-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
-
-        .loader {
-            position: relative;
-            width: 100px;
-            height: 100px;
-        }
-
-        /* Rotating Hexagon */
-        .hexagon {
-            position: absolute;
-            width: 60px;
-            height: 60px;
-            background: rgba(255, 255, 255, 0.8);
-            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-            animation: rotateHexagon 2s linear infinite;
-        }
-
-        @keyframes rotateHexagon {
-            0% { transform: rotate(0deg) scale(1); }
-            50% { transform: rotate(180deg) scale(1.2); }
-            100% { transform: rotate(360deg) scale(1); }
-        }
-
-        /* Spinning Triangle */
-        .triangle {
-            position: absolute;
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.7);
-            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-            top: 10px;
-            left: 10px;
-            animation: spinTriangle 1.5s ease-in-out infinite alternate;
-        }
-
-        @keyframes spinTriangle {
-            0% { transform: translateY(0px) rotate(0deg); }
-            100% { transform: translateY(-15px) rotate(30deg); }
-        }
-
-        /* Pulsating Circle */
-        .circle {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background: white;
-            border-radius: 50%;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: pulseCircle 1.2s ease-in-out infinite;
-        }
-
-        @keyframes pulseCircle {
-            0% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.4); opacity: 0.5; }
-            100% { transform: scale(1); opacity: 1; }
-        }
-
-        /* Page Content (Hidden Initially) */
-        .content {
-            display: none;
+    <title>⌨ Typing Speed Test</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #80c7eb, #1363cc, #51eaea);
             text-align: center;
-            padding: 50px;
-            font-size: 24px;
+            margin: 0;
+            padding: 0;
         }
 
-        /* Smooth Fade-In Effect */
-        .fade-in {
-            animation: fadeIn 1s ease-in-out forwards;
+        /* Container */
+        .container {
+            background: white;
+            width: 90%;
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* Time Selection */
+        .time-selection {
+            margin-bottom: 10px;
         }
-/* Contact Information & Business Inquiries */
-.contact-info, .business-inquiries {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 20px;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    text-align: center;
-}
 
-.contact-info h2, .business-inquiries h2 {
-    color: #007BFF;
-    margin-bottom: 15px;
-    font-size: 24px;
-}
+        #time-select {
+            padding: 5px;
+            font-size: 16px;
+        }
 
-.contact-details {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    text-align: left;
-    padding: 10px;
-}
+        #start-test {
+            background: #28a745;
+            color: white;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
 
-.contact-item {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    font-size: 18px;
-    padding: 10px;
-    background: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
+        #start-test:hover {
+            background: #218838;
+        }
 
-.contact-item i {
-    font-size: 24px;
-    color: #007BFF;
-}
+        /* Typing Text */
+        #text-container {
+            font-size: 18px;
+            background: #f8f8f8;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
 
-.contact-item p {
-    margin: 0;
-    font-size: 16px;
-    color: #333;
-}
+        /* Typing Area */
+        #typing-area {
+            width: 100%;
+            height: 100px;
+            font-size: 18px;
+            padding: 10px;
+            border: 2px solid #007bff;
+            border-radius: 5px;
+        }
 
-.contact-item a {
-    text-decoration: none;
-    color: #007BFF;
-    font-weight: bold;
-}
+        /* Stats */
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            font-size: 18px;
+            margin-top: 10px;
+        }
 
-.contact-item a:hover {
-    text-decoration: underline;
-}
+        /* Restart Button */
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .contact-details {
-        flex-direction: column;
-    }
-    
-    .contact-item {
-        flex-direction: column;
-        text-align: center;
-    }
-}
+        button:hover {
+            background: #0056b3;
+        }
 
-/* Contact Extra Section */
-.contact-extra {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 30px;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    text-align: center;
-}
-
-/* 🌍 Social Media */
-.social-media h2, .support-hours h2, .faqs h2 {
-    color: #007BFF;
-    margin-bottom: 15px;
-    font-size: 24px;
-}
-
-.social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 10px;
-}
-
-.social-link {
-    font-size: 28px;
-    color: #007BFF;
-    transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.social-link:hover {
-    transform: scale(1.2);
-    color: #0056b3;
-}
-
-/* ⏰ Support Hours */
-.support-hours ul {
-    list-style: none;
-    padding: 0;
-}
-
-.support-hours li {
-    font-size: 18px;
-    padding: 5px 0;
-    color: #333;
-}
-
-/* ❓ FAQs Section */
-.faqs {
-    margin-top: 30px;
-    text-align: left;
-}
-
-.faq {
-    margin-bottom: 10px;
-}
-
-.faq-question {
-    width: 100%;
-    background: #f4f4f4;
-    border: none;
-    padding: 12px;
-    text-align: left;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 6px;
-    transition: background 0.3s;
-}
-
-.faq-question:hover {
-    background: #e0e0e0;
-}
-
-.faq-answer {
+        /* Responsive */
+        @media (max-width: 600px) {
+            .container {
+                width: 95%;
+            }
+        }
+        .score-card {
     display: none;
-    padding: 10px;
-    font-size: 16px;
-    border-left: 4px solid #007BFF;
-    margin-top: 5px;
-    background: #f9f9f9;
-    border-radius: 6px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 20px;
+    text-align: center;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .social-icons {
-        flex-wrap: wrap;
-        gap: 10px;
-    }
-    .faq-question {
-        font-size: 16px;
-    }
+.score-card h2 {
+    color: #007bff;
 }
 
-</style>
+.score-card p {
+    font-size: 18px;
+    margin: 5px 0;
+    color: #333;
+}
+
+    </style>
+</head>
+
 <body>
 
-    <div class="loader-container">
-        <div class="loader">
-            <div class="hexagon"></div>
-            <div class="triangle"></div>
-            <div class="circle"></div>
+    <!-- Container -->
+    <div class="container">
+        <h1>⌨ Typing Speed Test 🏆</h1>
+
+        <!-- Time Selection -->
+        <div class="time-selection">
+            <label for="time-select">Select Time:</label>
+            <select id="time-select">
+                <option value="30">30 sec</option>
+                <option value="60" selected>60 sec</option>
+                <option value="90">90 sec</option>
+            </select>
+            <button id="start-test">🚀 Start Test</button>
         </div>
+
+        <!-- Text Display -->
+        <div id="text-container">
+            <p id="text-to-type"></p>
+        </div>
+
+        <!-- Typing Area -->
+        <textarea id="typing-area" placeholder="Start typing here..." disabled></textarea>
+
+        <!-- Stats -->
+        <div class="stats">
+            <p>⏱ Time: <span id="timer">60</span> sec</p>
+            <p>💨 WPM: <span id="wpm">0</span></p>
+            <p>🎯 Accuracy: <span id="accuracy">100</span>%</p>
+        </div>
+
+        <div id="score-card" class="score-card"></div>
+        <!-- Restart Button -->
+        <button id="restart">🔄 Restart</button>
     </div>
-    <!-- Header -->
-    <div class="header">
-        <h1>eHelpFullTools</h1>
-    </div>
 
-    <!-- Navbar -->
-    <div class="navbar">
-        <a href="index.html">Home</a>
-        <a href="OnlineTools.html">Online Tools</a>
-        <a href="service.html">Services</a>
-        <a href="contact.html" class="active">Contact Us</a>
-    </div>
-    <!-- Welcome Section -->
-    <section class="welcome-section">
-        <div class="welcome-text">
-            <h1 style="font-size: 60px;">About</h1>
-            <p>eHelpFullTools is a user-friendly website that offers a variety of free online tools and calculators to simplify everyday tasks. With features like a text editor, fuel cost estimator, and unit converter, it caters to a wide range of needs for students, professionals, and anyone looking for quick solutions. Users can access these tools effortlessly, without the need for downloads or installations. Whether you’re planning a trip, working on a project, or just need to edit text, eHelpFullTools provides reliable resources to enhance your productivity and make your life easier. Explore the site today and discover the convenience of these helpful online tools!</p>
-            <p>The platform for quick and efficient text editing and is developed by GK.</p>
-        </div>
-        <div class="welcome-image">
-            <img src="about.jpg" alt="Illustration of eHelpFullTools features"> <!-- Replace with your image path -->
-        </div>
-    </section>
-    <hr>
-    <section class="contact-info">
-        <h2>📞 Contact Information</h2>
-        <div class="contact-details">
-            <div class="contact-item">
-                <i class="fas fa-envelope"></i>
-                <p><strong>Email:</strong> <a href="mailto:support@ehelpfulltools.com">support@ehelpfulltools.com</a></p>
-            </div>
-            <div class="contact-item">
-                <i class="fas fa-phone-alt"></i>
-                <p><strong>Phone:</strong> +1 234 567 890</p>
-            </div>
-            <div class="contact-item">
-                <i class="fas fa-map-marker-alt"></i>
-                <p><strong>Address:</strong> 123 Tool Street, Web City, WC 12345</p>
-            </div>
-        </div>
-    </section>
-    
-    <section class="business-inquiries">
-        <h2>🤝 Business Inquiries</h2>
-        <p>We are open to collaborations, sponsorships, and partnerships. If you're interested in working with us, feel free to reach out.</p>
-        <div class="contact-item">
-            <i class="fas fa-briefcase"></i>
-            <p><strong>Business Email:</strong> <a href="mailto:business@ehelpfulltools.com">business@ehelpfulltools.com</a></p>
-        </div>
-    </section>
-    <section class="contact-extra">
-        <!-- Social Media Links -->
-        <div class="social-media">
-            <h2>🌍 Connect With Us</h2>
-            <div class="contact-details">
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <p><strong>Email:</strong> <a href="mailto:support@ehelpfulltools.com">support@ehelpfulltools.com</a></p>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-phone-alt"></i>
-                    <p><strong>Phone:</strong> +1 234 567 890</p>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <p><strong>Address:</strong> 123 Tool Street, Web City, WC 12345</p>
-                </div>
-            </div>
-            <p>Follow us on social media to stay updated with our latest tools and updates.</p>
-            <div class="social-icons">
-                <a href="#" target="_blank" class="social-link"><i class="fab fa-facebook"></i></a>
-                <a href="#" target="_blank" class="social-link"><i class="fab fa-twitter"></i></a>
-                <a href="#" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
-                <a href="#" target="_blank" class="social-link"><i class="fab fa-linkedin"></i></a>
-                <a href="#" target="_blank" class="social-link"><i class="fab fa-youtube"></i></a>
-            </div>
-        </div>
-    
-        <!-- Support Hours -->
-        <div class="support-hours">
-            <h2>⏰ Support Hours</h2>
-            <p>We are available to assist you during the following hours:</p>
-            <ul>
-                <li><strong>Monday - Friday:</strong> 9:00 AM - 6:00 PM</li>
-                <li><strong>Saturday:</strong> 10:00 AM - 4:00 PM</li>
-                <li><strong>Sunday & Holidays:</strong> Closed</li>
-            </ul>
-        </div>
-    
-        <!-- Frequently Asked Questions (FAQs) -->
-        <div class="faqs">
-            <h2>❓ Frequently Asked Questions</h2>
-            <div class="faq">
-                <button class="faq-question">How can I contact support? <i class="fas fa-chevron-down"></i></button>
-                <div class="faq-answer">
-                    <p>You can reach us through our contact form or email us at <a href="mailto:support@ehelpfulltools.com">support@ehelpfulltools.com</a>.</p>
-                </div>
-            </div>
-    
-            <div class="faq">
-                <button class="faq-question">Are all the tools free to use? <i class="fas fa-chevron-down"></i></button>
-                <div class="faq-answer">
-                    <p>Yes, all our tools are completely free to use with no hidden charges.</p>
-                </div>
-            </div>
-    
-            <div class="faq">
-                <button class="faq-question">Do I need to sign up to use the tools? <i class="fas fa-chevron-down"></i></button>
-                <div class="faq-answer">
-                    <p>No sign-up or registration is required. Simply visit our website and start using the tools instantly.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- subscribe sectio-->
-    <section class="subscribe-section">
-        <h2>SUBSCRIBE FOR <br> LATEST TOOLS</h2>
-        <form class="subscribe-form">
-            <label for="email">Enter your email here *</label>
-            <input type="email" id="email" name="email" placeholder="Your Email">
-            <div class="checkbox-wrapper">
-                <input type="checkbox" id="newsletter" name="newsletter">
-                <label for="newsletter">Yes, subscribe me to your newsletter.</label>
-            </div>
-            <button type="submit">Subscribe</button>
-        </form>
-    </section>
-    
-    <hr>
-    <footer class="footer">
-        <p>&copy; 2024 by eHelpFullTools. All rights reserved.</p>
-    </footer>   
-    <div class="floating-cta">
-        <a href="OnlineTools.html"> Explore Tools 🛠️</a>
-     </div>    
-     <script> window.addEventListener("load", () => {
-        const loader = document.querySelector(".loader-container");
-        const content = document.querySelector(".content");
+ <script>
+ const typingTexts = [
+            "The quick brown fox jumps over the lazy dog.",
+            "Typing is a skill that requires constant practice.",
+            "Speed and accuracy are key to fast typing.",
+            "A good typist can type without looking at the keyboard.",
+            "Challenge yourself to type faster every day.",
+            "Consistency in practice leads to improved typing speed.",
+            "Keep your hands steady and focus on accuracy.",
+            "The best way to improve typing is daily practice.",
+            "Typing fast helps in increasing productivity.",
+            "Keyboard shortcuts save time and effort.", "Life is a journey, not a destination.", "The sun sets in the west.", "Happiness is found in the little things.", "Knowledge is power.", "Dream big and dare to fail.", "Every day is a new beginning.", "The only limit is your mind.", "Believe in yourself and all that you are.", "Change is the only constant in life.", "Kindness is free, sprinkle it everywhere.", "Success is not the key to happiness.", "You are never too old to set another goal.", "The best way to predict the future is to create it.", "In the end, we only regret the chances we didn't take.", "Your vibe attracts your tribe.", "The only way to do great work is to love what you do.", "Mistakes are proof that you are trying.", "Life is 10% what happens to us and 90% how we react to it.", "Stay positive, work hard, make it happen.", "The journey of a thousand miles begins with one step.", "What lies behind us and what lies before us are tiny matters compared to what lies within us."
+        ];
 
-       // Smooth fade-out loader
-       loader.style.transition = "opacity 2.8s ease-out";
-        loader.style.opacity = "0";
+const textDisplay = document.getElementById("text-to-type");
+const typingArea = document.getElementById("typing-area");
+const timerDisplay = document.getElementById("timer");
+const wpmDisplay = document.getElementById("wpm");
+const accuracyDisplay = document.getElementById("accuracy");
+const restartBtn = document.getElementById("restart");
+const startTestBtn = document.getElementById("start-test");
+const timeSelect = document.getElementById("time-select");
+const scoreCard = document.getElementById("score-card");
 
-        setTimeout(() => {
-loader.style.display = "none";
-content.style.display = "block";
-content.classList.add("fade-in");
-}, 2800); // Loader hides after 800ms (0.8 seconds)
+let currentText = "";
+let timeLeft = 60;
+let timer;
+let isTyping = false;
+let correctChars = 0;
+let totalChars = 0;
+let startTime;
 
-    });
-    document.addEventListener("DOMContentLoaded", function () {
-    const faqQuestions = document.querySelectorAll(".faq-question");
+// **Start Typing Test**
+function startTypingTest() {
+    typingArea.value = "";
+    timeLeft = parseInt(timeSelect.value);
+    timerDisplay.innerText = timeLeft;
+    wpmDisplay.innerText = "0";
+    accuracyDisplay.innerText = "100";
+    isTyping = false;
+    correctChars = 0;
+    totalChars = 0;
+    startTime = null;
+    clearInterval(timer);
+    typingArea.disabled = false;
+    typingArea.focus();
+    scoreCard.style.display = "none"; // Hide score card
 
-    faqQuestions.forEach((question) => {
-        question.addEventListener("click", () => {
-            const answer = question.nextElementSibling;
-            answer.style.display = answer.style.display === "block" ? "none" : "block";
-        });
-    });
+    showNextLine();
+}
+
+// **Start Timer**
+function startTimer() {
+    if (!isTyping) {
+        isTyping = true;
+        startTime = Date.now();
+        timer = setInterval(() => {
+            if (timeLeft > 0) {
+                timeLeft--;
+                timerDisplay.innerText = timeLeft;
+            } else {
+                clearInterval(timer);
+                typingArea.disabled = true;
+                showScoreCard(); // Show score when time is up
+            }
+        }, 1000);
+    }
+}
+
+// **Show Next Line Randomly**
+function showNextLine() {
+    let randomIndex = Math.floor(Math.random() * typingTexts.length);
+    currentText = typingTexts[randomIndex];
+    textDisplay.innerText = currentText;
+    typingArea.value = "";
+}
+
+// **Typing Logic**
+typingArea.addEventListener("input", () => {
+    startTimer();
+    
+    let typedText = typingArea.value;
+    totalChars = typedText.length;
+    correctChars = 0;
+
+    for (let i = 0; i < typedText.length; i++) {
+        if (typedText[i] === currentText[i]) {
+            correctChars++;
+        }
+    }
+
+    // **Check if the user completed the current line correctly**
+    if (typedText === currentText) {
+        showNextLine(); // Show new line after correct typing
+    }
+
+    let elapsedTime = (parseInt(timeSelect.value) - timeLeft) / 60;
+    let wpm = Math.round((correctChars / 5) / elapsedTime);
+    let accuracy = totalChars > 0 ? Math.round((correctChars / totalChars) * 100) : 100;
+
+    wpmDisplay.innerText = isNaN(wpm) ? 0 : wpm;
+    accuracyDisplay.innerText = isNaN(accuracy) ? 100 : accuracy;
 });
-</script>
+
+// **Show Final Score Card**
+function showScoreCard() {
+    let wordsTyped = typingArea.value.trim().split(" ").length;
+    let finalWPM = Math.round((wordsTyped / parseInt(timeSelect.value)) * 60);
+    let accuracy = totalChars > 0 ? Math.round((correctChars / totalChars) * 100) : 100;
+
+    // Display score card with final results
+    scoreCard.innerHTML = `
+        <h2>🎯 Typing Test Completed!</h2>
+        <p><strong>Words Per Minute (WPM):</strong> ${finalWPM}</p>
+        <p><strong>Accuracy:</strong> ${accuracy}%</p>
+        <p><strong>Total Words Typed:</strong> ${wordsTyped}</p>
+        <p><strong>Time Taken:</strong> ${parseInt(timeSelect.value) - timeLeft} seconds</p>
+    `;
+    scoreCard.style.display = "block";
+}
+
+// **Restart Test**
+restartBtn.addEventListener("click", () => {
+    startTypingTest();
+});
+
+// **Start Test Button**
+startTestBtn.addEventListener("click", () => {
+    startTypingTest();
+});
+
+// **Initialize Test**
+startTypingTest();
+
+ </script>
+
 </body>
 
 </html>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>eHelpFullTools</title>
+    <title>eHelpFulTools</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script>
@@ -165,13 +165,7 @@
         transition: opacity 1s ease-out;
     }
 
-    /* Page Content Initially Hidden */
-    .main-content {
-        opacity: 0;
-        transform: scale(0.95);
-        transition: opacity 1s ease-in, transform 1s ease-in;
-        /* Responsive text size */
-    }
+
 
     /* Class to Show Main Content Smoothly */
     .show {
@@ -189,10 +183,6 @@
             width: 3vw;
             height: 3vw;
         }
-
-        .main-content {
-            font-size: 4vw;
-        }
     }
 </style>
 
@@ -207,7 +197,7 @@
             <span class="letter">F</span>
             <span class="letter">u</span>
             <span class="letter">l</span>
-            <span class="letter">l</span>
+            <!-- <span class="letter">l</span> -->
             <span class="letter">T</span>
             <span class="letter">o</span>
             <span class="letter">o</span>
@@ -223,7 +213,7 @@
 
     <!-- Header -->
     <div class="header">
-        <h1>eHelpFullTools</h1>
+        <h1>eHelpFulTools</h1>
     </div>
 
     <!-- Navbar -->
@@ -235,24 +225,23 @@
     </div>
     <!-- Welcome Section -->
 
-    <div class="main-content" id="mainContent">
         <section class="welcome-section">
             <div class="welcome-text">
-                <h1>Welcome to eHelpFullTools</h1>
+                <h1>Welcome to eHelpFulTools</h1>
                 <h3>The platform for quick and efficient online tools and calculators</h3>
-                <p>eHelpFullTools is a convenient online platform that offers a variety of free tools and calculators,
+                <p>eHelpFulTools is a convenient online platform that offers a variety of free tools and calculators,
                     including a text editor, fuel cost estimator, and unit converter. Designed for ease of use, the site
                     allows users to access these resources quickly without any downloads. Whether you need to edit
-                    documents, estimate travel expenses, or convert measurements, eHelpFullTools provides reliable
+                    documents, estimate travel expenses, or convert measurements, eHelpFulTools provides reliable
                     solutions
                     to enhance your productivity and simplify everyday tasks. Explore the site to discover how these
                     helpful
                     tools can assist you!</p>
-                <a href="contact.html" style="text-decoration: none;"><button type="button" id="bt">Get in
+                <a href="contact.html" style="text-decoration: none;"><button type="button" id="bt" class="gbutton">Get in
                         Touch</button></a>
             </div>
             <div class="welcome-image">
-                <img src="home1.jpeg" alt="Illustration of eHelpFullTools features">
+                <img src="home1.jpeg" alt="Illustration of eHelpFulTools features">
                 <!-- Replace with your image path -->
             </div>
         </section>
@@ -320,14 +309,17 @@
                 <a href="coin-flip.html" class="tool-card2">
                     <h3>🪙 Flip the Coin</h3>
                     <p>Easy and fast coin flipper.</p>
+                </a><a href="typing-test.html" class="tool-card2">
+                    <h3>⌨ Typing Speed Test</h3>
+                    <p>Efective tool to measure your typing speed and accuracy.</p>
                 </a>
             </div>
         </section>
         <!-- Description Section -->
         <section id="description" class="description-section">
-            <h2>Why Choose eHelpFullTools?</h2>
+            <h2>Why Choose eHelpFulTools?</h2>
             <p class="description-text">
-                eHelpFullTools is a <strong> one-stop platform </strong> for online tools that simplify your daily
+                eHelpFulTools is a <strong> one-stop platform </strong> for online tools that simplify your daily
                 tasks. Whether you need to
                 <strong> edit text, calculate fuel costs, convert units, or manage finances</strong>, we’ve got you
                 covered.
@@ -368,23 +360,23 @@
 
             <div class="faq-item">
                 <h3 class="faq-question">📌 Can I access these tools on my mobile?</h3>
-                <p class="faq-answer">Absolutely! eHelpFullTools is mobile-friendly and works on any device.</p>
+                <p class="faq-answer">Absolutely! eHelpFulTools is mobile-friendly and works on any device.</p>
             </div>
         </section>
 
 
         <hr>
         <footer class="footer">
-            <p>&copy; 2024 by eHelpFullTools. All rights reserved.</p>
+            <p>&copy; 2024 by eHelpFulTools. All rights reserved.</p>
         </footer>
         
-    </div><div class="floating-cta">
+    <div class="floating-cta">
         <a href="OnlineTools.html"> Explore Tools 🛠️</a>
     </div>
     <script>  window.addEventListener("load", () => {
             setTimeout(() => {
                 document.getElementById("loader").classList.add("hidden");
-                document.getElementById("mainContent").classList.add("show");
+                // document.getElementById("mainContent").classList.add("show");
             }, 2500);
         });
     </script>
