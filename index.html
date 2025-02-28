@@ -185,6 +185,118 @@
             height: 3vw;
         }
     }
+    /* hero section css */
+ /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Hero Section Container */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 10%;
+    background: linear-gradient(135deg, #ffffff, #f0f0f0);
+    min-height: 90vh;
+    position: relative;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    margin: 1vh auto;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+/* Hero Content */
+.hero-content {
+    max-width: 500px;
+    z-index: 2;
+}
+    .hero-content h3 {
+        font-size: 1.5rem;
+        color: #007bff;
+    }
+    
+
+.hero-content h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    color: #222;
+    position: relative;
+}
+
+.hero-content h1 span {
+    color: red;
+    display: block;
+}
+
+.hero-content .desc {
+    font-size: 1rem;
+    color: #666;
+    margin: 15px 0;
+}
+
+/* Button */
+.btn {
+    display: inline-block;
+    background: red;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: 0.3s ease-in-out;
+    box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+}
+
+.btn:hover {
+    background: darkred;
+    box-shadow: 0 5px 20px rgba(255, 0, 0, 0.5);
+}
+
+/* Hero Image */
+.hero-image img {
+    width: 450px;
+    animation: float 3s infinite ease-in-out;
+    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.2));
+}
+
+/* Floating Effect */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px;
+        max-width: 95%;
+    }
+
+    .hero-content {
+        max-width: 100%;
+    }
+
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+
+    .hero-image img {
+        width: 300px;
+    }
+}
+
+
 </style>
 
 <body>
@@ -224,6 +336,24 @@
         <a href="service.html">Services</a>
         <a href="contact.html">Contact Us</a>
     </div>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h3>No Signup!</h3>
+            <h1><span>FREE</span> TO USE</h1>
+            <p class="desc">
+                Online tools to enhance your productivity and simplify everyday tasks.</p>
+                <p class="desc">
+                There are a variety of free tools and calculators waiting for you!
+            </p>
+            <a href="OnlineTools.html" class="btn">Go To Tools</a>
+        </div>
+        <div class="hero-image">
+            <img src="bg1.jpg" alt="Wireless Headphone">
+        </div>
+        
+    </section>
     <!-- Welcome Section -->
 
         <section class="welcome-section">
@@ -240,10 +370,6 @@
                     tools can assist you!</p>
                 <a href="contact.html" style="text-decoration: none;"><button type="button" id="bt" class="gbutton">Get in
                         Touch</button></a>
-            </div>
-            <div class="welcome-image">
-                <img src="home1.jpeg" alt="Illustration of eHelpFulTools features">
-                <!-- Replace with your image path -->
             </div>
         </section>
         <hr>
