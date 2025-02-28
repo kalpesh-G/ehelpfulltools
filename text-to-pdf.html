@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>💰 Advanced Split Bill Calculator</title>
+    <title>📝➡️📄 Txt & PDF Converter</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -15,6 +15,145 @@ background-color: #f5f7fa;
             align-items: center;
             min-height: 100vh;
         }
+        /* tool css */
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        .tool {
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            font-size: 20px;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        textarea, input[type="file"] {
+            width: 98%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        .tb{
+            background-color: #007bff;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .tb:hover {
+            background-color: #0056b3;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        a .tb {
+            background-color: #28a745;
+            padding: 12px 20px;
+            font-size: 16px;
+        }
+
+        a .tb:hover {
+            background-color: #218838;
+        }
+
+        .tool input[type="file"] {
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        textarea {
+            font-family: 'Courier New', Courier, monospace;
+            height: 200px;
+            resize: none;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            
+        }
+
+        .instructions {
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 10px;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .button-container .tb {
+            width: 48%;
+        }
+h1 {
+    color: #333;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+select, input {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.unit-selection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+button {
+    width: 100%;
+    background: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+h2 {
+    margin-top: 20px;
+    color: #28a745;
+}
         .ccontainer {
             width: 90%;
             max-width: 750px;
@@ -83,9 +222,7 @@ background-color: #f5f7fa;
             font-weight: bold;
         }
         @media (max-width: 600px) {
-            .container {
-                width: 95%;
-            }
+      
             button {
                 font-size: 14px;
             }
@@ -400,7 +537,7 @@ display: flex;
     justify-items: center;
     margin: 15px auto;
 }
-   /* loader css */
+/* loader css */
 /* Full-Screen Loader */
 .loader-container {
             position: fixed;
@@ -490,7 +627,8 @@ display: flex;
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
- </style>
+
+    </style>
 </head>
 <body>
     
@@ -514,45 +652,83 @@ display: flex;
     <a href="contact.html">Contact Us</a>
 </div>
 
-<!-- short description about the calculator -->
+<!-- Short description about the Text to PDF Converter -->
 <div class="short-description">
-    <h2>About the Split Bill Calculator 💰</h2>
-    <p>The <strong>Split Bill Calculator</strong> is an easy-to-use tool that helps groups fairly divide expenses.  
-        Whether you're dining out, traveling, or sharing household costs, this calculator ensures transparency and accurate settlements.</p>
+    <h2>About the Text to PDF Converter 📝➡️📄</h2>
+    <p>The <strong>Text to PDF Converter</strong> is a powerful yet easy-to-use tool that helps you transform plain text into a well-structured PDF document within seconds. Whether you’re a student, professional, or someone who needs to store text securely, this tool provides a seamless way to generate PDFs with just a few clicks.</p>
     
     <h3>🚀 How to Use This Tool:</h3>
     <ul>
-        <li>🔹 Enter the names of all participants.</li>
-        <li>🔹 Input the total bill amount.</li>
-        <li>🔹 Specify if someone has already paid a part of the bill.</li>
-        <li>🔹 The tool calculates how much each person owes.</li>
-        <li>🔹 A clear settlement table displays who should pay whom to balance the expenses.</li>
+        <li>🔹 <strong>Option 1:</strong> Type or paste your text into the provided text box.</li>
+        <li>🔹 <strong>Option 2:</strong> Upload a TXT file, and the tool will automatically read its content.</li>
+        <li>🔹 Click the <strong>"Convert to PDF"</strong> button to generate a high-quality PDF file.</li>
+        <li>🔹 Instantly download the converted PDF file to your device.</li>
+        <li>🔹 Need a TXT file instead? Convert your typed text into a downloadable TXT file as well.</li>
     </ul>
     
     <h3>📌 Why Use This Tool?</h3>
-    <p>✔️ <strong> Free </strong> to use and <strong> No</strong> signup required.<br>
-        ✔️ <strong>Fair and efficient</strong> bill splitting <br>
-       ✔️ <strong>Easy to use</strong> with a simple interface <br>
-       ✔️ <strong>Minimizes confusion</strong> by providing clear settlement suggestions</p>
+    <p>✔️ <strong> Free & No Signup:</strong> Completely free to use with no registrations required.<br>
+       ✔️ <strong>Instant Conversion:</strong> Get your PDF or TXT file in just seconds.<br>
+       ✔️ <strong>Simple & User-Friendly:</strong> No technical knowledge needed—just enter text and convert.<br>
+       ✔️ <strong>Secure & Private:</strong> Your data stays on your device, ensuring complete privacy.<br>
+       ✔️ <strong>Works on Any Device:</strong> Use it on your desktop, laptop, tablet, or mobile phone.<br>
+       ✔️ <strong>Professional Formatting:</strong> The generated PDFs are clean, readable, and printer-friendly.</p>
+    
+    <h3>✨ Additional Features:</h3>
+    <ul>
+        <li>🔹 Convert handwritten notes or important text into a structured PDF file.</li>
+        <li>🔹 Easily store and share your text as a downloadable document.</li>
+        <li>🔹 No watermarks—your files remain clean and professional.</li>
+        <li>🔹 Supports large text inputs, allowing you to convert extensive notes or articles.</li>
+    </ul>
 </div>
+
 <div class="ff">
     <p>Go down to explore more tools and Calculators.</p></div>
-<div class="ccontainer">
-    <h2>💰 Advanced Split Bill Calculator 💰</h2>
+<!-- tool code here -->
+<div class="container">
+    <h1>Text Conversion Tool</h1>
 
-    <label>Total Bill Amount (₹):</label>
-    <input type="number" id="totalBill" placeholder="Enter total bill amount">
+    <!-- TXT to PDF -->
+    <div class="tool">
+        <h2>Plain text to PDF and TXT file</h2>
+        <textarea id="txtInput" placeholder="Enter text here..."></textarea>
+        <div class="button-container">
+            <button onclick="convertTxtToPdf()" class="tb">Convert to PDF</button>
+            <button onclick="convertTextToTxt()" class="tb">Convert to TXT</button>
+        </div>
+        <a id="downloadTxtToPdf" style="display:none;" href="#" download="converted-text.pdf">
+            <button class="tb">Download PDF</button>
+        </a>
+        <a id="downloadTxtFile" style="display:none;" href="#" download="converted-text.txt">
+            <button class="tb">Download TXT</button>
+        </a>
+    </div>
 
-    <label>Number of People:</label>
-    <input type="number" id="numPeople" min="1" max="15" placeholder="Enter number of people" oninput="generateInputs()">
+    <!-- TXT File to PDF -->
+    <div class="tool">
+        <h2>TXT File to PDF file</h2>
+        <input type="file" id="txtFileInput" accept=".txt">
+        <button onclick="convertTxtFileToPdf()" class="tb">Convert TXT File to PDF</button>
+        <a id="downloadTxtFileToPdf" style="display:none;" href="#" download="converted-file.pdf">
+            <button class="tb">Download PDF</button>
+        </a>
+    </div>
 
-    <div id="peopleInputs"></div>
-
-    <button onclick="calculateSplit()">📊 Calculate</button>
-
-    <div class="result" id="results"></div>
-    <div class="settlement" id="finalSettlement"></div>
+    <!-- PDF to TXT -->
+    <div class="tool">
+        <h2>PDF to TXT</h2>
+        <input type="file" id="pdfInput" accept=".pdf">
+        <button onclick="convertPdfToTxt()" class="tb">Convert to TXT</button>
+        <a id="downloadPdfToTxt" style="display:none;" href="#" download="converted-text.txt">
+            <button class="tb">Download TXT</button>
+        </a>
+        <textarea id="txtOutput" placeholder="Extracted text will appear here..." readonly></textarea>
+    </div>
 </div>
+
+
+
 <!--about online tools-->
 <section class="tool-info">
     <div class="endcontainer">
@@ -626,7 +802,6 @@ display: flex;
     <p>We're continuously improving and adding new tools for a <strong>smarter and faster experience</strong>. Stay
         connected and explore our growing collection of useful tools!</p>
 
-
 </section>
 
 <!-- Welcome Section -->
@@ -650,118 +825,107 @@ display: flex;
 <footer class="footer">
     <p>&copy; 2024 by eHelpFullTools. All rights reserved.</p>
 </footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
 <script>
-function generateInputs() {
-    let numPeople = parseInt(document.getElementById("numPeople").value);
-    let peopleDiv = document.getElementById("peopleInputs");
-    peopleDiv.innerHTML = "";
+    // Convert TXT to PDF (from text area)
+    function convertTxtToPdf() {
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+        const txtInput = document.getElementById('txtInput').value;
 
-    if (isNaN(numPeople) || numPeople < 1 || numPeople > 15) return;
-
-    for (let i = 1; i <= numPeople; i++) {
-        peopleDiv.innerHTML += `
-            <label>Person ${i} Name:</label>
-            <input type="text" id="name${i}" placeholder="Enter name">
-
-            <label>Amount Paid by ${i} (₹):</label>
-            <input type="number" id="paid${i}" placeholder="Enter amount paid">
-        `;
-    }
-}
-
-function calculateSplit() {
-    let numPeople = parseInt(document.getElementById("numPeople").value);
-    let totalBill = parseFloat(document.getElementById("totalBill").value);
-    let resultsDiv = document.getElementById("results");
-    let settlementDiv = document.getElementById("finalSettlement");
-
-    if (isNaN(totalBill) || totalBill <= 0 || isNaN(numPeople) || numPeople < 1) {
-        alert("Please enter valid values for the bill and number of people.");
-        return;
-    }
-
-    let names = [];
-    let paidAmounts = [];
-    let totalPaid = 0;
-
-    for (let i = 1; i <= numPeople; i++) {
-        let name = document.getElementById(`name${i}`)?.value.trim() || `Person ${i}`;
-        let paid = parseFloat(document.getElementById(`paid${i}`)?.value) || 0;
-
-        names.push(name);
-        paidAmounts.push(paid);
-        totalPaid += paid;
-    }
-
-    let amountPerPerson = totalBill / numPeople;
-    let balances = paidAmounts.map(paid => paid - amountPerPerson);
-    let settlement = [];
-
-    let payers = [];
-    let receivers = [];
-
-    for (let i = 0; i < numPeople; i++) {
-        if (balances[i] < 0) {
-            payers.push({ name: names[i], amount: Math.abs(balances[i]) });
-        } else if (balances[i] > 0) {
-            receivers.push({ name: names[i], amount: balances[i] });
+        if (txtInput.trim()) {
+            doc.text(txtInput, 10, 10);
+            const pdfOutput = doc.output('blob');
+            const link = document.getElementById('downloadTxtToPdf');
+            link.href = URL.createObjectURL(pdfOutput);
+            link.style.display = 'inline-block';
+        } else {
+            alert('Please enter text');
         }
     }
 
-    let settlementTable = `
-        <h3>📌 Final Corrected Settlements</h3>
-        <table>
-            <tr>
-                <th>Name</th>
-                <th>Paid Initially</th>
-                <th>Share Owed (₹${amountPerPerson.toFixed(2)})</th>
-                <th>Final Settlement</th>
-            </tr>
-    `;
-
-    while (payers.length > 0 && receivers.length > 0) {
-        let payer = payers[0];
-        let receiver = receivers[0];
-
-        let transferAmount = Math.min(payer.amount, receiver.amount);
-        settlement.push(`${payer.name} pays ₹${transferAmount.toFixed(2)} to ${receiver.name}`);
-
-        settlementTable += `
-            <tr>
-                <td>${payer.name}</td>
-                <td>₹${paidAmounts[names.indexOf(payer.name)]}</td>
-                <td>₹${amountPerPerson.toFixed(2)}</td>
-                <td class="tick">✅ Pays ₹${transferAmount.toFixed(2)} to ${receiver.name}</td>
-            </tr>
-        `;
-
-        payer.amount -= transferAmount;
-        receiver.amount -= transferAmount;
-
-        if (payer.amount === 0) payers.shift();
-        if (receiver.amount === 0) receivers.shift();
+    // Convert TXT file to PDF (from uploaded file)
+    function convertTxtFileToPdf() {
+        const fileInput = document.getElementById('txtFileInput').files[0];
+        if (fileInput) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+                doc.text(e.target.result, 10, 10);
+                const pdfOutput = doc.output('blob');
+                const link = document.getElementById('downloadTxtFileToPdf');
+                link.href = URL.createObjectURL(pdfOutput);
+                link.style.display = 'inline-block';
+            };
+            reader.readAsText(fileInput);
+        } else {
+            alert('Please upload a TXT file');
+        }
     }
 
-    for (let payer of payers) {
-        settlementTable += `
-            <tr>
-                <td>${payer.name}</td>
-                <td>₹${paidAmounts[names.indexOf(payer.name)]}</td>
-                <td>₹${amountPerPerson.toFixed(2)}</td>
-                <td class="tick">✅ Pays ₹${payer.amount.toFixed(2)} to Biller</td>
-            </tr>
-        `;
+    // Convert Text to TXT File (from text area)
+    function convertTextToTxt() {
+        const txtInput = document.getElementById('txtInput').value;
+
+        if (txtInput.trim()) {
+            const blob = new Blob([txtInput], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const link = document.getElementById('downloadTxtFile');
+            link.href = url;
+            link.style.display = 'inline-block';
+        } else {
+            alert('Please enter text');
+        }
     }
 
-    settlementTable += `</table><br>✅ Now, each person has effectively paid ₹${amountPerPerson.toFixed(2)}, and the biller receives ₹${totalBill.toFixed(2)} in total.`;
+    // Convert PDF to TXT
+    function convertPdfToTxt() {
+        const pdfInput = document.getElementById('pdfInput').files[0];
+        if (pdfInput) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                const typedArray = new Uint8Array(e.target.result);
+                pdfjsLib.getDocument(typedArray).promise.then(function (pdf) {
+                    let extractedText = '';
+                    let count = 0;
 
-    resultsDiv.innerHTML = `<strong>Total Bill Split: ₹${amountPerPerson.toFixed(2)} per person</strong><br>`;
-    settlementDiv.innerHTML = settlementTable;
-} window.addEventListener("load", () => {
-            const loader = document.querySelector(".loader-container");
-            const content = document.querySelector(".content");
- // Smooth fade-out loader
- loader.style.transition = "opacity 2.8s ease-out";
+                    const extractPageText = (pageNumber) => {
+                        pdf.getPage(pageNumber).then(function (page) {
+                            page.getTextContent().then(function (textContent) {
+                                textContent.items.forEach(function (item) {
+                                    extractedText += item.str + ' ';
+                                });
+                                count++;
+                                if (count === pdf.numPages) {
+                                    document.getElementById('txtOutput').value = extractedText;
+                                    const textBlob = new Blob([extractedText], { type: 'text/plain' });
+                                    const textUrl = URL.createObjectURL(textBlob);
+                                    const downloadLink = document.getElementById('downloadPdfToTxt');
+                                    downloadLink.href = textUrl;
+                                    downloadLink.style.display = 'inline-block';
+                                }
+                            });
+                        });
+                    };
+
+                    for (let i = 1; i <= pdf.numPages; i++) {
+                        extractPageText(i);
+                    }
+                });
+            };
+            reader.readAsArrayBuffer(pdfInput);
+        } else {
+            alert('Please upload a PDF file');
+        }
+    } window.addEventListener("load", () => {
+    const loader = document.querySelector(".loader-container");
+    const content = document.querySelector(".content");
+
+    // Smooth fade-out loader
+    loader.style.transition = "opacity 2.8s ease-out";
         loader.style.opacity = "0";
 
         setTimeout(() => {
@@ -770,8 +934,7 @@ content.style.display = "block";
 content.classList.add("fade-in");
 }, 2800); // Loader hides after 800ms (0.8 seconds)
 
-        });
-</script>
+});</script>
 
 </body>
 </html>
