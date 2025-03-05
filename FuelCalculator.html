@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⛽Fuel Cost Calculator - Estimate Your Travel Expenses</title>
+    <meta name="description" content="Calculate the fuel cost for your trip based on distance, fuel efficiency, and price per liter/gallon. Plan your travel budget effectively.">
+    <meta name="keywords" content="fuel cost calculator, trip cost estimator, gas mileage calculator, travel budget">
+    <meta property="og:title" content="Fuel Cost Calculator - Estimate Your Travel Expenses">
+    <meta property="og:description" content="Easily estimate your fuel costs for road trips. Enter distance, fuel efficiency, and price per liter to get an accurate cost.">
+    <meta property="og:image" content="https://ehelpfultools.tech/assets/fuel-calculator.jpg">
+    <meta property="og:url" content="https://ehelpfultools.tech/FuelCalculator.html">
+    <meta name="twitter:title" content="Fuel Cost Calculator - Estimate Your Travel Expenses">
+    <meta name="twitter:description" content="Plan your trips better with our free fuel cost estimator. Get accurate fuel cost calculations instantly.">
+    <meta name="twitter:image" content="https://ehelpfultools.tech/assets/fuel-calculator.jpg">
+    <meta name="google-adsense-account" content="ca-pub-8868584487794979">
+
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script><link rel="icon" href="icon.png" type="image/x-icon" />
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        /* background-color: #f4f4f4; */
+        background-color: #f5f7fa;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        width: 90%;
+        max-width: 300px;
+        margin: 10px auto;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1,
+    h2 {
+        color: #333;
+    }
+
+    p {
+        color: #555;
+        font-size: 14px;
+    }
+
+    label {
+        font-weight: bold;
+        display: block;
+        margin-top: 10px;
+    }
+
+    input,
+    select {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+
+    button {
+        margin-top: 20px;
+        padding: 10px;
+        width: 100%;
+        background-color: #007BFF;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    #result,
+    #efficiencyResult {
+        margin-top: 20px;
+        font-size: 18px;
+        font-weight: bold;
+        color: #28a745;
+    }
+
+
+
+    /* Responsive Design */
+    @media (min-width: 768px) {
+        .container {
+            max-width: 1000px;
+        }
+
+        #bt {
+            width: 20%;
+            align-items: center;
+        }
+    }
+
+    /* endsection css */
+    .tool-info {
+        text-align: center;
+        padding: 50px 20px;
+        /* background: linear-gradient(135deg, #f8f9fa, #e3f2fd); */
+
+        border-radius: 10px;
+        margin: 10px auto;
+        max-width: 900px;
+        /* box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15); */
+    }
+
+    .endcontainer {
+        max-width: 800px;
+        margin: auto;
+    }
+
+    .tool-info h2 {
+        font-size: 2.5rem;
+        color: #333;
+        margin-bottom: 15px;
+    }
+
+    .brand {
+        color: #007bff;
+        font-weight: bold;
+    }
+
+    .tool-info p {
+        font-size: 1.2rem;
+        color: #555;
+        margin-bottom: 25px;
+    }
+
+
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .tool-info {
+            padding: 40px 15px;
+        }
+
+        .tool-info h2 {
+            font-size: 2rem;
+        }
+
+    }
+
+    .incontainer {
+        max-width: 800px;
+        margin: 10px auto;
+        padding: 20px;
+    }
+
+    .tools {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+
+    .tool-card {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+        text-align: center;
+    }
+
+    .tool-card:hover {
+        transform: scale(1.05);
+    }
+
+    .tool-card i {
+        font-size: 40px;
+        color: #007BFF;
+        margin-bottom: 10px;
+    }
+
+    .tool-card a {
+        display: block;
+        font-size: 1.2rem;
+        color: #333;
+        text-decoration: none;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+    .tool-card a:hover {
+        color: #007BFF;
+    }
+    /* css for about section of fuel estimator */
+    /* ========== Short Description Styling ========== */
+.short-description {
+    text-align: left;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.short-description h2 {
+    color: #007BFF;
+    font-size: 1.8rem;
+}
+
+.short-description h3 {
+    color: #333;
+    margin-top: 15px;
+}
+
+.short-description p {
+    font-size: 1rem;
+    color: #555;
+}
+
+.short-description ul {
+    list-style: none;
+    padding: 0;
+}
+
+.short-description ul li {
+    font-size: 1rem;
+    color: #555;
+    padding-left: 25px;
+    position: relative;
+    margin-bottom: 8px;
+}
+
+.short-description ul li::before {
+    content: "✔️";
+    position: absolute;
+    left: 0;
+    color: #007BFF;
+    font-size: 1.2rem;
+}
+/* loader css */
+/* Full-Screen Loader */
+.loader-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .loader {
+            position: relative;
+            width: 100px;
+            height: 100px;
+        }
+
+        /* Rotating Hexagon */
+        .hexagon {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.8);
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            animation: rotateHexagon 2s linear infinite;
+        }
+
+        @keyframes rotateHexagon {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.2); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+
+        /* Spinning Triangle */
+        .triangle {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.7);
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            top: 10px;
+            left: 10px;
+            animation: spinTriangle 1.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes spinTriangle {
+            0% { transform: translateY(0px) rotate(0deg); }
+            100% { transform: translateY(-15px) rotate(30deg); }
+        }
+
+        /* Pulsating Circle */
+        .circle {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: pulseCircle 1.2s ease-in-out infinite;
+        }
+
+        @keyframes pulseCircle {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.4); opacity: 0.5; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* Page Content (Hidden Initially) */
+        .content {
+            display: none;
+            text-align: center;
+            padding: 50px;
+            font-size: 24px;
+        }
+
+        /* Smooth Fade-In Effect */
+        .fade-in {
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+</style>
+
+<body>
+
+    <div class="loader-container">
+        <div class="loader">
+            <div class="hexagon"></div>
+            <div class="triangle"></div>
+            <div class="circle"></div>
+        </div>
+    </div>
+    <!-- Header -->
+    <div class="header">
+        <h1>eHelpFullTools</h1>
+    </div>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="OnlineTools.html" class="active">Online Tools</a>
+        <a href="service.html">Services</a>
+        <a href="contact.html">Contact Us</a>
+    </div>
+
+    <!--about fuel cost estimator-->
+<!-- Fuel Cost Estimator - Short Description -->
+<div class="short-description">
+    <h2>About the Fuel Cost Estimator ⛽</h2>
+    <p>The <strong> Advanced Fuel Estimator </strong> helps you calculate the estimated cost of fuel required for your journey.  
+        It is designed for daily commuters, road trip planners, and logistics professionals to <strong> accurately budget fuel expenses</strong>.
+    </p>
+    
+    <h3>🚀 How to Use This Tool:</h3>
+    <br>
+    <ul>
+        <li>🔹 Enter the <strong>distance</strong> you plan to travel.</li>
+        <li>🔹 Provide your vehicle's <strong>fuel efficiency (km per liter)</strong>.</li>
+        <li>🔹 Input the <strong>current fuel price</strong> per liter.</li>
+        <li>🔹 Select your <strong>vehicle type</strong> (Car, Bike, Truck) for better accuracy.</li>
+        <li>🔹 Click on <strong>"Calculate Cost"</strong>, and you will get an estimate of <strong>total fuel cost and fuel needed</strong>.</li>
+    </ul>
+
+    <h3>📌 Why Use This Tool?</h3>
+    <p>✔️ <strong> Free </strong> to use and <strong> No</strong> signup required.<br>
+        ✔️ Plan trips efficiently  <br>
+       ✔️ Budget fuel costs accurately  <br>
+       ✔️ Compare fuel expenses for different vehicle types</p>
+</div>
+
+    <p style="margin-left: 5px;margin-top: 10px;margin-bottom: 0;">Go down to explore more tools and Calculators.</p>
+    <!-- Fuel Cost Estimator -->
+    <div class="container">
+        <h1>Advanced Fuel Estimator</h1>
+        <p>Calculate your estimated fuel cost for trips 🚗</p>
+
+        <label for="distance">Distance (km):</label>
+        <input type="number" id="distance" placeholder="Enter distance in km" required>
+
+        <label for="efficiency">Fuel Efficiency (km/l):</label>
+        <input type="number" id="efficiency" placeholder="Enter fuel efficiency" required>
+
+        <label for="price">Fuel Price (₹/liter):</label>
+        <input type="number" id="price" placeholder="Enter fuel price" required>
+
+        <label for="vehicleType">Select Vehicle Type:</label>
+        <select id="vehicleType">
+            <option value="car">Car</option>
+            <option value="bike">Bike</option>
+            <option value="truck">Truck</option>
+        </select>
+
+        <button onclick="calculateFuelCost()">Calculate Cost</button>
+
+        <div id="result"></div>
+
+        <hr>
+
+        <h2>Find Your Vehicle's Fuel Efficiency 🔍</h2>
+        <label for="fuelUsed">Fuel Used (liters):</label>
+        <input type="number" id="fuelUsed" placeholder="Enter fuel used" required>
+
+        <label for="travelDistance">Distance Traveled (km):</label>
+        <input type="number" id="travelDistance" placeholder="Enter distance traveled" required>
+
+        <button onclick="calculateFuelEfficiency()">Calculate Efficiency</button>
+
+        <div id="efficiencyResult"></div>
+        <hr>
+        <br>
+
+        <strong>
+            <p>Few estimated fuel efficiency of cars 🚗</p>
+        </strong>
+        <p>Maruti Suzuki Celerio: 26.68 km/l<br>
+            Maruti Suzuki Wagon R: 25.19 km/l<br>
+            Maruti Suzuki Swift: 24.79 km/l<br>
+            Maruti Suzuki Dzire: 24.12 km/l<br>
+            Toyota Glanza/Maruti Suzuki Baleno: 22.94 km/l</p>
+        <br>
+        <strong>
+            <p>Few estimated fuel efficiency of Bikes 🏍️</p>
+        </strong>
+        <p>Hero Splendor Plus XTEC - 70 km/l <br>
+            HF Deluxe - 70 km/l <br>
+            Bajaj Platina 100 - 72 km/l <br>
+            TVS Sport - 70 km/l <br>
+            Honda Shine - 65 km/l <br>
+            TVS Radeon - 65 km/l <br>
+            Bajaj CT 100 - 70 km/l <br>
+            Hero Splendor Plus - 70 km/l <br>
+            Hero Super Splendor - 60 km/l <br>
+            TVS Raider - 71.94 km/l <br>
+            Bajaj Pulsar N125 - 58 km/l <br>
+            Honda SP 125 - 60 km/l <br>
+            Yamaha FZ-FI V3 - 49.3 km/l <br>
+            Bajaj Platina 110 - 70 km/l <br>
+            Hero Xtreme 125R - 66 km/l <br></p>
+        <br>
+        <strong>
+            <p>Few estimated fuel efficiency of trucks 🚚</p>
+        </strong>
+        <p>Mahindra Bolero Camper - 15 km/l <br>
+            Tata Yodha Pickup - 14 km/l <br>
+            Ashok Leyland Dost+ - 16 km/l <br>
+            Isuzu D-MAX - 13 km/l <br>
+            Tata Ace - 20 km/l <br>
+            Mahindra Furio 12 - 10 km/l <br>
+            Tata Ultra T.7 - 12 km/l <br>
+            Ashok Leyland Dost Strong - 15 km/l <br>
+            Mahindra Bolero Pik-Up 4×4 - 14 km/l <br>
+            Eicher Pro 1110XPT - 12 km/l
+            Tata Intra V30 - 17 km/l <br>
+            Maruti Suzuki Super Carry - 21 km/l <br>
+            Mahindra Jeeto - 23 km/l <br>
+            Tata Intra V10 - 17 km/l <br>
+            Eicher Pro 2049 - 10 km/l <br>
+            Ford F-150 Lightning - 35-40 km/charge <br>
+            Ashok Leyland Ecomet - 8 km/l <br>
+            Tata Prima FL 5530.S - 6 km/l <br>
+            BharatBenz 3528C - 5 km/l <br>
+            Tata Signa 4018.S - 6 km/l</p>
+    </div>
+
+
+    <!--about online tools-->
+    <section class="tool-info">
+        <div class="endcontainer">
+            <h2>Welcome to <span class="brand">eHelpfullTools</span> 🚀</h2>
+            <p>eHelpfullTools is your ultimate online toolkit, offering a range of powerful and easy-to-use tools to
+                simplify your daily tasks. Whether you need to edit text, estimate fuel costs, or calculate loans, we’ve
+                got you covered!</p>
+
+            <h3>Explore More Tools 🔍</h3>
+
+        </div>
+        <div class="incontainer">
+            <div class="tools">
+                <div class="tool-card">
+                    <i class="fas fa-edit"></i>
+                    <a href="text-editor.html">📝 Online Text Editor</a>
+                </div>
+                <div class="tool-card">
+                    <a href="typing-test.html">⌨ Typing Speed Test</a>
+                </div>
+                <div class="tool-card">
+                    <a href="FuelCalculator.html">⛽ Fuel Cost Estimator</a>
+                </div>
+                <div class="tool-card">
+                    <a href="split-bill.html">💰 Advanced Split Bill Calculator</a>
+                </div>
+                <div class="tool-card">
+                    <a href="cooking-converter.html">🥣 Cooking Measurement Converter</a>
+                </div>
+                <div class="tool-card">
+                    <a href="unit-converter.html">📏 Unit Converter</a>
+                </div>
+                <div class="tool-card">
+                    <a href="age-calculator.html">🎂 Advanced Age Calculator</a>
+                </div>
+                <div class="tool-card">
+                    <a href="meditation-timer.html">🧘‍♂️ Meditation Timer</a>
+                </div>
+                <div class="tool-card">
+                    <a href="text-to-pdf.html">📝➡️📄 Text File & PDF File Converter</a>
+                </div>
+                <div class="tool-card">
+                    <a href="comingsoon.html">🌍 Language Translator</a>
+                </div>
+                <div class="tool-card">
+                    <a href="comingsoon.html">🔢 Word & Character Counter</a>
+                </div>
+            </div>
+            <h3 style="margin-top: 20px;">Explore Fun  Tools 😄</h3>
+            <div class="incontainer">
+                <div class="tools">
+                <div class="tool-card">
+                    <a href="colour-tool.html">🎨 Fun Color Picker & Mixer</a>
+                </div>
+                <div class="tool-card">
+                    <a href="ascii-art.html">ᓚ₍ ^. .^₎ ASCII Art Generator</a>
+                </div>
+                
+                <div class="tool-card">
+                    <a href="personalitycheck.html">🎭 Ultimate Personality Quiz</a>
+                </div>
+                <div class="tool-card">
+                    <a href="coin-flip.html">🪙 Flip the Coin</a>
+                </div>
+                <div class="tool-card">
+                    <a href="drawing-board.html">🎨 Online Drawing Board</a>
+                </div>
+            </div>
+        </div>
+        <p>We're continuously improving and adding new tools for a <strong>smarter and faster experience</strong>. Stay
+            connected and explore our growing collection of useful tools!</p>
+    
+
+    </section>
+
+    <!-- Welcome Section -->
+    <section class="welcome-section">
+        <div class="welcome-text">
+            <h1>Welcome to eHelpFullTools</h1>
+            <h3>The platform for quick and efficient online tools and calculators</h3>
+            <p>eHelpFullTools is a convenient online platform that offers a variety of free tools and calculators,
+                including a text editor, fuel cost estimator, and unit converter. Designed for ease of use, the site
+                allows users to access these resources quickly without any downloads. Whether you need to edit
+                documents, estimate travel expenses, or convert measurements, eHelpFullTools provides reliable solutions
+                to enhance your productivity and simplify everyday tasks. Explore the site to discover how these helpful
+                tools can assist you!</p>
+                <a href="contact.html" style="text-decoration: none;"><button type="button" id="bt">Get in Touch</button></a>
+        </div>
+        <div class="welcome-image">
+            <img src="home1.jpeg" alt="Illustration of eHelpFullTools features"> <!-- Replace with your image path -->
+        </div>
+    </section>
+    <hr>
+    <footer class="footer">
+        <p>&copy; 2025 by eHelpFullTools. All rights reserved.</p>
+    </footer>
+    <script>
+        function calculateFuelCost() {
+            let distance = parseFloat(document.getElementById("distance").value);
+            let efficiency = parseFloat(document.getElementById("efficiency").value);
+            let price = parseFloat(document.getElementById("price").value);
+            let vehicleType = document.getElementById("vehicleType").value;
+
+            if (isNaN(distance) || isNaN(efficiency) || isNaN(price) || distance <= 0 || efficiency <= 0 || price <= 0) {
+                document.getElementById("result").innerHTML = "⚠️ Please enter valid numbers!";
+                document.getElementById("result").style.color = "red";
+                return;
+            }
+
+            // Adjust efficiency based on vehicle type
+            let adjustmentFactor = 1; // Default (Car)
+            if (vehicleType === "bike") adjustmentFactor = 1.2; // Bikes use less fuel
+            if (vehicleType === "truck") adjustmentFactor = 0.7; // Trucks consume more fuel
+
+            efficiency *= adjustmentFactor; // Adjust efficiency
+
+            let fuelNeeded = distance / efficiency;
+            let totalCost = fuelNeeded * price;
+
+            document.getElementById("result").innerHTML = `⛽ Estimated Cost: ₹${totalCost.toFixed(2)} <br> 
+                                                           🚘 Estimated Fuel Needed: ${fuelNeeded.toFixed(2)} L`;
+            document.getElementById("result").style.color = "#28a745";
+        }
+
+        // New Feature: Calculate Vehicle Fuel Efficiency
+        function calculateFuelEfficiency() {
+            let fuelUsed = parseFloat(document.getElementById("fuelUsed").value);
+            let travelDistance = parseFloat(document.getElementById("travelDistance").value);
+
+            if (isNaN(fuelUsed) || isNaN(travelDistance) || fuelUsed <= 0 || travelDistance <= 0) {
+                document.getElementById("efficiencyResult").innerHTML = "⚠️ Please enter valid numbers!";
+                document.getElementById("efficiencyResult").style.color = "red";
+                return;
+            }
+
+            let efficiency = travelDistance / fuelUsed;
+
+            document.getElementById("efficiencyResult").innerHTML = `✅ Your Vehicle's Fuel Efficiency: ${efficiency.toFixed(2)} km/l`;
+            document.getElementById("efficiencyResult").style.color = "#007bff";
+        }
+        window.addEventListener("load", () => {
+            const loader = document.querySelector(".loader-container");
+            const content = document.querySelector(".content");
+
+   // Smooth fade-out loader
+   loader.style.transition = "opacity 2.8s ease-out";
+        loader.style.opacity = "0";
+
+        setTimeout(() => {
+loader.style.display = "none";
+content.style.display = "block";
+content.classList.add("fade-in");
+}, 2800); // Loader hides after 800ms (0.8 seconds)
+
+        });
+    </script>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+          apiKey: "AIzaSyDbNYKUKukHO38WrWfiZo2ARWwqjUf8OeI",
+          authDomain: "ehelpfultool.firebaseapp.com",
+          projectId: "ehelpfultool",
+          storageBucket: "ehelpfultool.firebasestorage.app",
+          messagingSenderId: "572405415507",
+          appId: "1:572405415507:web:9addd73fae3fb78973d0a6",
+          measurementId: "G-MN8GGWK084"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+      </script>
+</body>
+
+</html>

@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" href="icon.png" type="image/x-icon" />
+    <meta name="title" content="Contact Us - eHelpFullTools">
+<meta name="description" content="Get in touch with eHelpFullTools for support, suggestions, or feedback. We are here to help you with any queries regarding our free online tools.">
+<meta name="keywords" content="contact eHelpFullTools, support, feedback, online tools, help, customer service">
+<meta name="author" content="eHelpFullTools">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Contact Us - eHelpFullTools">
+<meta property="og:description" content="Have questions or feedback? Contact eHelpFullTools for support and assistance regarding our free online tools.">
+<meta property="og:url" content="https://ehelpfultools.tech/contact.html">
+<meta property="og:image" content="assets/contact.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Contact Us - eHelpFullTools">
+<meta name="twitter:description" content="Reach out to eHelpFullTools for support, feedback, or any inquiries regarding our free online tools.">
+<meta name="twitter:image" content="assets/contact.jpg">
+
+    <meta name="google-adsense-account" content="ca-pub-8868584487794979">
+</head>
+<style>
+/* Contact Information & Business Inquiries */
+.contact-info, .business-inquiries {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.contact-info h2, .business-inquiries h2 {
+    color: #007BFF;
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: left;
+    padding: 10px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 18px;
+    padding: 10px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.contact-item i {
+    font-size: 24px;
+    color: #007BFF;
+}
+
+.contact-item p {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.contact-item a {
+    text-decoration: none;
+    color: #007BFF;
+    font-weight: bold;
+}
+
+.contact-item a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-details {
+        flex-direction: column;
+    }
+    
+    .contact-item {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* Contact Extra Section */
+.contact-extra {
+    /* max-width: 900px; */
+    margin: 40px auto;
+    padding: 10px;
+    background: #e6f0ff;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+/* 🌍 Social Media */
+.social-media h2, .support-hours h2 {
+    color: black;
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.social-link {
+    font-size: 28px;
+    color: #007BFF;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-link:hover {
+    transform: scale(1.2);
+    color: #0056b3;
+}
+
+/* ⏰ Support Hours */
+.support-hours ul {
+    list-style: none;
+    padding: 0;
+}
+
+.support-hours li {
+    font-size: 18px;
+    padding: 5px 0;
+    color: #333;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    .social-icons {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+}
+/* FAQs Section */
+.faqs { 
+    margin: 40px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.faqs h2 {
+    color: black;
+    margin-bottom: 20px;
+    font-size: 26px;
+}
+
+/* FAQ Items */
+.faq-item {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 10px;
+    background:#cee3f9 ;
+}
+
+/* FAQ Question */
+.faq-question {
+    width: 100%;
+    background: #0a66f0;  
+    border: none;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 6px;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.faq-question:hover {
+    background:#2f13cc;  
+}
+
+/* FAQ Answer (Initially Hidden) */
+.faq-answer {
+    display: none;
+    padding: 12px;
+    font-size: 16px;
+    text-align: left;
+    color: #333;
+    background: #80c7eb;
+    border-radius: 6px;
+    margin-top: 5px;
+}
+
+/* Expand Animation */
+.faq-answer.open {
+    display: block;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Smooth Expand Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .faqs {
+        padding: 20px;
+    }
+
+    .faq-question {
+        font-size: 16px;
+    }
+}
+
+</style>
+<body>
+
+    
+    <!-- Header -->
+    <div class="header">
+        <h1>eHelpFulTools</h1>
+    </div>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="OnlineTools.html">Online Tools</a>
+        <a href="service.html">Services</a>
+        <a href="contact.html" class="active">Contact Us</a>
+    </div>
+    <!-- Welcome Section -->
+    <section class="welcome-section">
+        <div class="welcome-text">
+            <h1 style="font-size: 60px;">About</h1>
+            <p>eHelpFulTools is a user-friendly website that offers a variety of free online tools and calculators to simplify everyday tasks. With features like a text editor, fuel cost estimator, and unit converter, it caters to a wide range of needs for students, professionals, and anyone looking for quick solutions. Users can access these tools effortlessly, without the need for downloads or installations. Whether you’re planning a trip, working on a project, or just need to edit text, eHelpFulTools provides reliable resources to enhance your productivity and make your life easier. Explore the site today and discover the convenience of these helpful online tools!</p>
+            <p>The platform for quick and efficient text editing and is developed by GK.</p>
+        </div>
+        <div class="welcome-image">
+            <img src="about.jpg" alt="Illustration of eHelpFulTools features"> <!-- Replace with your image path -->
+        </div>
+    </section>
+
+    <section class="contact-extra">
+        <!-- Social Media Links -->
+        <div class="social-media">
+            <h2>🌍 Connect With Us</h2>
+            <div class="contact-details">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <p><strong>Email:</strong> <a href="mailto:ehelpfulltools@gmail.com">ehelpfulltools@gmail.com</a></p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <p><strong>Phone:</strong> -- --- --- ---</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p><strong>Address:</strong> Coming Soon.</p>
+                </div>
+            </div>
+            
+        </div>
+    
+        <!-- Support Hours -->
+        <div class="support-hours">
+            <h2>⏰ Support Hours</h2>
+            <p>We are available to assist you during the following hours:</p>
+            <ul>
+                <li ><strong>Monday - Friday:</strong> 9:00 AM - 6:00 PM</li>
+                <li><strong>Saturday:</strong> 10:00 AM - 4:00 PM</li>
+                <li><strong>Sunday & Holidays:</strong> Closed</li>
+            </ul>
+        </div>
+    
+        <p style="margin-top: 10px;">Follow us on social media to stay updated with our latest tools and updates.</p>
+            <div class="social-icons">
+                <!-- <a href="#" target="_blank" class="social-link"><i class="fab fa-facebook"></i></a>
+                <a href="#" target="_blank" class="social-link"><i class="fab fa-twitter"></i></a> -->
+                <a href="https://www.instagram.com/ehelpfultools" target="_blank" class="social-link" style="color: rgb(208, 68, 161);"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/ehelpfultools" target="_blank" class="social-link"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.youtube.com/@ehelpfultools" target="_blank" class="social-link"style="color:red"><i class="fab fa-youtube"></i></a>
+            </div>
+    </section>
+    
+    
+    <section class="business-inquiries">
+        <h2>🤝 Business Inquiries</h2>
+        <p>We are open to collaborations, sponsorships, and partnerships. If you're interested in working with us, feel free to reach out.</p>
+        <div class="contact-item">
+            <i class="fas fa-briefcase"></i>
+            <p><strong>Business Email:</strong> <a href="mailto:ehelpfulltools@gmail.com">ehelpfulltools@gmail.com</a></p>
+        </div>
+    </section>
+   <!-- FAQ Section -->
+<section class="faqs">
+    <h2>❓ Frequently Asked Questions</h2>
+    
+    <div class="faq-item">
+        <button class="faq-question">
+            How can I contact support? 
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>You can reach us through our <a href="contact.html">Contact Us</a> page or email us at <a href="mailto:ehelpfulltools@gmail.com">ehelpfulltools@gmail.com</a>.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <button class="faq-question">
+            Are all the tools free to use?
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>Yes, all our tools are completely free to use with no hidden charges.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <button class="faq-question">
+            Do I need to sign up to use the tools?
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>No sign-up or registration is required. Simply visit our website and start using the tools instantly.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <button class="faq-question">
+            Can I request a new tool to be added?
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>Yes! We are always open to suggestions. You can submit your tool request via our <a href="contact.html">Contact Form</a>.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <button class="faq-question">
+            Is there a mobile app available?
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>Currently, we do not have a mobile app, but our website is fully responsive and works seamlessly on all devices.</p>
+        </div>
+    </div>
+</section>
+
+    <!-- subscribe sectio-->
+    <!-- <section class="subscribe-section">
+        <h2>SUBSCRIBE FOR <br> LATEST TOOLS</h2>
+        <form class="subscribe-form">
+            <label for="email">Enter your email here *</label>
+            <input type="email" id="email" name="email" placeholder="Your Email">
+            <div class="checkbox-wrapper">
+                <input type="checkbox" id="newsletter" name="newsletter">
+                <label for="newsletter">Yes, subscribe me to your newsletter.</label>
+            </div>
+            <button type="submit">Subscribe</button>
+        </form>
+    </section> -->
+    <section class="subscribe-section">
+        <h2>CHECK OUR  <br> LATEST TOOLS</h2>
+        <div class="subscribe-form">
+            <a href="index.html" style="text-decoration: none;"><button style="margin: 10px auto;display: flex;">Home</button></a>
+        </div>
+    </section>
+    
+    <hr>
+    <footer class="footer">
+        <p>&copy; 2025 by eHelpFulTools. All rights reserved.</p>
+    </footer>   </div>
+    <div class="floating-cta">
+        <a href="OnlineTools.html"> Explore Tools 🛠️</a>
+     </div>    
+     <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+          apiKey: "AIzaSyDbNYKUKukHO38WrWfiZo2ARWwqjUf8OeI",
+          authDomain: "ehelpfultool.firebaseapp.com",
+          projectId: "ehelpfultool",
+          storageBucket: "ehelpfultool.firebasestorage.app",
+          messagingSenderId: "572405415507",
+          appId: "1:572405415507:web:9addd73fae3fb78973d0a6",
+          measurementId: "G-MN8GGWK084"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+      </script>
+</body>
+
+</html>

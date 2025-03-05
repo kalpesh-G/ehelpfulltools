@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="icon" href="icon.png" type="image/x-icon" />
+    <title>🎨 Color Picker & Mixer - Find and Mix Colors</title>
+<meta name="description" content="Pick colors, mix them, and get hex, RGB, and HSL values instantly with our free online color tool.">
+<meta name="keywords" content="color picker, color mixer, RGB to hex, hex to RGB, color generator">
+<link rel="canonical" href="https://ehelpfultools.tech/colour-tool.html" />
+<meta property="og:title" content="Color Picker & Mixer - Find and Mix Colors" />
+<meta property="og:description" content="Get precise color values and mix colors instantly online." />
+<meta property="og:image" content="https://ehelpfultools.tech/assets/color-tool-preview.jpg" />
+<meta property="og:url" content="https://ehelpfultools.tech/colour-tool.html" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Color Picker & Mixer - Online Color Tool" />
+<meta name="twitter:description" content="Easily find, mix, and convert colors with our online tool." />
+<meta name="twitter:image" content="https://ehelpfultools.tech/assets/color-tool-preview.jpg" />
+<meta name="robots" content="index, follow" />
+<meta name="google-adsense-account" content="ca-pub-8868584487794979">
+    <style>/* General Styling */
+     body {
+            font-family: 'Arial', sans-serif;
+            /* background: #f8f9fa; */
+            background: linear-gradient(to right, #80c7eb, #1363cc, #51eaea);         
+/* background: linear-gradient(to right, #afb3b5, #13c0cc, #e3e0e1); */
+            margin: 0;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        /* Main Container */
+        .container {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 500px;
+            backdrop-filter: blur(10px);
+            margin: 10px auto;
+        }
+        
+        /* Color Selection */
+        .color-selection {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+        
+        .color-box {
+            text-align: center;
+            width: 45%;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+        }
+        
+        .color-box input {
+            width: 100%;
+            height: 50px;
+            cursor: pointer;
+        }
+        
+        /* Buttons */
+        button {
+            background: white;
+            color: #ff0055;
+            border: none;
+            padding: 10px 15px;
+            margin: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: 0.3s ease;
+        }
+        
+        button:hover {
+            background: #ff0055;
+            color: white;
+        }
+        
+        /* Result Box */
+        .result {
+            margin-top: 20px;
+        }
+        
+        #mixedColorBox {
+            width: 100%;
+            height: 50px;
+            border-radius: 10px;
+            margin-top: 10px;
+            border: 2px solid white;
+        }
+        
+        /* Copy Button */
+        .copy-btn {
+            background: #007bff;
+            color: white;
+            font-size: 14px;
+            padding: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .copy-btn:hover {
+            background: #0056b3;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .container {
+                width: 95%;
+                padding: 20px;
+            }
+        
+            .color-selection {
+                flex-direction: column;
+                gap: 15px;
+            }
+        
+            .color-box {
+                width: 100%;
+            }
+        }
+
+        /* other css */
+        
+h1 {
+    color: #333;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+select, input {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.unit-selection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+button {
+    width: 100%;
+    background: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+h2 {
+    margin-top: 20px;
+    color: #28a745;
+}
+        .ccontainer {
+            width: 90%;
+            max-width: 750px;
+            margin: 20px auto;  
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); 
+            text-align: center;
+            justify-content: center ;
+        }
+        h2 {
+            color: #007BFF;
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+        input, button {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+            border: none;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result, .settlement {
+            font-size: 16px;
+            text-align: center;
+            margin-top: 20px;
+            color: #333;
+            padding: 12px;
+            border-radius: 6px;
+        }
+        .result {
+            background: #e6f7ff;
+        }
+        .settlement {
+            background: #d4edda;
+            text-align: left;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        th, td {
+            padding: 8px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+        th {
+            background-color: #007BFF;
+            color: white;
+        }
+        .tick {
+            color: green;
+            font-weight: bold;
+        }
+        @media (max-width: 600px) {
+          
+            button {
+                font-size: 14px;
+            }
+        }
+      
+        /* Header section */
+.header {
+    background-image: url('navbar.jpg'); /* Replace with your background image path */
+    background-size: cover;
+    background-position: center;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+.header h1 {
+    font-size: 3em;
+    margin: 0;
+    color: black;
+}
+
+/* Navigation */
+.navbar {
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.navbar a {
+    margin: 5px 40px;
+    color: #333;
+    text-decoration: none;
+}
+.navbar a.active{
+    color: #007BFF;
+}
+.navbar a:hover {
+    color: #007BFF;
+}
+
+/* Welcome Section */
+.welcome-section {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 50px;
+    color: white;
+}
+.welcome-text {
+    flex: 1;
+    padding: 20px;
+    min-width: 300px;
+    color: white;
+}
+.welcome-text h1 {
+    font-size: 2.5em;
+    margin-bottom: 50px; /* Adjusts space below the heading */
+    color: white;
+}
+
+.welcome-text h3 {
+    font-size: 1.8em;
+    margin-bottom: 30px; /* Adds space below the subheading */
+    color: white;
+}
+
+.welcome-text p {
+    line-height: 1.6;
+    color: #666;
+    font-size: 25px;
+    margin-bottom: 40px; /* Adjusts space below the paragraph */
+    color: white;
+}
+
+.welcome-text button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 50px; /* Adds space above the button */
+}
+
+.welcome-image {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 300px;
+}
+.welcome-image img {
+    max-width: 100%;
+    height: auto;
+}
+#bt{
+border-radius: 0%;
+display: flex;
+ }
+ .footer {
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+    color: #666;
+}
+
+.footer hr {
+    width: 90%;
+    border: none;
+    border-top: 1px solid #e0e0e0;
+    margin: 0 auto 10px;
+}
+
+.footer p {
+    margin: 20px 0px;
+    color: white;
+}
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 2em;
+    }
+    .navbar a {
+        font-size: 0.9em;
+        margin: 0 10px;
+    }
+    .welcome-section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 20px 10px;
+    }
+    .welcome-text h1 {
+        font-size: 1.8em;
+    }
+    .welcome-text {
+        padding: 10px;
+    }
+
+    .header h1{
+        color: white;
+        }}
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+ /* endsection css */
+ .tool-info {
+        text-align: center;
+        padding: 20px 20px;
+        background: linear-gradient(135deg, #f8f9fa, #e3f2fd); 
+      
+        border-radius: 10px;
+        margin: 30px auto;
+        /* max-width: 900px; */
+        width: 95%;
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15); 
+    }
+
+    .endcontainer {
+        max-width: 800px;
+        margin: auto;
+    }
+
+    .tool-info h2 {
+        font-size: 2.5rem;
+        color: #333;
+        margin-bottom: 15px;
+    }
+
+    .brand {
+        color: #007bff;
+        font-weight: bold;
+    }
+
+    .tool-info p {
+        font-size: 1.2rem;
+        color: #555;
+        margin-bottom: 25px;
+    }
+
+    
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .tool-info {
+            padding: 40px 15px;
+        }
+
+        .tool-info h2 {
+            font-size: 2rem;
+        }
+
+    }
+    .incontainer {
+            max-width: 800px;
+            margin: 10px auto;
+            padding: 20px;
+        }
+    .tools {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .tool-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            text-align: center;
+            
+        }
+        .tool-card:hover {
+            transform: scale(1.05);
+        }
+        .tool-card i {
+            font-size: 40px;
+            color: #007BFF;
+            margin-bottom: 10px;
+        }
+        .tool-card a {
+            display: block;
+            font-size: 1.2rem;
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 10px;
+            
+        }
+        .tool-card a:hover {
+            color: #007BFF;
+        }
+        .tools-overview {
+            padding: 50px;
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            max-width: 600px;
+            margin: auto;
+        }
+   /* ========== Short Description Styling ========== */
+.short-description {
+    text-align: left;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.short-description h2 {
+    color: #007BFF;
+    font-size: 1.8rem;
+}
+
+.short-description h3 {
+    color: #333;
+    margin-top: 15px;
+}
+
+.short-description p {
+    font-size: 1rem;
+    color: #555;
+}
+
+.short-description ul {
+    list-style: none;
+    padding: 0;
+}
+
+.short-description ul li {
+    font-size: 1rem;
+    color: #555;
+    padding-left: 25px;
+    position: relative;
+    margin-bottom: 8px;
+}
+
+.short-description ul li::before {
+    content: "✔️";
+    position: absolute;
+    left: 0;
+    color: #007BFF;
+    font-size: 1.2rem;
+}.ff{
+    justify-items: center;
+    margin: 15px auto;
+}
+.glitch-text {
+    font-size: 1.%;
+    font-weight: bold;
+    color: white;
+    position: relative;
+    text-transform: uppercase;
+    animation: glitch 0.8s infinite;
+}
+
+@keyframes glitch {
+    0% { text-shadow: -2px 0 red, 2px 0 blue; }
+    50% { text-shadow: 2px 0 red, -2px 0 blue; }
+    100% { text-shadow: -2px 0 red, 2px 0 blue; }
+}
+/* loader css */
+/* Full-Screen Loader */
+.loader-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .loader {
+            position: relative;
+            width: 100px;
+            height: 100px;
+        }
+
+        /* Rotating Hexagon */
+        .hexagon {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.8);
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            animation: rotateHexagon 2s linear infinite;
+        }
+
+        @keyframes rotateHexagon {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.2); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+
+        /* Spinning Triangle */
+        .triangle {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.7);
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            top: 10px;
+            left: 10px;
+            animation: spinTriangle 1.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes spinTriangle {
+            0% { transform: translateY(0px) rotate(0deg); }
+            100% { transform: translateY(-15px) rotate(30deg); }
+        }
+
+        /* Pulsating Circle */
+        .circle {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: pulseCircle 1.2s ease-in-out infinite;
+        }
+
+        @keyframes pulseCircle {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.4); opacity: 0.5; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* Page Content (Hidden Initially) */
+        .content {
+            display: none;
+            text-align: center;
+            padding: 50px;
+            font-size: 24px;
+        }
+
+        /* Smooth Fade-In Effect */
+        .fade-in {
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        </style>
+</head>
+<body>
+    
+    <div class="loader-container">
+        <div class="loader">
+            <div class="hexagon"></div>
+            <div class="triangle"></div>
+            <div class="circle"></div>
+        </div>
+    </div>
+<!-- Header -->
+<div class="header">
+    <h1>eHelpFullTools</h1>
+</div>
+
+<!-- Navbar -->
+<div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="OnlineTools.html" class="active">Online Tools</a>
+    <a href="service.html">Services</a>
+    <a href="contact.html">Contact Us</a>
+</div>
+
+<!-- short description about the calculator -->
+<div class="short-description">
+    <h2>About the Color Picker & Mixer 🎨</h2>
+    <p>The <strong>Color Picker & Mixer</strong> is a user-friendly tool that allows you to select and blend colors effortlessly.  
+        Whether you're designing graphics, creating art, or just exploring color combinations, this tool provides a seamless experience for all your color needs.</p>
+    
+    <h3>🚀 How to Use This Tool:</h3>
+    <ul>
+        <li>🔹 Choose a base color using the color picker.</li>
+        <li>🔹 Adjust the color sliders to mix in additional colors.</li>
+        <li>🔹 Preview the resulting color in real-time.</li>
+        <li>🔹 Save your favorite color combinations for future use.</li>
+        <li>🔹 Share your custom colors with friends or collaborators.</li>
+    </ul>
+    
+    <h3>📌 Why Use This Tool?</h3>
+    <p>✔️ <strong> Free </strong> to use and <strong> No</strong> signup required.<br>
+        ✔️ <strong>Intuitive and interactive</strong> color mixing <br>
+       ✔️ <strong>Versatile</strong> for various design projects <br>
+       ✔️ <strong>Enhances creativity</strong> by allowing endless color combinations</p>
+</div>
+<div class="ff" >
+    <p class="glitch-text">Go down to explore more tools and Calculators.</p></div>
+    
+    <div class="container">
+        <h1>🎨 Color Picker & Mixer 🖌️</h1>
+        <p>Pick two colors and mix them to see the result! 🔥</p>
+
+        <div class="color-selection">
+            <div class="color-box">
+                <label for="color1">Pick First Color:</label>
+                <input type="color" id="color1" value="#ff0000">
+                <span id="color1Code">#ff0000</span>
+                <button class="copy-btn" onclick="copyToClipboard('color1Code')">📋 Copy</button>
+            </div>
+
+            <div class="color-box">
+                <label for="color2">Pick Second Color:</label>
+                <input type="color" id="color2" value="#0000ff">
+                <span id="color2Code">#0000ff</span>
+                <button class="copy-btn" onclick="copyToClipboard('color2Code')">📋 Copy</button>
+            </div>
+        </div>
+
+        <button onclick="mixColors()">🔄 Mix Colors</button>
+        <button onclick="randomColors()">🎲 Random Colors</button>
+
+        <div class="result">
+            <h2>🖌️ Mixed Color:</h2>
+            <div id="mixedColorBox"></div>
+            <span id="mixedColorCode">#800080</span>
+            <button class="copy-btn" onclick="copyToClipboard('mixedColorCode')">📋 Copy</button>
+        </div>
+    </div>
+
+    <!--about online tools-->
+<section class="tool-info">
+    <div class="endcontainer">
+        <h2>Welcome to <span class="brand">eHelpfullTools</span> 🚀</h2>
+        <p>eHelpfullTools is your ultimate online toolkit, offering a range of powerful and easy-to-use tools to
+            simplify your daily tasks. Whether you need to edit text, estimate fuel costs, or calculate loans, we’ve
+            got you covered!</p>
+
+        <h3>Explore More Tools 🔍</h3>
+
+    </div>
+
+    <div class="incontainer">
+        <div class="tools">
+            <div class="tool-card">
+                <i class="fas fa-edit"></i>
+                <a href="text-editor.html">📝 Online Text Editor</a>
+            </div>
+            <div class="tool-card">
+                <a href="typing-test.html">⌨ Typing Speed Test</a>
+            </div>
+            <div class="tool-card">
+                <a href="FuelCalculator.html">⛽ Fuel Cost Estimator</a>
+            </div>
+            <div class="tool-card">
+                <a href="split-bill.html">💰 Advanced Split Bill Calculator</a>
+            </div>
+            <div class="tool-card">
+                <a href="cooking-converter.html">🥣 Cooking Measurement Converter</a>
+            </div>
+            <div class="tool-card">
+                <a href="unit-converter.html">📏 Unit Converter</a>
+            </div>
+            <div class="tool-card">
+                <a href="age-calculator.html">🎂 Advanced Age Calculator</a>
+            </div>
+            <div class="tool-card">
+                <a href="meditation-timer.html">🧘‍♂️ Meditation Timer</a>
+            </div>
+            <div class="tool-card">
+                <a href="text-to-pdf.html">📝➡️📄 Text File & PDF File Converter</a>
+            </div>
+            <div class="tool-card">
+                <a href="comingsoon.html">🌍 Language Translator</a>
+            </div>
+            <div class="tool-card">
+                <a href="comingsoon.html">🔢 Word & Character Counter</a>
+            </div>
+        </div>
+        <h3 style="margin-top: 20px;">Explore Fun  Tools 😄</h3>
+        <div class="incontainer">
+            <div class="tools">
+            <div class="tool-card">
+                <a href="colour-tool.html">🎨 Fun Color Picker & Mixer</a>
+            </div>
+            <div class="tool-card">
+                <a href="ascii-art.html">ᓚ₍ ^. .^₎ ASCII Art Generator</a>
+            </div>
+            
+            <div class="tool-card">
+                <a href="personalitycheck.html">🎭 Ultimate Personality Quiz</a>
+            </div>
+            <div class="tool-card">
+                <a href="coin-flip.html">🪙 Flip the Coin</a>
+            </div>
+            <div class="tool-card">
+                <a href="drawing-board.html">🎨 Online Drawing Board</a>
+            </div>
+        </div>
+    </div>
+    <p>We're continuously improving and adding new tools for a <strong>smarter and faster experience</strong>. Stay
+        connected and explore our growing collection of useful tools!</p>
+
+</section>
+
+<!-- Welcome Section -->
+<section class="welcome-section">
+    <div class="welcome-text">
+        <h1>Welcome to eHelpFullTools</h1>
+        <h3>The platform for quick and efficient online tools and calculators</h3>
+        <p>eHelpFullTools is a convenient online platform that offers a variety of free tools and calculators,
+            including a text editor, fuel cost estimator, and unit converter. Designed for ease of use, the site
+            allows users to access these resources quickly without any downloads. Whether you need to edit
+            documents, estimate travel expenses, or convert measurements, eHelpFullTools provides reliable solutions
+            to enhance your productivity and simplify everyday tasks. Explore the site to discover how these helpful
+            tools can assist you!</p>
+        <a href="contact.html" style="text-decoration: none;"><button type="button" id="bt">Get in Touch</button></a>
+    </div>
+    <div class="welcome-image">
+        <img src="home1.jpeg" alt="Illustration of eHelpFullTools features"> <!-- Replace with your image path -->
+    </div>
+</section>
+<hr>
+<footer class="footer">
+    <p>&copy; 2025 by eHelpFullTools. All rights reserved.</p>
+</footer>
+
+
+<script>// Function to mix colors
+    function mixColors() {
+        let color1 = document.getElementById("color1").value;
+        let color2 = document.getElementById("color2").value;
+    
+        let mixedColor = blendColors(color1, color2);
+        
+        document.getElementById("mixedColorBox").style.background = mixedColor;
+        document.getElementById("mixedColorCode").innerText = mixedColor;
+    }
+    
+    // Function to blend two colors
+    function blendColors(color1, color2) {
+        let hexToRGB = hex => ({
+            r: parseInt(hex.substr(1, 2), 16),
+            g: parseInt(hex.substr(3, 2), 16),
+            b: parseInt(hex.substr(5, 2), 16)
+        });
+    
+        let rgbToHex = rgb => "#" + 
+            ((1 << 24) + (rgb.r << 16) + (rgb.g << 8) + rgb.b).toString(16).slice(1).toUpperCase();
+    
+        let c1 = hexToRGB(color1);
+        let c2 = hexToRGB(color2);
+    
+        let blendedRGB = {
+            r: Math.floor((c1.r + c2.r) / 2),
+            g: Math.floor((c1.g + c2.g) / 2),
+            b: Math.floor((c1.b + c2.b) / 2)
+        };
+    
+        return rgbToHex(blendedRGB);
+    }
+    
+    // Function to generate random colors
+    function randomColors() {
+        let randomHex = () => "#" + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0').toUpperCase();
+    
+        let color1 = randomHex();
+        let color2 = randomHex();
+    
+        document.getElementById("color1").value = color1;
+        document.getElementById("color1Code").innerText = color1;
+    
+        document.getElementById("color2").value = color2;
+        document.getElementById("color2Code").innerText = color2;
+    
+        mixColors();
+    }
+    
+    // Function to copy color code to clipboard
+    function copyToClipboard(elementId) {
+        let text = document.getElementById(elementId).innerText;
+        navigator.clipboard.writeText(text).then(() => {
+            alert("Copied: " + text);
+        });
+    }
+    
+    // Set initial mixed color on load
+    document.addEventListener("DOMContentLoaded", mixColors);
+    window.addEventListener("load", () => {
+            const loader = document.querySelector(".loader-container");
+            const content = document.querySelector(".content");
+
+           // Smooth fade-out loader
+        loader.style.transition = "opacity 2.8s ease-out";
+        loader.style.opacity = "0";
+
+        setTimeout(() => {
+loader.style.display = "none";
+content.style.display = "block";
+content.classList.add("fade-in");
+}, 2800); // Loader hides after 800ms (0.8 seconds)
+
+        });
+    </script><script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyDbNYKUKukHO38WrWfiZo2ARWwqjUf8OeI",
+    authDomain: "ehelpfultool.firebaseapp.com",
+    projectId: "ehelpfultool",
+    storageBucket: "ehelpfultool.firebasestorage.app",
+    messagingSenderId: "572405415507",
+    appId: "1:572405415507:web:9addd73fae3fb78973d0a6",
+    measurementId: "G-MN8GGWK084"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
+</body>
+</html>

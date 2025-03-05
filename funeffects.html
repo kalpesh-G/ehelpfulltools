@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<head><meta name="google-adsense-account" content="ca-pub-8868584487794979"></head>
+<style>
+    .glowing-button {
+    font-size: 18px;
+    padding: 15px 30px;
+    color: white;
+    background: linear-gradient(45deg, #ff416c, #ff4b2b);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 0 15px rgba(255, 65, 108, 0.6);
+    animation: glow 1.5s infinite alternate;
+}
+@keyframes glow {
+    0% { box-shadow: 0 0 10px rgba(255, 65, 108, 0.6); }
+    100% { box-shadow: 0 0 20px rgba(255, 75, 43, 0.9); }
+}
+.glowing-button:hover {
+    transform: scale(1.1);
+}
+/* floating shapes */
+.floating-shapes {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.shape {
+    position: absolute;
+    opacity: 0.7;
+    animation: float 5s infinite ease-in-out alternate;
+}
+
+.circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #ff5733;
+    top: 10%;
+    left: 10%;
+}
+
+.triangle {
+    width: 20px;
+    height: 20px;
+    border-left: 40px solid transparent;
+    border-right: 40px solid transparent;
+    border-bottom: 70px solid #33ff77;
+    top: 1%;
+    left: 0%;
+}
+
+.square {
+    width: 60px;
+    height: 60px;
+    background: #3385ff;
+    top: 5%;
+    right: 10%;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    100% { transform: translateY(-30px); }
+}
+.flip-card {
+    background-color: transparent;
+    width: 250px;
+    height: 150px;
+    perspective: 1000px;
+    margin: 20px auto;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.flip-card-front {
+    background: #ff9900;
+    color: white;
+}
+
+.flip-card-back {
+    background: #444;
+    color: white;
+    transform: rotateY(180deg);
+}
+.wavy-text {
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: inline-block;
+    background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: wave 2s infinite alternate;
+}
+
+@keyframes wave {
+    0% { transform: rotate(-5deg); }
+    100% { transform: rotate(5deg); }
+}
+.glitch-text {
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    position: relative;
+    text-transform: uppercase;
+    animation: glitch 0.8s infinite;
+}
+
+@keyframes glitch {
+    0% { text-shadow: -2px 0 red, 2px 0 blue; }
+    50% { text-shadow: 2px 0 red, -2px 0 blue; }
+    100% { text-shadow: -2px 0 red, 2px 0 blue; }
+}
+
+</style>
+<body>
+    <h1 class="wavy-text">WELCOME TO THE QUIZ!</h1>
+
+    <button class="glowing-button" id="restartBtn">🔄 Restart Quiz</button>
+      <!-- floating shapes -->
+      <div class="floating-shapes">
+        <div class="shape circle"></div>
+        <div class="shape triangle"></div>
+        <div class="shape square"></div>
+    </div>
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <h2>🚀 Sigma Personality</h2>
+            </div>
+            <div class="flip-card-back">
+                <p>The Lone Wolf! 🐺 Always thinking ahead and working on secret plans.</p>
+            </div>
+        </div>
+    </div>
+    <h2 class="glitch-text">GLITCH MODE ACTIVATED</h2>
+
+    
+</body>
+</html>

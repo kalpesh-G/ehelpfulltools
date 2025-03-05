@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📝 Online Text Editor - Free & Simple Writing Tool</title>
+<meta name="description" content="Write, edit, and format text online with our free text editor. No installations needed!">
+<meta name="keywords" content="online text editor, free text editor, writing tool, note-taking">
+<meta property="og:title" content="Online Text Editor - Free & Simple Writing Tool">
+<meta property="og:description" content="Use our free online text editor for writing, note-taking, and editing. Simple and effective.">
+<meta property="og:image" content="https://ehelpfultools.tech/assets/text-editor.jpg">
+<meta property="og:url" content="https://ehelpfultools.tech/text-editor.html">
+<meta name="twitter:title" content="Online Text Editor - Free & Simple Writing Tool">
+<meta name="twitter:description" content="A free online text editor for quick writing and editing. Try it now!">
+<meta name="twitter:image" content="https://ehelpfultools.tech/assets/text-editor.jpg">
+<meta name="google-adsense-account" content="ca-pub-8868584487794979">
+
+    <link rel="icon" href="icon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script>
+    <style>/* loader css */
+        /* Full-Screen Loader */
+        .loader-container {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    z-index: 1000;
+                }
+        
+                .loader {
+                    position: relative;
+                    width: 100px;
+                    height: 100px;
+                }
+        
+                /* Rotating Hexagon */
+                .hexagon {
+                    position: absolute;
+                    width: 60px;
+                    height: 60px;
+                    background: rgba(255, 255, 255, 0.8);
+                    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+                    animation: rotateHexagon 2s linear infinite;
+                }
+        
+                @keyframes rotateHexagon {
+                    0% { transform: rotate(0deg) scale(1); }
+                    50% { transform: rotate(180deg) scale(1.2); }
+                    100% { transform: rotate(360deg) scale(1); }
+                }
+        
+                /* Spinning Triangle */
+                .triangle {
+                    position: absolute;
+                    width: 40px;
+                    height: 40px;
+                    background: rgba(255, 255, 255, 0.7);
+                    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+                    top: 10px;
+                    left: 10px;
+                    animation: spinTriangle 1.5s ease-in-out infinite alternate;
+                }
+        
+                @keyframes spinTriangle {
+                    0% { transform: translateY(0px) rotate(0deg); }
+                    100% { transform: translateY(-15px) rotate(30deg); }
+                }
+        
+                /* Pulsating Circle */
+                .circle {
+                    position: absolute;
+                    width: 20px;
+                    height: 20px;
+                    background: white;
+                    border-radius: 50%;
+                    bottom: 10px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    animation: pulseCircle 1.2s ease-in-out infinite;
+                }
+        
+                @keyframes pulseCircle {
+                    0% { transform: scale(1); opacity: 1; }
+                    50% { transform: scale(1.4); opacity: 0.5; }
+                    100% { transform: scale(1); opacity: 1; }
+                }
+        
+                /* Page Content (Hidden Initially) */
+                .content {
+                    display: none;
+                    text-align: center;
+                    padding: 50px;
+                    font-size: 24px;
+                }
+        
+                /* Smooth Fade-In Effect */
+                .fade-in {
+                    animation: fadeIn 1s ease-in-out forwards;
+                }
+        
+                @keyframes fadeIn {
+                    from { opacity: 0; transform: translateY(20px); }
+                    to { opacity: 1; transform: translateY(0); }
+                }
+                
+        </style>
+</head>
+
+<body>
+    
+    <div class="loader-container">
+        <div class="loader">
+            <div class="hexagon"></div>
+            <div class="triangle"></div>
+            <div class="circle"></div>
+        </div>
+    </div>
+    
+    <!-- Header -->
+    <div class="header">
+        <h1>eHelpFullTools</h1>
+    </div>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="OnlineTools.html" class="active">Online Tools</a>
+        <a href="service.html">Services</a>
+        <a href="contact.html">Contact Us</a>
+    </div>
+    <!--about text editor-->
+    <!-- Text Editor - Short Description -->
+    <div class="short-description">
+        <h2>About the Online Text Editor 📝</h2>
+        <p>The <strong>Enhanced Text Formatter</strong> is a simple yet powerful tool designed to help users create, edit, and format text efficiently.  
+            Whether you're a student, writer, or professional, this tool provides <strong>essential formatting options</strong> for crafting well-structured content.</p>
+    
+        <h3>🚀 How to Use This Tool:</h3>
+        <ul>
+            <li>🔹 Enter or <strong>upload</strong> your text file.</li>
+            <li>🔹 Apply <strong>bold, italic, or underline</strong> styling to selected text.</li>
+            <li>🔹 Choose from different <strong>font styles, colors, and sizes</strong>.</li>
+            <li>🔹 Align text <strong>left, center, or right</strong>.</li>
+            <li>🔹 Add <strong>bullet points or numbered lists</strong>.</li>
+            <li>🔹 Use <strong>Find & Replace</strong> to quickly edit your content.</li>
+            <li>🔹 Copy or <strong>download</strong> the formatted text for future use.</li>
+        </ul>
+    
+        <h3>📌 Why Use This Tool?</h3>
+        <p>✔️ <strong> Free </strong> to use and <strong> No</strong> signup required.<br>
+            ✔️ <strong>Fast and simple</strong> text formatting  <br>
+           ✔️ <strong>No installation needed</strong>, works online  <br>
+           ✔️ <strong>Perfect for</strong> quick document edits, note-taking, and content creation</p>
+    </div>
+    <div class="ff">
+        <p>Go down to explore more tools and Calculators.</p></div>
+    <!--text editor-->
+    <div class="formatter-container">
+        <h2>Enhanced Text Formatter</h2>
+
+        <!-- Upload and Download -->
+        <input type="file" id="fileInput" accept=".txt" onchange="loadFile()">
+        <p style="color: #888; font-size: 0.9em; margin: 5px 0;">
+            Select the text to apply formatting.
+        </p>
+        <textarea id="textInput" rows="4" placeholder="Enter your text here"></textarea>
+
+        <div class="option-group">
+            <label>Font Style:</label>
+            <select id="fontStyleDropdown" onchange="updateTextStyle()">
+                <option value="Arial">Arial</option>
+                <option value="Courier New">Courier New</option>
+                <option value="Times New Roman">Times New Roman</option>
+                <option value="Georgia">Georgia</option>
+                <option value="Comic Sans MS">Comic Sans MS</option>
+                <option value="Verdana">Verdana</option>
+                <option value="Tahoma">Tahoma</option>
+            </select>
+
+            <label>Font Size:</label>
+            <select id="fontSizeDropdown" onchange="updateTextStyle()">
+                <option value="14px">14px</option>
+                <option value="16px">16px</option>
+                <option value="18px">18px</option>
+                <option value="20px">20px</option>
+                <option value="24px">24px</option>
+            </select>
+
+            <label>Font Color:</label>
+            <input type="color" id="fontColorPicker" onchange="updateTextStyle()">
+        </div>
+
+        <!-- Find and Replace Section -->
+        <div class="option-group">
+            <input type="text" id="findText" placeholder="Find text">
+            <input type="text" id="replaceText" placeholder="Replace with">
+            <button onclick="replaceText()">Replace</button>
+        </div>
+
+        <div class="option-group">
+            <button onclick="applyStyle('bold')">Bold</button>
+            <button onclick="applyStyle('italic')">Italic</button>
+            <button onclick="applyStyle('underline')">Underline</button>
+            <button onclick="alignText('left')">Align Left</button>
+            <button onclick="alignText('center')">Center</button>
+            <button onclick="alignText('right')">Align Right</button>
+            <button onclick="addList('unordered')">Bullet List</button>
+            <button onclick="addList('ordered')">Numbered List</button>
+        </div>
+
+        <div class="result" id="textResult">Your formatted text will appear here.</div>
+        <button id="copyButton" data-clipboard-target="#textResult">Copy Text</button>
+        <button id="downloadButton">Download Text</button>
+
+    </div>
+
+    <!--about online tools-->
+    <section class="tool-info">
+        <div class="endcontainer">
+            <h2>Welcome to <span class="brand">eHelpfullTools</span> 🚀</h2>
+            <p>eHelpfullTools is your ultimate online toolkit, offering a range of powerful and easy-to-use tools to
+                simplify your daily tasks. Whether you need to edit text, estimate fuel costs, or calculate loans, we’ve
+                got you covered!</p>
+
+            <h3>Explore More Tools 🔍</h3>
+
+        </div>
+        <div class="incontainer">
+            <div class="tools">
+                <div class="tool-card">
+                    <i class="fas fa-edit"></i>
+                    <a href="text-editor.html">📝 Online Text Editor</a>
+                </div>
+                <div class="tool-card">
+                    <a href="typing-test.html">⌨ Typing Speed Test</a>
+                </div>
+                <div class="tool-card">
+                    <a href="FuelCalculator.html">⛽ Fuel Cost Estimator</a>
+                </div>
+                <div class="tool-card">
+                    <a href="split-bill.html">💰 Advanced Split Bill Calculator</a>
+                </div>
+                <div class="tool-card">
+                    <a href="cooking-converter.html">🥣 Cooking Measurement Converter</a>
+                </div>
+                <div class="tool-card">
+                    <a href="unit-converter.html">📏 Unit Converter</a>
+                </div>
+                <div class="tool-card">
+                    <a href="age-calculator.html">🎂 Advanced Age Calculator</a>
+                </div>
+                <div class="tool-card">
+                    <a href="meditation-timer.html">🧘‍♂️ Meditation Timer</a>
+                </div>
+                <div class="tool-card">
+                    <a href="text-to-pdf.html">📝➡️📄 Text File & PDF File Converter</a>
+                </div>
+                <div class="tool-card">
+                    <a href="comingsoon.html">🌍 Language Translator</a>
+                </div>
+                <div class="tool-card">
+                    <a href="comingsoon.html">🔢 Word & Character Counter</a>
+                </div>
+            </div>
+            <h3 style="margin-top: 20px;">Explore Fun  Tools 😄</h3>
+            <div class="incontainer">
+                <div class="tools">
+                <div class="tool-card">
+                    <a href="colour-tool.html">🎨 Fun Color Picker & Mixer</a>
+                </div>
+                <div class="tool-card">
+                    <a href="ascii-art.html">ᓚ₍ ^. .^₎ ASCII Art Generator</a>
+                </div>
+                
+                <div class="tool-card">
+                    <a href="personalitycheck.html">🎭 Ultimate Personality Quiz</a>
+                </div>
+                <div class="tool-card">
+                    <a href="coin-flip.html">🪙 Flip the Coin</a>
+                </div>
+                <div class="tool-card">
+                    <a href="drawing-board.html">🎨 Online Drawing Board</a>
+                </div>
+            </div>
+        </div>
+        <p>We're continuously improving and adding new tools for a <strong>smarter and faster experience</strong>. Stay
+            connected and explore our growing collection of useful tools!</p>
+    
+
+    </section>
+
+    <!-- Welcome Section -->
+    <section class="welcome-section">
+        <div class="welcome-text">
+            <h1>Welcome to eHelpFullTools</h1>
+            <h3>The platform for quick and efficient online tools and calculators</h3>
+            <p>eHelpFullTools is a convenient online platform that offers a variety of free tools and calculators,
+                including a text editor, fuel cost estimator, and unit converter. Designed for ease of use, the site
+                allows users to access these resources quickly without any downloads. Whether you need to edit
+                documents, estimate travel expenses, or convert measurements, eHelpFullTools provides reliable solutions
+                to enhance your productivity and simplify everyday tasks. Explore the site to discover how these helpful
+                tools can assist you!</p>
+            <a href="contact.html" style="text-decoration: none;"><button type="button" id="bt">Get in Touch</button></a>
+        </div>
+        <div class="welcome-image">
+            <img src="home1.jpeg" alt="Illustration of eHelpFullTools features"> <!-- Replace with your image path -->
+        </div>
+    </section>
+    <hr>
+    <footer class="footer">
+        <p>&copy; 2025 by eHelpFullTools. All rights reserved.</p>
+    </footer>
+    <script> window.addEventListener("load", () => {
+        const loader = document.querySelector(".loader-container");
+        const content = document.querySelector(".content");
+
+     // Smooth fade-out loader
+     loader.style.transition = "opacity 2.8s ease-out";
+        loader.style.opacity = "0";
+
+        setTimeout(() => {
+loader.style.display = "none";
+content.style.display = "block";
+content.classList.add("fade-in");
+}, 2800); // Loader hides after 800ms (0.8 seconds)
+
+    });</script><script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyDbNYKUKukHO38WrWfiZo2ARWwqjUf8OeI",
+    authDomain: "ehelpfultool.firebaseapp.com",
+    projectId: "ehelpfultool",
+    storageBucket: "ehelpfultool.firebasestorage.app",
+    messagingSenderId: "572405415507",
+    appId: "1:572405415507:web:9addd73fae3fb78973d0a6",
+    measurementId: "G-MN8GGWK084"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
+</body>
+
+</html>

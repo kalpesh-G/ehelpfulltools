@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="icon.png" type="image/x-icon" />
+    <title>ᓚ₍ ^. .^₎ ASCII Art Generator - Create Cool Text Designs</title>
+<meta name="description" content="Generate creative ASCII art text with our free online ASCII art generator. Convert text into stylish patterns instantly!">
+<meta name="keywords" content="ascii art generator, text to ascii, ascii converter, online ascii tool, text art maker">
+<link rel="canonical" href="https://ehelpfultools.tech/ascii-art.html" />
+<meta property="og:title" content="ASCII Art Generator - Create Cool Text Designs" />
+<meta property="og:description" content="Transform text into ASCII art with unique styles and patterns." />
+<meta property="og:image" content="https://ehelpfultools.tech/assets/ascii-art-preview.jpg" />
+<meta property="og:url" content="https://ehelpfultools.tech/ascii-art.html" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="ASCII Art Generator - Convert Text to ASCII" />
+<meta name="twitter:description" content="Easily create ASCII text art online with cool styles." />
+<meta name="twitter:image" content="https://ehelpfultools.tech/assets/ascii-art-preview.jpg" />
+<meta name="robots" content="index, follow" />
+<meta name="google-adsense-account" content="ca-pub-8868584487794979">
+    <style>/* General Styling */
+     body {
+            font-family: 'Arial', sans-serif;
+            /* background: #f8f9fa; */
+            
+background: linear-gradient(to right, #80c7eb, #1363cc, #51eaea);
+
+            margin: 0;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        /* tool css :start */
+        .container {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 600px;
+            backdrop-filter: blur(10px);
+            margin: 10px auto;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+        button {
+            background: #ffcc00;
+            color: black;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+        button:hover {
+            background: #ff9900;
+            color: white;
+        }
+        pre {
+            background: black;
+            color: lime;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 16px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            text-align: left;
+        }
+        /* tool css end */
+       
+            /* other css */
+            
+    h1 {
+        color: #333;
+    }
+
+    label {
+        display: block;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+    select, input {
+        width: 100%;
+        padding: 8px;
+        margin: 5px 0;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+
+    .unit-selection {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    button {
+        width: 100%;
+        background: #80dc07;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+
+    button:hover {
+        background: #087411e0;
+    }
+
+    h2 {
+        margin-top: 20px;
+        color: #28a745;
+    }
+          
+        
+            /* Header section */
+    .header {
+        background-image: url('navbar.jpg'); /* Replace with your background image path */
+        background-size: cover;
+        background-position: center;
+        height: 250px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-align: center;
+    }
+    .header h1 {
+        font-size: 3em;
+        margin: 0;
+        color: black;
+    }
+
+/* Navigation */
+.navbar {
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.navbar a {
+    margin: 5px 40px;
+    color: #333;
+    text-decoration: none;
+}
+.navbar a.active{
+    color: #007BFF;
+}
+.navbar a:hover {
+    color: #007BFF;
+}
+
+/* Welcome Section */
+.welcome-section {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 50px;
+    color: white;
+}
+.welcome-text {
+    flex: 1;
+    padding: 20px;
+    min-width: 300px;
+    color: white;
+}
+.welcome-text h1 {
+    font-size: 2.5em;
+    margin-bottom: 50px; /* Adjusts space below the heading */
+    color: white;
+}
+
+.welcome-text h3 {
+    font-size: 1.8em;
+    margin-bottom: 30px; /* Adds space below the subheading */
+    color: white;
+}
+
+.welcome-text p {
+    line-height: 1.6;
+    color: #666;
+    font-size: 25px;
+    margin-bottom: 40px; /* Adjusts space below the paragraph */
+    color: white;
+}
+
+.welcome-text button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 50px; /* Adds space above the button */
+}
+
+.welcome-image {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 300px;
+}
+.welcome-image img {
+    max-width: 100%;
+    height: auto;
+}
+#bt{
+border-radius: 0%;
+display: flex;
+ }
+ .footer {
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+    color: #666;
+}
+
+.footer hr {
+    width: 90%;
+    border: none;
+    border-top: 1px solid #e0e0e0;
+    margin: 0 auto 10px;
+}
+
+.footer p {
+    margin: 20px 0px;
+    color: white;
+}
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 2em;
+    }
+    .navbar a {
+        font-size: 0.9em;
+        margin: 0 10px;
+    }
+    .welcome-section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 20px 10px;
+    }
+    .welcome-text h1 {
+        font-size: 1.8em;
+    }
+    .welcome-text {
+        padding: 10px;
+    }
+
+    .header h1{
+        color: white;
+        }}
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+ /* endsection css */
+ .tool-info {
+        text-align: center;
+        padding: 20px 20px;
+        background: linear-gradient(135deg, #f8f9fa, #e3f2fd); 
+      
+        border-radius: 10px;
+        margin: 30px auto;
+        /* max-width: 900px; */
+        width: 95%;
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15); 
+    }
+
+    .endcontainer {
+        max-width: 800px;
+        margin: auto;
+    }
+
+    .tool-info h2 {
+        font-size: 2.5rem;
+        color: #333;
+        margin-bottom: 15px;
+    }
+
+    .brand {
+        color: #007bff;
+        font-weight: bold;
+    }
+
+    .tool-info p {
+        font-size: 1.2rem;
+        color: #555;
+        margin-bottom: 25px;
+    }
+
+    
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .tool-info {
+            padding: 40px 15px;
+        }
+
+        .tool-info h2 {
+            font-size: 2rem;
+        }
+
+    }
+    .incontainer {
+            max-width: 800px;
+            margin: 10px auto;
+            padding: 20px;
+        }
+    .tools {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .tool-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            text-align: center;
+            
+        }
+        .tool-card:hover {
+            transform: scale(1.05);
+        }
+        .tool-card i {
+            font-size: 40px;
+            color: #007BFF;
+            margin-bottom: 10px;
+        }
+        .tool-card a {
+            display: block;
+            font-size: 1.2rem;
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 10px;
+            
+        }
+        .tool-card a:hover {
+            color: #007BFF;
+        }
+        .tools-overview {
+            padding: 50px;
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            max-width: 600px;
+            margin: auto;
+        }
+   /* ========== Short Description Styling ========== */
+.short-description {
+    text-align: left;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.short-description h2 {
+    color: #007BFF;
+    font-size: 1.8rem;
+}
+
+.short-description h3 {
+    color: #333;
+    margin-top: 15px;
+}
+
+.short-description p {
+    font-size: 1rem;
+    color: #555;
+}
+
+.short-description ul {
+    list-style: none;
+    padding: 0;
+}
+
+.short-description ul li {
+    font-size: 1rem;
+    color: #555;
+    padding-left: 25px;
+    position: relative;
+    margin-bottom: 8px;
+}
+
+.short-description ul li::before {
+    content: "✔️";
+    position: absolute;
+    left: 0;
+    color: #007BFF;
+    font-size: 1.2rem;
+}.ff{
+    justify-items: center;
+    margin: 15px auto;
+}
+.glitch-text {
+    font-size: 1.%;
+    font-weight: bold;
+    color: white;
+    position: relative;
+    text-transform: uppercase;
+    animation: glitch 0.8s infinite;
+}
+
+@keyframes glitch {
+    0% { text-shadow: -2px 0 red, 2px 0 blue; }
+    50% { text-shadow: 2px 0 red, -2px 0 blue; }
+    100% { text-shadow: -2px 0 red, 2px 0 blue; }
+}
+/* loader css */
+/* Full-Screen Loader */
+.loader-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .loader {
+            position: relative;
+            width: 100px;
+            height: 100px;
+        }
+
+        /* Rotating Hexagon */
+        .hexagon {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.8);
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            animation: rotateHexagon 2s linear infinite;
+        }
+
+        @keyframes rotateHexagon {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.2); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+
+        /* Spinning Triangle */
+        .triangle {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.7);
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            top: 10px;
+            left: 10px;
+            animation: spinTriangle 1.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes spinTriangle {
+            0% { transform: translateY(0px) rotate(0deg); }
+            100% { transform: translateY(-15px) rotate(30deg); }
+        }
+
+        /* Pulsating Circle */
+        .circle {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: pulseCircle 1.2s ease-in-out infinite;
+        }
+
+        @keyframes pulseCircle {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.4); opacity: 0.5; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* Page Content (Hidden Initially) */
+        .content {
+            display: none;
+            text-align: center;
+            padding: 50px;
+            font-size: 24px;
+        }
+
+        /* Smooth Fade-In Effect */
+        .fade-in {
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        </style>
+</head>
+<body>
+    
+    <div class="loader-container">
+        <div class="loader">
+            <div class="hexagon"></div>
+            <div class="triangle"></div>
+            <div class="circle"></div>
+        </div>
+    </div>
+<!-- Header -->
+<div class="header">
+    <h1>eHelpFullTools</h1>
+</div>
+
+<!-- Navbar -->
+<div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="OnlineTools.html" class="active">Online Tools</a>
+    <a href="service.html">Services</a>
+    <a href="contact.html">Contact Us</a>
+</div>
+
+<!-- short description about the calculator -->
+<div class="short-description">
+    <h2>About the ASCII Art Generator 🎨</h2>
+    <p>The <strong>ASCII Art Generator</strong> is a fun and creative tool that transforms texts into beautiful ASCII art.  
+        Whether you're looking to create unique designs for your projects, social media, or just for fun, this tool makes it easy to generate stunning ASCII art.</p>
+    
+    <h3>🚀 How to Use This Tool:</h3>
+    <ul>
+        <li>🔹 Enter the text  you want to convert.</li>
+        <li>🔹 Choose the style and size of the ASCII art.</li>
+        <li>🔹 Click the generate button to create your ASCII art.</li>
+        <li>🔹 Preview the generated art in real-time.</li>
+        <li>🔹 Copy or download your ASCII art for use in your projects.</li>
+    </ul>
+    
+    <h3>📌 Why Use This Tool?</h3>
+    <p>✔️ <strong> Free </strong> to use and <strong> No</strong> signup required.<br>
+        ✔️ <strong>Creative and unique</strong> designs <br>
+       ✔️ <strong>Easy to use</strong> with a straightforward interface <br>
+       ✔️ <strong>Perfect for</strong> adding a personal touch to your text</p>
+</div>
+<div class="ff" >
+    <p class="glitch-text">Go down to explore more tools and Calculators.</p></div>
+<!--too code-->
+
+<div class="container">
+    <h1>ASCII Art Generator ✨</h1>
+    <p>Type your text and generate ASCII art!</p>
+
+    <label for="inputText">Enter Text:</label>
+    <input type="text" id="inputText" placeholder="Type something..." onkeypress="handleKeyPress(event)">
+    <label for="fontSelect">Choose Style:</label>
+    <select id="fontSelect">
+        <option value="standard">Standard</option>
+        <option value="ghost">Ghost</option>
+        <option value="big">Big</option>
+        <option value="small">Small</option>
+        <option value="banner">Banner</option>
+    </select>
+    
+    <button onclick="generateASCII()">🎨 Generate</button>
+    <button onclick="copyASCII()">📋 Copy</button>
+    <button onclick="downloadASCII()">⬇️ Download</button>
+
+    <pre id="asciiOutput"></pre>
+</div>
+
+    <!--about online tools-->
+<section class="tool-info">
+    <div class="endcontainer">
+        <h2>Welcome to <span class="brand">eHelpfullTools</span> 🚀</h2>
+        <p>eHelpfullTools is your ultimate online toolkit, offering a range of powerful and easy-to-use tools to
+            simplify your daily tasks. Whether you need to edit text, estimate fuel costs, or calculate loans, we’ve
+            got you covered!</p>
+
+        <h3>Explore More Tools 🔍</h3>
+
+    </div>
+    
+    <div class="incontainer">
+        <div class="tools">
+            <div class="tool-card">
+                <i class="fas fa-edit"></i>
+                <a href="text-editor.html">📝 Online Text Editor</a>
+            </div>
+            <div class="tool-card">
+                <a href="typing-test.html">⌨ Typing Speed Test</a>
+            </div>
+            <div class="tool-card">
+                <a href="FuelCalculator.html">⛽ Fuel Cost Estimator</a>
+            </div>
+            <div class="tool-card">
+                <a href="split-bill.html">💰 Advanced Split Bill Calculator</a>
+            </div>
+            <div class="tool-card">
+                <a href="cooking-converter.html">🥣 Cooking Measurement Converter</a>
+            </div>
+            <div class="tool-card">
+                <a href="unit-converter.html">📏 Unit Converter</a>
+            </div>
+            <div class="tool-card">
+                <a href="age-calculator.html">🎂 Advanced Age Calculator</a>
+            </div>
+            <div class="tool-card">
+                <a href="meditation-timer.html">🧘‍♂️ Meditation Timer</a>
+            </div>
+            <div class="tool-card">
+                <a href="text-to-pdf.html">📝➡️📄 Text File & PDF File Converter</a>
+            </div>
+            <div class="tool-card">
+                <a href="comingsoon.html">🌍 Language Translator</a>
+            </div>
+            <div class="tool-card">
+                <a href="comingsoon.html">🔢 Word & Character Counter</a>
+            </div>
+        </div>
+        <h3 style="margin-top: 20px;">Explore Fun  Tools 😄</h3>
+        <div class="incontainer">
+            <div class="tools">
+            <div class="tool-card">
+                <a href="colour-tool.html">🎨 Fun Color Picker & Mixer</a>
+            </div>
+            <div class="tool-card">
+                <a href="ascii-art.html">ᓚ₍ ^. .^₎ ASCII Art Generator</a>
+            </div>
+            
+            <div class="tool-card">
+                <a href="personalitycheck.html">🎭 Ultimate Personality Quiz</a>
+            </div>
+            <div class="tool-card">
+                <a href="coin-flip.html">🪙 Flip the Coin</a>
+            </div>
+            <div class="tool-card">
+                <a href="drawing-board.html">🎨 Online Drawing Board</a>
+            </div>
+        </div>
+    </div>
+    <p>We're continuously improving and adding new tools for a <strong>smarter and faster experience</strong>. Stay
+        connected and explore our growing collection of useful tools!</p>
+
+</section>
+
+<!-- Welcome Section -->
+<section class="welcome-section">
+    <div class="welcome-text">
+        <h1>Welcome to eHelpFullTools</h1>
+        <h3>The platform for quick and efficient online tools and calculators</h3>
+        <p>eHelpFullTools is a convenient online platform that offers a variety of free tools and calculators,
+            including a text editor, fuel cost estimator, and unit converter. Designed for ease of use, the site
+            allows users to access these resources quickly without any downloads. Whether you need to edit
+            documents, estimate travel expenses, or convert measurements, eHelpFullTools provides reliable solutions
+            to enhance your productivity and simplify everyday tasks. Explore the site to discover how these helpful
+            tools can assist you!</p>
+        <a href="contact.html" style="text-decoration: none;"><button type="button" id="bt">Get in Touch</button></a>
+    </div>
+    <div class="welcome-image">
+        <img src="home1.jpeg" alt="Illustration of eHelpFullTools features"> <!-- Replace with your image path -->
+    </div>
+</section>
+<hr>
+<footer class="footer">
+    <p>&copy; 2025 by eHelpFullTools. All rights reserved.</p>
+</footer>
+
+<script>
+    // ASCII Art Letters
+// ASCII Art Font Styles with full A-Z characters
+const asciiFonts = {
+standard: {
+    A: ["  A  ", " A A ", "AAAAA", "A   A", "A   A"],
+    B: ["BBBB ", "B   B", "BBBB ", "B   B", "BBBB "],
+    C: [" CCC ", "C   C", "C    ", "C   C", " CCC "],
+    D: ["DDDD ", "D   D", "D   D", "D   D", "DDDD "],
+    E: ["EEEEE", "E    ", "EEE  ", "E    ", "EEEEE"],
+    F: ["FFFFF", "F    ", "FFF  ", "F    ", "F    "],
+    G: [" GGG ", "G    ", "G  GG", "G   G", " GGG "],
+    H: ["H   H", "H   H", "HHHHH", "H   H", "H   H"],
+    I: [" III ", "  I  ", "  I  ", "  I  ", " III "],
+    J: ["  JJJ", "    J", "    J", "J   J", " JJJ "],
+    K: ["K   K", "K  K ", "KK   ", "K  K ", "K   K"],
+    L: ["L    ", "L    ", "L    ", "L    ", "LLLLL"],
+    M: ["M   M", "MM MM", "M M M", "M   M", "M   M"],
+    N: ["N   N", "NN  N", "N N N", "N  NN", "N   N"],
+    O: [" OOO ", "O   O", "O   O", "O   O", " OOO "],
+    P: ["PPPP ", "P   P", "PPPP ", "P    ", "P    "],
+    Q: [" QQQ ", "Q   Q", "Q Q Q", " QQQ ", "    Q"],
+    R: ["RRRR ", "R   R", "RRRR ", "R  R ", "R   R"],
+    S: [" SSS ", "S    ", " SSS ", "    S", " SSS "],
+    T: ["TTTTT", "  T  ", "  T  ", "  T  ", "  T  "],
+    U: ["U   U", "U   U", "U   U", "U   U", " UUU "],
+    V: ["V   V", "V   V", "V   V", " V V ", "  V  "],
+    W: ["W   W", "W   W", "W W W", "WW WW", "W   W"],
+    X: ["X   X", " X X ", "  X  ", " X X ", "X   X"],
+    Y: ["Y   Y", " Y Y ", "  Y  ", "  Y  ", "  Y  "],
+    Z: ["ZZZZZ", "   Z ", "  Z  ", " Z   ", "ZZZZZ"],
+    " ": ["     ", "     ", "     ", "     ", "     "]
+},
+ghost: {
+    A: ["  (A)  ", " / A \\ ", "/ AAA \\", "  /   \\", " (     )"],
+    B: ["[BBBB] ", "B     B", "[ BBB ]", "B     B", "[BBBB] "],
+    C: [" (CCC) ", "/     C", "|      ", "\\     C", " (CCC) "],
+    D: ["[DDDD] ", "D    D ", "D    D ", "D    D ", "[DDDD] "],
+    E: ["[EEEE]", "E     ", "[EEE] ", "E     ", "[EEEE]"],
+    F: ["[FFFF]", "F     ", "[FFF] ", "F     ", "F     "],
+    G: [" (GGG) ", "G      ", "G  GGG ", "G    G ", " (GGG) "],
+    H: ["H    H", "H    H", "[HHHHH]", "H    H", "H    H"],
+    I: [" [III] ", "   I   ", "   I   ", "   I   ", " [III] "],
+    J: ["   JJJ ", "     J ", "     J ", "J    J ", " JJJJ  "],
+    K: ["K   K ", "K  K  ", "KK    ", "K  K  ", "K   K "],
+    L: ["L     ", "L     ", "L     ", "L     ", "[LLLL]"],
+    M: ["M     M", "MM   MM", "M M M M", "M  M  M", "M     M"],
+    N: ["N    N", "NN   N", "N N  N", "N  N N", "N   NN"],
+    O: [" (OOO) ", "O     O", "O     O", "O     O", " (OOO) "],
+    P: ["[PPPP] ", "P    P ", "[PPPP] ", "P      ", "P      "],
+    Q: [" (QQQ) ", "Q     Q", "Q  Q  Q", " (QQQ) ", "     Q "],
+    R: ["[RRRR] ", "R    R ", "[RRRR] ", "R  R   ", "R   R  "],
+    S: [" [SSS] ", "S      ", " [SSS] ", "      S", " [SSS] "],
+    T: ["[TTTTT]", "  T    ", "  T    ", "  T    ", "  T    "],
+    U: ["U     U", "U     U", "U     U", "U     U", " [UUU] "],
+    V: ["V     V", "V     V", "V     V", " V   V ", "  VVV  "],
+    W: ["W     W", "W  W  W", "W  W  W", "W  W  W", " WW WW "],
+    X: ["X     X", " X   X ", "  X X  ", " X   X ", "X     X"],
+    Y: ["Y     Y", " Y   Y ", "  Y Y  ", "   Y   ", "   Y   "],
+    Z: ["[ZZZZZ]", "    Z  ", "   Z   ", "  Z    ", "[ZZZZZ]"],
+    " ": ["       ", "       ", "       ", "       ", "       "]
+},
+big: {
+    A: ["    A    ", "   A A   ", "  A   A  ", " AAAAAAA ", "A       A"],
+    B: ["BBBBBB  ", "B      B", "BBBBBB  ", "B      B", "BBBBBB  "],
+    C: ["  CCCCC ", " C     C", "C       ", " C     C", "  CCCCC "],
+    D: ["DDDDDD  ", "D      D", "D      D", "D      D", "DDDDDD  "],
+    E: ["EEEEEEE", "E      ", "EEEEEEE", "E      ", "EEEEEEE"],
+    F: ["FFFFFFF", "F      ", "FFFFF  ", "F      ", "F      "],
+    G: [" GGGGG ", "G      ", "G   GGG", "G     G", " GGGGG "],
+    H: ["H     H", "H     H", "HHHHHHH", "H     H", "H     H"],
+    I: ["IIIIIII", "   I   ", "   I   ", "   I   ", "IIIIIII"],
+    J: ["      J", "      J", "      J", "J     J", " JJJJJ "],
+    K: ["K    K ", "K   K  ", "KKK    ", "K   K  ", "K    K "],
+    L: ["L      ", "L      ", "L      ", "L      ", "LLLLLLL"],
+    M: ["M     M", "MM   MM", "M M M M", "M  M  M", "M     M"],
+    N: ["N     N", "NN    N", "N N   N", "N  N  N", "N   N N"],
+    O: [" OOOOO ", "O     O", "O     O", "O     O", " OOOOO "],
+    P: ["PPPPPP ", "P     P", "PPPPPP ", "P      ", "P      "],
+    Q: [" QQQQQ ", "Q     Q", "Q   Q Q", "Q    QQ", " QQQQQQ"],
+    R: ["RRRRRR ", "R     R", "RRRRRR ", "R   R  ", "R    R "],
+    S: [" SSSSS ", "S      ", " SSSSS ", "      S", " SSSSS "],
+    T: ["TTTTTTT", "   T   ", "   T   ", "   T   ", "   T   "],
+    U: ["U     U", "U     U", "U     U", "U     U", " UUUUU "],
+    V: ["V     V", "V     V", "V     V", " V   V ", "  VVV  "],
+    W: ["W     W", "W     W", "W  W  W", "W  W  W", " WW WW "],
+    X: ["X     X", " X   X ", "  X X  ", " X   X ", "X     X"],
+    Y: ["Y     Y", " Y   Y ", "  YYY  ", "   Y   ", "   Y   "],
+    Z: ["ZZZZZZZ", "     Z ", "   Z   ", "  Z    ", "ZZZZZZZ"]
+},
+small: {
+    A: ["  _  ", " / \\ ", "/ _ \\", "/_/ \\"],
+    B: ["__  ", "|_) ", "|_) "],
+    C: [" __ ", "/  `", "\\__,"],
+    D: ["__  ", "| \\ ", "|_/ "],
+    E: ["___ ", "|__ ", "|__ "],
+    F: ["___ ", "|__ ", "|   "],
+    G: [" __ ", "/ _ ", "\\__|"],
+    H: ["_  _", "|__|", "|  |"],
+    I: [" _ ", "| |", "|_|"],
+    J: ["  _", " | ", "_| "],
+    K: ["_  _", "|_/ ", "| \\_"],
+    L: ["_   ", "|   ", "|__ "],
+    M: ["_  _ ", "|\\/| ", "|  | "],
+    N: ["_  _", "|\\ |", "| \\|"],
+    O: [" __ ", "/  \\", "\\__/"],
+    P: ["__  ", "|_) ", "|   "],
+    Q: [" __ ", "/  \\", "\\_\\|"],
+    R: ["__  ", "|_) ", "| \\ "],
+    S: [" __", "/ _", " __|"],
+    T: ["___", " | ", " | "],
+    U: ["_  _", "|  |", "|__|"],
+    V: ["_  _", "|  |", " \\/ "],
+    W: ["_ _ _", "| | |", "|_|_|"],
+    X: ["_  _", " \\/ ", "_/\\_"],
+    Y: ["_   _", " \\_/ ", "  |  "],
+    Z: ["___ ", "  / ", " /_ "]
+},
+banner: {
+    A: ["    _    ", "   / \\   ", "  / _ \\  ", " / ___ \\ ", "/_/   \\_\\"],
+    B: [" ____  ", "| __ ) ", "|  _ \\ ", "| |_) |", "|____/ "],
+    C: ["  ____ ", " / ___|", "| |    ", "| |___ ", " \\____|"],
+    D: [" ____  ", "|  _ \\ ", "| | | |", "| |_| |", "|____/ "],
+    E: [" _____ ", "| ____|", "|  _|  ", "| |___ ", "|_____|"],
+    F: [" _____ ", "|  ___|", "| |_   ", "|  _|  ", "|_|    "],
+    G: ["  ____ ", " / ___|", "| |  _ ", "| |_| |", " \\____|"],
+    H: [" _   _ ", "| | | |", "| |_| |", "|  _  |", "|_| |_|"],
+    I: [" ____ ", "|_  _|", "  ||  ", "  ||  ", " |__| "],
+    J: ["     _ ", "    | |", "    | |", " _  | |", "| |_|_|"],
+    K: [" _  __", "| |/ /", "| ' / ", "| . \\ ", "|_|\\_\\"],
+    L: [" _     ", "| |    ", "| |    ", "| |___ ", "|_____|"],
+    M: [" __  __ ", "|  \\/  |", "| |\\/| |", "| |  | |", "|_|  |_|"],
+    N: [" _   _ ", "| \\ | |", "|  \\| |", "| |\\  |", "|_| \\_|"],
+    O: ["  ___  ", " / _ \\ ", "| | | |", "| |_| |", " \\___/ "],
+    P: [" ____  ", "|  _ \\ ", "| |_) |", "|  __/ ", "|_|    "],
+    Q: ["  ___  ", " / _ \\ ", "| | | |", "| |_| |", " \\__\\_\\"],
+    R: [" ____  ", "|  _ \\ ", "| |_) |", "|  _ < ", "|_| \\_\\"],
+    S: [" ____  ", "/ ___| ", "\\___ \\ ", " ___) |", "|____/ "],
+    T: [" _____ ", "|_   _|", "  | |  ", "  | |  ", "  |_|  "],
+    U: [" _   _ ", "| | | |", "| | | |", "| |_| |", " \\___/ "],
+    V: ["__     __", "\\ \\   / /", " \\ \\ / / ", "  \\ V /  ", "   \\_/   "],
+    W: ["__        __", "\\ \\      / /", " \\ \\ /\\ / / ", "  \\ V  V /  ", "   \\_/\\_/   "],
+    X: ["__  __", "\\ \\/ /", " >  < ", "/_/\\_\\"],
+    Y: ["__   __", "\\ \\ / /", " \\ V / ", "  | |  ", "  |_|  "],
+    Z: [" _____", "|__  /", "  / / ", " / /_ ", "/____|"]
+}
+};
+
+// Modify function to include font selection
+function generateASCII() {
+let text = document.getElementById("inputText").value.toUpperCase();
+let font = document.getElementById("fontSelect").value;
+let output = document.getElementById("asciiOutput");
+
+if (!text.trim()) {
+    output.innerText = "⚠️ Please enter some text!";
+    return;
+}
+
+let asciiArt = ["", "", "", "", ""]; // Store lines
+
+for (let char of text) {
+    if (asciiFonts[font][char]) {
+        asciiFonts[font][char].forEach((line, index) => {
+            asciiArt[index] += line + "  "; // Add spacing between letters
+        });
+    }
+}
+
+output.innerText = asciiArt.join("\n");
+}
+
+
+    // Function to handle "Enter" key press
+    function handleKeyPress(event) {
+        if (event.key === "Enter") {
+            generateASCII();
+        }
+    }
+
+    // Function to copy ASCII Art to clipboard
+    function copyASCII() {
+        let asciiText = document.getElementById("asciiOutput").innerText;
+        navigator.clipboard.writeText(asciiText).then(() => {
+            alert("Copied to clipboard!");
+        });
+    }
+
+    // Function to download ASCII Art
+    function downloadASCII() {
+        let asciiText = document.getElementById("asciiOutput").innerText;
+        let blob = new Blob([asciiText], { type: "text/plain" });
+        let link = document.createElement("a");
+        link.href = URL.createObjectURL(blob);
+        link.download = "ascii-art.txt";
+        link.click();
+    }
+    window.addEventListener("load", () => {
+            const loader = document.querySelector(".loader-container");
+            const content = document.querySelector(".content");
+
+       // Smooth fade-out loader
+       loader.style.transition = "opacity 2.8s ease-out";
+        loader.style.opacity = "0";
+
+        setTimeout(() => {
+loader.style.display = "none";
+content.style.display = "block";
+content.classList.add("fade-in");
+}, 2800); // Loader hides after 800ms (0.8 seconds)
+
+
+        });
+</script>
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyDbNYKUKukHO38WrWfiZo2ARWwqjUf8OeI",
+      authDomain: "ehelpfultool.firebaseapp.com",
+      projectId: "ehelpfultool",
+      storageBucket: "ehelpfultool.firebasestorage.app",
+      messagingSenderId: "572405415507",
+      appId: "1:572405415507:web:9addd73fae3fb78973d0a6",
+      measurementId: "G-MN8GGWK084"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
+</body>
+</html>
