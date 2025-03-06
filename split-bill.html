@@ -43,15 +43,36 @@ background-color: #f5f7fa;
             font-size: 22px;
             margin-bottom: 15px;
         }
-        input, button {
-            width: 100%;
+        input
+        { width: 100%;
             padding: 12px;
             margin: 8px 0;
             border: 1px solid #ccc;
             border-radius: 6px;
             font-size: 16px;
         }
+        .ebutton {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+            border: none;
+            font-weight: bold;
+        }
+        .ebutton:hover {
+            background-color: #0056b3;
+        }
         button {
+            padding: 12px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
             background-color: #007BFF;
             color: white;
             cursor: pointer;
@@ -503,6 +524,80 @@ display: flex;
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
+        .unequal-split-container {
+            width: 90%;
+            max-width: 750px;
+            margin: 20px auto;  
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+ 
+    text-align: center;
+}
+
+.unequal-split-container h2, .unequal-split-container h3 {
+    color: #007bff;
+}
+
+#personInputs {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.person-section {
+    background: #e7dede;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.expense-row {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.expense-row input {
+    flex: 1;
+    margin-right: 5px;
+    padding: 5px;
+}
+
+.add-expense-btn {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.add-expense-btn:hover {
+    background: #218838;
+}
+
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background: #007bff;
+    color: white;
+}
+
  </style>
 </head>
 <body>
@@ -532,8 +627,9 @@ display: flex;
     <h2>About the Split Bill Calculator 💰</h2>
     <p>The <strong>Split Bill Calculator</strong> is an easy-to-use tool that helps groups fairly divide expenses.  
         Whether you're dining out, traveling, or sharing household costs, this calculator ensures transparency and accurate settlements.</p>
-    
+
     <h3>🚀 How to Use This Tool:</h3>
+    <h4>🔹 Equal Bill Splitting:</h4>
     <ul>
         <li>🔹 Enter the names of all participants.</li>
         <li>🔹 Input the total bill amount.</li>
@@ -541,17 +637,56 @@ display: flex;
         <li>🔹 The tool calculates how much each person owes.</li>
         <li>🔹 A clear settlement table displays who should pay whom to balance the expenses.</li>
     </ul>
-    
+
+    <h4>🔹 Unequal Bill Splitting:</h4>
+    <ul>
+        <li>🔹 Select the number of participants.</li>
+        <li>🔹 Enter each person’s name (default: Person 1, Person 2, etc.).</li>
+        <li>🔹 For each person, add multiple expenses with a name, amount paid, and actual share.</li>
+        <li>🔹 Click the <strong>+</strong> button to add more expenses for any person.</li>
+        <li>🔹 The tool calculates total expenses per person and the overall total.</li>
+        <li>🔹 A settlement table shows who needs to pay whom based on their actual share.</li>
+    </ul>
+
     <h3>📌 Why Use This Tool?</h3>
     <p>✔️ <strong> Free </strong> to use and <strong> No</strong> signup required.<br>
-        ✔️ <strong>Fair and efficient</strong> bill splitting <br>
-       ✔️ <strong>Easy to use</strong> with a simple interface <br>
-       ✔️ <strong>Minimizes confusion</strong> by providing clear settlement suggestions</p>
+        ✔️ <strong>Fair and efficient</strong> bill splitting, supporting both equal and custom shares. <br>
+        ✔️ <strong>Easy to use</strong> with a simple interface <br>
+        ✔️ <strong>Minimizes confusion</strong> by providing clear settlement suggestions</p>
 </div>
+
+
 <div class="ff">
-    <p>Go down to explore more tools and Calculators.</p></div>
+    <p>Go down to explore Equal group bill splitter and more tools and Calculators.</p></div>
+  <!-- unequl code-->
+  <div class="unequal-split-container">
+    <h2>💰 Advanced Split Bill Calculator 💰 (Unequal Bill Splitting)</h2>
+    
+    <label for="numPersons">Select Number of People:</label>
+    <input type="number" id="numPersons" min="2" max="20" value="2">
+    <button onclick="generatePersonInputs()">Generate Inputs</button>
+    
+    <div id="personInputs"></div>
+    
+    <h3>Total Expenses: <span id="totalExpense">0</span></h3>
+    <button onclick="calculateUnequalSplit()">Calculate Settlements</button>
+
+    <h3>Settlement Table</h3>
+    <table id="unequalSettlementTable">
+        <thead>
+            <tr>
+                <th>From</th>
+                <th>To</th>
+                <th>Amount</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+    <!-- unequl code -->
 <div class="ccontainer">
-    <h2>💰 Advanced Split Bill Calculator 💰</h2>
+    <h2>💰 Advanced Split Bill Calculator 💰( Equal Bill Splitting)</h2>
 
     <label>Total Bill Amount (₹):</label>
     <input type="number" id="totalBill" placeholder="Enter total bill amount">
@@ -561,7 +696,7 @@ display: flex;
 
     <div id="peopleInputs"></div>
 
-    <button onclick="calculateSplit()">📊 Calculate</button>
+    <button onclick="calculateSplit()" class="ebutton">📊 Calculate</button>
 
     <div class="result" id="results"></div>
     <div class="settlement" id="finalSettlement"></div>
@@ -607,6 +742,9 @@ display: flex;
             </div>
             <div class="tool-card">
                 <a href="text-to-pdf.html">📝➡️📄 Text File & PDF File Converter</a>
+            </div>
+            <div class="tool-card">
+                <a href="moore-machine-tool.html">⚙️📊 Moore Machine Table Generator</a>
             </div>
             <div class="tool-card">
                 <a href="comingsoon.html">🌍 Language Translator</a>
@@ -674,6 +812,7 @@ function generateInputs() {
     for (let i = 1; i <= numPeople; i++) {
         peopleDiv.innerHTML += `
             <label>Person ${i} Name:</label>
+            
             <input type="text" id="name${i}" placeholder="Enter name">
 
             <label>Amount Paid by ${i} (₹):</label>
@@ -784,6 +923,104 @@ content.classList.add("fade-in");
 }, 2800); // Loader hides after 800ms (0.8 seconds)
 
         });
+        
+        function generatePersonInputs() {
+    let numPersons = document.getElementById("numPersons").value;
+    let personInputs = document.getElementById("personInputs");
+    personInputs.innerHTML = ""; // Clear previous inputs
+
+    for (let i = 1; i <= numPersons; i++) {
+        let personDiv = document.createElement("div");
+        personDiv.classList.add("person-section");
+        personDiv.id = `person-${i}`;
+
+        personDiv.innerHTML = `
+            <h3>Person ${i}</h3>
+            <div id="expenses-${i}">
+                <div class="expense-row">
+                    <input type="text" value="Expense 1" class="expense-name">
+                    <input type="number" placeholder="Paid Amount" class="amount-paid">
+                    <input type="number" placeholder="Actual Share" class="actual-share">
+                    <button class="add-expense-btn" onclick="addExpense(${i})">+</button>
+                </div>
+            </div>
+        `;
+
+        personInputs.appendChild(personDiv);
+    }
+}
+
+function addExpense(personId) {
+    let expensesDiv = document.getElementById(`expenses-${personId}`);
+    let expenseCount = expensesDiv.children.length + 1;
+
+    let expenseRow = document.createElement("div");
+    expenseRow.classList.add("expense-row");
+    expenseRow.innerHTML = `
+        <input type="text" value="Expense ${expenseCount}" class="expense-name">
+        <input type="number" placeholder="Paid Amount" class="amount-paid">
+        <input type="number" placeholder="Actual Share" class="actual-share">
+    `;
+
+    expensesDiv.appendChild(expenseRow);
+}
+
+function calculateUnequalSplit() {
+    let numPersons = document.getElementById("numPersons").value;
+    let totalExpenses = 0;
+    let personExpenses = [];
+
+    // Calculate total paid & actual amount owed per person
+    for (let i = 1; i <= numPersons; i++) {
+        let expensesDiv = document.getElementById(`expenses-${i}`);
+        let paidTotal = 0;
+        let shareTotal = 0;
+
+        let expenses = expensesDiv.querySelectorAll(".expense-row");
+        expenses.forEach(row => {
+            let paidAmount = parseFloat(row.querySelector(".amount-paid").value) || 0;
+            let actualShare = parseFloat(row.querySelector(".actual-share").value) || 0;
+            paidTotal += paidAmount;
+            shareTotal += actualShare;
+        });
+
+        personExpenses.push({ id: i, paid: paidTotal, share: shareTotal });
+        totalExpenses += shareTotal;
+    }
+
+    document.getElementById("totalExpense").innerText = totalExpenses.toFixed(2);
+
+    // Determine who owes whom
+    let balances = personExpenses.map(person => ({
+        id: person.id,
+        balance: person.paid - person.share
+    }));
+
+    balances.sort((a, b) => a.balance - b.balance);
+
+    let settlementTable = document.querySelector("#unequalSettlementTable tbody");
+    settlementTable.innerHTML = "";
+
+    let i = 0, j = balances.length - 1;
+    while (i < j) {
+        let amountToPay = Math.min(-balances[i].balance, balances[j].balance);
+
+        let row = document.createElement("tr");
+        row.innerHTML = `
+            <td>Person ${balances[i].id}</td>
+            <td>Person ${balances[j].id}</td>
+            <td>₹${amountToPay.toFixed(2)}</td>
+        `;
+        settlementTable.appendChild(row);
+
+        balances[i].balance += amountToPay;
+        balances[j].balance -= amountToPay;
+
+        if (balances[i].balance === 0) i++;
+        if (balances[j].balance === 0) j--;
+    }
+}
+
 </script>
 <script type="module">
     // Import the functions you need from the SDKs you need

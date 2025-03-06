@@ -3,104 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="icon.png" type="image/x-icon" />
-    <title>🪙 Coin Flip Simulator - Flip a Coin Online</title>
-<meta name="description" content="Flip a virtual coin online with our free coin flip simulator. Get heads or tails instantly!">
-<meta name="keywords" content="coin flip, flip a coin, online coin toss, heads or tails, coin flip simulator">
-<link rel="canonical" href="https://ehelpfultools.tech/coin-flip.html" />
-<meta property="og:title" content="Coin Flip Simulator - Flip a Coin Online" />
-<meta property="og:description" content="Toss a virtual coin and get instant heads or tails results." />
-<meta property="og:image" content="https://ehelpfultools.tech/assets/coin-flip-preview.jpg" />
-<meta property="og:url" content="https://ehelpfultools.tech/coin-flip.html" />
-<meta property="og:type" content="website" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Coin Flip Simulator - Heads or Tails" />
-<meta name="twitter:description" content="Flip a coin online and see instant results." />
-<meta name="twitter:image" content="https://ehelpfultools.tech/assets/coin-flip-preview.jpg" />
-<meta name="robots" content="index, follow" />
+    <title>⚙️📊 Moore Machine Table Generator - Create Transition Tables Easily</title>
+    <meta name="description" content="Generate Moore Machine transition tables easily from structured JSON input. A simple and interactive tool for automata theory and state machine design.">
+    <meta name="keywords" content="Moore Machine, state machine, automata theory, transition table, online tool, finite state machine, FSM, computation theory">
+    <meta property="og:title" content="Moore Machine Table Generator - Interactive FSM Tool">
+    <meta property="og:description" content="Create Moore Machine transition tables dynamically from JSON input. Perfect for students and professionals studying automata theory.">
+    <meta property="og:image" content="https://ehelpfultools.tech/assets/moore-machine-tool.jpg">
+    <meta property="og:url" content="https://ehelpfultools.tech/moore-machine-tool.html">
+    <meta name="twitter:title" content="Moore Machine Table Generator - Automata Theory Tool">
+    <meta name="twitter:description" content="Easily generate Moore Machine transition tables from structured input. A great tool for learning automata theory and state machines.">
+    <meta name="twitter:image" content="https://ehelpfultools.tech/assets/moore-machine-tool.jpg">
+ 
 <meta name="google-adsense-account" content="ca-pub-8868584487794979">
-
-    <style>/* General Styling */
-     body {
+    <link rel="icon" href="icon.png" type="image/x-icon" />
+    <style>
+        body {
             font-family: 'Arial', sans-serif;
             /* background: #f8f9fa; */
-            background: linear-gradient(to right, #80c7eb, #1363cc, #51eaea);         
-/* background: linear-gradient(to right, #afb3b5, #13c0cc, #e3e0e1); */
+            text-align: center;
+background-color: #f5f7fa;
             margin: 0;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
         }
+        /* tool css start */
         
-       
-            /* other css */
-            
-    h1 {
-        color: #333;
-    }
+        .container {
+            max-width: 800px;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: auto;
+        }
+        textarea {
+            width: 90%;
+            height: 120px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: none;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: white;
+            transition: background 0.3s;
+            margin: 10px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #007BFF;
+            color: white;
+        }
+       /* tool css end */
+       .gbutton {
+    width: 150px;
+    background: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.3s;
+}
 
-    label {
-        display: block;
-        font-weight: bold;
-        margin-top: 10px;
-    }
+.gbutton:hover {
+    background: #0056b3;
+}
 
-    select, input {
-        width: 100%;
-        padding: 8px;
-        margin: 5px 0;
-        border-radius: 5px;
-        border: 1px solid #ccc;
-    }
-
-    .unit-selection {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-top: 10px;
-    }
-
-    button {
-        width: 100%;
-        background: #80dc07;
-        color: white;
-        padding: 10px;
-        border: none;
-        border-radius: 5px;
-        font-size: 16px;
-        transition: 0.3s;
-        cursor: pointer;
-        margin-top: 10px;
-    }
-
-    button:hover {
-        transform: scale(1.08);
-        background: #087411e0;
-    }
-
-    h2 {
-        margin: 20px;
-        color: #ffffff;
-    }
-          
+h2 {
+    margin-top: 20px;
+    color: #28a745;
+}
         
-            /* Header section */
-    .header {
-        background-image: url('navbar.jpg'); /* Replace with your background image path */
-        background-size: cover;
-        background-position: center;
-        height: 250px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        text-align: center;
-    }
-    .header h1 {
-        font-size: 3em;
-        margin: 0;
-        color: black;
-    }
+        /* Header section */
+.header {
+    background-image: url('navbar.jpg'); /* Replace with your background image path */
+    background-size: cover;
+    background-position: center;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+.header h1 {
+    font-size: 3em;
+    margin: 0;
+    color: black;
+}
 
 /* Navigation */
 .navbar {
@@ -127,24 +140,20 @@
     display: flex;
     flex-wrap: wrap;
     padding: 50px;
-    color: white;
 }
 .welcome-text {
     flex: 1;
     padding: 20px;
     min-width: 300px;
-    color: white;
 }
 .welcome-text h1 {
     font-size: 2.5em;
     margin-bottom: 50px; /* Adjusts space below the heading */
-    color: white;
 }
 
 .welcome-text h3 {
     font-size: 1.8em;
     margin-bottom: 30px; /* Adds space below the subheading */
-    color: white;
 }
 
 .welcome-text p {
@@ -152,10 +161,9 @@
     color: #666;
     font-size: 25px;
     margin-bottom: 40px; /* Adjusts space below the paragraph */
-    color: white;
 }
 
-.welcome-text button {
+.welcome-text .gbutton {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
@@ -193,7 +201,6 @@ display: flex;
 
 .footer p {
     margin: 20px 0px;
-    color: white;
 }
 /* Responsive adjustments */
 @media (max-width: 768px) {
@@ -224,14 +231,13 @@ display: flex;
  /* endsection css */
  .tool-info {
         text-align: center;
-        padding: 20px 20px;
-        background: linear-gradient(135deg, #f8f9fa, #e3f2fd); 
+        padding: 50px 20px;
+        /* background: linear-gradient(135deg, #f8f9fa, #e3f2fd); */
       
         border-radius: 10px;
-        margin: 30px auto;
-        /* max-width: 900px; */
-        width: 95%;
-        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15); 
+        margin: 50px auto;
+        max-width: 900px;
+        /* box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15); */
     }
 
     .endcontainer {
@@ -363,66 +369,45 @@ display: flex;
     left: 0;
     color: #007BFF;
     font-size: 1.2rem;
-}.ff{
+}
+/* Responsive adjustments for .result and .settlement */
+@media (max-width: 768px) {
+    .result, .settlement {
+        font-size: 14px; /* Decrease font size for smaller screens */
+        padding: 10px; /* Reduce padding for smaller screens */
+        margin-top: 15px; /* Adjust margin for better spacing */
+    }
+
+    .result {
+        background: #e6f7ff; /* Keep the same background color */
+    }
+
+    .settlement {
+        background: #d4edda; /* Keep the same background color */
+        text-align: left; /* Keep text alignment */
+    }
+}
+
+@media (max-width: 480px) {
+    .result, .settlement {
+        font-size: 12px; /* Further decrease font size for very small screens */
+        padding: 8px; /* Further reduce padding */
+        margin-top: 10px; /* Adjust margin for better spacing */
+    }
+
+    .result {
+        border-radius: 5px; /* Slightly reduce border radius */
+    }
+
+    .settlement {
+        border-radius: 5px; /* Slightly reduce border radius */
+    }
+}
+.ff{
     justify-items: center;
     margin: 15px auto;
 }
-    /* Container */
-    .container {
-        background: rgba(255, 255, 255, 0.2);
-        padding: 20px;
-        border-radius: 12px;
-        backdrop-filter: blur(10px);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        max-width: 500px;
-        margin: 10px auto;
-        text-align: center;
-    }
-
-    /* Buttons */
-    button {
-        background: #ffcc00;
-        color: black;
-        border: none;
-        padding: 12px;
-        margin: 10px;
-        border-radius: 8px;
-        cursor: pointer;
-        transition: 0.3s;
-        font-size: 16px;
-        font-weight: bold;
-        box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
-    }
-    button:hover {
-        background: #ff9900;
-        color: white;
-        transform: scale(1.05);
-    }
-
-    /* Coin Styling */
-    .coin-container, .dice-container {
-        margin-top: 20px;
-    }
-
-    .coin {
-        width: 100px;
-        height: 100px;
-        position: relative;
-        margin: auto;
-        transform-style: preserve-3d;
-        transition: transform 1s ease-in-out;
-    }
-    .coin img {
-        width: 100px;
-    }
-    .side {
-        position: absolute;
-        backface-visibility: hidden;
-    }
-    .tails {
-        transform: rotateY(180deg);
-    }
-    /* loader css */
+/* loader css */
 /* Full-Screen Loader */
 .loader-container {
             position: fixed;
@@ -513,8 +498,7 @@ display: flex;
             to { opacity: 1; transform: translateY(0); }
         }
 
-
-        </style>
+    </style>
 </head>
 <body>
     
@@ -525,8 +509,8 @@ display: flex;
             <div class="circle"></div>
         </div>
     </div>
-<!-- Header -->
-<div class="header">
+ <!-- Header -->
+ <div class="header">
     <h1>eHelpFullTools</h1>
 </div>
 
@@ -538,45 +522,70 @@ display: flex;
     <a href="contact.html">Contact Us</a>
 </div>
 
-<!-- short description about the calculator -->
+<!-- Short description about the Text to PDF Converter -->
 <div class="short-description">
-    <h2>About the Coin Flipper 🪙</h2>
-    <p>The <strong>Coin Flipper</strong> is a simple tool that helps you make quick decisions.  
-        Whether you're choosing between two options, deciding who goes first, or just having fun, this flipper ensures randomness and fairness.</p>
+    <h2>About the Moore Machine Table Generator ⚙️📊</h2>
+    <p>The <strong>Moore Machine Table Generator</strong> is a user-friendly tool that helps you create Moore machine transition tables dynamically from structured JSON input. Whether you're a student, researcher, or professional working with finite state machines, this tool simplifies the process of visualizing state transitions.</p>
     
     <h3>🚀 How to Use This Tool:</h3>
     <ul>
-        <li>🔹 Click the "Flip" button to toss the coin.</li>
-        <li>🔹 Wait for the result to display either "Heads" or "Tails".</li>
-        <li>🔹 Use the result to make your decision.</li>
-        <li>🔹 You can flip again for another random outcome.</li>
+        <li>🔹 <strong>Step 1:</strong> Enter the Moore machine problem in the provided text area.</li>
+        <li>🔹 <strong>Step 2:</strong> Click the <strong>"Go"</strong> button to format your problem  and then <strong>Copy it</strong> and enter in Chatgpt.</li>
+        <li>🔹 <strong>Step 3:</strong> Copy the generated JSON from Chatgpt and paste it into the JSON input field.</li>
+        <li>🔹 <strong>Step 4:</strong> Click the <strong>"Generate Table"</strong> button to create the transition table.</li>
+        <li>🔹 The tool will instantly display the state transitions and outputs in an easy-to-read format.</li>
     </ul>
-    
+
     <h3>📌 Why Use This Tool?</h3>
-    <p>✔️ <strong> Free </strong> to use and <strong> No</strong> signup required.<br>
-        ✔️ <strong>Quick and easy</strong> decision-making <br>
-       ✔️ <strong>Fun and engaging</strong> for all ages <br>
-       ✔️ <strong>Randomness</strong> ensures fairness in choices</p>
+    <p>✔️ <strong>Easy-to-Use:</strong> No need to manually create transition tables—just input the JSON and generate.<br>
+       ✔️ <strong>Interactive & Instant:</strong> Get your Moore machine transition table in seconds.<br>
+       ✔️ <strong>Educational & Professional:</strong> Ideal for automata theory learning and research.<br>
+       ✔️ <strong>Web-Based & Free:</strong> No installation required—use it on any device.<br>
+       ✔️ <strong>Structured Output:</strong> View and analyze the machine’s behavior in a clear tabular format.</p>
+
+    <h3>✨ Additional Features:</h3>
+    <ul>
+        <li>🔹 Auto-formatting of Moore machine problems into JSON for easy processing.</li>
+        <li>🔹 Supports multiple states, input symbols, and transition mappings.</li>
+        <li>🔹 Allows easy copying of JSON-formatted problems for use in other applications.</li>
+        <li>🔹 Intuitive interface with clear instructions and instant feedback.</li>
+    </ul>
 </div>
+
 
 <div class="ff">
     <p>Go down to explore more tools and Calculators.</p></div>
+<!-- tool code here -->
+<div class="container">
+    <h2>Moore Machine Problem Formatter</h2>
+    <textarea id="problemInput" placeholder="Enter Moore Machine problem..."></textarea>
+    <button onclick="formatProblem()">Format Problem</button>
+    <textarea id="resultOutput" readonly></textarea>
+    <button id="copyButton" onclick="copyResult()" style="display: none;">Copy Result</button>
+    <h2>Moore Machine Table Generator</h2>
+    <p>Enter Moore machine data in JSON format:</p>
+    <textarea id="jsonInput">{
+"states": ["q0", "q1", "q2"],
+"input_symbols": ["0", "1"],
+"transitions": {
+"q0": { "0": "q1", "1": "q2" },
+"q1": { "0": "q0", "1": "q2" },
+"q2": { "0": "q2", "1": "q0" }
+},
+"outputs": {
+"q0": "0",
+"q1": "0",
+"q2": "1"
+},
+"initial_state": "q0"
+}</textarea>
+    <button onclick="generateTable()">Generate Table</button>
+    <h3>Moore Machine Transition Table</h3>
+    <div id="tableContainer"></div>
+</div>
 
-    <div class="container">
-        <h1>🎲 Coin Flip & Dice Roll 🪙</h1>
 
-        <div class="coin-container">
-            <h2>🪙 Flip a Coin</h2>
-            <div class="coin" id="coin">
-                <div class="side heads"><img src="head.png" alt="Heads"></div>
-                <div class="side tails"><img src="tail.png" alt="Tails"></div>
-            </div>
-            <button id="flipCoin">Flip Coin</button>
-            <p id="coinResult"></p>
-        </div>
-
-    </div>
-    <!--about online tools-->
+<!--about online tools-->
 <section class="tool-info">
     <div class="endcontainer">
         <h2>Welcome to <span class="brand">eHelpfullTools</span> 🚀</h2>
@@ -617,9 +626,6 @@ display: flex;
             </div>
             <div class="tool-card">
                 <a href="text-to-pdf.html">📝➡️📄 Text File & PDF File Converter</a>
-            </div>
-            <div class="tool-card">
-                <a href="moore-machine-tool.html">⚙️📊 Moore Machine Table Generator</a>
             </div>
             <div class="tool-card">
                 <a href="comingsoon.html">🌍 Language Translator</a>
@@ -665,7 +671,7 @@ display: flex;
             documents, estimate travel expenses, or convert measurements, eHelpFullTools provides reliable solutions
             to enhance your productivity and simplify everyday tasks. Explore the site to discover how these helpful
             tools can assist you!</p>
-        <a href="contact.html" style="text-decoration: none;"><button type="button" id="bt" style="width: 150px;">Get in Touch</button></a>
+        <a href="contact.html" style="text-decoration: none;"><button type="button" id="bt" class="gbutton">Get in Touch</button></a>
     </div>
     <div class="welcome-image">
         <img src="home1.jpeg" alt="Illustration of eHelpFullTools features"> <!-- Replace with your image path -->
@@ -676,32 +682,61 @@ display: flex;
     <p>&copy; 2025 by eHelpFullTools. All rights reserved.</p>
 </footer>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
 <script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const coin = document.getElementById("coin");
-        const flipCoinBtn = document.getElementById("flipCoin");
-        const coinResult = document.getElementById("coinResult");
-darkModeBtn = document.getElementById("dark-mode");
-
-        // Coin Flip Function
-        flipCoinBtn.addEventListener("click", () => {
-            let flip = Math.random() < 0.5 ? "heads" : "tails";
-          // Add glow effect
-            coin.style.transform = "rotateY(1440deg)";
-
-            setTimeout(() => {
-                coin.style.transform = flip === "heads" ? "rotateY(0deg)" : "rotateY(180deg)";
-                coinResult.innerText = flip.toUpperCase() + "!";
-                coin.classList.remove("glow"); // Remove glow effect after flipping
-            }, 1000);
-        });
-    });
+     function generateTable() {
+            let input = document.getElementById("jsonInput").value;
+            let data;
+            try {
+                data = JSON.parse(input);
+            } catch (e) {
+                alert("Invalid JSON format. Please check your input.");
+                return;
+            }
+            let states = data.states;
+            let inputs = data.input_symbols;
+            let transitions = data.transitions;
+            let outputs = data.outputs;
+            let tableHTML = "<table><tr><th>State</th>";
+            inputs.forEach(input => {
+                tableHTML += `<th>Input ${input}</th>`;
+            });
+            tableHTML += "<th>Output (Present State)</th></tr>";
+            states.forEach(state => {
+                tableHTML += `<tr><td>${state}</td>`;
+                inputs.forEach(input => {
+                    let nextState = transitions[state][input] || "-";
+                    tableHTML += `<td>${nextState}</td>`;
+                });
+                tableHTML += `<td>${outputs[state]}</td></tr>`;
+            });
+            tableHTML += "</table>";
+            document.getElementById("tableContainer").innerHTML = tableHTML;
+        }
+        function formatProblem() {
+            const problem = document.getElementById("problemInput").value.trim();
+            if (problem === "") {
+                alert("Please enter a Moore machine problem.");
+                return;
+            }
+            const instruction = `\n\nConvert the following Moore machine problem into JSON format with this structure: \n> {\n>   \"states\": [...],  \n>   \"input_symbols\": [...],  \n>   \"transitions\": { ... },  \n>   \"outputs\": { ... },  \n>   \"initial_state\": \"...\"  \n> }\n> Ensure all states, inputs, transitions, outputs, and initial state are correctly defined.`;
+            const result = problem + instruction;
+            document.getElementById("resultOutput").value = result;
+            document.getElementById("copyButton").style.display = "block";
+        }
+        function copyResult() {
+            const resultText = document.getElementById("resultOutput");
+            resultText.select();
+            document.execCommand("copy");
+            alert("Formatted problem copied to clipboard!");
+        }
     window.addEventListener("load", () => {
-            const loader = document.querySelector(".loader-container");
-            const content = document.querySelector(".content");
+    const loader = document.querySelector(".loader-container");
+    const content = document.querySelector(".content");
 
-            // Smooth fade-out loader
-        loader.style.transition = "opacity 2.8s ease-out";
+    // Smooth fade-out loader
+    loader.style.transition = "opacity 2.8s ease-out";
         loader.style.opacity = "0";
 
         setTimeout(() => {
@@ -710,9 +745,7 @@ content.style.display = "block";
 content.classList.add("fade-in");
 }, 2800); // Loader hides after 800ms (0.8 seconds)
 
-
-        });
-</script>
+});</script>
 <script type="module">
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
