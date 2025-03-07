@@ -3,69 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>📏 Unit Converter - Convert Units Easily Online</title>
-<meta name="description" content="Convert units easily online with our free Unit Converter. Convert length, weight, temperature, and more!">
-<meta name="keywords" content="unit converter, online unit converter, free converter, convert units, length converter, weight converter">
-<meta property="og:title" content="Unit Converter - Convert Units Easily Online">
-<meta property="og:description" content="Use our free Unit Converter to convert various units such as length, weight, temperature, and more with ease.">
-<meta property="og:image" content="https://ehelpfultools.tech/assets/unit-converter.jpg">
-<meta property="og:url" content="https://ehelpfultools.tech/unit-converter.html">
-<meta name="twitter:title" content="Unit Converter - Convert Units Easily Online">
-<meta name="twitter:description" content="Easily convert between different units like length, weight, temperature, and more with our free online tool.">
-<meta name="twitter:image" content="https://ehelpfultools.tech/assets/unit-converter.jpg">
+    <title>⚙️📊 Mealy Machine Table Generator - Create Transition Tables Easily</title>
+    <meta name="description" content="Generate Mealy Machine transition tables easily from structured JSON input. A simple and interactive tool for automata theory and state machine design.">
+    <meta name="keywords" content="Mealy Machine, state machine, automata theory, transition table, online tool, finite state machine, FSM, computation theory">
+    <meta property="og:title" content="Mealy Machine Table Generator - Interactive FSM Tool">
+    <meta property="og:description" content="Create Mealy Machine transition tables dynamically from JSON input. Perfect for students and professionals studying automata theory.">
+    <meta property="og:image" content="https://ehelpfultools.tech/assets/mealy-machine-tool.jpg">
+    <meta property="og:url" content="https://ehelpfultools.tech/mealy-machine-tool.html">
+    <meta name="twitter:title" content="Mealy Machine Table Generator - Automata Theory Tool">
+    <meta name="twitter:description" content="Easily generate Mealy Machine transition tables from structured input. A great tool for learning automata theory and state machines.">
+    <meta name="twitter:image" content="https://ehelpfultools.tech/assets/mealy-machine-tool.jpg">    
+ 
 <meta name="google-adsense-account" content="ca-pub-8868584487794979">
-
     <link rel="icon" href="icon.png" type="image/x-icon" />
     <style>
         body {
             font-family: 'Arial', sans-serif;
             /* background: #f8f9fa; */
-            
 background-color: #f5f7fa;
             margin: 0;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
         }
-        /* tool css */
-        
-.container {
-    margin: 10px auto;
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
-    width: 350px;
-    text-align: center;
-}
+        /* tool css start */
+        .container {
+            width: 90%;
+            max-width: 800px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            margin  : 20px auto;
+            text-align: center;
+        }
 
-h1 {
-    color: #333;
-}
+        h2 {
+            color: #333;
+            margin-bottom: 15px;
+        }
 
-label {
-    display: block;
-    font-weight: bold;
-    margin-top: 10px;
-}
+        textarea {
+            width: 100%;
+            height: 120px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            resize: none;
+            transition: all 0.3s ease-in-out;
+        }
 
-select, input {
-    width: 100%;
-    padding: 8px;
-    margin: 5px 0;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
+        textarea:focus {
+            border-color: #007BFF;
+            outline: none;
+            box-shadow: 0px 0px 10px rgba(0, 123, 255, 0.2);
+        }
 
-.unit-selection {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 10px;
-}
+        button {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            background: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.3s ease-in-out;
+        }
 
-button {
-    width: 100%;
+        button:hover {
+            background: #0056b3;
+        }
+
+        #copyButton {
+            background: #28a745;
+        }
+
+        #copyButton:hover {
+            background: #1e7e34;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background: #007BFF;
+            color: white;
+        }
+
+        td {
+            background: #f9f9f9;
+        }
+
+       /* tool css end */
+       .gbutton {
+    width: 150px;
     background: #007bff;
     color: white;
     padding: 10px;
@@ -74,9 +121,10 @@ button {
     font-size: 16px;
     cursor: pointer;
     margin-top: 10px;
+    transition: 0.3s;
 }
 
-button:hover {
+.gbutton:hover {
     background: #0056b3;
 }
 
@@ -84,82 +132,7 @@ h2 {
     margin-top: 20px;
     color: #28a745;
 }
-        .ccontainer {
-            width: 90%;
-            max-width: 750px;
-            margin: 20px auto;  
-            background: white;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); 
-            text-align: center;
-            justify-content: center ;
-        }
-        h2 {
-            color: #007BFF;
-            font-size: 22px;
-            margin-bottom: 15px;
-        }
-        input, button {
-            width: 100%;
-            padding: 12px;
-            margin: 8px 0;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            font-size: 16px;
-        }
-        button {
-            background-color: #007BFF;
-            color: white;
-            cursor: pointer;
-            border: none;
-            font-weight: bold;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-        .result, .settlement {
-            font-size: 16px;
-            text-align: center;
-            margin-top: 20px;
-            color: #333;
-            padding: 12px;
-            border-radius: 6px;
-        }
-        .result {
-            background: #e6f7ff;
-        }
-        .settlement {
-            background: #d4edda;
-            text-align: left;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 15px;
-        }
-        th, td {
-            padding: 8px;
-            border: 1px solid #ccc;
-            text-align: center;
-        }
-        th {
-            background-color: #007BFF;
-            color: white;
-        }
-        .tick {
-            color: green;
-            font-weight: bold;
-        }
-        @media (max-width: 600px) {
-            .container {
-                width: 95%;
-            }
-            button {
-                font-size: 14px;
-            }
-        }
-      
+        
         /* Header section */
 .header {
     background-image: url('navbar.jpg'); /* Replace with your background image path */
@@ -226,7 +199,7 @@ h2 {
     margin-bottom: 40px; /* Adjusts space below the paragraph */
 }
 
-.welcome-text button {
+.welcome-text .gbutton {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
@@ -298,7 +271,7 @@ display: flex;
         /* background: linear-gradient(135deg, #f8f9fa, #e3f2fd); */
       
         border-radius: 10px;
-        margin: 10px auto;
+        margin: 50px auto;
         max-width: 900px;
         /* box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15); */
     }
@@ -465,7 +438,8 @@ display: flex;
     .settlement {
         border-radius: 5px; /* Slightly reduce border radius */
     }
-}.ff{
+}
+.ff{
     justify-items: center;
     margin: 15px auto;
 }
@@ -584,53 +558,55 @@ display: flex;
     <a href="contact.html">Contact Us</a>
 </div>
 
-<!-- short description about the calculator -->
+<!-- Short description about the Text to PDF Converter -->
 <div class="short-description">
-    <h2>About the Unit Converter 📏</h2>
-    <p>The <strong>Unit Converter</strong> is a versatile tool that allows you to convert between various units of measurement with ease.  
-        Whether you need to convert length, weight, temperature, currency, or more, this tool ensures quick and accurate results.</p>
+    <h2>About the Mealy Machine Table Generator ⚙️📊</h2>
+    <p>The <strong>Mealy Machine Table Generator</strong> is a user-friendly tool that helps you create Mealy machine transition tables dynamically from structured JSON input. Whether you're a student, researcher, or professional working with finite state machines, this tool simplifies the process of visualizing state transitions and outputs.</p>
     
     <h3>🚀 How to Use This Tool:</h3>
     <ul>
-        <li>🔹 Select the type of unit you want to convert (Length, Weight, Temperature, etc.).</li>
-        <li>🔹 Enter the value you wish to convert.</li>
-        <li>🔹 Choose the input and output units.</li>
-        <li>🔹 Instantly get the converted value displayed.</li>
+        <li>🔹 <strong>Step 1:</strong> Enter the Mealy machine problem in the provided text area.</li>
+        <li>🔹 <strong>Step 2:</strong> Click the <strong>"Go"</strong> button to format your problem and then <strong>Copy it</strong> and enter it in ChatGPT.</li>
+        <li>🔹 <strong>Step 3:</strong> Copy the generated JSON from ChatGPT and paste it into the JSON input field.</li>
+        <li>🔹 <strong>Step 4:</strong> Click the <strong>"Generate Table"</strong> button to create the transition table.</li>
+        <li>🔹 The tool will instantly display the state transitions along with their corresponding outputs in an easy-to-read format.</li>
     </ul>
-    
+
     <h3>📌 Why Use This Tool?</h3>
-    <p>✔️ <strong> Free </strong> to use and <strong> No</strong> signup required.<br>
-        ✔️ <strong>Quick and Accurate</strong> conversions for various unit types  <br>
-       ✔️ <strong>User-friendly</strong> interface for easy navigation  <br>
-       ✔️ <strong>Essential for daily calculations</strong>, travel, academics, and more</p>
+    <p>✔️ <strong>Easy-to-Use:</strong> No need to manually create transition tables—just input the JSON and generate.<br>
+       ✔️ <strong>Interactive & Instant:</strong> Get your Mealy machine transition table in seconds.<br>
+       ✔️ <strong>Educational & Professional:</strong> Ideal for automata theory learning and research.<br>
+       ✔️ <strong>Web-Based & Free:</strong> No installation required—use it on any device.<br>
+       ✔️ <strong>Structured Output:</strong> View and analyze the machine’s behavior with clear state transitions and outputs.</p>
+
+    <h3>✨ Additional Features:</h3>
+    <ul>
+        <li>🔹 Auto-formatting of Mealy machine problems into JSON for easy processing.</li>
+        <li>🔹 Supports multiple states, input symbols, and transition mappings.</li>
+        <li>🔹 Displays both next states and outputs for each transition.</li>
+        <li>🔹 Intuitive interface with clear instructions and instant feedback.</li>
+    </ul>
 </div>
+
+
 
 <div class="ff">
     <p>Go down to explore more tools and Calculators.</p></div>
+<!-- tool code here -->
 <div class="container">
-    <h1>Advanced Unit Converter</h1>
+    <h2>Mealy Machine Problem Formatter</h2>
+    <textarea id="problemInput" placeholder="Enter Mealy Machine problem..."></textarea>
+    <button onclick="formatProblem()">Format Problem</button>
+    <textarea id="resultOutput" readonly></textarea>
+    <button id="copyButton" onclick="copyResult()" style="display: none;">Copy Result</button>
 
-    <label for="unitType">Select Conversion Type:</label>
-    <select id="unitType" onchange="populateUnits()">
-        <option value="length">Length</option>
-        <option value="weight">Weight</option>
-        <option value="temperature">Temperature</option>
-        <option value="currency">Currency</option>
-    </select>
-
-    <label for="inputValue">Enter Value:</label>
-    <input type="number" id="inputValue" placeholder="Enter value">
-
-    <div class="unit-selection">
-        <select id="fromUnit"></select>
-        <span>➡️</span>
-        <select id="toUnit"></select>
-    </div>
-
-    <button onclick="convertUnits()">Convert</button>
-
-    <h2 id="result">Result will appear here</h2>
+    <h2>Mealy Machine Table Generator</h2>
+    <textarea id="mealyInput" rows="8" placeholder="Enter Mealy Machine JSON here..."></textarea>
+    <button onclick="generateMealyTable()">Generate Table</button>
+    <h3>Generated Table</h3>
+    <table id="mealyTable"></table>
 </div>
+
 <!--about online tools-->
 <section class="tool-info">
     <div class="endcontainer">
@@ -710,7 +686,6 @@ display: flex;
     <p>We're continuously improving and adding new tools for a <strong>smarter and faster experience</strong>. Stay
         connected and explore our growing collection of useful tools!</p>
 
-
 </section>
 
 <!-- Welcome Section -->
@@ -724,7 +699,7 @@ display: flex;
             documents, estimate travel expenses, or convert measurements, eHelpFullTools provides reliable solutions
             to enhance your productivity and simplify everyday tasks. Explore the site to discover how these helpful
             tools can assist you!</p>
-        <a href="contact.html" style="text-decoration: none;"><button type="button" id="bt">Get in Touch</button></a>
+        <a href="contact.html" style="text-decoration: none;"><button type="button" id="bt" class="gbutton">Get in Touch</button></a>
     </div>
     <div class="welcome-image">
         <img src="home1.jpeg" alt="Illustration of eHelpFullTools features"> <!-- Replace with your image path -->
@@ -734,105 +709,73 @@ display: flex;
 <footer class="footer">
     <p>&copy; 2025 by eHelpFullTools. All rights reserved.</p>
 </footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
 <script>
-    const units = {
-    length: {
-        "meter": 1,
-        "kilometer": 0.001,
-        "centimeter": 100,
-        "millimeter": 1000,
-        "mile": 0.000621371,
-        "yard": 1.09361,
-        "foot": 3.28084,
-        "inch": 39.3701
-    },
-    weight: {
-        "gram": 1,
-        "kilogram": 0.001,
-        "pound": 0.00220462,
-        "ounce": 0.035274,
-        "ton": 0.000001
-    },
-    temperature: {
-        "celsius": "C",
-        "fahrenheit": "F",
-        "kelvin": "K"
-    },
-    currency: {
-        "usd": 1,
-        "eur": 0.92,
-        "gbp": 0.78,
-        "inr": 83.0,
-        "jpy": 145.0
-    }
-};
+     function formatProblem() {
+            const problem = document.getElementById("problemInput").value.trim();
+            if (problem === "") {
+                alert("Please enter a Mealy machine problem.");
+                return;
+            }
+            const instruction = `\n\n>  Extract the Mealy machine's transition table and output exactly as given in the problem and convert it into a structured JSON format: \n> \`\`\`json\n> {\n>   "states": [...],  \n>   "input_symbols": [...],  \n>   "transitions": { \n>     "state": { "input": ["next_state", "output"] } \n>   },  \n>   "initial_state": "..."  \n> }\n> \`\`\`\n>  Ensure correctness in transitions, outputs, and JSON formatting for direct web application use. `;
 
-// Populate dropdowns based on selected type
-function populateUnits() {
-    const unitType = document.getElementById("unitType").value;
-    const fromUnit = document.getElementById("fromUnit");
-    const toUnit = document.getElementById("toUnit");
-
-    fromUnit.innerHTML = "";
-    toUnit.innerHTML = "";
-
-    for (const key in units[unitType]) {
-        fromUnit.add(new Option(key.charAt(0).toUpperCase() + key.slice(1), key));
-        toUnit.add(new Option(key.charAt(0).toUpperCase() + key.slice(1), key));
-    }
-}
-
-// Conversion logic
-function convertUnits() {
-    const unitType = document.getElementById("unitType").value;
-    const inputValue = parseFloat(document.getElementById("inputValue").value);
-    const fromUnit = document.getElementById("fromUnit").value;
-    const toUnit = document.getElementById("toUnit").value;
-    let result = 0;
-
-    if (isNaN(inputValue)) {
-        document.getElementById("result").innerText = "Please enter a valid number!";
-        return;
-    }
-
-    if (unitType === "length" || unitType === "weight") {
-        result = inputValue * (units[unitType][toUnit] / units[unitType][fromUnit]);
-    }
-    
-    else if (unitType === "temperature") {
-        if (fromUnit === "celsius") {
-            if (toUnit === "fahrenheit") result = (inputValue * 9/5) + 32;
-            else if (toUnit === "kelvin") result = inputValue + 273.15;
-            else result = inputValue;
-        } 
-        else if (fromUnit === "fahrenheit") {
-            if (toUnit === "celsius") result = (inputValue - 32) * 5/9;
-            else if (toUnit === "kelvin") result = (inputValue - 32) * 5/9 + 273.15;
-            else result = inputValue;
-        } 
-        else if (fromUnit === "kelvin") {
-            if (toUnit === "celsius") result = inputValue - 273.15;
-            else if (toUnit === "fahrenheit") result = (inputValue - 273.15) * 9/5 + 32;
-            else result = inputValue;
+            const result = problem + instruction;
+            document.getElementById("resultOutput").value = result;
+            document.getElementById("copyButton").style.display = "block";
         }
-    }
 
-    else if (unitType === "currency") {
-        result = inputValue * (units.currency[toUnit] / units.currency[fromUnit]);
-    }
+        function copyResult() {
+            const resultText = document.getElementById("resultOutput");
+            resultText.select();
+            document.execCommand("copy");
+            alert("Formatted problem copied to clipboard!");
+        }
 
-    document.getElementById("result").innerText = `Result: ${result.toFixed(4)} ${toUnit.toUpperCase()}`;
-}
+        function generateMealyTable() {
+            let input = document.getElementById("mealyInput").value;
+            try {
+                let data = JSON.parse(input);
+                let states = data.states;
+                let inputs = data.input_symbols;
+                let transitions = data.transitions;
 
-// Load initial unit options
-document.getElementById("unitType").addEventListener("change", populateUnits);
-window.onload = populateUnits;
-window.addEventListener("load", () => {
-            const loader = document.querySelector(".loader-container");
-            const content = document.querySelector(".content");
+                let table = document.getElementById("mealyTable");
+                table.innerHTML = "";
 
-       // Smooth fade-out loader
-       loader.style.transition = "opacity 2.8s ease-out";
+                let headerRow = "<tr><th>Present State</th>";
+                inputs.forEach(input => {
+                    headerRow += `<th>Input ${input}</th>`;
+                });
+                headerRow += "</tr>";
+                table.innerHTML += headerRow;
+
+                states.forEach(state => {
+                    let row = `<tr><td>${state}</td>`;
+                    inputs.forEach(input => {
+                        if (transitions[state] && transitions[state][input]) {
+                            let [nextState, output] = transitions[state][input];
+                            row += `<td>${nextState}, ${output}</td>`;
+                        } else {
+                            row += "<td>-</td>";
+                        }
+                    });
+                    row += "</tr>";
+                    table.innerHTML += row;
+                });
+
+            } catch (error) {
+                alert("Invalid JSON format. Please enter a valid Mealy Machine description.");
+            }
+        }
+
+    window.addEventListener("load", () => {
+    const loader = document.querySelector(".loader-container");
+    const content = document.querySelector(".content");
+
+    // Smooth fade-out loader
+    loader.style.transition = "opacity 2.8s ease-out";
         loader.style.opacity = "0";
 
         setTimeout(() => {
@@ -840,8 +783,8 @@ loader.style.display = "none";
 content.style.display = "block";
 content.classList.add("fade-in");
 }, 2800); // Loader hides after 800ms (0.8 seconds)
-  }); 
-</script>
+
+});</script>
 <script type="module">
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
