@@ -987,6 +987,12 @@ function calculateUnequalSplit() {
         personExpenses.push({ id: i, paid: paidTotal, share: shareTotal });
         totalExpenses += shareTotal;
     }
+    let totalPaid = personExpenses.reduce((sum, person) => sum + person.paid, 0);
+
+if (Math.abs(totalPaid - totalExpenses) > 0.01) {  
+    alert(`Error: Total paid (₹${totalPaid.toFixed(2)}) and total shared (₹${totalExpenses.toFixed(2)}) do not match!`);  
+    return; // Stop execution if there is a mismatch  
+}
 
     document.getElementById("totalExpense").innerText = totalExpenses.toFixed(2);
 
