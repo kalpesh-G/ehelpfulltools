@@ -823,7 +823,8 @@ display: flex;
     <p>&copy; 2025 by eHelpFullTools. All rights reserved.</p>
 </footer>
 
-<script>function calculateAge() {
+<script>
+function calculateAge() {
     let dobInput = document.getElementById("dob").value;
     let endDateInput = document.getElementById("end-date").value;
 
@@ -854,9 +855,23 @@ display: flex;
         ageMonths += 12;
     }
 
-    let ageHours = ageYears * 365 * 24;
-    let ageMinutes = ageHours * 60;
-    let ageSeconds = ageMinutes * 60;
+    let totalDays = Math.floor((endDate - dob) / (1000 * 60 * 60 * 24)); // Total days lived
+
+    let ageHours, ageMinutes, ageSeconds;
+
+    if (ageYears > 0) {
+        ageHours = ageYears * 365 * 24;
+        ageMinutes = ageHours * 60;
+        ageSeconds = ageMinutes * 60;
+    } else if (ageMonths > 0) {
+        ageHours = ageMonths * 30 * 24;  // Approximate month-based calculation
+        ageMinutes = ageHours * 60;
+        ageSeconds = ageMinutes * 60;
+    } else {
+        ageHours = totalDays * 24;  // If only days are available
+        ageMinutes = ageHours * 60;
+        ageSeconds = ageMinutes * 60;
+    }
 
     document.getElementById("result").innerHTML = `
         🎉 You are <b>${ageYears}</b> years, <b>${ageMonths}</b> months, and <b>${ageDays}</b> days old!<br>
@@ -902,7 +917,9 @@ display: flex;
     }
 
     document.getElementById("achievement").innerHTML = `🏆 Did you know? <b>${selectedAchievement}</b>`;
-}   // Hide loader after page loads with smooth transition
+}
+
+// Hide loader after page loads with smooth transition
 window.addEventListener("load", () => {
             const loader = document.querySelector(".loader-container");
             const content = document.querySelector(".content");
@@ -914,18 +931,7 @@ window.addEventListener("load", () => {
 loader.style.display = "none";
 content.style.display = "block";
 content.classList.add("fade-in");
-}, 2800); // Loader hides after 800ms (0.8 seconds)
-
-//             // Smooth fade-out loader
-//             loader.style.transition = "opacity 3.8s ease-out";
-//             loader.style.opacity = "0";
-
-//             setTimeout(() => {
-//     loader.style.display = "none";
-//     content.style.display = "block";
-//     content.classList.add("fade-in");
-// }, 8000); // Loader hides after 800ms (0.8 seconds)
-
+}, 2800);
         });
 
     </script>

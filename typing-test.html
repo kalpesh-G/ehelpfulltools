@@ -853,18 +853,30 @@ loader.style.display = "none";
 }, 2800); // Loader hides after 800ms (0.8 seconds)
 
 });
+let totalWordsTyped = 0; // Global counter for all words typed
+
 const typingTexts = [
-            "The quick brown fox jumps over the lazy dog.",
-            "Typing is a skill that requires constant practice.",
-            "Speed and accuracy are key to fast typing.",
-            "A good typist can type without looking at the keyboard.",
-            "Challenge yourself to type faster every day.",
-            "Consistency in practice leads to improved typing speed.",
-            "Keep your hands steady and focus on accuracy.",
-            "The best way to improve typing is daily practice.",
-            "Typing fast helps in increasing productivity.",
-            "Keyboard shortcuts save time and effort.", "Life is a journey, not a destination.", "The sun sets in the west.", "Happiness is found in the little things.", "Knowledge is power.", "Dream big and dare to fail.", "Every day is a new beginning.", "The only limit is your mind.", "Believe in yourself and all that you are.", "Change is the only constant in life.", "Kindness is free, sprinkle it everywhere.", "Success is not the key to happiness.", "You are never too old to set another goal.", "The best way to predict the future is to create it.", "In the end, we only regret the chances we didn't take.", "Your vibe attracts your tribe.", "The only way to do great work is to love what you do.", "Mistakes are proof that you are trying.", "Life is 10% what happens to us and 90% how we react to it.", "Stay positive, work hard, make it happen.", "The journey of a thousand miles begins with one step.", "What lies behind us and what lies before us are tiny matters compared to what lies within us."
-        ];
+    "The quick brown fox jumps over the lazy dog.",
+    "Typing is a skill that requires constant practice.",
+    "Speed and accuracy are key to fast typing.",
+    "A good typist can type without looking at the keyboard.",
+    "Challenge yourself to type faster every day.",
+    "Consistency in practice leads to improved typing speed.",
+    "Keep your hands steady and focus on accuracy.",
+    "The best way to improve typing is daily practice.",
+    "Typing fast helps in increasing productivity.",
+    "Keyboard shortcuts save time and effort.",
+    "Life is a journey, not a destination.",
+    "The sun sets in the west.",
+    "Happiness is found in the little things.",
+    "Knowledge is power.",
+    "Dream big and dare to fail.",
+    "Every day is a new beginning.",
+    "The only limit is your mind.",
+    "Believe in yourself and all that you are.",
+    "Change is the only constant in life.",
+    "Kindness is free, sprinkle it everywhere."
+];
 
 const textDisplay = document.getElementById("text-to-type");
 const typingArea = document.getElementById("typing-area");
@@ -883,6 +895,11 @@ let isTyping = false;
 let correctChars = 0;
 let totalChars = 0;
 let startTime;
+
+// **Detect if Mobile**
+function isMobile() {
+    return /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+}
 
 // **Start Typing Test**
 function startTypingTest() {
@@ -932,7 +949,7 @@ function showNextLine() {
 // **Typing Logic**
 typingArea.addEventListener("input", () => {
     startTimer();
-    
+
     let typedText = typingArea.value;
     totalChars = typedText.length;
     correctChars = 0;
@@ -945,11 +962,12 @@ typingArea.addEventListener("input", () => {
 
     // **Check if the user completed the current line correctly**
     if (typedText === currentText) {
+        totalWordsTyped += typedText.trim().split(/\s+/).length; // Add words from completed line
         showNextLine(); // Show new line after correct typing
     }
 
     let elapsedTime = (parseInt(timeSelect.value) - timeLeft) / 60;
-    let wpm = Math.round((correctChars / 5) / elapsedTime);
+    let wpm = Math.round((totalWordsTyped / elapsedTime)); // Use total words typed
     let accuracy = totalChars > 0 ? Math.round((correctChars / totalChars) * 100) : 100;
 
     wpmDisplay.innerText = isNaN(wpm) ? 0 : wpm;
@@ -958,17 +976,27 @@ typingArea.addEventListener("input", () => {
 
 // **Show Final Score Card**
 function showScoreCard() {
-    let wordsTyped = typingArea.value.trim().split(" ").length;
-    let finalWPM = Math.round((wordsTyped / parseInt(timeSelect.value)) * 60);
-    let accuracy = totalChars > 0 ? Math.round((correctChars / totalChars) * 100) : 100;
+    let timeSelected = parseInt(timeSelect.value);
+    let finalWPM, accuracy;
 
-    // Display score card with final results
+    if (isMobile()) {
+        // **Alternative WPM Calculation for Mobile**
+        finalWPM = Math.round((correctChars / 5) / (timeSelected / 60));
+    } else {
+        // **Normal Calculation for Desktop**
+        finalWPM = Math.round((totalWordsTyped / timeSelected) * 60);
+    }
+
+    accuracy = totalChars > 0 ? Math.round((correctChars / totalChars) * 100) : 100;
+
+    // Display score card with mobile detection
     scoreCard.innerHTML = `
         <h2>🎯 Typing Test Completed!</h2>
         <p><strong>Words Per Minute (WPM):</strong> ${finalWPM}</p>
         <p><strong>Accuracy:</strong> ${accuracy}%</p>
-        <p><strong>Total Words Typed:</strong> ${wordsTyped}</p>
-        <p><strong>Time Taken:</strong> ${parseInt(timeSelect.value) - timeLeft} seconds</p>
+        <p><strong>Total Words Typed:</strong> ${totalWordsTyped}</p>
+        <p><strong>Time Taken:</strong> ${timeSelected - timeLeft} seconds</p>
+        <p><strong>Device:</strong> ${isMobile() ? "📱 Mobile" : "💻 PC"}</p>
     `;
     scoreCard.style.display = "block";
 }
@@ -985,6 +1013,7 @@ startTestBtn.addEventListener("click", () => {
 
 // **Initialize Test**
 startTypingTest();
+
 </script>
 <script type="module">
     // Import the functions you need from the SDKs you need

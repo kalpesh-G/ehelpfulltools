@@ -3,184 +3,1087 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mealy Machine Table Generator</title>
+    <link rel="icon" href="icon.png" type="image/x-icon" />
+    <title>🎂 Advanced Age Calculator - Find Your Exact Age Instantly</title>
+<meta name="description" content="Calculate your exact age in years, months, days, and even seconds with our free age calculator. No signup required!">
+<meta name="keywords" content="age calculator, birthday calculator, calculate my age, online age calculator, date of birth calculator">
+<link rel="canonical" href="https://ehelpfultools.tech/age-calculator.html" />
+<meta property="og:title" content="Age Calculator - Find Your Exact Age" />
+<meta property="og:description" content="Calculate your age in seconds! Get precise results for years, months, days, and more." />
+<meta property="og:image" content="https://ehelpfultools.tech/assets/age-calculator-preview.jpg" />
+<meta property="og:url" content="https://ehelpfultools.tech/age-calculator.html" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Age Calculator - Find Your Exact Age" />
+<meta name="twitter:description" content="Easily calculate your age in years, months, and days." />
+<meta name="twitter:image" content="https://ehelpfultools.tech/assets/age-calculator-preview.jpg" />
+<meta name="robots" content="index, follow" />
+<meta name="google-adsense-account" content="ca-pub-8868584487794979">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
-        }
-
         body {
-            background: #f4f4f9;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            font-family: 'Arial', sans-serif;
+            /* background: #f8f9fa; */
+            
+background-color: #f5f7fa;
+            margin: 0;
             justify-content: center;
-            padding: 20px;
+            align-items: center;
+            min-height: 100vh;
         }
+        /* tool css */
 
-        .container {
+.container {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    width: 500px;
+    text-align: center;
+    margin: 10px auto;
+}
+
+h1 {
+    color: #007BFF;
+    font-size: 24px;
+}
+
+.date-inputs {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+}
+
+.date-inputs div {
+    width: 48%;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+button {
+    width: 100%;
+    background: #007BFF;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+.result-card {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 15px;
+    margin-top: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 600px) {
+    .container {
+        width: 90%;
+        padding: 20px;
+    }
+    
+    .date-inputs {
+        flex-direction: column;
+    }
+
+    .date-inputs div {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+}
+
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    width: 350px;
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+select, input {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.unit-selection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+button {
+    width: 100%;
+    background: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+h2 {
+    margin-top: 20px;
+    color: #28a745;
+}
+        .ccontainer {
             width: 90%;
-            max-width: 800px;
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
+            max-width: 750px;
+            margin: 20px auto;  
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); 
             text-align: center;
+            justify-content: center ;
         }
-
         h2 {
-            color: #333;
+            color: #007BFF;
+            font-size: 22px;
             margin-bottom: 15px;
         }
-
-        textarea {
-            width: 100%;
-            height: 120px;
-            padding: 10px;
-            font-size: 16px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            resize: none;
-            transition: all 0.3s ease-in-out;
-        }
-
-        textarea:focus {
-            border-color: #007BFF;
-            outline: none;
-            box-shadow: 0px 0px 10px rgba(0, 123, 255, 0.2);
-        }
-
-        button {
+        input, button {
             width: 100%;
             padding: 12px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
             font-size: 16px;
-            background: #007BFF;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
             cursor: pointer;
-            margin-top: 10px;
-            transition: background 0.3s ease-in-out;
+            border: none;
+            font-weight: bold;
         }
-
         button:hover {
-            background: #0056b3;
+            background-color: #0056b3;
         }
-
-        #copyButton {
-            background: #28a745;
+        .result, .settlement {
+            font-size: 16px;
+            text-align: center;
+            margin-top: 20px;
+            color: #333;
+            padding: 12px;
+            border-radius: 6px;
         }
-
-        #copyButton:hover {
-            background: #1e7e34;
+        .result {
+            background: #e6f7ff;
         }
-
+        .settlement {
+            background: #d4edda;
+            text-align: left;
+        }
         table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 15px;
-            background: #fff;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
         }
-
         th, td {
-            border: 1px solid #ddd;
-            padding: 10px;
+            padding: 8px;
+            border: 1px solid #ccc;
             text-align: center;
         }
-
         th {
-            background: #007BFF;
+            background-color: #007BFF;
             color: white;
         }
-
-        td {
-            background: #f9f9f9;
+        .tick {
+            color: green;
+            font-weight: bold;
         }
-    </style>
+        @media (max-width: 600px) {
+            .container {
+                width: 95%;
+            }
+            button {
+                font-size: 14px;
+            }
+        }
+      
+        /* Header section */
+.header {
+    background-image: url('navbar.jpg'); /* Replace with your background image path */
+    background-size: cover;
+    background-position: center;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+.header h1 {
+    font-size: 3em;
+    margin: 0;
+    color: black;
+}
+
+/* Navigation */
+.navbar {
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.navbar a {
+    margin: 5px 40px;
+    color: #333;
+    text-decoration: none;
+}
+.navbar a.active{
+    color: #007BFF;
+}
+.navbar a:hover {
+    color: #007BFF;
+}
+
+/* Welcome Section */
+.welcome-section {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 50px;
+}
+.welcome-text {
+    flex: 1;
+    padding: 20px;
+    min-width: 300px;
+}
+.welcome-text h1 {
+    font-size: 2.5em;
+    margin-bottom: 50px; /* Adjusts space below the heading */
+}
+
+.welcome-text h3 {
+    font-size: 1.8em;
+    margin-bottom: 30px; /* Adds space below the subheading */
+}
+
+.welcome-text p {
+    line-height: 1.6;
+    color: #666;
+    font-size: 25px;
+    margin-bottom: 40px; /* Adjusts space below the paragraph */
+}
+
+.welcome-text button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 50px; /* Adds space above the button */
+}
+
+.welcome-image {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 300px;
+}
+.welcome-image img {
+    max-width: 100%;
+    height: auto;
+}
+#bt{
+border-radius: 0%;
+display: flex;
+ }
+ .footer {
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+    color: #666;
+}
+
+.footer hr {
+    width: 90%;
+    border: none;
+    border-top: 1px solid #e0e0e0;
+    margin: 0 auto 10px;
+}
+
+.footer p {
+    margin: 20px 0px;
+}
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 2em;
+    }
+    .navbar a {
+        font-size: 0.9em;
+        margin: 0 10px;
+    }
+    .welcome-section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 20px 10px;
+    }
+    .welcome-text h1 {
+        font-size: 1.8em;
+    }
+    .welcome-text {
+        padding: 10px;
+    }
+
+    .header h1{
+        color: white;
+        }}
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+ /* endsection css */
+ .tool-info {
+        text-align: center;
+        padding: 20px 20px;
+        /* background: linear-gradient(135deg, #f8f9fa, #e3f2fd); */
+      
+        border-radius: 10px;
+        margin: 10px auto;
+        max-width: 900px;
+        /* box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15); */
+    }
+
+    .endcontainer {
+        max-width: 800px;
+        margin: auto;
+    }
+
+    .tool-info h2 {
+        font-size: 2.5rem;
+        color: #333;
+        margin-bottom: 15px;
+    }
+
+    .brand {
+        color: #007bff;
+        font-weight: bold;
+    }
+
+    .tool-info p {
+        font-size: 1.2rem;
+        color: #555;
+        margin-bottom: 25px;
+    }
+
+    
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .tool-info {
+            padding: 40px 15px;
+        }
+
+        .tool-info h2 {
+            font-size: 2rem;
+        }
+
+    }
+    .incontainer {
+            max-width: 800px;
+            margin: 10px auto;
+            padding: 20px;
+        }
+    .tools {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .tool-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            text-align: center;
+            
+        }
+        .tool-card:hover {
+            transform: scale(1.05);
+        }
+        .tool-card i {
+            font-size: 40px;
+            color: #007BFF;
+            margin-bottom: 10px;
+        }
+        .tool-card a {
+            display: block;
+            font-size: 1.2rem;
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 10px;
+            
+        }
+        .tool-card a:hover {
+            color: #007BFF;
+        }
+        .tools-overview {
+            padding: 50px;
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            max-width: 600px;
+            margin: auto;
+        }
+   /* ========== Short Description Styling ========== */
+.short-description {
+    text-align: left;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.short-description h2 {
+    color: #007BFF;
+    font-size: 1.8rem;
+}
+
+.short-description h3 {
+    color: #333;
+    margin-top: 15px;
+}
+
+.short-description p {
+    font-size: 1rem;
+    color: #555;
+}
+
+.short-description ul {
+    list-style: none;
+    padding: 0;
+}
+
+.short-description ul li {
+    font-size: 1rem;
+    color: #555;
+    padding-left: 25px;
+    position: relative;
+    margin-bottom: 8px;
+}
+
+.short-description ul li::before {
+    content: "✔️";
+    position: absolute;
+    left: 0;
+    color: #007BFF;
+    font-size: 1.2rem;
+}
+/* Responsive adjustments for .result and .settlement */
+@media (max-width: 768px) {
+    .result, .settlement {
+        font-size: 14px; /* Decrease font size for smaller screens */
+        padding: 10px; /* Reduce padding for smaller screens */
+        margin-top: 15px; /* Adjust margin for better spacing */
+    }
+
+    .result {
+        background: #e6f7ff; /* Keep the same background color */
+    }
+
+    .settlement {
+        background: #d4edda; /* Keep the same background color */
+        text-align: left; /* Keep text alignment */
+    }
+}
+
+@media (max-width: 480px) {
+    .result, .settlement {
+        font-size: 12px; /* Further decrease font size for very small screens */
+        padding: 8px; /* Further reduce padding */
+        margin-top: 10px; /* Adjust margin for better spacing */
+    }
+
+    .result {
+        border-radius: 5px; /* Slightly reduce border radius */
+    }
+
+    .settlement {
+        border-radius: 5px; /* Slightly reduce border radius */
+    }
+}
+.ff{
+    justify-items: center;
+    margin: 15px auto;
+}
+/* loader css */
+/* Full-Screen Loader */
+.loader-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .loader {
+            position: relative;
+            width: 100px;
+            height: 100px;
+        }
+
+        /* Rotating Hexagon */
+        .hexagon {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.8);
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            animation: rotateHexagon 2s linear infinite;
+        }
+
+        @keyframes rotateHexagon {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.2); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+
+        /* Spinning Triangle */
+        .triangle {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.7);
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            top: 10px;
+            left: 10px;
+            animation: spinTriangle 1.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes spinTriangle {
+            0% { transform: translateY(0px) rotate(0deg); }
+            100% { transform: translateY(-15px) rotate(30deg); }
+        }
+
+        /* Pulsating Circle */
+        .circle {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: pulseCircle 1.2s ease-in-out infinite;
+        }
+
+        @keyframes pulseCircle {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.4); opacity: 0.5; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* Page Content (Hidden Initially) */
+        .content {
+            display: none;
+            text-align: center;
+            padding: 50px;
+            font-size: 24px;
+        }
+
+        /* Smooth Fade-In Effect */
+        .fade-in {
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+ </style>
 </head>
 <body>
+    <div class="loader-container">
+        <div class="loader">
+            <div class="hexagon"></div>
+            <div class="triangle"></div>
+            <div class="circle"></div>
+        </div>
+    </div>
+    
+    
 
-    <div class="container">
-        <h2>Mealy Machine Problem Formatter</h2>
-        <textarea id="problemInput" placeholder="Enter Mealy Machine problem..."></textarea>
-        <button onclick="formatProblem()">Format Problem</button>
-        <textarea id="resultOutput" readonly></textarea>
-        <button id="copyButton" onclick="copyResult()" style="display: none;">Copy Result</button>
+
+     
+ <!-- Header -->
+ <div class="header">
+    <h1>eHelpFullTools</h1>
+</div>
+
+<!-- Navbar -->
+<div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="OnlineTools.html" class="active">Online Tools</a>
+    <a href="service.html">Services</a>
+    <a href="contact.html">Contact Us</a>
+</div>
+
+<!-- short description about the calculator -->
+<div class="short-description">
+    <h2>About the Age Calculator 🎂</h2>
+    <p>The <strong>Age Calculator</strong> helps you determine your exact age in years, months, and days.  
+        It also provides fun insights about milestones, famous achievements at your age, and more.</p>
+    
+    <h3>🚀 How to Use This Tool:</h3>
+    <ul>
+        <li>🔹 Enter your birth date.</li>
+        <li>🔹 Select the date up to which you want to calculate your age.</li>
+        <li>🔹 Instantly see your age in years, months, and days.</li>
+        <li>🔹 Get fun facts, age-related quotes, and historical achievements at your age.</li>
+    </ul>
+    
+    <h3>📌 Why Use This Tool?</h3>
+    <p>✔️ <strong> Free </strong> to use and <strong> No</strong> signup required.<br>
+   ✔️ <strong>Precise age calculation</strong> in different formats  <br>
+       ✔️ <strong>Fun and engaging</strong> with quotes and milestones  <br>
+       ✔️ <strong>Useful for official documents</strong>, birthday tracking, and more</p>
+</div>
+
+<div class="ff">
+    <p>Go down to explore more tools and Calculators.</p></div>
+<!-- tool code here -->
+<div class="container">
+    <h1>Advanced Age Calculator 🎂</h1>
+
+    <div class="date-inputs">
+        <div>
+            <label for="dob">From (Birth Date):</label>
+            <input type="date" id="dob">
+        </div>
+        <div>
+            <label for="end-date">To (End Date):</label>
+            <input type="date" id="end-date">
+        </div>
     </div>
 
-    <div class="container">
-        <h2>Mealy Machine Table Generator</h2>
-        <textarea id="mealyInput" rows="8" placeholder="Enter Mealy Machine JSON here..."></textarea>
-        <button onclick="generateMealyTable()">Generate Table</button>
-        <h3>Generated Table</h3>
-        <table id="mealyTable"></table>
+    <button onclick="calculateAge()">Calculate Age</button>
+    
+    <div id="result" class="result-card"></div>
+    <div id="funMessage" class="result-card"></div>
+    <div id="achievement" class="result-card"></div>
+</div>
+<!--about online tools-->
+<section class="tool-info">
+    <div class="endcontainer">
+        <h2>Welcome to <span class="brand">eHelpfullTools</span> 🚀</h2>
+        <p>eHelpfullTools is your ultimate online toolkit, offering a range of powerful and easy-to-use tools to
+            simplify your daily tasks. Whether you need to edit text, estimate fuel costs, or calculate loans, we’ve
+            got you covered!</p>
+
+        <h3>Explore More Tools 🔍</h3>
+
     </div>
 
-    <script>
-        function formatProblem() {
-            const problem = document.getElementById("problemInput").value.trim();
-            if (problem === "") {
-                alert("Please enter a Mealy machine problem.");
-                return;
-            }
-            const instruction = `\n\n>  Extract the Mealy machine's transition table and output exactly as given in the problem and convert it into a structured JSON format: \n> \`\`\`json\n> {\n>   "states": [...],  \n>   "input_symbols": [...],  \n>   "transitions": { \n>     "state": { "input": ["next_state", "output"] } \n>   },  \n>   "initial_state": "..."  \n> }\n> \`\`\`\n>  Ensure correctness in transitions, outputs, and JSON formatting for direct web application use. `;
+    <div class="incontainer">
+        <div class="tools">
+            <div class="tool-card">
+                <i class="fas fa-edit"></i>
+                <a href="text-editor.html">📝 Online Text Editor</a>
+            </div>
+            <div class="tool-card">
+                <a href="typing-test.html">⌨ Typing Speed Test</a>
+            </div>
+            <div class="tool-card">
+                <a href="FuelCalculator.html">⛽ Fuel Cost Estimator</a>
+            </div>
+            <div class="tool-card">
+                <a href="split-bill.html">💰 Advanced Split Bill Calculator</a>
+            </div>
+            <div class="tool-card">
+                <a href="cooking-converter.html">🥣 Cooking Measurement Converter</a>
+            </div>
+            <div class="tool-card">
+                <a href="unit-converter.html">📏 Unit Converter</a>
+            </div>
+            <div class="tool-card">
+                <a href="age-calculator.html">🎂 Advanced Age Calculator</a>
+            </div>
+            <div class="tool-card">
+                <a href="meditation-timer.html">🧘‍♂️ Meditation Timer</a>
+            </div>
+            <div class="tool-card">
+                <a href="text-to-pdf.html">📝➡️📄 Text File & PDF File Converter</a>
+            </div>
+            <div class="tool-card">
+                <a href="moore-machine-tool.html">⚙️📊 Moore Machine Table Generator</a>
+            </div>
+            <div class="tool-card">
+                <a href="mealy-machine-tool.html">📊⚙️ Mealy Machine Table Generator</a>
+            </div>
+            <div class="tool-card">
+                <a href="comingsoon.html">🌍 Language Translator</a>
+            </div>
+            <div class="tool-card">
+                <a href="comingsoon.html">🔢 Word & Character Counter</a>
+            </div>
+        </div>
+        <h3 style="margin-top: 20px;">Explore Fun  Tools 😄</h3>
+        <div class="incontainer">
+            <div class="tools">
+            <div class="tool-card">
+                <a href="colour-tool.html">🎨 Fun Color Picker & Mixer</a>
+            </div>
+            <div class="tool-card">
+                <a href="ascii-art.html">ᓚ₍ ^. .^₎ ASCII Art Generator</a>
+            </div>
+            
+            <div class="tool-card">
+                <a href="personalitycheck.html">🎭 Ultimate Personality Quiz</a>
+            </div>
+            <div class="tool-card">
+                <a href="coin-flip.html">🪙 Flip the Coin</a>
+            </div>
+            <div class="tool-card">
+                <a href="drawing-board.html">🎨 Online Drawing Board</a>
+            </div>
+        </div>
+    </div>
+    <p>We're continuously improving and adding new tools for a <strong>smarter and faster experience</strong>. Stay
+        connected and explore our growing collection of useful tools!</p>
 
-            const result = problem + instruction;
-            document.getElementById("resultOutput").value = result;
-            document.getElementById("copyButton").style.display = "block";
+</section>
+
+<!-- Welcome Section -->
+<section class="welcome-section">
+    <div class="welcome-text">
+        <h1>Welcome to eHelpFullTools</h1>
+        <h3>The platform for quick and efficient online tools and calculators</h3>
+        <p>eHelpFullTools is a convenient online platform that offers a variety of free tools and calculators,
+            including a text editor, fuel cost estimator, and unit converter. Designed for ease of use, the site
+            allows users to access these resources quickly without any downloads. Whether you need to edit
+            documents, estimate travel expenses, or convert measurements, eHelpFullTools provides reliable solutions
+            to enhance your productivity and simplify everyday tasks. Explore the site to discover how these helpful
+            tools can assist you!</p>
+        <a href="contact.html" style="text-decoration: none;"><button type="button" id="bt">Get in Touch</button></a>
+    </div>
+    <div class="welcome-image">
+        <img src="home1.jpeg" alt="Illustration of eHelpFullTools features"> <!-- Replace with your image path -->
+    </div>
+</section>
+<hr>
+<footer class="footer">
+    <p>&copy; 2025 by eHelpFullTools. All rights reserved.</p>
+</footer>
+
+<script>function calculateAge() {
+    let dobInput = document.getElementById("dob").value;
+    let endDateInput = document.getElementById("end-date").value;
+
+    if (!dobInput || !endDateInput) {
+        document.getElementById("result").innerText = "⚠️ Please enter both dates!";
+        return;
+    }
+
+    let dob = new Date(dobInput);
+    let endDate = new Date(endDateInput);
+
+    if (dob > endDate) {
+        document.getElementById("result").innerText = "⚠️ Birth date should be before end date!";
+        return;
+    }
+
+    let ageYears = endDate.getFullYear() - dob.getFullYear();
+    let ageMonths = endDate.getMonth() - dob.getMonth();
+    let ageDays = endDate.getDate() - dob.getDate();
+
+    if (ageDays < 0) {
+        ageMonths--;
+        ageDays += new Date(endDate.getFullYear(), endDate.getMonth(), 0).getDate();
+    }
+
+    if (ageMonths < 0) {
+        ageYears--;
+        ageMonths += 12;
+    }
+
+    let ageHours = ageYears * 365 * 24;
+    let ageMinutes = ageHours * 60;
+    let ageSeconds = ageMinutes * 60;
+
+    document.getElementById("result").innerHTML = `
+        🎉 You are <b>${ageYears}</b> years, <b>${ageMonths}</b> months, and <b>${ageDays}</b> days old!<br>
+        ⏳ You've lived for <b>${ageHours}</b> hours, <b>${ageMinutes}</b> minutes, and <b>${ageSeconds}</b> seconds!
+    `;
+
+    // Fun Messages based on Age
+    let funMessages = [
+        { age: 10, message: "You're a superstar kid! 🌟" },
+        { age: 18, message: "Welcome to adulthood! 🎉" },
+        { age: 25, message: "Quarter-life adventure begins! 🚀" },
+        { age: 30, message: "Time to shine in your 30s! ✨" },
+        { age: 40, message: "Life begins at 40! 🎂" },
+        { age: 60, message: "Golden years of wisdom! 👴👵" },
+        { age: 80, message: "You're a living legend! 🏆" }
+    ];
+
+    let selectedMessage = "You're amazing at any age! 😊";
+    for (let item of funMessages) {
+        if (ageYears <= item.age) {
+            selectedMessage = item.message;
+            break;
         }
+    }
+    document.getElementById("funMessage").innerHTML = `💡 ${selectedMessage}`;
 
-        function copyResult() {
-            const resultText = document.getElementById("resultOutput");
-            resultText.select();
-            document.execCommand("copy");
-            alert("Formatted problem copied to clipboard!");
+    // Famous Achievements at This Age
+    let achievements = [
+        { age: 21, achievement: "Steve Jobs founded Apple 🍏" },
+        { age: 25, achievement: "Newton formulated the Law of Gravity! 🌎" },
+        { age: 30, achievement: "Elon Musk started SpaceX 🚀" },
+        { age: 32, achievement: "J.K. Rowling wrote Harry Potter ✨📖" },
+        { age: 40, achievement: "Jeff Bezos founded Amazon! 🛒" },
+        { age: 50, achievement: "Colonel Sanders started KFC 🍗" },
+        { age: 62, achievement: "Mahatma Gandhi led the Salt March 🇮🇳" }
+    ];
+
+    let selectedAchievement = "Great things happen at every age! 🌟";
+    for (let item of achievements) {
+        if (ageYears >= item.age) {
+            selectedAchievement = item.achievement;
         }
+    }
 
-        function generateMealyTable() {
-            let input = document.getElementById("mealyInput").value;
-            try {
-                let data = JSON.parse(input);
-                let states = data.states;
-                let inputs = data.input_symbols;
-                let transitions = data.transitions;
+    document.getElementById("achievement").innerHTML = `🏆 Did you know? <b>${selectedAchievement}</b>`;
+}   // Hide loader after page loads with smooth transition
+window.addEventListener("load", () => {
+            const loader = document.querySelector(".loader-container");
+            const content = document.querySelector(".content");
+ // Smooth fade-out loader
+ loader.style.transition = "opacity 2.8s ease-out";
+        loader.style.opacity = "0";
 
-                let table = document.getElementById("mealyTable");
-                table.innerHTML = "";
+        setTimeout(() => {
+loader.style.display = "none";
+content.style.display = "block";
+content.classList.add("fade-in");
+}, 2800); // Loader hides after 800ms (0.8 seconds)
 
-                let headerRow = "<tr><th>Present State</th>";
-                inputs.forEach(input => {
-                    headerRow += `<th>Input ${input}</th>`;
-                });
-                headerRow += "</tr>";
-                table.innerHTML += headerRow;
+//             // Smooth fade-out loader
+//             loader.style.transition = "opacity 3.8s ease-out";
+//             loader.style.opacity = "0";
 
-                states.forEach(state => {
-                    let row = `<tr><td>${state}</td>`;
-                    inputs.forEach(input => {
-                        if (transitions[state] && transitions[state][input]) {
-                            let [nextState, output] = transitions[state][input];
-                            row += `<td>${nextState}, ${output}</td>`;
-                        } else {
-                            row += "<td>-</td>";
-                        }
-                    });
-                    row += "</tr>";
-                    table.innerHTML += row;
-                });
+//             setTimeout(() => {
+//     loader.style.display = "none";
+//     content.style.display = "block";
+//     content.classList.add("fade-in");
+// }, 8000); // Loader hides after 800ms (0.8 seconds)
 
-            } catch (error) {
-                alert("Invalid JSON format. Please enter a valid Mealy Machine description.");
-            }
-        }
+        });
+
     </script>
+    <script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
 
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyDbNYKUKukHO38WrWfiZo2ARWwqjUf8OeI",
+    authDomain: "ehelpfultool.firebaseapp.com",
+    projectId: "ehelpfultool",
+    storageBucket: "ehelpfultool.firebasestorage.app",
+    messagingSenderId: "572405415507",
+    appId: "1:572405415507:web:9addd73fae3fb78973d0a6",
+    measurementId: "G-MN8GGWK084"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
 </body>
 </html>
+
+const typingTexts = [
+            "The quick brown fox jumps over the lazy dog.",
+            "Typing is a skill that requires constant practice.",
+            "Speed and accuracy are key to fast typing.",
+            "A good typist can type without looking at the keyboard.",
+            "Challenge yourself to type faster every day.",
+            "Consistency in practice leads to improved typing speed.",
+            "Keep your hands steady and focus on accuracy.",
+            "The best way to improve typing is daily practice.",
+            "Typing fast helps in increasing productivity.",
+            "Keyboard shortcuts save time and effort.", "Life is a journey, not a destination.", "The sun sets in the west.", "Happiness is found in the little things.", "Knowledge is power.", "Dream big and dare to fail.", "Every day is a new beginning.", "The only limit is your mind.", "Believe in yourself and all that you are.", "Change is the only constant in life.", "Kindness is free, sprinkle it everywhere.", "Success is not the key to happiness.", "You are never too old to set another goal.", "The best way to predict the future is to create it.", "In the end, we only regret the chances we didn't take.", "Your vibe attracts your tribe.", "The only way to do great work is to love what you do.", "Mistakes are proof that you are trying.", "Life is 10% what happens to us and 90% how we react to it.", "Stay positive, work hard, make it happen.", "The journey of a thousand miles begins with one step.", "What lies behind us and what lies before us are tiny matters compared to what lies within us."
+        ];
+
+const textDisplay = document.getElementById("text-to-type");
+const typingArea = document.getElementById("typing-area");
+const timerDisplay = document.getElementById("timer");
+const wpmDisplay = document.getElementById("wpm");
+const accuracyDisplay = document.getElementById("accuracy");
+const restartBtn = document.getElementById("restart");
+const startTestBtn = document.getElementById("start-test");
+const timeSelect = document.getElementById("time-select");
+const scoreCard = document.getElementById("score-card");
+
+let currentText = "";
+let timeLeft = 60;
+let timer;
+let isTyping = false;
+let correctChars = 0;
+let totalChars = 0;
+let startTime;
+
+// **Start Typing Test**
+function startTypingTest() {
+    typingArea.value = "";
+    timeLeft = parseInt(timeSelect.value);
+    timerDisplay.innerText = timeLeft;
+    wpmDisplay.innerText = "0";
+    accuracyDisplay.innerText = "100";
+    isTyping = false;
+    correctChars = 0;
+    totalChars = 0;
+    startTime = null;
+    clearInterval(timer);
+    typingArea.disabled = false;
+    typingArea.focus();
+    scoreCard.style.display = "none"; // Hide score card
+
+    showNextLine();
+}
+
+// **Start Timer**
+function startTimer() {
+    if (!isTyping) {
+        isTyping = true;
+        startTime = Date.now();
+        timer = setInterval(() => {
+            if (timeLeft > 0) {
+                timeLeft--;
+                timerDisplay.innerText = timeLeft;
+            } else {
+                clearInterval(timer);
+                typingArea.disabled = true;
+                showScoreCard(); // Show score when time is up
+            }
+        }, 1000);
+    }
+}
+
+// **Show Next Line Randomly**
+function showNextLine() {
+    let randomIndex = Math.floor(Math.random() * typingTexts.length);
+    currentText = typingTexts[randomIndex];
+    textDisplay.innerText = currentText;
+    typingArea.value = "";
+}
+
+// **Typing Logic**
+typingArea.addEventListener("input", () => {
+    startTimer();
+    
+    let typedText = typingArea.value;
+    totalChars = typedText.length;
+    correctChars = 0;
+
+    for (let i = 0; i < typedText.length; i++) {
+        if (typedText[i] === currentText[i]) {
+            correctChars++;
+        }
+    }
+
+    // **Check if the user completed the current line correctly**
+    if (typedText === currentText) {
+        showNextLine(); // Show new line after correct typing
+    }
+
+    let elapsedTime = (parseInt(timeSelect.value) - timeLeft) / 60;
+    let wpm = Math.round((correctChars / 5) / elapsedTime);
+    let accuracy = totalChars > 0 ? Math.round((correctChars / totalChars) * 100) : 100;
+
+    wpmDisplay.innerText = isNaN(wpm) ? 0 : wpm;
+    accuracyDisplay.innerText = isNaN(accuracy) ? 100 : accuracy;
+});
+
+// **Show Final Score Card**
+function showScoreCard() {
+    let wordsTyped = typingArea.value.trim().split(" ").length;
+    let finalWPM = Math.round((wordsTyped / parseInt(timeSelect.value)) * 60);
+    let accuracy = totalChars > 0 ? Math.round((correctChars / totalChars) * 100) : 100;
+
+    // Display score card with final results
+    scoreCard.innerHTML = `
+        <h2>🎯 Typing Test Completed!</h2>
+        <p><strong>Words Per Minute (WPM):</strong> ${finalWPM}</p>
+        <p><strong>Accuracy:</strong> ${accuracy}%</p>
+        <p><strong>Total Words Typed:</strong> ${wordsTyped}</p>
+        <p><strong>Time Taken:</strong> ${parseInt(timeSelect.value) - timeLeft} seconds</p>
+    `;
+    scoreCard.style.display = "block";
+}
+
+// **Restart Test**
+restartBtn.addEventListener("click", () => {
+    startTypingTest();
+});
+
+// **Start Test Button**
+startTestBtn.addEventListener("click", () => {
+    startTypingTest();
+});
+
+// **Initialize Test**
+startTypingTest();
