@@ -911,6 +911,7 @@ function startTypingTest() {
     isTyping = false;
     correctChars = 0;
     totalChars = 0;
+    totalWordsTyped = 0; // Reset word counter
     startTime = null;
     clearInterval(timer);
     typingArea.disabled = false;
@@ -966,8 +967,18 @@ typingArea.addEventListener("input", () => {
         showNextLine(); // Show new line after correct typing
     }
 
-    let elapsedTime = (parseInt(timeSelect.value) - timeLeft) / 60;
-    let wpm = Math.round((totalWordsTyped / elapsedTime)); // Use total words typed
+    let elapsedTime = parseInt(timeSelect.value) - timeLeft;
+    if (elapsedTime <= 0) elapsedTime = 1; // Prevent division by zero
+
+    let wpm;
+    if (isMobile()) {
+        // Mobile WPM Calculation (Characters per 5 words)
+        wpm = Math.round((correctChars / 5) / (elapsedTime / 60));
+    } else {
+        // Desktop WPM Calculation (Total words per time taken)
+        wpm = Math.round((totalWordsTyped * 60) / elapsedTime);
+    }
+
     let accuracy = totalChars > 0 ? Math.round((correctChars / totalChars) * 100) : 100;
 
     wpmDisplay.innerText = isNaN(wpm) ? 0 : wpm;
@@ -977,17 +988,19 @@ typingArea.addEventListener("input", () => {
 // **Show Final Score Card**
 function showScoreCard() {
     let timeSelected = parseInt(timeSelect.value);
-    let finalWPM, accuracy;
+    let timeTaken = timeSelected - timeLeft;
+    if (timeTaken <= 0) timeTaken = 1; // Prevent division by zero
 
+    let finalWPM;
     if (isMobile()) {
-        // **Alternative WPM Calculation for Mobile**
-        finalWPM = Math.round((correctChars / 5) / (timeSelected / 60));
+        // Mobile WPM Calculation
+        finalWPM = Math.round((correctChars / 5) / (timeTaken / 60));
     } else {
-        // **Normal Calculation for Desktop**
-        finalWPM = Math.round((totalWordsTyped / timeSelected) * 60);
+        // Desktop WPM Calculation
+        finalWPM = Math.round((totalWordsTyped * 60) / timeTaken);
     }
 
-    accuracy = totalChars > 0 ? Math.round((correctChars / totalChars) * 100) : 100;
+    let accuracy = totalChars > 0 ? Math.round((correctChars / totalChars) * 100) : 100;
 
     // Display score card with mobile detection
     scoreCard.innerHTML = `
@@ -995,7 +1008,7 @@ function showScoreCard() {
         <p><strong>Words Per Minute (WPM):</strong> ${finalWPM}</p>
         <p><strong>Accuracy:</strong> ${accuracy}%</p>
         <p><strong>Total Words Typed:</strong> ${totalWordsTyped}</p>
-        <p><strong>Time Taken:</strong> ${timeSelected - timeLeft} seconds</p>
+        <p><strong>Time Taken:</strong> ${timeTaken} seconds</p>
         <p><strong>Device:</strong> ${isMobile() ? "📱 Mobile" : "💻 PC"}</p>
     `;
     scoreCard.style.display = "block";
@@ -1013,6 +1026,7 @@ startTestBtn.addEventListener("click", () => {
 
 // **Initialize Test**
 startTypingTest();
+
 
 </script>
 <script type="module">
