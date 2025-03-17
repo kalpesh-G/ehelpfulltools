@@ -1,138 +1,132 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
-    <!-- Homepage -->
-    <url>
-        <loc>https://ehelpfultools.tech/</loc>
-        <lastmod>2024-03-03</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>1.0</priority>
-    </url>
+
 <url>
-<loc>https://ehelpfultools.tech/index.html</loc>
-<lastmod>2025-03-03T10:40:20+00:00</lastmod>
-<priority>0.80</priority>
+  <loc>https://ehelpfultools.tech/</loc>
+  <lastmod>2025-03-08T04:44:28+00:00</lastmod>
+  <priority>1.00</priority>
 </url>
-    <!-- Main Pages -->
-    <url>
-        <loc>https://ehelpfultools.tech/privacy.html</loc>
-        <lastmod>2024-03-03</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-       <url>
-        <loc>https://ehelpfultools.tech/terms.html</loc>
-        <lastmod>2024-03-03</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://ehelpfultools.tech/OnlineTools.html</loc>
-        <lastmod>2024-03-03</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
-    </url>
-    <url>
-        <loc>https://ehelpfultools.tech/service.html</loc>
-        <lastmod>2024-03-03</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://ehelpfultools.tech/contact.html</loc>
-        <lastmod>2024-03-03</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.7</priority>
-    </url>
+<url>
+  <loc>https://ehelpfultools.tech/index.html</loc>
+  <lastmod>2025-03-08T04:44:28+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ehelpfultools.tech/OnlineTools.html</loc>
+  <lastmod>2025-03-08T04:44:28+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ehelpfultools.tech/service.html</loc>
+  <lastmod>2025-03-08T04:44:28+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ehelpfultools.tech/contact.html</loc>
+  <lastmod>2025-03-08T04:44:28+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ehelpfultools.tech/text-editor.html</loc>
+  <lastmod>2025-03-08T04:44:28+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ehelpfultools.tech/FuelCalculator.html</loc>
+  <lastmod>2025-03-08T04:44:28+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ehelpfultools.tech/typing-test.html</loc>
+  <lastmod>2025-03-08T04:44:28+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ehelpfultools.tech/text-to-pdf.html</loc>
+  <lastmod>2025-03-08T04:44:28+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ehelpfultools.tech/split-bill.html</loc>
+  <lastmod>2025-03-08T04:44:28+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ehelpfultools.tech/cooking-converter.html</loc>
+  <lastmod>2025-03-08T04:44:28+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ehelpfultools.tech/unit-converter.html</loc>
+  <lastmod>2025-03-08T04:44:28+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ehelpfultools.tech/age-calculator.html</loc>
+  <lastmod>2025-03-08T04:44:28+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ehelpfultools.tech/meditation-timer.html</loc>
+  <lastmod>2025-03-08T04:44:28+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ehelpfultools.tech/moore-machine-tool.html</loc>
+  <lastmod>2025-03-08T04:44:28+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ehelpfultools.tech/mealy-machine-tool.html</loc>
+  <lastmod>2025-03-08T04:44:28+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ehelpfultools.tech/colour-tool.html</loc>
+  <lastmod>2025-03-08T04:44:28+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ehelpfultools.tech/drawing-board.html</loc>
+  <lastmod>2025-03-08T04:44:28+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ehelpfultools.tech/ascii-art.html</loc>
+  <lastmod>2025-03-08T04:44:28+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ehelpfultools.tech/personalitycheck.html</loc>
+  <lastmod>2025-03-08T04:44:28+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ehelpfultools.tech/coin-flip.html</loc>
+  <lastmod>2025-03-08T04:44:28+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ehelpfultools.tech/comingsoon.html</loc>
+  <lastmod>2025-03-08T04:44:28+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ehelpfultools.tech/privacy.html</loc>
+  <lastmod>2025-03-08T04:44:28+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ehelpfultools.tech/terms.html</loc>
+  <lastmod>2025-03-08T04:44:28+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
 
-    <!-- Online Tools -->
-    <url>
-        <loc>https://ehelpfultools.tech/text-editor.html</loc>
-        <lastmod>2024-03-03</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
-    </url>
-    <url>
-        <loc>https://ehelpfultools.tech/FuelCalculator.html</loc>
-        <lastmod>2024-03-03</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://ehelpfultools.tech/split-bill.html</loc>
-        <lastmod>2024-03-03</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://ehelpfultools.tech/unit-converter.html</loc>
-        <lastmod>2024-03-03</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://ehelpfultools.tech/cooking-converter.html</loc>
-        <lastmod>2024-03-03</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://ehelpfultools.tech/text-to-pdf.html</loc>
-        <lastmod>2024-03-03</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
-    </url>
-    <url>
-        <loc>https://ehelpfultools.tech/meditation-timer.html</loc>
-        <lastmod>2024-03-03</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://ehelpfultools.tech/age-calculator.html</loc>
-        <lastmod>2024-03-03</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-
-    <!-- Fun Tools -->
-    <url>
-        <loc>https://ehelpfultools.tech/ascii-art.html</loc>
-        <lastmod>2024-03-03</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://ehelpfultools.tech/coin-flip.html</loc>
-        <lastmod>2024-03-03</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://ehelpfultools.tech/colour-tool.html</loc>
-        <lastmod>2024-03-03</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://ehelpfultools.tech/personalitycheck.html</loc>
-        <lastmod>2024-03-03</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://ehelpfultools.tech/typing-test.html</loc>
-        <lastmod>2024-03-03</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-
-    <!-- Drawing Board -->
-    <url>
-        <loc>https://ehelpfultools.tech/drawing-board.html</loc>
-        <lastmod>2024-03-03</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
 
 </urlset>
