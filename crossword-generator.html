@@ -617,6 +617,13 @@ display: flex;
         max-width: 100%;
     }
 }
+.unplaced {
+    color: red;
+    font-weight: bold;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 16px;
+}
 
        </style>
 
@@ -682,21 +689,22 @@ display: flex;
 
     <div class="example-container">
         <!-- Example Image -->
-        <img src="/assets/crossword-example.jpg" alt="Example of Crossword Generator" class="example-image">
-
+        
         <!-- Example Steps -->
         <div class="example-steps">
             <h3>📌 Steps:</h3>
             <ol>
-                <li>Enter a <strong>title</strong> for your crossword puzzle.</li>
-                <li>Select the <strong>difficulty level</strong> to determine the grid size.</li>
-                <li>Enter the <strong>creator’s name</strong> (optional) and choose letter case (uppercase/lowercase).</li>
+                <li>Enter a <strong>title</strong> FOOD ITEMS</li>
+                <li>Select the <strong>difficulty level</strong> to determine the grid size here let select HARD (18x18).</li>
+                <li>Enter the <strong>creator’s name</strong> (optional) let City Primary School and choose letter case as uppercase (uppercase/lowercase).</li>
                 <li>Type the <strong>words</strong> separated by commas that will be hidden in the puzzle.</li>
                 <li>Click <strong>"Generate Puzzle"</strong> to create your custom word search.</li>
                 <li>View both the <strong>puzzle</strong> and <strong>solution</strong> instantly.</li>
-                <li>Download the puzzle as a <strong>PDF</strong> to print and share.</li>
+                <li>Download the puzzle as a <strong>PDF</strong> to print and share.OUTPUT WILL BE LIKE THIS.</li>
             </ol>
         </div>
+        <img src="/images/crossword-example.jpg" alt="Example of Crossword Generator" class="example-image">
+
     </div>
 </div>
 
@@ -734,8 +742,65 @@ display: flex;
     
     <h3 class="text-of-tool">Solution</h3>
     <div id="solution"></div>
-    
+    <div id="unplacedWords" class="unplaced"></div>
+
     <button onclick="downloadPuzzle()">Download PDF</button>
+</div>
+<!-- extra information for seo -->
+<div class="short-description">
+    <h2>🔹 About the Find the Word Crossword Generator 🧩🔠</h2>
+    <p>The <strong>Find the Word Crossword Generator</strong> is a fun, interactive, and educational tool that allows users to create <strong>custom word search puzzles</strong> instantly. Whether you’re a <strong>teacher, student, parent, or puzzle enthusiast</strong>, this <strong>free online crossword maker</strong> helps you generate <strong>printable crossword puzzles</strong> with hidden words of your choice.</p>
+
+    <p>Use this <strong>word search puzzle creator</strong> for <strong>classroom activities, brain-training exercises, vocabulary learning, and entertainment.</strong> This tool offers an <strong>easy-to-use interface, customizable grid sizes, and downloadable PDF support</strong>, making it perfect for anyone who wants to <strong>design engaging and personalized word puzzles</strong> in just a few clicks.</p>
+
+    <h3>🚀 Why Use the Find the Word Crossword Generator?</h3>
+    <ul>
+        <li>✅ <strong>Free Online Crossword Maker</strong> – No sign-up required, create <strong>word search puzzles</strong> instantly.</li>
+        <li>✅ <strong>Perfect for Teachers & Educators</strong> – Design engaging <strong>learning materials</strong> for students.</li>
+        <li>✅ <strong>Great for Brain Training & Cognitive Development</strong> – Solve <strong>word search puzzles</strong> to improve <strong>focus and problem-solving skills</strong>.</li>
+        <li>✅ <strong>Fun for All Ages</strong> – From <strong>kids to adults</strong>, enjoy <strong>interactive word search puzzles</strong>.</li>
+        <li>✅ <strong>Customizable Puzzle Size & Difficulty</strong> – Choose from <strong>Easy (8×8), Medium (10×10), or Hard (12×12)</strong> grids.</li>
+        <li>✅ <strong>Printable Word Search Puzzles</strong> – Download as a <strong>PDF</strong> and print for offline fun.</li>
+        <li>✅ <strong>Supports Uppercase & Lowercase</strong> – Customize your <strong>crossword puzzle display</strong>.</li>
+        <li>✅ <strong>Engage with Personalized Word Lists</strong> – Enter <strong>custom words</strong> to make <strong>unique puzzles</strong> based on your theme.</li>
+    </ul>
+
+    <h3>🎯 How to Use the Find the Word Crossword Generator?</h3>
+    <ul>
+        <li>1️⃣ <strong>Enter a Title</strong> – Give your <strong>crossword puzzle</strong> a <strong>unique name</strong>.</li>
+        <li>2️⃣ <strong>Select Difficulty Level</strong> – Choose from <strong>Easy (8×8), Medium (10×10), or Hard (12×12)</strong> grids.</li>
+        <li>3️⃣ <strong>Add a Creator Name</strong> – Personalize your <strong>crossword puzzle</strong>.</li>
+        <li>4️⃣ <strong>Choose Letter Case</strong> – Select <strong>uppercase or lowercase</strong> display.</li>
+        <li>5️⃣ <strong>Enter Words to Include</strong> – Type words separated by commas to <strong>generate a custom word search puzzle</strong>.</li>
+        <li>6️⃣ <strong>Click “Generate Puzzle”</strong> – Your <strong>interactive word puzzle</strong> will be created instantly.</li>
+        <li>7️⃣ <strong>Download as PDF</strong> – Save your <strong>printable crossword puzzle</strong> for offline use.</li>
+    </ul>
+
+    <h3>📌 Who Can Use This Free Online Crossword Generator?</h3>
+    <ul>
+        <li>🔹 <strong>Teachers & Educators</strong> – Create <strong>custom crossword puzzles</strong> for <strong>classroom learning</strong> and assignments.</li>
+        <li>🔹 <strong>Parents & Homeschoolers</strong> – Design engaging <strong>puzzles</strong> to help kids learn new words and improve vocabulary.</li>
+        <li>🔹 <strong>Puzzle Enthusiasts</strong> – Create <strong>unique crossword challenges</strong> for fun and entertainment.</li>
+        <li>🔹 <strong>Students & Learners</strong> – Improve <strong>spelling, memory, and problem-solving skills</strong> with <strong>word search games</strong>.</li>
+        <li>🔹 <strong>Event Planners</strong> – Design <strong>themed crossword puzzles</strong> for special events, birthdays, and parties.</li>
+    </ul>
+
+    <h3>📝 Features of the Find the Word Crossword Generator</h3>
+    <ul>
+        <li>✔️ <strong>Interactive & Easy-to-Use</strong> – Create <strong>word search puzzles</strong> in seconds.</li>
+        <li>✔️ <strong>No Software Installation Needed</strong> – <strong>100% web-based</strong> and accessible from any device.</li>
+        <li>✔️ <strong>Works on Desktop, Mobile & Tablets</strong> – Fully <strong>responsive design</strong> for all screen sizes.</li>
+        <li>✔️ <strong>Supports Multiple Grid Sizes</strong> – Create <strong>customized puzzles</strong> for different difficulty levels.</li>
+        <li>✔️ <strong>Auto-Generated Printable PDFs</strong> – Download <strong>printable word search puzzles</strong> with solutions.</li>
+        <li>✔️ <strong>Random Letter Fill Feature</strong> – Ensures <strong>challenging and engaging word placement</strong>.</li>
+        <li>✔️ <strong>Perfect for Kids & Adults</strong> – A great <strong>learning tool and brain training game</strong> for all ages.</li>
+        <li>✔️ <strong>SEO-Friendly & Shareable</strong> – Share your <strong>generated crossword puzzles</strong> with friends and family.</li>
+    </ul>
+
+    <h3>📥 Get Started Now!</h3>
+    <p>👉 Use the <strong>Find the Word Crossword Generator</strong> to create <strong>custom word search puzzles</strong> for free!</p>
+    <p>🎯 Perfect for <strong>education, fun, learning, and brain training exercises</strong>.</p>
+    <p>✅ No sign-up required – <strong>Start building your puzzle now!</strong></p>
 </div>
 
     <!--about online tools-->
@@ -796,6 +861,9 @@ display: flex;
         <h3 style="margin-top: 20px;">Explore Fun  Tools 😄</h3>
         <div class="incontainer">
             <div class="tools">
+                <div class="tool-card">
+                    <a href="crossword-generator.html">🔠 Find the Word Crossword Generator</a>
+                </div>
             <div class="tool-card">
                 <a href="colour-tool.html">🎨 Fun Color Picker & Mixer</a>
             </div>
@@ -842,70 +910,100 @@ display: flex;
 </footer>
 
 <script>
+    let unplacedWords = []; // Track words that couldn't be placed
     function generatePuzzle() {
-            let gridSize = parseInt(document.getElementById("difficulty").value);
-            let words = document.getElementById("words").value.split(",").map(w => w.trim());
-            let caseType = document.getElementById("case").value;
-            let grid = Array.from({ length: gridSize }, () => Array(gridSize).fill("."));
-            let solutionGrid = JSON.parse(JSON.stringify(grid));
-            
-            function placeWord(word) {
-                let directions = [[1, 0], [0, 1], [1, 1], [-1, 1]];
-                word = caseType === "upper" ? word.toUpperCase() : word.toLowerCase();
-                
-                for (let attempt = 0; attempt < 50; attempt++) {
-                    let dir = directions[Math.floor(Math.random() * directions.length)];
-                    let row = Math.floor(Math.random() * gridSize);
-                    let col = Math.floor(Math.random() * gridSize);
-                    
-                    if (row + dir[0] * word.length < gridSize && col + dir[1] * word.length < gridSize && row + dir[0] * word.length >= 0) {
-                        let fits = true;
-                        for (let i = 0; i < word.length; i++) {
-                            if (grid[row + dir[0] * i][col + dir[1] * i] !== "." && grid[row + dir[0] * i][col + dir[1] * i] !== word[i]) {
-                                fits = false;
-                                break;
-                            }
-                        }
-                        if (fits) {
-                            for (let i = 0; i < word.length; i++) {
-                                grid[row + dir[0] * i][col + dir[1] * i] = word[i];
-                                solutionGrid[row + dir[0] * i][col + dir[1] * i] = word[i];
-                            }
-                            return;
-                        }
-                    }
+    window.unplacedWords = []; // Reset the unplaced words list
+    window.placedWords = []; // Reset the placed words list
+
+    let gridSize = parseInt(document.getElementById("difficulty").value);
+    let words = document.getElementById("words").value.split(",").map(w => w.trim());
+    let caseType = document.getElementById("case").value;
+    let grid = Array.from({ length: gridSize }, () => Array(gridSize).fill("."));
+    let solutionGrid = JSON.parse(JSON.stringify(grid));
+
+    function placeWord(word) {
+        let directions = [[1, 0], [0, 1], [1, 1], [-1, 1], [-1, -1], [1, -1], [-1, 0], [0, -1]];
+        word = caseType === "upper" ? word.toUpperCase() : word.toLowerCase();
+
+        let maxAttempts = gridSize * 5; // More attempts for better fitting
+
+        for (let attempt = 0; attempt < maxAttempts; attempt++) {
+            let dir = directions[Math.floor(Math.random() * directions.length)];
+            let row = Math.floor(Math.random() * gridSize);
+            let col = Math.floor(Math.random() * gridSize);
+
+            // Check if word fits within grid boundaries
+            if (
+                row + dir[0] * (word.length - 1) >= gridSize || 
+                col + dir[1] * (word.length - 1) >= gridSize || 
+                row + dir[0] * (word.length - 1) < 0 || 
+                col + dir[1] * (word.length - 1) < 0
+            ) {
+                continue;
+            }
+
+            // Check if the word can fit in the selected direction
+            let fits = true;
+            for (let i = 0; i < word.length; i++) {
+                if (grid[row + dir[0] * i][col + dir[1] * i] !== "." && grid[row + dir[0] * i][col + dir[1] * i] !== word[i]) {
+                    fits = false;
+                    break;
                 }
             }
-            
-            words.forEach(placeWord);
-            grid.forEach((row, r) => row.forEach((_, c) => {
-                if (grid[r][c] === ".") grid[r][c] = String.fromCharCode(65 + Math.random() * 26);
-            }));
-            
-            displayGrid(grid, "puzzle");
-            displayGrid(solutionGrid, "solution", true);
+            if (fits) {
+                for (let i = 0; i < word.length; i++) {
+                    grid[row + dir[0] * i][col + dir[1] * i] = word[i];
+                    solutionGrid[row + dir[0] * i][col + dir[1] * i] = word[i];
+                }
+                window.placedWords.push(word); // ✅ Add to placed words list
+                return true;
+            }
         }
-        
-        function displayGrid(grid, elementId, isSolution = false) {
-            let table = `<table class="${isSolution ? 'solution' : ''}">`;
-            grid.forEach(row => {
-                table += "<tr>" + row.map(cell => `<td>${cell}</td>`).join('') + "</tr>";
-            });
-            table += "</table>";
-            document.getElementById(elementId).innerHTML = table;
-        }
+        window.unplacedWords.push(word); // ❌ Word couldn't be placed
+        return false;
+    }
 
-        function downloadPuzzle() {
+    words.forEach(placeWord);
+
+    // Fill empty spaces with random letters
+    grid.forEach((row, r) => row.forEach((_, c) => {
+        if (grid[r][c] === ".") grid[r][c] = String.fromCharCode(65 + Math.random() * 26);
+    }));
+
+    displayGrid(grid, "puzzle");
+    displayGrid(solutionGrid, "solution", true);
+
+    // Show unplaced words below the puzzle
+    document.getElementById("unplacedWords").innerHTML = 
+        window.unplacedWords.length > 0 ? `<h3>⚠️ Words Not Placed:</h3><p>${window.unplacedWords.join(", ")}</p>` : "";
+}
+
+function displayGrid(grid, elementId, isSolution = false) {
+    let caseType = document.getElementById("case").value;
+    let table = `<table class="${isSolution ? 'solution' : ''}">`;
+    grid.forEach(row => {
+        table += "<tr>" + row.map(cell => `<td>${caseType === "lower" ? cell.toLowerCase() : cell.toUpperCase()}</td>`).join('') + "</tr>";
+    });
+    table += "</table>";
+    document.getElementById(elementId).innerHTML = table;
+}
+
+function downloadPuzzle() {
     const { jsPDF } = window.jspdf;
     let doc = new jsPDF({ orientation: "portrait", unit: "mm", format: "a4" });
 
     let title = document.getElementById("title").value || "Find the Word Puzzle";
     let creator = document.getElementById("creator").value || "Unknown";
-    let words = document.getElementById("words").value.split(",").map(word => word.trim());
-    let caseType = document.getElementById("case").value; // Upper or Lower case selection
-
+    let caseType = document.getElementById("case").value;
+    let nameField = "______________________";
     let puzzleElement = document.getElementById("puzzle").querySelector("table");
     let solutionElement = document.getElementById("solution").querySelector("table");
+
+    // 📌 Use `placedWords` list that was generated while placing words
+    if (!window.placedWords || placedWords.length === 0) {
+        alert("No words were placed in the puzzle. The PDF will not be generated.");
+        return;
+    }
 
     // 🏷 Title & Creator Section
     doc.setFont("helvetica", "bold");
@@ -915,7 +1013,11 @@ display: flex;
     doc.setFontSize(14);
     doc.text("Made by: " + creator, 105, 30, null, null, "center");
 
-    // ℹ Instructions Section with Bullet Points
+ // 🏷 Name Field
+ doc.setFontSize(14);
+    doc.text("Write you Name: " + nameField, 20, 40);
+    
+    // ℹ Instructions Section
     doc.setFont("helvetica", "normal");
     doc.setFontSize(12);
     let instructions = [
@@ -924,8 +1026,8 @@ display: flex;
         "• Circle or highlight the words once found.",
         "• Have fun!"
     ];
-    doc.text("Instructions:", 20, 45);
-    doc.text(instructions, 25, 55);
+    doc.text("Instructions:", 20, 55);
+    doc.text(instructions, 25, 65);
 
     // 🧩 Puzzle Section (Centered)
     doc.setFontSize(14);
@@ -939,44 +1041,34 @@ display: flex;
             html: puzzleTable,
             startY: 85,
             theme: "grid",
-            styles: { 
-                fontSize: 10, // Bigger Text
-                fontStyle: "bold", // Bold Letters
-                cellWidth: "auto",
-                halign: "center", 
-                lineWidth: 0.8, 
-                lineColor: [0, 0, 0] 
-            },
-            margin: { left: 20, right: 20 }, // Center Table
+            styles: { fontSize: 10, fontStyle: "bold", cellWidth: "auto", halign: "center", lineWidth: 0.8, lineColor: [0, 0, 0] },
+            margin: { left: 20, right: 20 },
         });
     }
 
     // 📜 Word List (Formatted in Columns)
-   // 📜 Word List (Formatted in Columns)
-doc.setFontSize(14);
-doc.text("Find the following words:", 20, doc.lastAutoTable.finalY + 10);
+    doc.setFontSize(14);
+    doc.text("Find the following words:", 20, doc.lastAutoTable.finalY + 10);
 
-// Check if any word exceeds 15 characters
-let longWordExists = words.some(word => word.length > 15);
+    // Check if any word exceeds 15 characters
+    let longWordExists = placedWords.some(word => word.length > 15);
+    let wordFontSize = longWordExists ? 8 : 12;
+    let columnSpacing = longWordExists ? 50 : 40;
 
-let wordFontSize = longWordExists ? 8 : 12;  // Set font size based on condition
-let columnSpacing = longWordExists ? 50 : 40; // Set column spacing based on condition
+    doc.setFontSize(wordFontSize);
+    let wordsPerColumn = 5;
+    let columnX = 20;
+    let columnY = doc.lastAutoTable.finalY + 20;
 
-doc.setFontSize(wordFontSize);
-let wordsPerColumn = 5;
-let columnX = 20;
-let columnY = doc.lastAutoTable.finalY + 20;
+    placedWords.forEach((word, index) => {
+        doc.text("• " + word, columnX, columnY);
+        columnX += columnSpacing;
 
-words.forEach((word, index) => {
-    doc.text("• " + word, columnX, columnY);
-    columnX += columnSpacing;
-
-    if ((index + 1) % wordsPerColumn === 0) {
-        columnX = 20;
-        columnY += 8;
-    }
-});
-
+        if ((index + 1) % wordsPerColumn === 0) {
+            columnX = 20;
+            columnY += 8;
+        }
+    });
 
     // 📄 Solution Page
     doc.addPage();
@@ -991,27 +1083,20 @@ words.forEach((word, index) => {
             html: solutionTable,
             startY: 30,
             theme: "grid",
-            styles: { 
-                fontSize: 14, // Bigger Text
-                fontStyle: "bold", // Bold Letters
-                cellWidth: "auto",
-                halign: "center", 
-                lineWidth: 1, 
-                lineColor: [0, 0, 0], 
-                textColor: [255, 0, 0] 
-            },
-            margin: { left: 35, right: 35 }, // Center Table
+            styles: { fontSize: 14, fontStyle: "bold", cellWidth: "auto", halign: "center", lineWidth: 1, lineColor: [0, 0, 0], textColor: [255, 0, 0] },
+            margin: { left: 35, right: 35 },
         });
     }
-
-    // 📌 Footer
-    doc.setFontSize(10);
+  // 📌 Footer
+  doc.setFontSize(10);
     doc.text("Generated using Find the Word Crossword Generator", 20, 280);
-    doc.text("Visit: https://ehelpfultools.tech", 20, 285);
+    doc.text("Visit: https://ehelpfultools.tech/crossword-generator.html", 20, 285);
 
     // 📥 Save & Download
     doc.save(title.replace(/\s+/g, "_") + "_Crossword.pdf");
-} 
+}
+
+
     window.addEventListener("load", () => {
             const loader = document.querySelector(".loader-container");
             const content = document.querySelector(".content");

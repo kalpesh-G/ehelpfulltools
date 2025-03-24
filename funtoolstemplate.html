@@ -3,444 +3,481 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🎨 Fun Color Picker & Mixer</title>
-    <meta name="google-adsense-account" content="ca-pub-8868584487794979">
-    <style>/* General Styling */
-     body {
-            font-family: 'Arial', sans-serif;
-            /* background: #f8f9fa; */
-            background: linear-gradient(to right, #80c7eb, #1363cc, #51eaea);         
+    <link rel="icon" href="icon.png" type="image/x-icon" />
+    <title>🪙 Coin Flip Simulator - Flip a Coin Online</title>
+<meta name="description" content="Flip a virtual coin online with our free coin flip simulator. Get heads or tails instantly!">
+<meta name="keywords" content="coin flip, flip a coin, online coin toss, heads or tails, coin flip simulator">
+<link rel="canonical" href="https://ehelpfultools.tech/coin-flip.html" />
+<meta property="og:title" content="Coin Flip Simulator - Flip a Coin Online" />
+<meta property="og:description" content="Toss a virtual coin and get instant heads or tails results." />
+<meta property="og:image" content="https://ehelpfultools.tech/assets/coin-flip-preview.jpg" />
+<meta property="og:url" content="https://ehelpfultools.tech/coin-flip.html" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Coin Flip Simulator - Heads or Tails" />
+<meta name="twitter:description" content="Flip a coin online and see instant results." />
+<meta name="twitter:image" content="https://ehelpfultools.tech/assets/coin-flip-preview.jpg" />
+<meta name="robots" content="index, follow" />
+<meta name="google-adsense-account" content="ca-pub-8868584487794979">
+
+<style>/* General Styling */
+    body {
+           font-family: 'Arial', sans-serif;
+           /* background: #f8f9fa; */
+           background: linear-gradient(to right, #80c7eb, #1363cc, #51eaea);         
 /* background: linear-gradient(to right, #afb3b5, #13c0cc, #e3e0e1); */
-            margin: 0;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-        
+           margin: 0;
+           justify-content: center;
+           align-items: center;
+           min-height: 100vh;
+       }
        
-            /* other css */
-            
-    h1 {
-        color: #333;
-    }
+      
+           /* other css */
+           
+   h1 {
+       color: #333;
+   }
 
-    label {
-        display: block;
-        font-weight: bold;
-        margin-top: 10px;
-    }
+   label {
+       display: block;
+       font-weight: bold;
+       margin-top: 10px;
+   }
 
-    select, input {
-        width: 100%;
-        padding: 8px;
-        margin: 5px 0;
-        border-radius: 5px;
-        border: 1px solid #ccc;
-    }
+   select, input {
+       width: 100%;
+       padding: 8px;
+       margin: 5px 0;
+       border-radius: 5px;
+       border: 1px solid #ccc;
+   }
 
-    .unit-selection {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-top: 10px;
-    }
+   .unit-selection {
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       margin-top: 10px;
+   }
 
-    button {
-        width: 100%;
-        background: #80dc07;
-        color: white;
-        padding: 10px;
-        border: none;
-        border-radius: 5px;
-        font-size: 16px;
-        cursor: pointer;
-        margin-top: 10px;
-    }
+   button {
+       width: 100%;
+       background: #80dc07;
+       color: white;
+       padding: 10px;
+       border: none;
+       border-radius: 5px;
+       font-size: 16px;
+       cursor: pointer;
+       margin-top: 10px;
+   }
 
-    button:hover {
-        background: #087411e0;
-    }
+   button:hover {
+       background: #087411e0;
+   }
 
-    h2 {
-        margin-top: 20px;
-        color: #28a745;
-    }
-          
-        
-            /* Header section */
-    .header {
-        background-image: url('navbar.jpg'); /* Replace with your background image path */
-        background-size: cover;
-        background-position: center;
-        height: 250px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        text-align: center;
-    }
-    .header h1 {
-        font-size: 3em;
-        margin: 0;
-        color: black;
-    }
+   h2 {
+       margin-top: 20px;
+       color: #28a745;
+   }
+         
+       
+           /* Header section */
+   .header {
+       background-image: url('navbar.jpg'); /* Replace with your background image path */
+       background-size: cover;
+       background-position: center;
+       height: 250px;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       color: white;
+       text-align: center;
+   }
+   .header h1 {
+       font-size: 3em;
+       margin: 0;
+       color: black;
+   }
 
 /* Navigation */
 .navbar {
-    background-color: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    padding: 10px 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+   background-color: #f4f4f4;
+   display: flex;
+   justify-content: center;
+   padding: 10px 0;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 .navbar a {
-    margin: 5px 40px;
-    color: #333;
-    text-decoration: none;
+   margin: 5px 40px;
+   color: #333;
+   text-decoration: none;
 }
 .navbar a.active{
-    color: #007BFF;
+   color: #007BFF;
 }
 .navbar a:hover {
-    color: #007BFF;
+   color: #007BFF;
 }
 
 /* Welcome Section */
 .welcome-section {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 50px;
-    color: white;
+   display: flex;
+   flex-wrap: wrap;
+   padding: 50px;
+   color: white;
 }
 .welcome-text {
-    flex: 1;
-    padding: 20px;
-    min-width: 300px;
-    color: white;
+   flex: 1;
+   padding: 20px;
+   min-width: 300px;
+   color: white;
 }
 .welcome-text h1 {
-    font-size: 2.5em;
-    margin-bottom: 50px; /* Adjusts space below the heading */
-    color: white;
+   font-size: 2.5em;
+   margin-bottom: 50px; /* Adjusts space below the heading */
+   color: white;
 }
 
 .welcome-text h3 {
-    font-size: 1.8em;
-    margin-bottom: 30px; /* Adds space below the subheading */
-    color: white;
+   font-size: 1.8em;
+   margin-bottom: 30px; /* Adds space below the subheading */
+   color: white;
 }
 
 .welcome-text p {
-    line-height: 1.6;
-    color: #666;
-    font-size: 25px;
-    margin-bottom: 40px; /* Adjusts space below the paragraph */
-    color: white;
+   line-height: 1.6;
+   color: #666;
+   font-size: 25px;
+   margin-bottom: 40px; /* Adjusts space below the paragraph */
+   color: white;
 }
 
 .welcome-text button {
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: 50px; /* Adds space above the button */
+   padding: 10px 20px;
+   font-size: 16px;
+   cursor: pointer;
+   margin-top: 50px; /* Adds space above the button */
 }
 
 .welcome-image {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 300px;
+   flex: 1;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   min-width: 300px;
 }
 .welcome-image img {
-    max-width: 100%;
-    height: auto;
+   max-width: 100%;
+   height: auto;
 }
 #bt{
 border-radius: 0%;
 display: flex;
- }
- .footer {
-    text-align: center;
-    padding: 10px;
-    font-size: 14px;
-    color: #666;
+}
+.footer {
+   text-align: center;
+   padding: 10px;
+   font-size: 14px;
+   color: #666;
 }
 
 .footer hr {
-    width: 90%;
-    border: none;
-    border-top: 1px solid #e0e0e0;
-    margin: 0 auto 10px;
+   width: 90%;
+   border: none;
+   border-top: 1px solid #e0e0e0;
+   margin: 0 auto 10px;
 }
 
 .footer p {
-    margin: 20px 0px;
-    color: white;
+   margin: 20px 0px;
+   color: white;
 }
 /* Responsive adjustments */
 @media (max-width: 768px) {
-    .header h1 {
-        font-size: 2em;
-    }
-    .navbar a {
-        font-size: 0.9em;
-        margin: 0 10px;
-    }
-    .welcome-section {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        padding: 20px 10px;
-    }
-    .welcome-text h1 {
-        font-size: 1.8em;
-    }
-    .welcome-text {
-        padding: 10px;
-    }
+   .header h1 {
+       font-size: 2em;
+   }
+   .navbar a {
+       font-size: 0.9em;
+       margin: 0 10px;
+   }
+   .welcome-section {
+       flex-direction: column;
+       align-items: center;
+       text-align: center;
+       padding: 20px 10px;
+   }
+   .welcome-text h1 {
+       font-size: 1.8em;
+   }
+   .welcome-text {
+       padding: 10px;
+   }
 
-    .header h1{
-        color: white;
-        }}
-  * { box-sizing: border-box; margin: 0; padding: 0; }
- /* endsection css */
- .tool-info {
-        text-align: center;
-        padding: 20px 20px;
-        background: linear-gradient(135deg, #f8f9fa, #e3f2fd); 
-      
-        border-radius: 10px;
-        margin: 30px auto;
-        /* max-width: 900px; */
-        width: 95%;
-        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15); 
-    }
+   .header h1{
+       color: white;
+       }}
+ * { box-sizing: border-box; margin: 0; padding: 0; }
+/* endsection css */
+.tool-info {
+       text-align: center;
+       padding: 20px 20px;
+       background: linear-gradient(135deg, #f8f9fa, #e3f2fd); 
+     
+       border-radius: 10px;
+       margin: 30px auto;
+       /* max-width: 900px; */
+       width: 95%;
+       box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15); 
+   }
 
-    .endcontainer {
-        max-width: 800px;
-        margin: auto;
-    }
+   .endcontainer {
+       max-width: 800px;
+       margin: auto;
+   }
 
-    .tool-info h2 {
-        font-size: 2.5rem;
-        color: #333;
-        margin-bottom: 15px;
-    }
+   .tool-info h2 {
+       font-size: 2.5rem;
+       color: #333;
+       margin-bottom: 15px;
+   }
 
-    .brand {
-        color: #007bff;
-        font-weight: bold;
-    }
+   .brand {
+       color: #007bff;
+       font-weight: bold;
+   }
 
-    .tool-info p {
-        font-size: 1.2rem;
-        color: #555;
-        margin-bottom: 25px;
-    }
+   .tool-info p {
+       font-size: 1.2rem;
+       color: #555;
+       margin-bottom: 25px;
+   }
 
-    
+   
 
-    /* Responsive Design */
-    @media (max-width: 768px) {
-        .tool-info {
-            padding: 40px 15px;
-        }
+   /* Responsive Design */
+   @media (max-width: 768px) {
+       .tool-info {
+           padding: 40px 15px;
+       }
 
-        .tool-info h2 {
-            font-size: 2rem;
-        }
+       .tool-info h2 {
+           font-size: 2rem;
+       }
 
-    }
-    .incontainer {
-            max-width: 800px;
-            margin: 10px auto;
-            padding: 20px;
-        }
-    .tools {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-        .tool-card {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-            text-align: center;
-            
-        }
-        .tool-card:hover {
-            transform: scale(1.05);
-        }
-        .tool-card i {
-            font-size: 40px;
-            color: #007BFF;
-            margin-bottom: 10px;
-        }
-        .tool-card a {
-            display: block;
-            font-size: 1.2rem;
-            color: #333;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 10px;
-            
-        }
-        .tool-card a:hover {
-            color: #007BFF;
-        }
-        .tools-overview {
-            padding: 50px;
-        }
-        
-        .tools-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 15px;
-            max-width: 600px;
-            margin: auto;
-        }
-   /* ========== Short Description Styling ========== */
+   }
+   .incontainer {
+           max-width: 800px;
+           margin: 10px auto;
+           padding: 20px;
+       }
+   .tools {
+           display: grid;
+           grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+           gap: 20px;
+       }
+       .tool-card {
+           background: white;
+           padding: 20px;
+           border-radius: 10px;
+           box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+           transition: transform 0.3s;
+           text-align: center;
+           
+       }
+       .tool-card:hover {
+           transform: scale(1.05);
+       }
+       .tool-card i {
+           font-size: 40px;
+           color: #007BFF;
+           margin-bottom: 10px;
+       }
+       .tool-card a {
+           display: block;
+           font-size: 1.2rem;
+           color: #333;
+           text-decoration: none;
+           font-weight: bold;
+           margin-top: 10px;
+           
+       }
+       .tool-card a:hover {
+           color: #007BFF;
+       }
+       .tools-overview {
+           padding: 50px;
+       }
+       
+       .tools-grid {
+           display: grid;
+           grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+           gap: 15px;
+           max-width: 600px;
+           margin: auto;
+       }
+  /* ========== Short Description Styling ========== */
 .short-description {
-    text-align: left;
-    background: #f9f9f9;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
+   text-align: left;
+   background: #f9f9f9;
+   padding: 20px;
+   border-radius: 8px;
+   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+   margin-top: 20px;
 }
 
 .short-description h2 {
-    color: #007BFF;
-    font-size: 1.8rem;
+   color: #007BFF;
+   font-size: 1.8rem;
 }
 
 .short-description h3 {
-    color: #333;
-    margin-top: 15px;
+   color: #333;
+   margin-top: 15px;
 }
 
 .short-description p {
-    font-size: 1rem;
-    color: #555;
+   font-size: 1rem;
+   color: #555;
 }
 
 .short-description ul {
-    list-style: none;
-    padding: 0;
+   list-style: none;
+   padding: 0;
 }
 
 .short-description ul li {
-    font-size: 1rem;
-    color: #555;
-    padding-left: 25px;
-    position: relative;
-    margin-bottom: 8px;
+   font-size: 1rem;
+   color: #555;
+   padding-left: 25px;
+   position: relative;
+   margin-bottom: 8px;
 }
 
 .short-description ul li::before {
-    content: "✔️";
-    position: absolute;
-    left: 0;
-    color: #007BFF;
-    font-size: 1.2rem;
+   content: "✔️";
+   position: absolute;
+   left: 0;
+   color: #007BFF;
+   font-size: 1.2rem;
 }.ff{
-    justify-items: center;
-    margin: 15px auto;
+   justify-items: center;
+   margin: 15px auto;
 }
 /* loader css */
 /* Full-Screen Loader */
 .loader-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
+           position: fixed;
+           top: 0;
+           left: 0;
+           width: 100%;
+           height: 100%;
+           background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           z-index: 1000;
+       }
 
-        .loader {
-            position: relative;
-            width: 100px;
-            height: 100px;
-        }
+       .loader {
+           position: relative;
+           width: 100px;
+           height: 100px;
+       }
 
-        /* Rotating Hexagon */
-        .hexagon {
-            position: absolute;
-            width: 60px;
-            height: 60px;
-            background: rgba(255, 255, 255, 0.8);
-            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-            animation: rotateHexagon 2s linear infinite;
-        }
+       /* Rotating Hexagon */
+       .hexagon {
+           position: absolute;
+           width: 60px;
+           height: 60px;
+           background: rgba(255, 255, 255, 0.8);
+           clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+           animation: rotateHexagon 2s linear infinite;
+       }
 
-        @keyframes rotateHexagon {
-            0% { transform: rotate(0deg) scale(1); }
-            50% { transform: rotate(180deg) scale(1.2); }
-            100% { transform: rotate(360deg) scale(1); }
-        }
+       @keyframes rotateHexagon {
+           0% { transform: rotate(0deg) scale(1); }
+           50% { transform: rotate(180deg) scale(1.2); }
+           100% { transform: rotate(360deg) scale(1); }
+       }
 
-        /* Spinning Triangle */
-        .triangle {
-            position: absolute;
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.7);
-            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-            top: 10px;
-            left: 10px;
-            animation: spinTriangle 1.5s ease-in-out infinite alternate;
-        }
+       /* Spinning Triangle */
+       .triangle {
+           position: absolute;
+           width: 40px;
+           height: 40px;
+           background: rgba(255, 255, 255, 0.7);
+           clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+           top: 10px;
+           left: 10px;
+           animation: spinTriangle 1.5s ease-in-out infinite alternate;
+       }
 
-        @keyframes spinTriangle {
-            0% { transform: translateY(0px) rotate(0deg); }
-            100% { transform: translateY(-15px) rotate(30deg); }
-        }
+       @keyframes spinTriangle {
+           0% { transform: translateY(0px) rotate(0deg); }
+           100% { transform: translateY(-15px) rotate(30deg); }
+       }
 
-        /* Pulsating Circle */
-        .circle {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background: white;
-            border-radius: 50%;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: pulseCircle 1.2s ease-in-out infinite;
-        }
+       /* Pulsating Circle */
+       .circle {
+           position: absolute;
+           width: 20px;
+           height: 20px;
+           background: white;
+           border-radius: 50%;
+           bottom: 10px;
+           left: 50%;
+           transform: translateX(-50%);
+           animation: pulseCircle 1.2s ease-in-out infinite;
+       }
 
-        @keyframes pulseCircle {
-            0% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.4); opacity: 0.5; }
-            100% { transform: scale(1); opacity: 1; }
-        }
+       @keyframes pulseCircle {
+           0% { transform: scale(1); opacity: 1; }
+           50% { transform: scale(1.4); opacity: 0.5; }
+           100% { transform: scale(1); opacity: 1; }
+       }
 
-        /* Page Content (Hidden Initially) */
-        .content {
-            display: none;
-            text-align: center;
-            padding: 50px;
-            font-size: 24px;
-        }
+       /* Page Content (Hidden Initially) */
+       .content {
+           display: none;
+           text-align: center;
+           padding: 50px;
+           font-size: 24px;
+       }
 
-        /* Smooth Fade-In Effect */
-        .fade-in {
-            animation: fadeIn 1s ease-in-out forwards;
-        }
+       /* Smooth Fade-In Effect */
+       .fade-in {
+           animation: fadeIn 1s ease-in-out forwards;
+       }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .glitch-text {
+       @keyframes fadeIn {
+           from { opacity: 0; transform: translateY(20px); }
+           to { opacity: 1; transform: translateY(0); }
+       }
+       .glitch-text {
+           font-size: 1.%;
+           font-weight: bold;
+           color: white;
+           position: relative;
+           text-transform: uppercase;
+           animation: glitch 0.8s infinite;
+       }
+
+       @keyframes glitch {
+           0% {
+               text-shadow: -2px 0 red, 2px 0 blue;
+           }
+
+           50% {
+               text-shadow: 2px 0 red, -2px 0 blue;
+           }
+
+           100% {
+               text-shadow: -2px 0 red, 2px 0 blue;
+           }
+       }
+       .glitch-text {
             font-size: 1.%;
             font-weight: bold;
             color: white;
@@ -462,7 +499,9 @@ display: flex;
                 text-shadow: -2px 0 red, 2px 0 blue;
             }
         }
-        </style>
+       
+       </style>
+
 </head>
 <body>
     
@@ -485,32 +524,41 @@ display: flex;
     <a href="service.html">Services</a>
     <a href="contact.html">Contact Us</a>
 </div>
-
-<!-- short description about the calculator -->
+<!-- Short description about the Find the Word Crossword Generator -->
 <div class="short-description">
-    <h2>About the Split Bill Calculator 💰</h2>
-    <p>The <strong>Split Bill Calculator</strong> is an easy-to-use tool that helps groups fairly divide expenses.  
-        Whether you're dining out, traveling, or sharing household costs, this calculator ensures transparency and accurate settlements.</p>
+    <h2>About the Find the Word Crossword Generator 🧩🔠</h2>
+    <p>The <strong>Find the Word Crossword Generator</strong> is a fun and interactive tool that allows you to create custom word search puzzles instantly. Whether you're a teacher, student, or puzzle enthusiast, this tool makes it easy to generate engaging crosswords with hidden words based on your input.</p>
     
     <h3>🚀 How to Use This Tool:</h3>
     <ul>
-        <li>🔹 Enter the names of all participants.</li>
-        <li>🔹 Input the total bill amount.</li>
-        <li>🔹 Specify if someone has already paid a part of the bill.</li>
-        <li>🔹 The tool calculates how much each person owes.</li>
-        <li>🔹 A clear settlement table displays who should pay whom to balance the expenses.</li>
+        <li>🔹 <strong>Step 1:</strong> Enter a title for your crossword puzzle.</li>
+        <li>🔹 <strong>Step 2:</strong> Choose the difficulty level, which determines the grid size.</li>
+        <li>🔹 <strong>Step 3:</strong> Enter the creator’s name (optional) and select uppercase or lowercase letters.</li>
+        <li>🔹 <strong>Step 4:</strong> Input the words you want to include in the puzzle, separated by commas.</li>
+        <li>🔹 Click <strong>"Generate Puzzle"</strong> to create a word search instantly.</li>
+        <li>🔹 View both the puzzle and the solution, which will highlight the hidden words.</li>
     </ul>
-    
+
     <h3>📌 Why Use This Tool?</h3>
-    <p>✔️ <strong> Free </strong> to use and <strong> No</strong> signup required.<br>
-        ✔️ <strong>Fair and efficient</strong> bill splitting <br>
-       ✔️ <strong>Easy to use</strong> with a simple interface <br>
-       ✔️ <strong>Minimizes confusion</strong> by providing clear settlement suggestions</p>
+    <p>✔️ <strong>Easy-to-Use:</strong> Quickly generate word search puzzles with just a few inputs.<br>
+       ✔️ <strong>Fun & Engaging:</strong> Perfect for students, teachers, and puzzle lovers.<br>
+       ✔️ <strong>Customizable:</strong> Choose grid size, letter case, and personalized words.<br>
+       ✔️ <strong>Web-Based & Free:</strong> No downloads required—use it anytime, anywhere.<br>
+       ✔️ <strong>Printable Output:</strong> Download the puzzle as a PDF for easy printing.</p>
+
+    <h3>✨ Additional Features:</h3>
+    <ul>
+        <li>🔹 Auto-generates both the puzzle and its solution.</li>
+        <li>🔹 Allows customization of grid size based on difficulty.</li>
+        <li>🔹 Option to select uppercase or lowercase letters for a better experience.</li>
+        <li>🔹 Downloadable as a PDF for printing and sharing.</li>
+    </ul>
 </div>
+
+
 <div class="ff">
     <p class="glitch-text">Go down to explore more tools and Calculators.</p>
 </div>
-
     <!--about online tools-->
 <section class="tool-info">
     <div class="endcontainer">
@@ -569,6 +617,9 @@ display: flex;
         <h3 style="margin-top: 20px;">Explore Fun  Tools 😄</h3>
         <div class="incontainer">
             <div class="tools">
+                <div class="tool-card">
+                    <a href="crossword-generator.html">🔠 Find the Word Crossword Generator</a>
+                </div>
             <div class="tool-card">
                 <a href="colour-tool.html">🎨 Fun Color Picker & Mixer</a>
             </div>
@@ -590,7 +641,6 @@ display: flex;
     <p>We're continuously improving and adding new tools for a <strong>smarter and faster experience</strong>. Stay
         connected and explore our growing collection of useful tools!</p>
 
-
 </section>
 
 <!-- Welcome Section -->
@@ -604,7 +654,7 @@ display: flex;
             documents, estimate travel expenses, or convert measurements, eHelpFullTools provides reliable solutions
             to enhance your productivity and simplify everyday tasks. Explore the site to discover how these helpful
             tools can assist you!</p>
-        <a href="contact.html" style="text-decoration: none;"><button type="button" id="bt">Get in Touch</button></a>
+        <a href="contact.html" style="text-decoration: none;"><button type="button" id="bt" style="width: 150px;">Get in Touch</button></a>
     </div>
     <div class="welcome-image">
         <img src="home1.jpeg" alt="Illustration of eHelpFullTools features"> <!-- Replace with your image path -->
@@ -615,13 +665,13 @@ display: flex;
     <p>&copy; 2025 by eHelpFullTools. All rights reserved.</p>
 </footer>
 
+<script>
+    window.addEventListener("load", () => {
+            const loader = document.querySelector(".loader-container");
+            const content = document.querySelector(".content");
 
-<script> window.addEventListener("load", () => {
-    const loader = document.querySelector(".loader-container");
-    const content = document.querySelector(".content");
-
-    // Smooth fade-out loader
-    loader.style.transition = "opacity 2.8s ease-out";
+            // Smooth fade-out loader
+        loader.style.transition = "opacity 2.8s ease-out";
         loader.style.opacity = "0";
 
         setTimeout(() => {
@@ -630,6 +680,31 @@ content.style.display = "block";
 content.classList.add("fade-in");
 }, 2800); // Loader hides after 800ms (0.8 seconds)
 
-});</script>
+
+        });
+</script>
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyDbNYKUKukHO38WrWfiZo2ARWwqjUf8OeI",
+      authDomain: "ehelpfultool.firebaseapp.com",
+      projectId: "ehelpfultool",
+      storageBucket: "ehelpfultool.firebasestorage.app",
+      messagingSenderId: "572405415507",
+      appId: "1:572405415507:web:9addd73fae3fb78973d0a6",
+      measurementId: "G-MN8GGWK084"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
 </body>
 </html>
