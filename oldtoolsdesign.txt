@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-adsense-account" content="ca-pub-8868584487794979">
+  
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script>
+<link rel="icon" href="icon.png" type="image/x-icon" />
+<!-- Meta Title (Under 60 characters) -->
+<title>eHelpFulTools - Free to use and no sign-up Online Tools for Everyone</title>
+
+<!-- Meta Description (Under 160 characters) -->
+<meta name="description" content="Access free online tools like text converters, unit converters, typing speed test, bill split calculator, and more. No signup required!">
+
+<!-- Meta Keywords (Relevant Search Terms) -->
+<meta name="keywords" content="free online tools, text converter, PDF converter, unit converter, typing speed test, bill calculator, online utilities">
+
+<!-- Canonical URL (Prevents Duplicate URL Issues) -->
+<link rel="canonical" href="https://ehelpfultools.tech/" />
+
+<!-- Open Graph (OG) Tags for Social Media -->
+<meta property="og:title" content="eHelpFullTools - Free Online Tools" />
+<meta property="og:description" content="Use free tools like text converters, unit converters, typing speed test, bill calculator, and more. No signup required!" />
+<meta property="og:image" content="https://ehelpfultools.tech/assets/preview-image.jpg" />
+<meta property="og:url" content="https://ehelpfultools.tech/" />
+<meta property="og:type" content="website" />
+
+<!-- Twitter Card (For Twitter Sharing) -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="eHelpFullTools - Free Online Tools" />
+<meta name="twitter:description" content="Use free tools like text converters, unit converters, typing speed test, and more." />
+<meta name="twitter:image" content="https://ehelpfultools.tech/assets/preview-image.jpg" />
+
+<!-- Mobile Responsiveness -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<!-- Robots Meta (Ensures Indexing) -->
+<meta name="robots" content="index, follow" />
+
+
+</head>
+<style>
+ .tools-section {
+    text-align: center;
+    padding: 50px 20px;
+    background: #f8f9fa;
+}
+.tools-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+    gap: 20px; /* Space between blocks */
+    justify-content: center;
+    align-items: center;
+    max-width: 900px; /* Adjust width */
+    margin: auto; /* Center the grid */
+    padding: 20px;
+}
+.tools-section .pp{
+    color: #555;
+        font-size: 24px;
+        margin-bottom: 10px;
+}
+.tool-card2 {
+    width: 250px;
+    background: #007bff;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    height: 140px;
+    text-align: center;
+    transition: transform 0.3s, background-color 0.3s;
+    text-decoration: none;
+    justify-content: center;
+    align-content: center;
+}
+
+.tool-card2:hover {
+    background: #0056b3;
+    transform: translateY(-5px);
+}
+
+@media (max-width: 768px) { /* Tablets */
+    .tools-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    }
+}
+
+@media (max-width: 480px) { /* Mobile */
+    .tools-container {
+        grid-template-columns: 1fr; /* 1 column */
+        justify-items: center;
+    }
+}
+</style>
+
+<body>
+    
+        <!-- Tool Section -->
+        <section id="tools" class="tools-section">
+            <h2>Explore Our Online Tools 📝</h2>
+            <p class="pp">Discover a range of helpful tools designed to make your tasks easier and faster!</p>
+
+            <div class="tools-container">
+                <!-- Tool Cards -->
+                <a href="text-editor.html" class="tool-card2">
+                    <h3>📝 Online Text Editor</h3>
+                    <p>Edit and format text effortlessly.</p>
+                </a>
+
+                <a href="FuelCalculator.html" class="tool-card2">
+                    <h3>⛽ Fuel Cost Estimator</h3>
+                    <p>Plan your fuel expenses for any trip.</p>
+                </a>
+                <a href="typing-test.html" class="tool-card2">
+                    <h3>⌨ Typing Speed Test</h3>
+                    <p>Efective tool to measure your typing speed and accuracy.</p>
+                </a>
+                <a href="text-to-pdf.html" class="tool-card2">
+                    <h3>📝➡️📄 Txt & PDF Converter</h3>
+                    <p>Transform plain text into txt or pdf file</p>
+                </a>
+                <a href="split-bill.html" class="tool-card2">
+                    <h3>💰 Advanced Split Bill Calculator</h3>
+                    <p>Split the equal amount between friends.</p>
+                </a>
+                <a href="cooking-converter.html" class="tool-card2">
+                    <h3>🥣 Cooking Measurement Converter</h3>
+                    <p>Convert Cooking Measurements Easily.</p>
+                </a>
+                <a href="unit-converter.html" class="tool-card2">
+                    <h3>📏 Unit Converter</h3>
+                    <p>Convert length, weight, and more.</p>
+                </a>
+
+                <a href="age-calculator.html" class="tool-card2">
+                    <h3>🎂 Advanced Age Calculator</h3>
+                    <p>Estimate your Age with our advance age Calculator.</p>
+                </a>
+                <a href="meditation-timer.html" class="tool-card2">
+                    <h3>🧘‍♂️ Meditation Timer</h3>
+                    <p>Promotes relaxation and reduces stress.</p>
+                </a>
+                <a href="moore-machine-tool.html" class="tool-card2">
+                    <h3>⚙️📊 Moore Machine Table Generator</h3>
+                    <p> Create Moore Transition Tables Easily</p>
+                </a>
+                <a href="mealy-machine-tool.html" class="tool-card2">
+                    <h3>📊⚙️ Mealy Machine Table Generator</h3>
+                    <p> Create Mealy Transition Tables Easily</p>
+                </a>
+
+            </div>
+            <h2>Explore Our Fun Tools 😄</h2>
+            <div class="tools-container">
+                <a href="crossword-generator.html" class="tool-card2">
+                    <h3>🔠 Find the Word Crossword Generator</h3>
+                    <p>Create Word Searching  Puzzle games</p>
+                </a>
+                <a href="colour-tool.html" class="tool-card2">
+                    <h3>🎨 Fun Color Picker & Mixer</h3>
+                    <p>Choose,pick,mix,copy and download the colour.</p>
+                </a>
+                
+                <a href="drawing-board.html" class="tool-card2">
+                    <h3>🎨 Online Drawing Board</h3>
+                    <p>feature-rich digital canvas designed for creativity.</p>
+                </a>
+                <a href="ascii-art.html" class="tool-card2">
+                    <h3>ᓚ₍ ^. .^₎ ASCII Art Generator</h3>
+                    <p>Transforms texts into beautiful ASCII art.</p>
+                </a>
+                <a href="personalitycheck.html" class="tool-card2">
+                    <h3>🎭 Ultimate Personality Quiz</h3>
+                    <p>Answer the questions and discover your true personality!</p>
+                </a>
+                <a href="coin-flip.html" class="tool-card2">
+                    <h3>🪙 Flip the Coin</h3>
+                    <p>Easy and fast coin flipper.</p>
+                </a>
+            </div>
+        </section>
+        
+</body>
+
+</html>

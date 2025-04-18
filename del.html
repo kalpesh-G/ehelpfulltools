@@ -1,1056 +1,524 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="icon.png" type="image/x-icon" />
-    <title>🔠 Find the Word Crossword Generator - Create Word Search Puzzles</title>
-    <meta name="description" content="Generate your own word search puzzles with the Find the Word Crossword Generator. Create, customize, and download printable word search games instantly!">
-    <meta name="keywords" content="word search, crossword generator, find the word, word puzzle maker, online crossword, printable word search">
-    <link rel="canonical" href="https://ehelpfultools.tech/crossword-generator.html" />
-    <meta property="og:title" content="Find the Word Crossword Generator - Create Word Puzzles Online" />
-    <meta property="og:description" content="Design fun word search puzzles instantly! Customize difficulty, letter case, and download printable PDFs." />
-    <meta property="og:image" content="https://ehelpfultools.tech/assets/crossword-preview.jpg" />
-    <meta property="og:url" content="https://ehelpfultools.tech/crossword-generator.html" />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Find the Word Crossword Generator - Online Puzzle Maker" />
-    <meta name="twitter:description" content="Create and download custom word search puzzles instantly with our online crossword generator." />
-    <meta name="twitter:image" content="https://ehelpfultools.tech/assets/crossword-preview.jpg" />
-    <meta name="robots" content="index, follow" />
-    
-<meta name="google-adsense-account" content="ca-pub-8868584487794979">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
-
-<style>/* General Styling */
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pro Tool Cards</title>
+  <style>
     body {
-           font-family: 'Arial', sans-serif;
-           /* background: #f8f9fa; */
-           background: linear-gradient(to right, #80c7eb, #1363cc, #51eaea);         
-/* background: linear-gradient(to right, #afb3b5, #13c0cc, #e3e0e1); */
-           margin: 0;
-           justify-content: center;
-           align-items: center;
-           min-height: 100vh;
-       }
-       
-      
-           /* other css */
-           
-   h1 {
-       color: #333;
-   }
-
-   label {
-       display: block;
-       font-weight: bold;
-       margin-top: 10px;
-   }
-
-   select, input {
-       width: 100%;
-       padding: 8px;
-       margin: 5px 0;
-       border-radius: 5px;
-       border: 1px solid #ccc;
-   }
-
-   .unit-selection {
-       display: flex;
-       justify-content: space-between;
-       align-items: center;
-       margin-top: 10px;
-   }
-
-   button {
-       width: 100%;
-       background: #80dc07;
-       color: white;
-       padding: 10px;
-       border: none;
-       border-radius: 5px;
-       font-size: 16px;
-       cursor: pointer;
-       margin-top: 10px;
-   }
-
-   button:hover {
-       background: #087411e0;
-   }
-
-   h2 {
-       margin-top: 20px;
-       color: #28a745;
-   }
-         
-       
-           /* Header section */
-   .header {
-       background-image: url('navbar.jpg'); /* Replace with your background image path */
-       background-size: cover;
-       background-position: center;
-       height: 250px;
-       display: flex;
-       align-items: center;
-       justify-content: center;
-       color: white;
-       text-align: center;
-   }
-   .header h1 {
-       font-size: 3em;
-       margin: 0;
-       color: black;
-   }
-
-/* Navigation */
-.navbar {
-   background-color: #f4f4f4;
-   display: flex;
-   justify-content: center;
-   padding: 10px 0;
-   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-.navbar a {
-   margin: 5px 40px;
-   color: #333;
-   text-decoration: none;
-}
-.navbar a.active{
-   color: #007BFF;
-}
-.navbar a:hover {
-   color: #007BFF;
-}
-
-/* Welcome Section */
-.welcome-section {
-   display: flex;
-   flex-wrap: wrap;
-   padding: 50px;
-   color: white;
-}
-.welcome-text {
-   flex: 1;
-   padding: 20px;
-   min-width: 300px;
-   color: white;
-}
-.welcome-text h1 {
-   font-size: 2.5em;
-   margin-bottom: 50px; /* Adjusts space below the heading */
-   color: white;
-}
-
-.welcome-text h3 {
-   font-size: 1.8em;
-   margin-bottom: 30px; /* Adds space below the subheading */
-   color: white;
-}
-
-.welcome-text p {
-   line-height: 1.6;
-   color: #666;
-   font-size: 25px;
-   margin-bottom: 40px; /* Adjusts space below the paragraph */
-   color: white;
-}
-
-.welcome-text button {
-   padding: 10px 20px;
-   font-size: 16px;
-   cursor: pointer;
-   margin-top: 50px; /* Adds space above the button */
-}
-
-.welcome-image {
-   flex: 1;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   min-width: 300px;
-}
-.welcome-image img {
-   max-width: 100%;
-   height: auto;
-}
-#bt{
-border-radius: 0%;
-display: flex;
-}
-.footer {
-   text-align: center;
-   padding: 10px;
-   font-size: 14px;
-   color: #666;
-}
-
-.footer hr {
-   width: 90%;
-   border: none;
-   border-top: 1px solid #e0e0e0;
-   margin: 0 auto 10px;
-}
-
-.footer p {
-   margin: 20px 0px;
-   color: white;
-}
-/* Responsive adjustments */
-@media (max-width: 768px) {
-   .header h1 {
-       font-size: 2em;
-   }
-   .navbar a {
-       font-size: 0.9em;
-       margin: 0 10px;
-   }
-   .welcome-section {
-       flex-direction: column;
-       align-items: center;
-       text-align: center;
-       padding: 20px 10px;
-   }
-   .welcome-text h1 {
-       font-size: 1.8em;
-   }
-   .welcome-text {
-       padding: 10px;
-   }
-
-   .header h1{
-       color: white;
-       }}
- * { box-sizing: border-box; margin: 0; padding: 0; }
-/* endsection css */
-.tool-info {
-       text-align: center;
-       padding: 20px 20px;
-       background: linear-gradient(135deg, #f8f9fa, #e3f2fd); 
-     
-       border-radius: 10px;
-       margin: 30px auto;
-       /* max-width: 900px; */
-       width: 95%;
-       box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15); 
-   }
-
-   .endcontainer {
-       max-width: 800px;
-       margin: auto;
-   }
-
-   .tool-info h2 {
-       font-size: 2.5rem;
-       color: #333;
-       margin-bottom: 15px;
-   }
-
-   .brand {
-       color: #007bff;
-       font-weight: bold;
-   }
-
-   .tool-info p {
-       font-size: 1.2rem;
-       color: #555;
-       margin-bottom: 25px;
-   }
-
-   
-
-   /* Responsive Design */
-   @media (max-width: 768px) {
-       .tool-info {
-           padding: 40px 15px;
-       }
-
-       .tool-info h2 {
-           font-size: 2rem;
-       }
-
-   }
-   .incontainer {
-           max-width: 800px;
-           margin: 10px auto;
-           padding: 20px;
-       }
-   .tools {
-           display: grid;
-           grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-           gap: 20px;
-       }
-       .tool-card {
-           background: white;
-           padding: 20px;
-           border-radius: 10px;
-           box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-           transition: transform 0.3s;
-           text-align: center;
-           
-       }
-       .tool-card:hover {
-           transform: scale(1.05);
-       }
-       .tool-card i {
-           font-size: 40px;
-           color: #007BFF;
-           margin-bottom: 10px;
-       }
-       .tool-card a {
-           display: block;
-           font-size: 1.2rem;
-           color: #333;
-           text-decoration: none;
-           font-weight: bold;
-           margin-top: 10px;
-           
-       }
-       .tool-card a:hover {
-           color: #007BFF;
-       }
-       .tools-overview {
-           padding: 50px;
-       }
-       
-       .tools-grid {
-           display: grid;
-           grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-           gap: 15px;
-           max-width: 600px;
-           margin: auto;
-       }
-  /* ========== Short Description Styling ========== */
-.short-description {
-   text-align: left;
-   background: #f9f9f9;
-   padding: 20px;
-   border-radius: 8px;
-   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-   margin-top: 20px;
-}
-
-.short-description h2 {
-   color: #007BFF;
-   font-size: 1.8rem;
-}
-
-.short-description h3 {
-   color: #333;
-   margin-top: 15px;
-}
-
-.short-description p {
-   font-size: 1rem;
-   color: #555;
-}
-
-.short-description ul {
-   list-style: none;
-   padding: 0;
-}
-
-.short-description ul li {
-   font-size: 1rem;
-   color: #555;
-   padding-left: 25px;
-   position: relative;
-   margin-bottom: 8px;
-}
-
-.short-description ul li::before {
-   content: "✔️";
-   position: absolute;
-   left: 0;
-   color: #007BFF;
-   font-size: 1.2rem;
-}.ff{
-   justify-items: center;
-   margin: 15px auto;
-}
-/* loader css */
-/* Full-Screen Loader */
-.loader-container {
-           position: fixed;
-           top: 0;
-           left: 0;
-           width: 100%;
-           height: 100%;
-           background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
-           display: flex;
-           justify-content: center;
-           align-items: center;
-           z-index: 1000;
-       }
-
-       .loader {
-           position: relative;
-           width: 100px;
-           height: 100px;
-       }
-
-       /* Rotating Hexagon */
-       .hexagon {
-           position: absolute;
-           width: 60px;
-           height: 60px;
-           background: rgba(255, 255, 255, 0.8);
-           clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-           animation: rotateHexagon 2s linear infinite;
-       }
-
-       @keyframes rotateHexagon {
-           0% { transform: rotate(0deg) scale(1); }
-           50% { transform: rotate(180deg) scale(1.2); }
-           100% { transform: rotate(360deg) scale(1); }
-       }
-
-       /* Spinning Triangle */
-       .triangle {
-           position: absolute;
-           width: 40px;
-           height: 40px;
-           background: rgba(255, 255, 255, 0.7);
-           clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-           top: 10px;
-           left: 10px;
-           animation: spinTriangle 1.5s ease-in-out infinite alternate;
-       }
-
-       @keyframes spinTriangle {
-           0% { transform: translateY(0px) rotate(0deg); }
-           100% { transform: translateY(-15px) rotate(30deg); }
-       }
-
-       /* Pulsating Circle */
-       .circle {
-           position: absolute;
-           width: 20px;
-           height: 20px;
-           background: white;
-           border-radius: 50%;
-           bottom: 10px;
-           left: 50%;
-           transform: translateX(-50%);
-           animation: pulseCircle 1.2s ease-in-out infinite;
-       }
-
-       @keyframes pulseCircle {
-           0% { transform: scale(1); opacity: 1; }
-           50% { transform: scale(1.4); opacity: 0.5; }
-           100% { transform: scale(1); opacity: 1; }
-       }
-
-       /* Page Content (Hidden Initially) */
-       .content {
-           display: none;
-           text-align: center;
-           padding: 50px;
-           font-size: 24px;
-       }
-
-       /* Smooth Fade-In Effect */
-       .fade-in {
-           animation: fadeIn 1s ease-in-out forwards;
-       }
-
-       @keyframes fadeIn {
-           from { opacity: 0; transform: translateY(20px); }
-           to { opacity: 1; transform: translateY(0); }
-       }
-       .glitch-text {
-           font-size: 1.%;
-           font-weight: bold;
-           color: white;
-           position: relative;
-           text-transform: uppercase;
-           animation: glitch 0.8s infinite;
-       }
-
-       @keyframes glitch {
-           0% {
-               text-shadow: -2px 0 red, 2px 0 blue;
-           }
-
-           50% {
-               text-shadow: 2px 0 red, -2px 0 blue;
-           }
-
-           100% {
-               text-shadow: -2px 0 red, 2px 0 blue;
-           }
-       }
-       /* tool css */
-       .container {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-            width: 90%;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .text-of-tool {
-            text-align: center;
-        }
-        label {
-            font-weight: bold;
-            display: block;
-            margin-top: 10px;
-        }
-        input, select, textarea, button {
-            width: 100%;
-            margin: 5px 0;
-            padding: 10px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        button {
-            background-color: #008CBA;
-            color: white;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #005f7f;
-        }
-        table {
-            border-collapse: collapse;
-            margin: 10px auto;
-        }
-        td {
-            width: 30px;
-            height: 30px;
-            text-align: center;
-            border: 1px solid black;
-            font-weight: bold;
-        }
-        .solution td {
-            color: red;
-        }
-        .glitch-text {
-            font-size: 1.%;
-            font-weight: bold;
-            color: white;
-            position: relative;
-            text-transform: uppercase;
-            animation: glitch 0.8s infinite;
-        }
-
-        @keyframes glitch {
-            0% {
-                text-shadow: -2px 0 red, 2px 0 blue;
-            }
-
-            50% {
-                text-shadow: 2px 0 red, -2px 0 blue;
-            }
-
-            100% {
-                text-shadow: -2px 0 red, 2px 0 blue;
-            }
-        }
-       /* example css */
-       /* Example Section Styling */
-.example-section {
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    margin-top: 30px;
-}
-
-/* Example Container - Aligns Image and Text */
-.example-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    margin-top: 20px;
-}
-
-/* Example Image Styling */
-.example-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease-in-out;
-}
-
-.example-image:hover {
-    transform: scale(1.05);
-}
-
-/* Example Steps - List Styling */
-.example-steps {
-    max-width: 500px;
-    text-align: left;
-}
-
-.example-steps h3 {
-    font-size: 18px;
-    color: #333;
-    margin-bottom: 10px;
-}
-
-.example-steps ol {
-    padding-left: 20px;
-}
-
-.example-steps li {
-    font-size: 16px;
-    margin-bottom: 8px;
-    line-height: 1.5;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .example-container {
-        flex-direction: column;
-        text-align: center;
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f2f7f8;
     }
-    
-    .example-steps {
-        max-width: 100%;
+
+    .tools-section {
+      padding: 50px 20px;
+      max-width: 1200px;
+      margin: auto;
     }
+
+    .tools-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .tool-card2 {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: 0.3s ease-in-out;
+      position: relative;
+    }
+
+    .tool-card2:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .rating-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: #0dbb7c;
+      color: #fff;
+      padding: 6px 12px;
+      border-radius: 50px;
+      font-size: 0.9em;
+      font-weight: bold;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+
+    .tool-img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      background-color: #eaeaea;
+    }
+
+    .tool-content {
+      padding: 20px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .tool-content h3 {
+      font-size: 1.2em;
+      color: #1a1a1a;
+      margin-bottom: 5px;
+    }
+
+    .tool-category {
+      font-size: 0.9em;
+      color: #007bff;
+      margin-bottom: 10px;
+    }
+
+    .tool-desc {
+      font-size: 0.95em;
+      color: #444;
+      flex: 1;
+    }
+
+    .tool-tags {
+      margin: 10px 0;
+    }
+
+    .tool-tags span {
+      background: #f1f1f1;
+      color: #333;
+      padding: 4px 10px;
+      font-size: 0.8em;
+      border-radius: 50px;
+      margin-right: 5px;
+    }
+
+    .tool-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px 20px 20px;
+    }
+
+    .tool-footer button {
+      background: #fff;
+      color: #007bff;
+      border: 1px solid #007bff;
+      border-radius: 50px;
+      padding: 6px 16px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: 0.2s ease;
+    }
+
+    .tool-footer button:hover {
+      background: #007bff;
+      color: #fff;
+    }
+
+    .visit-btn {
+  
+      color: #007bff;
+      border: none;
+    }
+
+    .visit-btn:hover {
+      background: #0056b3;
+      color: white;
+    }
+    .section-heading {
+  text-align: center;
+  margin: 60px auto 30px;
+  max-width: 700px;
 }
 
-       </style>
+.section-heading h2 {
+  font-size: 2rem;
+  color: #007bff;
+  margin-bottom: 10px;
+  position: relative;
+}
 
+.section-heading h2::after {
+  content: '';
+  width: 60px;
+  height: 4px;
+  background: #007bff;
+  display: block;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+.section-heading p {
+  color: #555;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+@media (max-width: 768px) {
+  .tool-card2 {
+    font-size: 0.95em;
+  }
+
+  .tool-content h3 {
+    font-size: 1.1em;
+  }
+
+  .tool-desc {
+    font-size: 0.9em;
+  }
+
+  .tool-footer button {
+    padding: 5px 12px;
+    font-size: 0.85em;
+  }
+
+  .rating-badge {
+    font-size: 0.75em;
+    padding: 4px 10px;
+  }
+
+  .tool-img {
+    height: 130px;
+  }
+}
+
+@media (max-width: 500px) {
+  .tools-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .section-heading h2 {
+    font-size: 1.5rem;
+  }
+
+  .section-heading p {
+    font-size: 1rem;
+  }
+
+  .tool-content {
+    padding: 15px;
+  }
+
+  .tool-tags span {
+    font-size: 0.75em;
+  }
+
+  .tool-card2 {
+    margin: 0 auto;
+    font-size: 0.9em;
+    height: 370px;
+  }
+
+  .tool-content h3 {
+    font-size: 1rem;
+  }
+
+  .tool-desc {
+    font-size: 0.85em;
+  }
+
+  .tool-footer button {
+    font-size: 0.60em;
+  }
+
+  .tool-img {
+    height: 120px;
+  }
+}
+
+  </style>
 </head>
+
 <body>
-    
-    <div class="loader-container">
-        <div class="loader">
-            <div class="hexagon"></div>
-            <div class="triangle"></div>
-            <div class="circle"></div>
-        </div>
-    </div>
-<!-- Header -->
-<div class="header">
-    <h1>eHelpFullTools</h1>
+  <div class="section-heading">
+    <h2>🎉 Explore Our  Tools</h2>
+    <p>Engage your creativity and curiosity with interactive tools designed for fun, learning, and entertainment!</p>
+  </div>
+  <section class="tools-section">
+    <div class="tools-container">
+<!-- Online Text Editor -->
+<div class="tool-card2"> 
+  <div class="rating-badge">★ 92</div>
+  <img class="tool-img" src="images/texttool.jpg" alt="Online Text Editor">
+<div class="tool-content" style="border-top: 2px solid #434343;">
+    <h3>Online Text Editor</h3>
+    <div class="tool-category">Writing Tool</div>
+    <div class="tool-desc">Edit and format text effortlessly.</div>
+    <div class="tool-tags"><span>📝 Free Tool</span></div>
+  </div>
+  <div class="tool-footer">
+    <button>★ Favorite</button>
+    <a href="text-editor.html"  style="text-decoration: none;"><button>Use↗</button></a>
+  </div>
 </div>
 
-<!-- Navbar -->
-<div class="navbar">
-    <a href="index.html">Home</a>
-    <a href="OnlineTools.html" class="active">Online Tools</a>
-    <a href="service.html">Services</a>
-    <a href="contact.html">Contact Us</a>
+<!-- Fuel Cost Estimator -->
+<div class="tool-card2"> 
+  <div class="rating-badge">★ 78</div>
+  <img class="tool-img" src="images/fueltool.jpg" alt="Fuel Cost Estimator">
+<div class="tool-content" style="border-top: 2px solid #434343;">
+    <h3>Fuel Cost Estimator</h3>
+    <div class="tool-category">Travel Tool</div>
+    <div class="tool-desc">Plan your fuel expenses for any trip.</div>
+    <div class="tool-tags"><span>⛽ Budget Tool</span></div>  
+  </div>
+  <div class="tool-footer">
+    <button>★ Favorite</button>
+    <a href="FuelCalculator.html" ><button>Use↗</button></a>
+  </div>
 </div>
 
-<!-- Short description about the Find the Word Crossword Generator -->
-<div class="short-description">
-    <h2>About the Find the Word Crossword Generator 🧩🔠</h2>
-    <p>The <strong>Find the Word Crossword Generator</strong> is a fun and interactive tool that allows you to create custom word search puzzles instantly. Whether you're a teacher, student, or puzzle enthusiast, this tool makes it easy to generate engaging crosswords with hidden words based on your input.</p>
-    
-    <h3>🚀 How to Use This Tool:</h3>
-    <ul>
-        <li>🔹 <strong>Step 1:</strong> Enter a title for your crossword puzzle.</li>
-        <li>🔹 <strong>Step 2:</strong> Choose the difficulty level, which determines the grid size.</li>
-        <li>🔹 <strong>Step 3:</strong> Enter the creator’s name (optional) and select uppercase or lowercase letters.</li>
-        <li>🔹 <strong>Step 4:</strong> Input the words you want to include in the puzzle, separated by commas.</li>
-        <li>🔹 Click <strong>"Generate Puzzle"</strong> to create a word search instantly.</li>
-        <li>🔹 View both the puzzle and the solution, which will highlight the hidden words.</li>
-    </ul>
-
-    <h3>📌 Why Use This Tool?</h3>
-    <p>✔️ <strong>Easy-to-Use:</strong> Quickly generate word search puzzles with just a few inputs.<br>
-       ✔️ <strong>Fun & Engaging:</strong> Perfect for students, teachers, and puzzle lovers.<br>
-       ✔️ <strong>Customizable:</strong> Choose grid size, letter case, and personalized words.<br>
-       ✔️ <strong>Web-Based & Free:</strong> No downloads required—use it anytime, anywhere.<br>
-       ✔️ <strong>Printable Output:</strong> Download the puzzle as a PDF for easy printing.</p>
-
-    <h3>✨ Additional Features:</h3>
-    <ul>
-        <li>🔹 Auto-generates both the puzzle and its solution.</li>
-        <li>🔹 Allows customization of grid size based on difficulty.</li>
-        <li>🔹 Option to select uppercase or lowercase letters for a better experience.</li>
-        <li>🔹 Downloadable as a PDF for printing and sharing.</li>
-    </ul>
+<!-- Typing Speed Test -->
+<div class="tool-card2"> 
+  <div class="rating-badge">★ 85</div>
+  <img class="tool-img" src="images/typingtool.jpg" alt="Typing Speed Test">
+<div class="tool-content" style="border-top: 2px solid #434343;">
+    <h3>Typing Speed Test</h3>
+    <div class="tool-category">Productivity</div>
+    <div class="tool-desc">Effective tool to measure your typing speed and accuracy.</div>
+    <div class="tool-tags"><span>⌨ Productivity</span></div>
+  </div>
+  <div class="tool-footer">
+    <button>★ Favorite</button>
+    <a href="typing-test.html"><button>Use↗</button></a>
+  </div>
 </div>
 
-<!-- example code -->
- <!-- Example Block for Crossword Generator -->
-<div class="example-section">
-    <h2>🧩 Example: How to Use the Crossword Generator</h2>
-    <p>Follow these simple steps to create and download your own word search puzzle:</p>
-
-    <div class="example-container">
-        <!-- Example Image -->
-        <img src="/assets/crossword-example.jpg" alt="Example of Crossword Generator" class="example-image">
-
-        <!-- Example Steps -->
-        <div class="example-steps">
-            <h3>📌 Steps:</h3>
-            <ol>
-                <li>Enter a <strong>title</strong> for your crossword puzzle.</li>
-                <li>Select the <strong>difficulty level</strong> to determine the grid size.</li>
-                <li>Enter the <strong>creator’s name</strong> (optional) and choose letter case (uppercase/lowercase).</li>
-                <li>Type the <strong>words</strong> separated by commas that will be hidden in the puzzle.</li>
-                <li>Click <strong>"Generate Puzzle"</strong> to create your custom word search.</li>
-                <li>View both the <strong>puzzle</strong> and <strong>solution</strong> instantly.</li>
-                <li>Download the puzzle as a <strong>PDF</strong> to print and share.</li>
-            </ol>
-        </div>
-    </div>
+<!-- Txt & PDF Converter -->
+<div class="tool-card2"> 
+  <div class="rating-badge">★ 83</div>
+  <img class="tool-img" src="images/pdftool.jpg" alt="Txt & PDF Converter">
+<div class="tool-content" style="border-top: 2px solid #434343;">
+    <h3>Txt & PDF Converter</h3>
+    <div class="tool-category">File Tool</div>
+    <div class="tool-desc">Transform plain text into txt or pdf file.</div>
+    <div class="tool-tags"><span>📄 File Utility</span></div>
+  </div>
+  <div class="tool-footer">
+    <button>★ Favorite</button>
+    <a href="text-to-pdf.html"  > <button>Use↗</button></a>
+  </div>
 </div>
 
-<div class="ff">
-    <p class="glitch-text">Go down to explore more tools and Calculators.</p>
-</div>
-<!-- tool code -->
-<div class="container">
-    <h2 class="text-of-tool">Find the Word Crossword Generator</h2>
-    <label>Title:</label>
-    <input type="text" id="title" placeholder="Enter Title">
-    
-    <label>Difficulty Level:</label>
-    <select id="difficulty">
-        <option value="10">Easy (10x10)</option>
-        <option value="12">Medium (12x12)</option>
-        <option value="18">Hard (18x18)</option>
-    </select>
-    <label>Creator's Name:</label>
-    <input type="text" id="creator" placeholder="Enter Creator's Name">
-    
-    <label>Letter Case:</label>
-    <select id="case">
-        <option value="upper">Uppercase</option>
-        <option value="lower">Lowercase</option>
-    </select>
-    
-    <label>Enter Words (comma-separated):</label>
-    <textarea id="words" placeholder="Enter words, separated by commas"></textarea>
-    
-    <button onclick="generatePuzzle()">Generate Puzzle</button>
-    
-    <h3 class="text-of-tool">Puzzle</h3>
-    <div id="puzzle"></div>
-    
-    <h3 class="text-of-tool">Solution</h3>
-    <div id="solution"></div>
-    
-    <button onclick="downloadPuzzle()">Download PDF</button>
+<!-- Advanced Split Bill Calculator -->
+<div class="tool-card2"> 
+  <div class="rating-badge">★ 90</div>
+  <img class="tool-img" src="images/stool.jpg" alt="Split Bill Calculator">
+<div class="tool-content" style="border-top: 2px solid #434343;">
+    <h3>Advanced Split Bill Calculator</h3>
+    <div class="tool-category">Finance</div>
+    <div class="tool-desc">Split the equal amount between friends.</div>
+    <div class="tool-tags"><span>💰 Budget Tool</span></div>
+  </div>
+  <div class="tool-footer">
+    <button>★ Favorite</button>
+    <a href="split-bill.html"  > <button>Use↗</button></a>
+  </div>
 </div>
 
-    <!--about online tools-->
-<section class="tool-info">
-    <div class="endcontainer">
-        <h2>Welcome to <span class="brand">eHelpfullTools</span> 🚀</h2>
-        <p>eHelpfullTools is your ultimate online toolkit, offering a range of powerful and easy-to-use tools to
-            simplify your daily tasks. Whether you need to edit text, estimate fuel costs, or calculate loans, we’ve
-            got you covered!</p>
+<!-- Cooking Measurement Converter -->
+<div class="tool-card2"> 
+  <div class="rating-badge">★ 74</div>
+  <img class="tool-img" src="images/cookt.jpg" alt="Cooking Measurement Converter">
+<div class="tool-content" style="border-top: 2px solid #434343;">
+    <h3>Cooking Measurement Converter</h3>
+    <div class="tool-category">Kitchen Tool</div>
+    <div class="tool-desc">Convert Cooking Measurements Easily.</div>
+    <div class="tool-tags"><span>🥣 Cooking Helper</span></div>
+  </div>
+  <div class="tool-footer">
+    <button>★ Favorite</button>
+    <a href="cooking-converter.html"  > <button>Use↗</button></a>
+  </div>
+</div>
 
-        <h3>Explore More Tools 🔍</h3>
+<!-- Unit Converter -->
+<div class="tool-card2"> 
+  <div class="rating-badge">★ 87</div>
+  <img class="tool-img" src="images/unit.jpg" alt="Unit Converter">
+<div class="tool-content" style="border-top: 2px solid #434343;">
+    <h3>Unit Converter</h3>
+    <div class="tool-category">Math & Science</div>
+    <div class="tool-desc">Convert length, weight, and more.</div>
+    <div class="tool-tags"><span>📏 Science Tool</span></div>
+  </div>
+  <div class="tool-footer">
+    <button>★ Favorite</button>
+    <a href="unit-converter.html"  > <button>Use↗</button></a>
+  </div>
+</div>
 
-    </div>
+<!-- Advanced Age Calculator -->
+<div class="tool-card2"> 
+  <div class="rating-badge">★ 81</div>
+  <img class="tool-img" src="images/agetool.jpg" alt="Advanced Age Calculator">
+<div class="tool-content" style="border-top: 2px solid #434343;">
+    <h3>Advanced Age Calculator</h3>
+    <div class="tool-category">Life Tools</div>
+    <div class="tool-desc">Estimate your age with our advanced age calculator.</div>
+    <div class="tool-tags"><span>🎂 Life Utility</span></div>
+  </div>
+  <div class="tool-footer">
+    <button>★ Favorite</button>
+    <a href="age-calculator.html"  > <button>Use↗</button></a>
+  </div>
+</div>
 
-    <div class="incontainer">
-        <div class="tools">
-            <div class="tool-card">
-                <i class="fas fa-edit"></i>
-                <a href="text-editor.html">📝 Online Text Editor</a>
-            </div>
-            <div class="tool-card">
-                <a href="typing-test.html">⌨ Typing Speed Test</a>
-            </div>
-            <div class="tool-card">
-                <a href="FuelCalculator.html">⛽ Fuel Cost Estimator</a>
-            </div>
-            <div class="tool-card">
-                <a href="split-bill.html">💰 Advanced Split Bill Calculator</a>
-            </div>
-            <div class="tool-card">
-                <a href="cooking-converter.html">🥣 Cooking Measurement Converter</a>
-            </div>
-            <div class="tool-card">
-                <a href="unit-converter.html">📏 Unit Converter</a>
-            </div>
-            <div class="tool-card">
-                <a href="age-calculator.html">🎂 Advanced Age Calculator</a>
-            </div>
-            <div class="tool-card">
-                <a href="meditation-timer.html">🧘‍♂️ Meditation Timer</a>
-            </div>
-            <div class="tool-card">
-                <a href="text-to-pdf.html">📝➡️📄 Text File & PDF File Converter</a>
-            </div>
-            <div class="tool-card">
-                <a href="moore-machine-tool.html">⚙️📊 Moore Machine Table Generator</a>
-            </div>
-            <div class="tool-card">
-                <a href="mealy-machine-tool.html">📊⚙️ Mealy Machine Table Generator</a>
-            </div>
-            <div class="tool-card">
-                <a href="comingsoon.html">🌍 Language Translator</a>
-            </div>
-            <div class="tool-card">
-                <a href="comingsoon.html">🔢 Word & Character Counter</a>
-            </div>
-        </div>
-        <h3 style="margin-top: 20px;">Explore Fun  Tools 😄</h3>
-        <div class="incontainer">
-            <div class="tools">
-            <div class="tool-card">
-                <a href="colour-tool.html">🎨 Fun Color Picker & Mixer</a>
-            </div>
-            <div class="tool-card">
-                <a href="ascii-art.html">ᓚ₍ ^. .^₎ ASCII Art Generator</a>
-            </div>
-            
-            <div class="tool-card">
-                <a href="personalitycheck.html">🎭 Ultimate Personality Quiz</a>
-            </div>
-            <div class="tool-card">
-                <a href="coin-flip.html">🪙 Flip the Coin</a>
-            </div>
-            <div class="tool-card">
-                <a href="drawing-board.html">🎨 Online Drawing Board</a>
-            </div>
-        </div>
-    </div>
-    <p>We're continuously improving and adding new tools for a <strong>smarter and faster experience</strong>. Stay
-        connected and explore our growing collection of useful tools!</p>
+<!-- Meditation Timer -->
+<div class="tool-card2"> 
+  <div class="rating-badge">★ 95</div>
+  <img class="tool-img" src="images/medt.jpg" alt="Meditation Timer">
+<div class="tool-content" style="border-top: 2px solid #434343;">
+    <h3>Meditation Timer</h3>
+    <div class="tool-category">Wellness</div>
+    <div class="tool-desc">Promotes relaxation and reduces stress.</div>
+    <div class="tool-tags"><span>🧘 Relax Tool</span></div>
+  </div>
+  <div class="tool-footer">
+    <button>★ Favorite</button>
+    <a href="meditation-timer.html"  > <button>Use↗</button></a>
+  </div>
+</div>
 
+<!-- Moore Machine Table Generator -->
+<div class="tool-card2"> 
+  <div class="rating-badge">★ 70</div>
+  <img class="tool-img" src="images/moore.jpg" alt="Moore Machine Generator">
+<div class="tool-content" style="border-top: 2px solid #434343;">
+    <h3>Moore Machine Table Generator</h3>
+    <div class="tool-category">TOC Tool</div>
+    <div class="tool-desc">Create Moore transition tables easily.</div>
+    <div class="tool-tags"><span>⚙️ TOC Tool</span></div>
+  </div>
+  <div class="tool-footer">
+    <button>★ Favorite</button>
+    <a href="moore-machine-tool.html"  > <button>Use↗</button></a>
+  </div>
+</div>
+
+<!-- Mealy Machine Table Generator -->
+<div class="tool-card2"> 
+  <div class="rating-badge">★ 69</div>
+  <img class="tool-img" src="images/melay.jpg" alt="Mealy Machine Generator">
+<div class="tool-content" style="border-top: 2px solid #434343;">
+    <h3>Mealy Machine Table Generator</h3>
+    <div class="tool-category">TOC Tool</div>
+    <div class="tool-desc">Create Mealy transition tables easily.</div>
+    <div class="tool-tags"><span>📊 TOC Tool</span></div>
+  </div>
+  <div class="tool-footer">
+    <button>★ Favorite</button>
+    <a href="mealy-machine-tool.html"  > <button>Use↗</button></a>
+  </div>
+</div>
+</div>
 </section>
 
-<!-- Welcome Section -->
-<section class="welcome-section">
-    <div class="welcome-text">
-        <h1>Welcome to eHelpFullTools</h1>
-        <h3>The platform for quick and efficient online tools and calculators</h3>
-        <p>eHelpFullTools is a convenient online platform that offers a variety of free tools and calculators,
-            including a text editor, fuel cost estimator, and unit converter. Designed for ease of use, the site
-            allows users to access these resources quickly without any downloads. Whether you need to edit
-            documents, estimate travel expenses, or convert measurements, eHelpFullTools provides reliable solutions
-            to enhance your productivity and simplify everyday tasks. Explore the site to discover how these helpful
-            tools can assist you!</p>
-        <a href="contact.html" style="text-decoration: none;"><button type="button" id="bt" style="width: 150px;">Get in Touch</button></a>
+<!--fun tools -->
+
+<div class="section-heading">
+  <h2>🎉 Explore Our Fun Tools</h2>
+  <p>Engage your creativity and curiosity with interactive tools designed for fun, learning, and entertainment!</p>
+</div>
+<section class="tools-section">
+  <div class="tools-container">
+
+<div class="tool-card2">
+  <div class="rating-badge">★ 91</div>
+  <img class="tool-img" src="images/cword.jpg" alt="Find the Word Crossword Generator">
+<div class="tool-content" style="border-top: 2px solid #434343;">
+    <h3>Find the Word Crossword Generator</h3>
+    <div class="tool-category">Fun & Learning</div>
+    <div class="tool-desc">Create word search puzzle games for kids, fun, and education.</div>
+    <div class="tool-tags"><span>🔠 Puzzle Maker</span></div>
+  </div>
+  <div class="tool-footer">
+    <button>★ Favorite</button>
+    <a href="crossword-generator.html"  > <button>Use↗</button></a>
+  </div>
+</div>
+
+<div class="tool-card2">
+  <div class="rating-badge">★ 87</div>
+  <img class="tool-img" src="images/fcolour.jpg" alt="Fun Color Picker & Mixer">
+<div class="tool-content" style="border-top: 2px solid #434343;">
+    <h3>Fun Color Picker & Mixer</h3>
+    <div class="tool-category">Design Tool</div>
+    <div class="tool-desc">Pick, mix, and copy colors instantly with our fun color tool.</div>
+    <div class="tool-tags"><span>🎨 Creative Tool</span></div>
+  </div>
+  <div class="tool-footer">
+    <button>★ Favorite</button>
+    <a href="colour-tool.html"  > <button>Use↗</button></a>
+  </div>
+</div>
+
+<div class="tool-card2">
+  <div class="rating-badge">★ 85</div>
+  <img class="tool-img" src="images/drawing-tool.jpg" alt="Online Drawing Board">
+<div class="tool-content" style="border-top: 2px solid #434343;">
+    <h3>Online Drawing Board</h3>
+    <div class="tool-category">Creative</div>
+    <div class="tool-desc">Feature-rich digital canvas designed for creativity and sketches.</div>
+    <div class="tool-tags"><span>🖌️ Drawing Tool</span></div>
+  </div>
+  <div class="tool-footer">
+    <button>★ Favorite</button>
+    <a href="drawing-board.html"  > <button>Use↗</button></a>
+  </div>
+</div>
+
+<div class="tool-card2">
+  <div class="rating-badge">★ 80</div>
+  <img class="tool-img" src="images/ascii-art.jpg" alt="ASCII Art Generator">
+<div class="tool-content" style="border-top: 2px solid #434343;">
+    <h3>ASCII Art Generator</h3>
+    <div class="tool-category">Text Art</div>
+    <div class="tool-desc">Transform text into stunning ASCII art designs with ease.</div>
+    <div class="tool-tags"><span>🎨 ASCII Fun</span></div>
+  </div>
+  <div class="tool-footer">
+    <button>★ Favorite</button>
+    <a href="ascii-art.html"  > <button>Use↗</button></a>
+  </div>
+</div>
+
+<div class="tool-card2">
+  <div class="rating-badge">★ 78</div>
+  <img class="tool-img" src="images/ultimate-personality-tool.jpg" alt="Ultimate Personality Quiz">
+<div class="tool-content" style="border-top: 2px solid #434343;">
+    <h3>Ultimate Personality Quiz</h3>
+    <div class="tool-category">Entertainment</div>
+    <div class="tool-desc">Answer questions and discover your hidden personality type!</div>
+    <div class="tool-tags"><span>🎭 Quiz Tool</span></div>
+  </div>
+  <div class="tool-footer">
+    <button>★ Favorite</button>
+    <a href="personalitycheck.html"  > <button>Use↗</button></a>
+  </div>
+</div>
+
+<div class="tool-card2">
+  <div class="rating-badge">★ 75</div>
+  <img class="tool-img" src="images/flip-the-coin.jpg" alt="Flip the Coin">
+<div class="tool-content" style="border-top: 2px solid #434343;">
+    <h3>Flip the Coin</h3>
+    <div class="tool-category">Utility</div>
+    <div class="tool-desc">Flip a virtual coin anytime. Great for decisions and games!</div>
+    <div class="tool-tags"><span>🪙 Decision Tool</span></div>
+  </div>
+  <div class="tool-footer">
+    <button>★ Favorite</button>
+    <a href="coin-flip.html"  > <button>Use↗</button></a>
+  </div>
+</div>
+
+      
     </div>
-    <div class="welcome-image">
-        <img src="home1.jpeg" alt="Illustration of eHelpFullTools features"> <!-- Replace with your image path -->
-    </div>
-</section>
-<hr>
-<footer class="footer">
-    <p>&copy; 2025 by eHelpFullTools. All rights reserved.</p>
-</footer>
-
-<script>
-    function generatePuzzle() {
-            let gridSize = parseInt(document.getElementById("difficulty").value);
-            let words = document.getElementById("words").value.split(",").map(w => w.trim());
-            let caseType = document.getElementById("case").value;
-            let grid = Array.from({ length: gridSize }, () => Array(gridSize).fill("."));
-            let solutionGrid = JSON.parse(JSON.stringify(grid));
-            
-            function placeWord(word) {
-                let directions = [[1, 0], [0, 1], [1, 1], [-1, 1]];
-                word = caseType === "upper" ? word.toUpperCase() : word.toLowerCase();
-                
-                for (let attempt = 0; attempt < 50; attempt++) {
-                    let dir = directions[Math.floor(Math.random() * directions.length)];
-                    let row = Math.floor(Math.random() * gridSize);
-                    let col = Math.floor(Math.random() * gridSize);
-                    
-                    if (row + dir[0] * word.length < gridSize && col + dir[1] * word.length < gridSize && row + dir[0] * word.length >= 0) {
-                        let fits = true;
-                        for (let i = 0; i < word.length; i++) {
-                            if (grid[row + dir[0] * i][col + dir[1] * i] !== "." && grid[row + dir[0] * i][col + dir[1] * i] !== word[i]) {
-                                fits = false;
-                                break;
-                            }
-                        }
-                        if (fits) {
-                            for (let i = 0; i < word.length; i++) {
-                                grid[row + dir[0] * i][col + dir[1] * i] = word[i];
-                                solutionGrid[row + dir[0] * i][col + dir[1] * i] = word[i];
-                            }
-                            return;
-                        }
-                    }
-                }
-            }
-            
-            words.forEach(placeWord);
-            grid.forEach((row, r) => row.forEach((_, c) => {
-                if (grid[r][c] === ".") grid[r][c] = String.fromCharCode(65 + Math.random() * 26);
-            }));
-            
-            displayGrid(grid, "puzzle");
-            displayGrid(solutionGrid, "solution", true);
-        }
-        
-        function displayGrid(grid, elementId, isSolution = false) {
-            let table = `<table class="${isSolution ? 'solution' : ''}">`;
-            grid.forEach(row => {
-                table += "<tr>" + row.map(cell => `<td>${cell}</td>`).join('') + "</tr>";
-            });
-            table += "</table>";
-            document.getElementById(elementId).innerHTML = table;
-        }
-
-        function downloadPuzzle() {
-    const { jsPDF } = window.jspdf;
-    let doc = new jsPDF({ orientation: "portrait", unit: "mm", format: "a4" });
-
-    let title = document.getElementById("title").value || "Find the Word Puzzle";
-    let creator = document.getElementById("creator").value || "Unknown";
-    let words = document.getElementById("words").value.split(",").map(word => word.trim());
-    let caseType = document.getElementById("case").value; // Upper or Lower case selection
-
-    let puzzleElement = document.getElementById("puzzle").querySelector("table");
-    let solutionElement = document.getElementById("solution").querySelector("table");
-
-    // 🏷 Title & Creator Section
-    doc.setFont("helvetica", "bold");
-    doc.setFontSize(20);
-    doc.text("Title: " + title, 105, 20, null, null, "center");
-
-    doc.setFontSize(14);
-    doc.text("Made by: " + creator, 105, 30, null, null, "center");
-
-    // ℹ Instructions Section with Bullet Points
-    doc.setFont("helvetica", "normal");
-    doc.setFontSize(12);
-    let instructions = [
-        "• Find the words listed below in the puzzle.",
-        "• Words can be placed horizontally, vertically, or diagonally.",
-        "• Circle or highlight the words once found.",
-        "• Have fun!"
-    ];
-    doc.text("Instructions:", 20, 45);
-    doc.text(instructions, 25, 55);
-
-    // 🧩 Puzzle Section (Centered)
-    doc.setFontSize(14);
-    doc.text("Puzzle:", 105, 80, null, null, "center");
-    if (puzzleElement) {
-        let puzzleTable = puzzleElement.cloneNode(true);
-        if (caseType === "lower") {
-            puzzleTable.querySelectorAll("td").forEach(td => td.textContent = td.textContent.toLowerCase());
-        }
-        doc.autoTable({
-            html: puzzleTable,
-            startY: 85,
-            theme: "grid",
-            styles: { 
-                fontSize: 10, // Bigger Text
-                fontStyle: "bold", // Bold Letters
-                cellWidth: "auto",
-                halign: "center", 
-                lineWidth: 0.8, 
-                lineColor: [0, 0, 0] 
-            },
-            margin: { left: 20, right: 20 }, // Center Table
-        });
-    }
-
-    // 📜 Word List (Formatted in Columns)
-   // 📜 Word List (Formatted in Columns)
-doc.setFontSize(14);
-doc.text("Find the following words:", 20, doc.lastAutoTable.finalY + 10);
-
-// Check if any word exceeds 15 characters
-let longWordExists = words.some(word => word.length > 15);
-
-let wordFontSize = longWordExists ? 8 : 12;  // Set font size based on condition
-let columnSpacing = longWordExists ? 50 : 40; // Set column spacing based on condition
-
-doc.setFontSize(wordFontSize);
-let wordsPerColumn = 5;
-let columnX = 20;
-let columnY = doc.lastAutoTable.finalY + 20;
-
-words.forEach((word, index) => {
-    doc.text("• " + word, columnX, columnY);
-    columnX += columnSpacing;
-
-    if ((index + 1) % wordsPerColumn === 0) {
-        columnX = 20;
-        columnY += 8;
-    }
-});
-
-
-    // 📄 Solution Page
-    doc.addPage();
-    doc.setFontSize(14);
-    doc.text("Solution:", 105, 20, null, null, "center");
-    if (solutionElement) {
-        let solutionTable = solutionElement.cloneNode(true);
-        if (caseType === "lower") {
-            solutionTable.querySelectorAll("td").forEach(td => td.textContent = td.textContent.toLowerCase());
-        }
-        doc.autoTable({
-            html: solutionTable,
-            startY: 30,
-            theme: "grid",
-            styles: { 
-                fontSize: 14, // Bigger Text
-                fontStyle: "bold", // Bold Letters
-                cellWidth: "auto",
-                halign: "center", 
-                lineWidth: 1, 
-                lineColor: [0, 0, 0], 
-                textColor: [255, 0, 0] 
-            },
-            margin: { left: 35, right: 35 }, // Center Table
-        });
-    }
-
-    // 📌 Footer
-    doc.setFontSize(10);
-    doc.text("Generated using Find the Word Crossword Generator", 20, 280);
-    doc.text("Visit: https://ehelpfultools.tech", 20, 285);
-
-    // 📥 Save & Download
-    doc.save(title.replace(/\s+/g, "_") + "_Crossword.pdf");
-} 
-    window.addEventListener("load", () => {
-            const loader = document.querySelector(".loader-container");
-            const content = document.querySelector(".content");
-
-            // Smooth fade-out loader
-        loader.style.transition = "opacity 2.8s ease-out";
-        loader.style.opacity = "0";
-
-        setTimeout(() => {
-loader.style.display = "none";
-content.style.display = "block";
-content.classList.add("fade-in");
-}, 2800); // Loader hides after 800ms (0.8 seconds)
-
-
-        });
-</script>
-<script type="module">
-    // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-analytics.js";
-    // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
-  
-    // Your web app's Firebase configuration
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    const firebaseConfig = {
-      apiKey: "AIzaSyDbNYKUKukHO38WrWfiZo2ARWwqjUf8OeI",
-      authDomain: "ehelpfultool.firebaseapp.com",
-      projectId: "ehelpfultool",
-      storageBucket: "ehelpfultool.firebasestorage.app",
-      messagingSenderId: "572405415507",
-      appId: "1:572405415507:web:9addd73fae3fb78973d0a6",
-      measurementId: "G-MN8GGWK084"
-    };
-  
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
-  </script>
+  </section>
 </body>
 </html>

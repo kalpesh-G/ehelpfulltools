@@ -351,6 +351,226 @@
     }
 }
 
+/* tools css */
+.tools-section {
+      padding: 50px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .tools-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .tool-card2 {
+      background: #fff;
+      border-radius: 12px;
+      border:2px groove rgb(138, 136, 136);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: 0.3s ease-in-out;
+      position: relative;
+    }
+
+    .tool-card2:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .rating-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: #0dbb7c;
+      color: #fff;
+      padding: 6px 12px;
+      border-radius: 50px;
+      font-size: 0.9em;
+      font-weight: bold;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+
+    .tool-img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      background-color: #eaeaea;
+    }
+
+    .tool-content {
+      padding: 20px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .tool-content h3 {
+      font-size: 1.2em;
+      color: #1a1a1a;
+      margin-bottom: 5px;
+    }
+
+    .tool-category {
+      font-size: 0.9em;
+      color: #007bff;
+      margin-bottom: 10px;
+    }
+
+    .tool-desc {
+      font-size: 0.95em;
+      color: #444;
+      flex: 1;
+    }
+
+    .tool-tags {
+      margin: 10px 0;
+    }
+
+    .tool-tags span {
+      background: #f1f1f1;
+      color: #333;
+      padding: 4px 10px;
+      font-size: 0.8em;
+      border-radius: 50px;
+      margin-right: 5px;
+    }
+
+    .tool-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px 20px 20px;
+    }
+
+    .tool-footer button {
+      background: #fff;
+      color: #007bff;
+      border: 1px solid #007bff;
+      border-radius: 50px;
+      padding: 6px 16px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: 0.2s ease;
+    }
+
+    .tool-footer button:hover {
+      background: #007bff;
+      color: #fff;
+    }
+
+    .visit-btn {
+  
+      color: #007bff;
+      border: none;
+    }
+
+    .visit-btn:hover {
+      background: #0056b3;
+      color: white;
+    }
+    .section-heading {
+  text-align: center;
+  margin: 60px auto 30px;
+  max-width: 700px;
+}
+
+.section-heading h2 {
+  font-size: 2rem;
+  color: #007bff;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.section-heading h2::after {
+  content: '';
+  width: 60px;
+  height: 4px;
+  background: #007bff;
+  display: block;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+.section-heading p {
+  color: #555;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+@media (max-width: 768px) {
+  .tool-card2 {
+    font-size: 0.95em;
+  }
+
+  .tool-content h3 {
+    font-size: 1.1em;
+  }
+
+  .tool-desc {
+    font-size: 0.9em;
+  }
+
+  .tool-footer button {
+    padding: 5px 12px;
+    font-size: 0.85em;
+  }
+
+  .rating-badge {
+    font-size: 0.75em;
+    padding: 4px 10px;
+  }
+
+  .tool-img {
+    height: 130px;
+  }
+}
+
+@media (max-width: 500px) {
+  .tools-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .section-heading h2 {
+    font-size: 1.5rem;
+  }
+
+  .section-heading p {
+    font-size: 1rem;
+  }
+
+  .tool-content {
+    padding: 15px;
+  }
+
+  .tool-tags span {
+    font-size: 0.75em;
+  }
+
+  .tool-card2 {
+    margin: 0 auto;
+    font-size: 0.9em;
+    height: 370px;
+  }
+
+  .tool-content h3 {
+    font-size: 1rem;
+  }
+
+  .tool-desc {
+    font-size: 0.85em;
+  }
+
+  .tool-footer button {
+    font-size: 0.60em;
+  }
+
+  .tool-img {
+    height: 120px;
+  }
+}
 
 </style>
 
@@ -430,89 +650,292 @@
         <hr>
         <!-- Floating Call-to-Action Button -->
         <!-- Tool Section -->
-        <section id="tools" class="tools-section">
-            <h2>Explore Our Online Tools 📝</h2>
-            <p class="pp">Discover a range of helpful tools designed to make your tasks easier and faster!</p>
-
+        <div class="section-heading">
+            <h2>🎉 Explore Our  Tools</h2>
+            <p>Engage your creativity and curiosity with interactive tools designed for fun, learning, and entertainment!</p>
+          </div>
+          <section class="tools-section">
             <div class="tools-container">
-                <!-- Tool Cards -->
-                <a href="text-editor.html" class="tool-card2">
-                    <h3>📝 Online Text Editor</h3>
-                    <p>Edit and format text effortlessly.</p>
-                </a>
-
-                <a href="FuelCalculator.html" class="tool-card2">
-                    <h3>⛽ Fuel Cost Estimator</h3>
-                    <p>Plan your fuel expenses for any trip.</p>
-                </a>
-                <a href="typing-test.html" class="tool-card2">
-                    <h3>⌨ Typing Speed Test</h3>
-                    <p>Efective tool to measure your typing speed and accuracy.</p>
-                </a>
-                <a href="text-to-pdf.html" class="tool-card2">
-                    <h3>📝➡️📄 Txt & PDF Converter</h3>
-                    <p>Transform plain text into txt or pdf file</p>
-                </a>
-                <a href="split-bill.html" class="tool-card2">
-                    <h3>💰 Advanced Split Bill Calculator</h3>
-                    <p>Split the equal amount between friends.</p>
-                </a>
-                <a href="cooking-converter.html" class="tool-card2">
-                    <h3>🥣 Cooking Measurement Converter</h3>
-                    <p>Convert Cooking Measurements Easily.</p>
-                </a>
-                <a href="unit-converter.html" class="tool-card2">
-                    <h3>📏 Unit Converter</h3>
-                    <p>Convert length, weight, and more.</p>
-                </a>
-
-                <a href="age-calculator.html" class="tool-card2">
-                    <h3>🎂 Advanced Age Calculator</h3>
-                    <p>Estimate your Age with our advance age Calculator.</p>
-                </a>
-                <a href="meditation-timer.html" class="tool-card2">
-                    <h3>🧘‍♂️ Meditation Timer</h3>
-                    <p>Promotes relaxation and reduces stress.</p>
-                </a>
-                <a href="moore-machine-tool.html" class="tool-card2">
-                    <h3>⚙️📊 Moore Machine Table Generator</h3>
-                    <p> Create Moore Transition Tables Easily</p>
-                </a>
-                <a href="mealy-machine-tool.html" class="tool-card2">
-                    <h3>📊⚙️ Mealy Machine Table Generator</h3>
-                    <p> Create Mealy Transition Tables Easily</p>
-                </a>
-
-            </div>
-            <h2>Explore Our Fun Tools 😄</h2>
-            <div class="tools-container">
-                <a href="crossword-generator.html" class="tool-card2">
-                    <h3>🔠 Find the Word Crossword Generator</h3>
-                    <p>Create Word Searching  Puzzle games</p>
-                </a>
-                <a href="colour-tool.html" class="tool-card2">
-                    <h3>🎨 Fun Color Picker & Mixer</h3>
-                    <p>Choose,pick,mix,copy and download the colour.</p>
-                </a>
-                
-                <a href="drawing-board.html" class="tool-card2">
-                    <h3>🎨 Online Drawing Board</h3>
-                    <p>feature-rich digital canvas designed for creativity.</p>
-                </a>
-                <a href="ascii-art.html" class="tool-card2">
-                    <h3>ᓚ₍ ^. .^₎ ASCII Art Generator</h3>
-                    <p>Transforms texts into beautiful ASCII art.</p>
-                </a>
-                <a href="personalitycheck.html" class="tool-card2">
-                    <h3>🎭 Ultimate Personality Quiz</h3>
-                    <p>Answer the questions and discover your true personality!</p>
-                </a>
-                <a href="coin-flip.html" class="tool-card2">
-                    <h3>🪙 Flip the Coin</h3>
-                    <p>Easy and fast coin flipper.</p>
-                </a>
-            </div>
+        <!-- Online Text Editor -->
+        <div class="tool-card2"> 
+          <div class="rating-badge">★ 92</div>
+          <img class="tool-img" src="images/texttool.jpg" alt="Online Text Editor">
+        <div class="tool-content" style="border-top: 2px solid #434343;">
+            <h3>Online Text Editor</h3>
+            <div class="tool-category">Writing Tool</div>
+            <div class="tool-desc">Edit and format text effortlessly.</div>
+            <div class="tool-tags"><span>📝 Free Tool</span></div>
+          </div>
+          <div class="tool-footer">
+            <button>★ Favorite</button>
+            <a href="text-editor.html"  style="text-decoration: none;"><button>Use↗</button></a>
+          </div>
+        </div>
+        
+        <!-- Fuel Cost Estimator -->
+        <div class="tool-card2"> 
+          <div class="rating-badge">★ 78</div>
+          <img class="tool-img" src="images/fueltool.jpg" alt="Fuel Cost Estimator">
+        <div class="tool-content" style="border-top: 2px solid #434343;">
+            <h3>Fuel Cost Estimator</h3>
+            <div class="tool-category">Travel Tool</div>
+            <div class="tool-desc">Plan your fuel expenses for any trip.</div>
+            <div class="tool-tags"><span>⛽ Budget Tool</span></div>  
+          </div>
+          <div class="tool-footer">
+            <button>★ Favorite</button>
+            <a href="FuelCalculator.html" ><button>Use↗</button></a>
+          </div>
+        </div>
+        
+        <!-- Typing Speed Test -->
+        <div class="tool-card2"> 
+          <div class="rating-badge">★ 85</div>
+          <img class="tool-img" src="images/typingtool.jpg" alt="Typing Speed Test">
+        <div class="tool-content" style="border-top: 2px solid #434343;">
+            <h3>Typing Speed Test</h3>
+            <div class="tool-category">Productivity</div>
+            <div class="tool-desc">Effective tool to measure your typing speed and accuracy.</div>
+            <div class="tool-tags"><span>⌨ Productivity</span></div>
+          </div>
+          <div class="tool-footer">
+            <button>★ Favorite</button>
+            <a href="typing-test.html"><button>Use↗</button></a>
+          </div>
+        </div>
+        
+        <!-- Txt & PDF Converter -->
+        <div class="tool-card2"> 
+          <div class="rating-badge">★ 83</div>
+          <img class="tool-img" src="images/pdftool.jpg" alt="Txt & PDF Converter">
+        <div class="tool-content" style="border-top: 2px solid #434343;">
+            <h3>Txt & PDF Converter</h3>
+            <div class="tool-category">File Tool</div>
+            <div class="tool-desc">Transform plain text into txt or pdf file.</div>
+            <div class="tool-tags"><span>📄 File Utility</span></div>
+          </div>
+          <div class="tool-footer">
+            <button>★ Favorite</button>
+            <a href="text-to-pdf.html"  > <button>Use↗</button></a>
+          </div>
+        </div>
+        
+        <!-- Advanced Split Bill Calculator -->
+        <div class="tool-card2"> 
+          <div class="rating-badge">★ 90</div>
+          <img class="tool-img" src="images/stool.jpg" alt="Split Bill Calculator">
+        <div class="tool-content" style="border-top: 2px solid #434343;">
+            <h3>Advanced Split Bill Calculator</h3>
+            <div class="tool-category">Finance</div>
+            <div class="tool-desc">Split the equal amount between friends.</div>
+            <div class="tool-tags"><span>💰 Budget Tool</span></div>
+          </div>
+          <div class="tool-footer">
+            <button>★ Favorite</button>
+            <a href="split-bill.html"  > <button>Use↗</button></a>
+          </div>
+        </div>
+        
+        <!-- Cooking Measurement Converter -->
+        <div class="tool-card2"> 
+          <div class="rating-badge">★ 74</div>
+          <img class="tool-img" src="images/cookt.jpg" alt="Cooking Measurement Converter">
+        <div class="tool-content" style="border-top: 2px solid #434343;">
+            <h3>Cooking Measurement Converter</h3>
+            <div class="tool-category">Kitchen Tool</div>
+            <div class="tool-desc">Convert Cooking Measurements Easily.</div>
+            <div class="tool-tags"><span>🥣 Cooking Helper</span></div>
+          </div>
+          <div class="tool-footer">
+            <button>★ Favorite</button>
+            <a href="cooking-converter.html"  > <button>Use↗</button></a>
+          </div>
+        </div>
+        
+        <!-- Unit Converter -->
+        <div class="tool-card2"> 
+          <div class="rating-badge">★ 87</div>
+          <img class="tool-img" src="images/unit.jpg" alt="Unit Converter">
+        <div class="tool-content" style="border-top: 2px solid #434343;">
+            <h3>Unit Converter</h3>
+            <div class="tool-category">Math & Science</div>
+            <div class="tool-desc">Convert length, weight, and more.</div>
+            <div class="tool-tags"><span>📏 Science Tool</span></div>
+          </div>
+          <div class="tool-footer">
+            <button>★ Favorite</button>
+            <a href="unit-converter.html"  > <button>Use↗</button></a>
+          </div>
+        </div>
+        
+        <!-- Advanced Age Calculator -->
+        <div class="tool-card2"> 
+          <div class="rating-badge">★ 81</div>
+          <img class="tool-img" src="images/agetool.jpg" alt="Advanced Age Calculator">
+        <div class="tool-content" style="border-top: 2px solid #434343;">
+            <h3>Advanced Age Calculator</h3>
+            <div class="tool-category">Life Tools</div>
+            <div class="tool-desc">Estimate your age with our advanced age calculator.</div>
+            <div class="tool-tags"><span>🎂 Life Utility</span></div>
+          </div>
+          <div class="tool-footer">
+            <button>★ Favorite</button>
+            <a href="age-calculator.html"  > <button>Use↗</button></a>
+          </div>
+        </div>
+        
+        <!-- Meditation Timer -->
+        <div class="tool-card2"> 
+          <div class="rating-badge">★ 95</div>
+          <img class="tool-img" src="images/medt.jpg" alt="Meditation Timer">
+        <div class="tool-content" style="border-top: 2px solid #434343;">
+            <h3>Meditation Timer</h3>
+            <div class="tool-category">Wellness</div>
+            <div class="tool-desc">Promotes relaxation and reduces stress.</div>
+            <div class="tool-tags"><span>🧘 Relax Tool</span></div>
+          </div>
+          <div class="tool-footer">
+            <button>★ Favorite</button>
+            <a href="meditation-timer.html"  > <button>Use↗</button></a>
+          </div>
+        </div>
+        
+        <!-- Moore Machine Table Generator -->
+        <div class="tool-card2"> 
+          <div class="rating-badge">★ 70</div>
+          <img class="tool-img" src="images/moore.jpg" alt="Moore Machine Generator">
+        <div class="tool-content" style="border-top: 2px solid #434343;">
+            <h3>Moore Machine Table Generator</h3>
+            <div class="tool-category">TOC Tool</div>
+            <div class="tool-desc">Create Moore transition tables easily.</div>
+            <div class="tool-tags"><span>⚙️ TOC Tool</span></div>
+          </div>
+          <div class="tool-footer">
+            <button>★ Favorite</button>
+            <a href="moore-machine-tool.html"  > <button>Use↗</button></a>
+          </div>
+        </div>
+        
+        <!-- Mealy Machine Table Generator -->
+        <div class="tool-card2"> 
+          <div class="rating-badge">★ 69</div>
+          <img class="tool-img" src="images/melay.jpg" alt="Mealy Machine Generator">
+        <div class="tool-content" style="border-top: 2px solid #434343;">
+            <h3>Mealy Machine Table Generator</h3>
+            <div class="tool-category">TOC Tool</div>
+            <div class="tool-desc">Create Mealy transition tables easily.</div>
+            <div class="tool-tags"><span>📊 TOC Tool</span></div>
+          </div>
+          <div class="tool-footer">
+            <button>★ Favorite</button>
+            <a href="mealy-machine-tool.html"  > <button>Use↗</button></a>
+          </div>
+        </div>
+        </div>
         </section>
+        
+        <!--fun tools -->
+        
+        <div class="section-heading">
+          <h2>🎉 Explore Our Fun Tools</h2>
+          <p>Engage your creativity and curiosity with interactive tools designed for fun, learning, and entertainment!</p>
+        </div>
+        <section class="tools-section">
+          <div class="tools-container">
+        
+        <div class="tool-card2">
+          <div class="rating-badge">★ 91</div>
+          <img class="tool-img" src="images/cword.jpg" alt="Find the Word Crossword Generator">
+        <div class="tool-content" style="border-top: 2px solid #434343;">
+            <h3>Find the Word Crossword Generator</h3>
+            <div class="tool-category">Fun & Learning</div>
+            <div class="tool-desc">Create word search puzzle games for kids, fun, and education.</div>
+            <div class="tool-tags"><span>🔠 Puzzle Maker</span></div>
+          </div>
+          <div class="tool-footer">
+            <button>★ Favorite</button>
+            <a href="crossword-generator.html"  > <button>Use↗</button></a>
+          </div>
+        </div>
+        
+        <div class="tool-card2">
+          <div class="rating-badge">★ 87</div>
+          <img class="tool-img" src="images/fcolour.jpg" alt="Fun Color Picker & Mixer">
+        <div class="tool-content" style="border-top: 2px solid #434343;">
+            <h3>Fun Color Picker & Mixer</h3>
+            <div class="tool-category">Design Tool</div>
+            <div class="tool-desc">Pick, mix, and copy colors instantly with our fun color tool.</div>
+            <div class="tool-tags"><span>🎨 Creative Tool</span></div>
+          </div>
+          <div class="tool-footer">
+            <button>★ Favorite</button>
+            <a href="colour-tool.html"  > <button>Use↗</button></a>
+          </div>
+        </div>
+        
+        <div class="tool-card2">
+          <div class="rating-badge">★ 85</div>
+          <img class="tool-img" src="images/drawing-tool.jpg" alt="Online Drawing Board">
+        <div class="tool-content" style="border-top: 2px solid #434343;">
+            <h3>Online Drawing Board</h3>
+            <div class="tool-category">Creative</div>
+            <div class="tool-desc">Feature-rich digital canvas designed for creativity and sketches.</div>
+            <div class="tool-tags"><span>🖌️ Drawing Tool</span></div>
+          </div>
+          <div class="tool-footer">
+            <button>★ Favorite</button>
+            <a href="drawing-board.html"  > <button>Use↗</button></a>
+          </div>
+        </div>
+        
+        <div class="tool-card2">
+          <div class="rating-badge">★ 80</div>
+          <img class="tool-img" src="images/ascii-art.jpg" alt="ASCII Art Generator">
+        <div class="tool-content" style="border-top: 2px solid #434343;">
+            <h3>ASCII Art Generator</h3>
+            <div class="tool-category">Text Art</div>
+            <div class="tool-desc">Transform text into stunning ASCII art designs with ease.</div>
+            <div class="tool-tags"><span>🎨 ASCII Fun</span></div>
+          </div>
+          <div class="tool-footer">
+            <button>★ Favorite</button>
+            <a href="ascii-art.html"  > <button>Use↗</button></a>
+          </div>
+        </div>
+        
+        <div class="tool-card2">
+          <div class="rating-badge">★ 78</div>
+          <img class="tool-img" src="images/ultimate-personality-tool.jpg" alt="Ultimate Personality Quiz">
+        <div class="tool-content" style="border-top: 2px solid #434343;">
+            <h3>Ultimate Personality Quiz</h3>
+            <div class="tool-category">Entertainment</div>
+            <div class="tool-desc">Answer questions and discover your hidden personality type!</div>
+            <div class="tool-tags"><span>🎭 Quiz Tool</span></div>
+          </div>
+          <div class="tool-footer">
+            <button>★ Favorite</button>
+            <a href="personalitycheck.html"  > <button>Use↗</button></a>
+          </div>
+        </div>
+        
+        <div class="tool-card2">
+          <div class="rating-badge">★ 75</div>
+          <img class="tool-img" src="images/flip-the-coin.jpg" alt="Flip the Coin">
+        <div class="tool-content" style="border-top: 2px solid #434343;">
+            <h3>Flip the Coin</h3>
+            <div class="tool-category">Utility</div>
+            <div class="tool-desc">Flip a virtual coin anytime. Great for decisions and games!</div>
+            <div class="tool-tags"><span>🪙 Decision Tool</span></div>
+          </div>
+          <div class="tool-footer">
+            <button>★ Favorite</button>
+            <a href="coin-flip.html"  > <button>Use↗</button></a>
+          </div>
+        </div>
+        
+              
+            </div>
+          </section>
         <!-- Description Section -->
         <section id="description" class="description-section">
             <h2>Why Choose eHelpFulTools?</h2>

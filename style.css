@@ -440,78 +440,8 @@ overflow-y: auto; /* Added scrollability */
     background: #0056b3;
     transform: scale(1.1);
 }
-/* homepagemodify */
-/* ========== TOOL SECTION STYLING ========== */
-.tools-section {
-    text-align: center;
-    padding: 50px 20px;
-    background: #f8f9fa;
-}
 
-/* .tools-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-} */
-.tools-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
-    gap: 20px; /* Space between blocks */
-    justify-content: center;
-    align-items: center;
-    max-width: 900px; /* Adjust width */
-    margin: auto; /* Center the grid */
-    padding: 20px;
-}
 
-.tool-block {
-    background: white; /* Example styling */
-    padding: 20px;
-    text-align: center;
-    border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    font-size: 1.2rem;
-    font-weight: bold;
-}
-
-/* 📱 Responsive Layout */
-@media (max-width: 768px) { /* Tablets */
-    .tools-container {
-        grid-template-columns: repeat(2, 1fr); /* 2 columns */
-    }
-}
-
-@media (max-width: 480px) { /* Mobile */
-    .tools-container {
-        grid-template-columns: 1fr; /* 1 column */
-        justify-items: center;
-    }
-}
-
-.tools-section .pp{
-    color: #555;
-        font-size: 24px;
-        margin-bottom: 10px;
-}
-.tool-card2 {
-    width: 250px;
-    background: #007bff;
-    color: white;
-    padding: 20px;
-    border-radius: 8px;
-    height: 140px;
-    text-align: center;
-    transition: transform 0.3s, background-color 0.3s;
-    text-decoration: none;
-    justify-content: center;
-    align-content: center;
-}
-
-.tool-card2:hover {
-    background: #0056b3;
-    transform: translateY(-5px);
-}
 
 /* ========== DESCRIPTION SECTION ========== */
 .description-section {
