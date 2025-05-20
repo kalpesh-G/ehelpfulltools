@@ -122,6 +122,9 @@ background-color: #f5f7fa;
             display: flex;
             flex-direction: column;
         }
+         .ccontrol {
+            display: flex;
+        }
 
         label {
             font-weight: 600;
@@ -380,7 +383,7 @@ input[type="range"] {
             margin-top: 0.5rem;
         }
         .input-group-grid .control {
-            margin-bottom: 0; /* Override default margin */
+            margin-bottom: 0.8; /* Override default margin */
         }
         .input-group-grid label {
             margin-bottom: 0.5rem;
@@ -462,6 +465,7 @@ input[type="range"] {
                 font-size: 1.8rem;
                 gap: 0.8rem;
             }
+            
             h1 .fa-magic {
                 font-size: 2rem;
             }
@@ -1505,7 +1509,7 @@ display: flex;
                             <option value="rotate(-3deg)">Rotate (-3deg)</option>
                         </select>
                     </div>
-                    <div class="control" style="grid-column: 1 / -1;">
+                    <div class="ccontrol" style="grid-column: 1 / -1;">
                         <label for="transitionSpeed"><i class="fas fa-tachometer-alt"></i> Transition Speed (s)</label>
                         <input type="range" id="transitionSpeed" value="0.3" min="0" max="2" step="0.05">
                         <span class="range-value" id="transitionSpeedValue">0.3s</span>
