@@ -3,12 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advanced Button Generator Pro</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+   <title>📼 Advanced Button Generator - Create & Customize Unique Buttons</title>
+<meta name="description" content="Generate beautiful and responsive HTML & CSS buttons with advanced customization options. Design unique buttons for your website easily.">
+<meta name="keywords" content="Advanced Button Generator, HTML button, CSS button, custom button, button design, web development tool, responsive button, online button maker, button code">
+<meta property="og:title" content="Advanced Button Generator - Design Custom HTML/CSS Buttons">
+<meta property="og:description" content="Create unique and responsive buttons with custom styles, hover effects, and icons. Get instant HTML and CSS code.">
+<meta property="og:image" content="https://ehelpfultools.tech/assets/advanced-button-generator-tool.jpg">
+<meta property="og:url" content="https://ehelpfultools.tech/advance-button-generator.html">
+<meta name="twitter:title" content="Advanced Button Generator - HTML/CSS Button Tool">
+<meta name="twitter:description" content="Easily generate stunning HTML & CSS buttons with advanced customization. Perfect for web designers and developers.">
+<meta name="twitter:image" content="https://ehelpfultools.tech/assets/advanced-button-generator-tool.jpg">
+<meta name="google-adsense-account" content="ca-pub-8868584487794979">
+    <link rel="icon" href="icon.png" type="image/x-icon" />
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
     <style>
-        :root {
+        body {
+            font-family: 'Arial', sans-serif;
+            /* background: #f8f9fa; */
+            text-align: center;
+background-color: #f5f7fa;
+            margin: 0;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        /* tool css start */
+         :root {
             --primary-color: #6a67ee; /* A vibrant, modern purple */
             --secondary-color: #8c8aff;
             --accent-color: #21d4fd; /* For highlights/interactive elements */
@@ -24,54 +47,7 @@
             --border-radius-hard: 8px;
         }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, var(--bg-light), var(--bg-medium));
-            padding: 2.5rem;
-            color: var(--text-dark);
-            line-height: 1.6;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        h1 {
-            text-align: center;
-            margin-bottom: 3rem;
-            color: var(--primary-color);
-            font-size: 3rem;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1.2rem;
-            letter-spacing: -0.05em;
-            background: -webkit-linear-gradient(45deg, var(--primary-color), var(--accent-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        h1 .fa-magic {
-            font-size: 3.5rem;
-            color: var(--primary-color); /* Fallback for browsers without text-fill-color */
-            background: -webkit-linear-gradient(45deg, var(--primary-color), var(--accent-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .container {
-            display: flex;
-            flex-direction: column;
-            gap: 3rem;
-            max-width: 1200px;
-            width: 100%;
-            margin: auto;
-            background: #ffffff;
-            padding: 3.5rem;
-            border-radius: var(--border-radius-soft);
-            box-shadow: 0 20px 50px var(--shadow-medium);
-        }
+    
 
         .main-grid {
             display: grid;
@@ -91,8 +67,7 @@
             flex-direction: column;
             gap: 2rem;
         }
-
-        .section-title {
+.section-title {
             font-size: 1.5rem;
             margin-bottom: 1.5rem;
             color: var(--text-dark);
@@ -143,8 +118,7 @@
             opacity: 0;
             margin-bottom: 0;
         }
-
-        .control {
+ .control {
             display: flex;
             flex-direction: column;
         }
@@ -199,8 +173,7 @@
             background-size: 24px;
             cursor: pointer;
         }
-
-        input[type="range"] {
+input[type="range"] {
             -webkit-appearance: none;
             width: 100%;
             height: 8px;
@@ -267,8 +240,7 @@
             min-height: 200px;
             margin-top: 0; /* Adjust for grid layout */
         }
-
-        /* Base button styles applied via a class */
+/* Base button styles applied via a class */
         .generated-button {
             padding: 0.75rem 1.5rem;
             font-size: 1rem;
@@ -414,9 +386,7 @@
             margin-bottom: 0.5rem;
         }
 
-
-        /* Responsive adjustments */
-        @media (max-width: 992px) {
+  @media (max-width: 992px) {
             .main-grid {
                 grid-template-columns: 1fr;
             }
@@ -439,8 +409,7 @@
                 grid-template-columns: repeat(2, 1fr);
             }
         }
-
-        @media (max-width: 768px) {
+           @media (max-width: 768px) {
             body {
                 padding: 1.5rem;
             }
@@ -482,8 +451,7 @@
                 grid-template-columns: 1fr;
             }
         }
-
-        @media (max-width: 480px) {
+ @media (max-width: 480px) {
             body {
                 padding: 1rem;
             }
@@ -524,56 +492,11 @@
                 font-size: 0.9rem;
             }
         }
-        /* --- Aggressive Container Width & Mobile-First Layout Adjustments --- */
+   
 
-/* Base styles (as before, but consider how they interact with new media queries) */
-body {
-    font-family: 'Inter', sans-serif;
-    background: linear-gradient(135deg, var(--bg-light), var(--bg-medium));
-    padding: 2.5rem; /* Default padding for large screens */
-    color: var(--text-dark);
-    line-height: 1.6;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
 
-.container {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-    max-width: 1200px; /* Default max-width for large screens */
-    width: 100%;
-    margin: auto;
-    background: #ffffff;
-    padding: 3.5rem; /* Default padding for large screens */
-    border-radius: var(--border-radius-soft);
-    box-shadow: 0 20px 50px var(--shadow-medium);
-}
 
-.main-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Default 2-column layout for large screens */
-    gap: 3rem;
-}
 
-/* --- Responsive adjustments start here --- */
-/* --- Aggressive Container Width & Mobile-First Layout Adjustments --- */
-
-/* Base styles (as before, but consider how they interact with new media queries) */
-body {
-    font-family: 'Inter', sans-serif;
-    background: linear-gradient(135deg, var(--bg-light), var(--bg-medium));
-    padding: 2.5rem; /* Default padding for large screens */
-    color: var(--text-dark);
-    line-height: 1.6;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
-}
 
 .container {
     display: flex;
@@ -600,8 +523,6 @@ body {
   box-sizing: inherit;
 }
 
-/* --- Responsive adjustments start here --- */
-
 /* For screens up to 1024px (laptops, large tablets) */
 @media (max-width: 1024px) {
     .container {
@@ -619,7 +540,6 @@ body {
         font-size: 3.2rem;
     }
 }
-
 /* For screens up to 992px (typical tablet landscape and smaller desktops) */
 @media (max-width: 992px) {
     .main-grid {
@@ -665,8 +585,6 @@ body {
         font-size: 0.8rem;
     }
 }
-
-/* For screens up to 768px (typical tablet portrait and large phones) */
 @media (max-width: 768px) {
     body {
         padding: 1.2rem; /* Moderate body padding for good spacing */
@@ -762,11 +680,33 @@ body {
         margin-top: 1.5rem;
     }
 }
+ .buttonh1 {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+            font-size: 3rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.2rem;
+            letter-spacing: -0.05em;
+            background: -webkit-linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-/* For screens up to 480px (typical small mobile phones) */
+        .buttonh1 .fa-magic {
+            font-size: 3.5rem;
+            color: var(--primary-color); /* Fallback for browsers without text-fill-color */
+            background: -webkit-linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
 @media (max-width: 480px) {
     body {
-        padding: 0.5rem; /* Minimal body padding */
+        padding: 0; /* Minimal body padding */
     }
     .container {
         max-width: 100%; /* Go full width (minus body padding) */
@@ -801,11 +741,13 @@ body {
     }
     .preview-code-panel {
         gap: 1rem; /* Tighter spacing for preview/code */
+        width: 70%;
     }
     .preview {
         padding: 1.2rem; /* Very minimal preview padding */
         min-height: 100px;
         border-radius: 0; /* Match container */
+        width: 100%;
     }
     .generated-button {
         font-size: 0.8rem;
@@ -834,7 +776,7 @@ body {
     .code-section {
         padding: 0.7rem;
         border-radius: 0; /* Match container */
-        width: 70%;
+        width: 100%;
     }
     .code-section pre {
         font-size: 0.75rem;
@@ -845,10 +787,491 @@ body {
         margin-top: 1rem;
     }
 }
+       /* tool css end */
+       .gbutton {
+    width: 150px;
+    background: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+.gbutton:hover {
+    background: #0056b3;
+}
+
+h2 {
+    margin-top: 20px;
+    color: #28a745;
+}
+        
+        /* Header section */
+.header {
+    background-image: url('navbar.jpg'); /* Replace with your background image path */
+    background-size: cover;
+    background-position: center;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+.header h1 {
+    font-size: 3em;
+    margin: 0;
+    color: black;
+}
+
+/* Navigation */
+.navbar {
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.navbar a {
+    margin: 5px 40px;
+    color: #333;
+    text-decoration: none;
+}
+.navbar a.active{
+    color: #007BFF;
+}
+.navbar a:hover {
+    color: #007BFF;
+}
+
+/* Welcome Section */
+.welcome-section {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 50px;
+}
+.welcome-text {
+    flex: 1;
+    padding: 20px;
+    min-width: 300px;
+}
+.welcome-text h1 {
+    font-size: 2.5em;
+    margin-bottom: 50px; /* Adjusts space below the heading */
+}
+
+.welcome-text h3 {
+    font-size: 1.8em;
+    margin-bottom: 30px; /* Adds space below the subheading */
+}
+
+.welcome-text p {
+    line-height: 1.6;
+    color: #666;
+    font-size: 25px;
+    margin-bottom: 40px; /* Adjusts space below the paragraph */
+}
+
+.welcome-text .gbutton {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 50px; /* Adds space above the button */
+}
+
+.welcome-image {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 300px;
+}
+.welcome-image img {
+    max-width: 100%;
+    height: auto;
+}
+#bt{
+border-radius: 0%;
+display: flex;
+ }
+ .footer {
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+    color: #666;
+}
+
+.footer hr {
+    width: 90%;
+    border: none;
+    border-top: 1px solid #e0e0e0;
+    margin: 0 auto 10px;
+}
+
+.footer p {
+    margin: 20px 0px;
+}
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 2em;
+    }
+    .navbar a {
+        font-size: 0.9em;
+        margin: 0 10px;
+    }
+    .welcome-section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 20px 10px;
+    }
+    .welcome-text h1 {
+        font-size: 1.8em;
+    }
+    .welcome-text {
+        padding: 10px;
+    }
+
+    .header h1{
+        color: white;
+        }}
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+ /* endsection css */
+ .tool-info {
+        text-align: center;
+        padding: 50px 20px;
+        /* background: linear-gradient(135deg, #f8f9fa, #e3f2fd); */
+      
+        border-radius: 10px;
+        margin: 50px auto;
+        max-width: 900px;
+        /* box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15); */
+    }
+
+    .endcontainer {
+        max-width: 800px;
+        margin: auto;
+    }
+
+    .tool-info h2 {
+        font-size: 2.5rem;
+        color: #333;
+        margin-bottom: 15px;
+    }
+
+    .brand {
+        color: #007bff;
+        font-weight: bold;
+    }
+
+    .tool-info p {
+        font-size: 1.2rem;
+        color: #555;
+        margin-bottom: 25px;
+    }
+
+    
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .tool-info {
+            padding: 40px 15px;
+        }
+
+        .tool-info h2 {
+            font-size: 2rem;
+        }
+
+    }
+    .incontainer {
+            max-width: 800px;
+            margin: 10px auto;
+            padding: 20px;
+        }
+    .tools {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .tool-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            text-align: center;
+            
+        }
+        .tool-card:hover {
+            transform: scale(1.05);
+        }
+        .tool-card i {
+            font-size: 40px;
+            color: #007BFF;
+            margin-bottom: 10px;
+        }
+        .tool-card a {
+            display: block;
+            font-size: 1.2rem;
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 10px;
+            
+        }
+        .tool-card a:hover {
+            color: #007BFF;
+        }
+        .tools-overview {
+            padding: 50px;
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            max-width: 600px;
+            margin: auto;
+        }
+   /* ========== Short Description Styling ========== */
+.short-description {
+    text-align: left;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.short-description h2 {
+    color: #007BFF;
+    font-size: 1.8rem;
+}
+
+.short-description h3 {
+    color: #333;
+    margin-top: 15px;
+}
+
+.short-description p {
+    font-size: 1rem;
+    color: #555;
+}
+
+.short-description ul {
+    list-style: none;
+    padding: 0;
+}
+
+.short-description ul li {
+    font-size: 1rem;
+    color: #555;
+    padding-left: 25px;
+    position: relative;
+    margin-bottom: 8px;
+}
+
+.short-description ul li::before {
+    content: "✔️";
+    position: absolute;
+    left: 0;
+    color: #007BFF;
+    font-size: 1.2rem;
+}
+/* Responsive adjustments for .result and .settlement */
+@media (max-width: 768px) {
+    .result, .settlement {
+        font-size: 14px; /* Decrease font size for smaller screens */
+        padding: 10px; /* Reduce padding for smaller screens */
+        margin-top: 15px; /* Adjust margin for better spacing */
+    }
+
+    .result {
+        background: #e6f7ff; /* Keep the same background color */
+    }
+
+    .settlement {
+        background: #d4edda; /* Keep the same background color */
+        text-align: left; /* Keep text alignment */
+    }
+}
+
+@media (max-width: 480px) {
+    .result, .settlement {
+        font-size: 12px; /* Further decrease font size for very small screens */
+        padding: 8px; /* Further reduce padding */
+        margin-top: 10px; /* Adjust margin for better spacing */
+    }
+
+    .result {
+        border-radius: 5px; /* Slightly reduce border radius */
+    }
+
+    .settlement {
+        border-radius: 5px; /* Slightly reduce border radius */
+    }
+}
+.ff{
+    justify-items: center;
+    margin: 15px auto;
+}
+/* loader css */
+/* Full-Screen Loader */
+.loader-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .loader {
+            position: relative;
+            width: 100px;
+            height: 100px;
+        }
+
+        /* Rotating Hexagon */
+        .hexagon {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.8);
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            animation: rotateHexagon 2s linear infinite;
+        }
+
+        @keyframes rotateHexagon {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.2); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+
+        /* Spinning Triangle */
+        .triangle {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.7);
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            top: 10px;
+            left: 10px;
+            animation: spinTriangle 1.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes spinTriangle {
+            0% { transform: translateY(0px) rotate(0deg); }
+            100% { transform: translateY(-15px) rotate(30deg); }
+        }
+
+        /* Pulsating Circle */
+        .circle {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: pulseCircle 1.2s ease-in-out infinite;
+        }
+
+        @keyframes pulseCircle {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.4); opacity: 0.5; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* Page Content (Hidden Initially) */
+        .content {
+            display: none;
+            text-align: center;
+            padding: 50px;
+            font-size: 24px;
+        }
+
+        /* Smooth Fade-In Effect */
+        .fade-in {
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
     </style>
 </head>
 <body>
-    <h1><i class="fa fa-magic"></i> Advanced Button Generator Pro</h1>
+    
+    <div class="loader-container">
+        <div class="loader">
+            <div class="hexagon"></div>
+            <div class="triangle"></div>
+            <div class="circle"></div>
+        </div>
+    </div>
+ <!-- Header -->
+ <div class="header">
+    <h1>eHelpFullTools</h1>
+</div>
+
+<!-- Navbar -->
+<div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="OnlineTools.html" class="active">Online Tools</a>
+    <a href="service.html">Services</a>
+    <a href="contact.html">Contact Us</a>
+</div>
+
+<!-- Short description about the Text to PDF Converter -->
+<div class="short-description">
+    <h2>About the Advanced Button Generator ✨🎨</h2>
+    <p>The <strong>Advanced Button Generator</strong> is a powerful and intuitive tool designed to help you effortlessly create stunning and responsive HTML and CSS buttons. Whether you're a web developer, designer, or just need a quick custom button, this tool simplifies the process of generating production-ready code with advanced customization options.</p>
+
+    <h3>🚀 How to Use This Tool:</h3>
+    <ul>
+        <li>🔹 <strong>Step 1:</strong> Adjust various settings in the left panel, such as text, colors, padding, borders, and shadows.</li>
+        <li>🔹 <strong>Step 2:</strong> See your button update instantly in the live preview area.</li>
+        <li>🔹 <strong>Step 3:</strong> Experiment with hover effects and transitions to make your button interactive.</li>
+        <li>🔹 <strong>Step 4:</strong> Copy the generated HTML and CSS code directly to use in your project.</li>
+        <li>🔹 The tool provides clear, concise code snippets that are ready to be integrated into your website.</li>
+    </ul>
+
+    <h3>📌 Why Use This Tool?</h3>
+    <p>✔️ <strong>Easy-to-Use:</strong> Intuitive interface with real-time updates—no manual coding required.<br>
+        ✔️ <strong>Interactive & Instant:</strong> Design and visualize your buttons in seconds.<br>
+        ✔️ <strong>Highly Customizable:</strong> Control every aspect from colors and fonts to shadows and hover effects.<br>
+        ✔️ <strong>Responsive & Modern:</strong> Generated buttons are designed to look great on all devices.<br>
+        ✔️ <strong>Time-Saving:</strong> Quickly generate complex CSS without writing a single line from scratch.</p>
+
+    <h3>✨ Additional Features:</h3>
+    <ul>
+        <li>🔹 Live preview of your button as you adjust settings.</li>
+        <li>🔹 Customizable text, font family, font size, and text alignment.</li>
+        <li>🔹 Comprehensive color controls for background, text, borders, and hover states.</li>
+        <li>🔹 Detailed padding, border width, and border-radius adjustments.</li>
+        <li>🔹 Advanced box-shadow and hover transform effects.</li>
+        <li>🔹 Option to add Font Awesome icons directly to your button.</li>
+        <li>🔹 Convenient one-click copy buttons for both HTML and CSS code.</li>
+    </ul>
+</div>
+
+<div class="ff">
+    <p>Go down to explore more tools and Calculators.</p></div>
+<!-- tool code here -->
+<h1 class="buttonh1"><i class="fa fa-magic"></i> Advanced Button Generator Pro</h1>
 
     <div class="container">
         <div class="main-grid">
@@ -1111,12 +1534,162 @@ body {
         </div>
     </div>
 
+<!--about online tools-->
+<section class="tool-info">
+    <div class="endcontainer">
+        <h2>Welcome to <span class="brand">eHelpfullTools</span> 🚀</h2>
+        <p>eHelpfullTools is your ultimate online toolkit, offering a range of powerful and easy-to-use tools to
+            simplify your daily tasks. Whether you need to edit text, estimate fuel costs, or calculate loans, we’ve
+            got you covered!</p>
+
+        <h3>Explore More Tools 🔍</h3>
+
+    </div>
+
+    <div class="incontainer">
+        <div class="tools">
+             <div class="tool-card">
+                <i class="fas fa-box"></i>
+                <a href="advance-button-generetor.html">📼 Advanced Button Generator</a>
+            </div>
+            <div class="tool-card">
+                <i class="fas fa-edit"></i>
+                <a href="text-editor.html">📝 Online Text Editor</a>
+            </div>
+            <div class="tool-card">
+                <a href="typing-test.html">⌨ Typing Speed Test</a>
+            </div>
+            <div class="tool-card">
+                <a href="FuelCalculator.html">⛽ Fuel Cost Estimator</a>
+            </div>
+            <div class="tool-card">
+                <a href="split-bill.html">💰 Advanced Split Bill Calculator</a>
+            </div>
+            <div class="tool-card">
+                <a href="cooking-converter.html">🥣 Cooking Measurement Converter</a>
+            </div>
+            <div class="tool-card">
+                <a href="unit-converter.html">📏 Unit Converter</a>
+            </div>
+            <div class="tool-card">
+                <a href="age-calculator.html">🎂 Advanced Age Calculator</a>
+            </div>
+            <div class="tool-card">
+                <a href="meditation-timer.html">🧘‍♂️ Meditation Timer</a>
+            </div>
+            <div class="tool-card">
+                <a href="text-to-pdf.html">📝➡️📄 Text File & PDF File Converter</a>
+            </div>
+            <div class="tool-card">
+                <a href="moore-machine-tool.html">⚙️📊 Moore Machine Table Generator</a>
+            </div>
+            <div class="tool-card">
+                <a href="mealy-machine-tool.html">📊⚙️ Mealy Machine Table Generator</a>
+            </div>
+            <div class="tool-card">
+                <a href="comingsoon.html">🌍 Language Translator</a>
+            </div>
+            <div class="tool-card">
+                <a href="comingsoon.html">🔢 Word & Character Counter</a>
+            </div>
+        </div>
+        <h3 style="margin-top: 20px;">Explore Fun  Tools 😄</h3>
+        <div class="incontainer">
+            <div class="tools">
+                <div class="tool-card">
+                    <a href="crossword-generator.html">🔠 Find the Word Crossword Generator</a>
+                </div>
+            <div class="tool-card">
+                <a href="colour-tool.html">🎨 Fun Color Picker & Mixer</a>
+            </div>
+            <div class="tool-card">
+                <a href="ascii-art.html">ᓚ₍ ^. .^₎ ASCII Art Generator</a>
+            </div>
+            
+            <div class="tool-card">
+                <a href="personalitycheck.html">🎭 Ultimate Personality Quiz</a>
+            </div>
+            <div class="tool-card">
+                <a href="coin-flip.html">🪙 Flip the Coin</a>
+            </div>
+            <div class="tool-card">
+                <a href="drawing-board.html">🎨 Online Drawing Board</a>
+            </div>
+        </div>
+    </div>
+    <p>We're continuously improving and adding new tools for a <strong>smarter and faster experience</strong>. Stay
+        connected and explore our growing collection of useful tools!</p>
+
+</section>
+
+<!-- Welcome Section -->
+<section class="welcome-section">
+    <div class="welcome-text">
+        <h1>Welcome to eHelpFullTools</h1>
+        <h3>The platform for quick and efficient online tools and calculators</h3>
+        <p>eHelpFullTools is a convenient online platform that offers a variety of free tools and calculators,
+            including a text editor, fuel cost estimator, and unit converter. Designed for ease of use, the site
+            allows users to access these resources quickly without any downloads. Whether you need to edit
+            documents, estimate travel expenses, or convert measurements, eHelpFullTools provides reliable solutions
+            to enhance your productivity and simplify everyday tasks. Explore the site to discover how these helpful
+            tools can assist you!</p>
+        <a href="contact.html" style="text-decoration: none;"><button type="button" id="bt" class="gbutton">Get in Touch</button></a>
+    </div>
+    <div class="welcome-image">
+        <img src="home1.jpeg" alt="Illustration of eHelpFullTools features"> <!-- Replace with your image path -->
+    </div>
+</section>
+<hr>
+<footer class="footer">
+    <p>&copy; 2025 by eHelpFullTools. All rights reserved.</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+
     <style id="generatedButtonStyles"></style> <style id="googleFonts"></style>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
     <script>
+       window.addEventListener("load", () => {
+    const loader = document.querySelector(".loader-container");
+    const content = document.querySelector(".content");
+
+    // Smooth fade-out loader
+    loader.style.transition = "opacity 2.8s ease-out";
+        loader.style.opacity = "0";
+
+        setTimeout(() => {
+loader.style.display = "none";
+content.style.display = "block";
+content.classList.add("fade-in");
+}, 2800); // Loader hides after 800ms (0.8 seconds)
+
+});</script>
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyDbNYKUKukHO38WrWfiZo2ARWwqjUf8OeI",
+      authDomain: "ehelpfultool.firebaseapp.com",
+      projectId: "ehelpfultool",
+      storageBucket: "ehelpfultool.firebasestorage.app",
+      messagingSenderId: "572405415507",
+      appId: "1:572405415507:web:9addd73fae3fb78973d0a6",
+      measurementId: "G-MN8GGWK084"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
         const btn = document.getElementById('generatedButton');
         const generatedButtonStyles = document.getElementById('generatedButtonStyles');
         const htmlCode = document.getElementById('htmlCode');
