@@ -3,909 +3,531 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advanced Typing Test - Elite</title>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Silent Screamer – Anonymous Emotions Releaser</title>
     <style>
-        /* Global Variables & Base Styles */
-        :root {
-            --tt-bg-color: #1a1a1a; /* Dark background */
-            --tt-container-bg: #282c34; /* Slightly lighter for containers */
-            --tt-text-color: #abb2bf; /* Light gray for main text */
-            --tt-subtle-text-color: #636b77; /* Darker gray for labels/placeholders */
-            --tt-primary-accent: #61afef; /* Blue accent for active elements */
-            --tt-secondary-accent: #c678dd; /* Purple for buttons/highlights */
-            --tt-correct-char: #98c379; /* Green for correct characters */
-            --tt-incorrect-char: #e06c75; /* Red for incorrect characters */
-            --tt-current-word-bg: rgba(97, 175, 239, 0.1); /* Light blue background for current word */
-            --tt-untyped-char-color: #abb2bf; /* Default color for untyped chars (text to be typed) */
-            --tt-typed-char-base-color: #4a515f; /* Differentiated base for typed chars (user typing text) - Made darker for more distinction */
-            --tt-cursor-color: var(--tt-primary-accent); /* Cursor color */
-            --tt-border-color: #3e4451;
-            --tt-border-radius: 8px;
-            --tt-transition-speed: 0.08s; /* Faster for typing feedback */
-            --tt-smooth-transition: all 0.2s ease-in-out;
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--tt-bg-color);
-            color: var(--tt-text-color);
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            background: linear-gradient(135deg, #121212, #1a1a1a);
+            color: #e0e0e0;
             min-height: 100vh;
-            margin: 0;
-            padding: 20px;
-            box-sizing: border-box;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            overflow-x: hidden; /* Prevent horizontal scroll */
-        }
-
-        /* Main Application Container */
-        .tt-app-container {
-            background-color: var(--tt-container-bg);
-            border-radius: var(--tt-border-radius);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
-            padding: 30px;
-            width: 100%;
-            max-width: 900px;
-            text-align: center;
-            border: 1px solid var(--tt-border-color);
-            position: relative;
             display: flex;
             flex-direction: column;
-            gap: 20px;
-        }
-
-        .tt-app-container h1 {
-            color: var(--tt-primary-accent);
-            font-family: 'Fira Code', monospace;
-            font-size: 2.2em;
-            margin-bottom: 10px;
-            display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            font-weight: 700;
-        }
-
-        /* Test Controls & Timer */
-        .tt-controls-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .tt-timer-display {
-            font-family: 'Fira Code', monospace;
-            font-size: 2.2em;
-            color: var(--tt-primary-accent);
-            font-weight: 700;
-            min-width: 70px;
-            text-align: right;
-        }
-
-        .tt-time-options {
-            display: flex;
-            gap: 8px;
-        }
-
-        .tt-time-btn {
-            background-color: var(--tt-border-color);
-            color: var(--tt-subtle-text-color);
-            border: 1px solid var(--tt-border-color);
-            padding: 7px 14px;
-            border-radius: 6px;
-            font-size: 0.95em;
-            cursor: pointer;
-            transition: var(--tt-smooth-transition);
-            outline: none;
-        }
-
-        .tt-time-btn:hover:not(.tt-active-time) {
-            background-color: #444;
-            color: var(--tt-text-color);
-        }
-
-        .tt-time-btn.tt-active-time {
-            background-color: var(--tt-secondary-accent);
-            color: white;
-            border-color: var(--tt-secondary-accent);
-            font-weight: 600;
-        }
-
-        /* Typing Text Display Area */
-        #tt-text-display {
-            font-family: 'Fira Code', monospace;
-            font-size: 1.6em;
-            line-height: 1.8; /* Increased line-height for better spacing */
-            background-color: #21252b; /* Slightly darker background */
-            padding: 30px; /* Increased padding */
-            border-radius: var(--tt-border-radius);
-            min-height: 150px; /* Ample height for text */
-            text-align: left;
-            word-wrap: break-word;
-            white-space: normal;
-            box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.3), 0 0 15px rgba(0, 0, 0, 0.4); /* Enhanced shadow */
-            border: 2px solid var(--tt-primary-accent); /* Thicker, more prominent border */
-            overflow: hidden; /* Hide overflow words */
-            position: relative; /* For cursor positioning */
-            user-select: none; /* Prevent text selection */
-            cursor: text; /* Indicate it's a typing area */
-        }
-
-        .tt-word {
-            display: inline-block;
-            margin-right: 8px; /* Space between words */
+            overflow-x: hidden;
             position: relative;
         }
 
-        .tt-char {
-            display: inline-block;
-            transition: color var(--tt-transition-speed);
-            color: var(--tt-untyped-char-color); /* Default for untyped */
-        }
-
-        .tt-char.tt-correct {
-            color: var(--tt-correct-char);
-        }
-
-        .tt-char.tt-incorrect {
-            color: var(--tt-incorrect-char);
-            background-color: rgba(224, 108, 117, 0.15); /* Subtle red background for errors */
-            border-bottom: 1px dashed var(--tt-incorrect-char); /* Dashed underline for errors */
-        }
-        
-        .tt-char.tt-typed { /* Base style for characters the user has already passed */
-            color: var(--tt-typed-char-base-color); 
-        }
-
-        .tt-word.tt-current-word .tt-char {
-            color: var(--tt-untyped-char-color); /* Current word chars are neutral (untyped) */
-        }
-        .tt-word.tt-current-word {
-            background-color: var(--tt-current-word-bg);
-            border-radius: 4px;
-            padding: 2px 5px;
-            margin-left: -5px; /* Adjust for padding to align with other words */
-            margin-right: 3px; /* Adjust for padding */
-        }
-
-        /* NEW: Highlight for the next character to be typed */
-        .tt-char.tt-next-char-highlight {
-            background-color: rgba(97, 175, 239, 0.3); /* A subtle blue highlight background */
-            color: var(--tt-primary-accent); /* Bright text color for emphasis */
-            font-weight: 700; /* Make it bold */
-            border-radius: 2px; /* Slightly rounded corners for the highlight */
-        }
-
-        .tt-cursor {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            left: 0;
-            width: 2px;
-            height: 1.2em; /* Height relative to font-size */
-            background-color: var(--tt-cursor-color);
-            animation: tt-blink-cursor 1s infinite steps(1);
+        /* Header Styles */
+        .ss-header {
+            text-align: center;
+            margin-bottom: 2rem;
             z-index: 10;
         }
 
-        @keyframes tt-blink-cursor {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
+        .ss-title {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, #ff6b6b, #ffa3a3);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 10px rgba(255, 107, 107, 0.3);
         }
 
-        /* Hidden Typing Input - User types here but it's not visible */
-        #tt-typing-area {
-            position: absolute;
-            left: -9999px;
-            opacity: 0;
-            pointer-events: none; /* Ensure clicks go to text display */
+        .ss-subtitle {
+            font-size: 1rem;
+            opacity: 0.8;
+            margin-bottom: 1rem;
         }
 
-        /* Stats Display */
-        .tt-stats-display {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            font-size: 1.4em;
-            margin-top: 10px;
-            flex-wrap: wrap;
-            padding: 10px 0;
-            border-top: 1px solid var(--tt-border-color);
-        }
-
-        .tt-stat-item {
+        /* Main Container */
+        .ss-container {
+            width: 90%;
+            max-width: 800px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin: 10px 20px;
-            min-width: 100px;
+            position: relative;
+            z-index: 5;
         }
 
-        .tt-stat-label {
-            color: var(--tt-subtle-text-color);
-            font-size: 0.75em;
-            margin-bottom: 5px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .tt-stat-value {
-            color: var(--tt-primary-accent);
-            font-weight: 700;
-            font-family: 'Fira Code', monospace;
-            font-size: 1.1em;
-        }
-
-        /* Score Card */
-        #tt-score-card {
-            display: none; /* Hidden by default */
-            background: #21252b;
-            border-radius: var(--tt-border-radius);
-            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
-            padding: 25px;
-            margin-top: 10px;
-            text-align: center;
-            border: 1px solid var(--tt-border-color);
-            color: var(--tt-text-color);
-        }
-
-        #tt-score-card h2 {
-            color: var(--tt-secondary-accent);
-            font-size: 2em;
-            margin-bottom: 15px;
-        }
-
-        #tt-score-card p {
-            font-size: 1.2em;
-            margin: 8px 0;
-        }
-
-        #tt-score-card p strong {
-            color: var(--tt-correct-char);
-            font-weight: 700;
-        }
-
-        /* Start/Restart Buttons */
-        .tt-action-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 10px;
-        }
-
-        #tt-start-btn, #tt-restart-btn {
-            background-color: var(--tt-secondary-accent);
-            color: white;
-            padding: 12px 25px;
-            font-size: 1.1em;
-            font-weight: 700;
-            border: none;
-            border-radius: var(--tt-border-radius);
-            cursor: pointer;
-            transition: var(--tt-smooth-transition);
+        /* Typing Area */
+        .ss-typing-area {
+            width: 100%;
+            height: 300px;
+            background-color: rgba(30, 30, 30, 0.7);
+            border: 2px solid #444;
+            border-radius: 10px;
+            padding: 20px;
+            font-size: 1.2rem;
+            color: #f0f0f0;
+            resize: none;
             outline: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            margin-bottom: 2rem;
+            overflow-y: auto;
         }
 
-        #tt-start-btn:hover, #tt-restart-btn:hover {
-            background-color: #a356bb; /* Darker purple */
+        .ss-typing-area:focus {
+            border-color: #ff6b6b;
+            box-shadow: 0 0 30px rgba(255, 107, 107, 0.3);
+        }
+
+        /* Controls */
+        .ss-controls {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .ss-btn {
+            background-color: #ff6b6b;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .ss-btn:hover {
+            background-color: #ff5252;
             transform: translateY(-2px);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
 
-        #tt-start-btn:active, #tt-restart-btn:active {
-            transform: translateY(0);
+        .ss-sound-control {
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        /* Loader */
-        .tt-loader-overlay {
+        /* Quote Display */
+        .ss-quote-display {
+            width: 100%;
+            text-align: center;
+            font-style: italic;
+            font-size: 1.5rem;
+            margin: 2rem 0;
+            min-height: 80px;
+            opacity: 0;
+            transition: opacity 1s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .ss-quote-display.show {
+            opacity: 1;
+        }
+
+        /* Emoji Rain */
+        .ss-emoji {
             position: absolute;
+            font-size: 24px;
+            pointer-events: none;
+            z-index: 1;
+            animation: ss-fall linear forwards;
+        }
+
+        @keyframes ss-fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Particle Effects */
+        .ss-particle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Screen Flash Effect */
+        .ss-screen-flash {
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(33, 33, 33, 0.95);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 100;
-            opacity: 1;
-            transition: opacity 0.5s ease-out;
-            border-radius: var(--tt-border-radius);
-        }
-
-        .tt-spinner {
-            border: 5px solid var(--tt-border-color);
-            border-top: 5px solid var(--tt-primary-accent);
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            animation: tt-spin 1s linear infinite;
-        }
-
-        @keyframes tt-spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* Countdown */
-        .tt-countdown {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 6em;
-            font-weight: 700;
-            color: var(--tt-primary-accent);
-            text-shadow: 0 0 10px rgba(97, 175, 239, 0.5);
+            background-color: rgba(255, 0, 0, 0.3);
+            pointer-events: none;
             opacity: 0;
-            animation: tt-countdown-anim 1s forwards;
-            font-family: 'Fira Code', monospace;
-            z-index: 99;
+            z-index: 100;
         }
 
-        @keyframes tt-countdown-anim {
-            0% { opacity: 0; transform: translate(-50%, -50%) scale(2); }
-            50% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-            100% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
+        /* Footer */
+        .ss-footer {
+            margin-top: 3rem;
+            text-align: center;
+            opacity: 0.6;
+            font-size: 0.9rem;
+            z-index: 10;
         }
 
         /* Responsive Adjustments */
         @media (max-width: 768px) {
-            .tt-app-container {
-                padding: 15px;
-                gap: 15px;
+            .ss-title {
+                font-size: 2rem;
             }
-            .tt-app-container h1 {
-                font-size: 1.6em;
-                margin-bottom: 5px;
+            
+            .ss-typing-area {
+                height: 200px;
+                font-size: 1rem;
             }
-            .tt-controls-bar {
+            
+            .ss-controls {
                 flex-direction: column;
-                gap: 10px;
-                margin-bottom: 5px;
+                align-items: center;
             }
-            .tt-timer-display {
-                font-size: 1.8em;
-                text-align: center;
-            }
-            .tt-time-options {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            .tt-time-btn {
-                padding: 6px 12px;
-                font-size: 0.9em;
-            }
-            #tt-text-display {
-                font-size: 1.1em;
-                padding: 15px; /* Adjusted for smaller screens */
-                min-height: 120px;
-                line-height: 1.6;
-            }
-            .tt-word {
-                margin-right: 4px;
-            }
-            .tt-stats-display {
-                font-size: 1.1em;
-                flex-direction: column;
-                padding: 5px 0;
-            }
-            .tt-stat-item {
-                margin: 5px 10px;
-            }
-            #tt-score-card h2 {
-                font-size: 1.4em;
-            }
-            #tt-score-card p {
-                font-size: 1em;
-            }
-            .tt-action-buttons button {
-                padding: 10px 20px;
-                font-size: 1em;
-            }
-            .tt-countdown {
-                font-size: 3em;
-            }
+        }
+
+        /* Intensity Meter */
+        .ss-intensity-meter {
+            width: 100%;
+            height: 10px;
+            background-color: #333;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .ss-intensity-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(to right, #4CAF50, #FFC107, #FF5722);
+            transition: width 0.3s ease;
         }
     </style>
 </head>
 <body>
-    <div class="tt-loader-overlay">
-        <div class="tt-spinner"></div>
+    <header class="ss-header">
+        <h1 class="ss-title">SILENT SCREAMER</h1>
+        <p class="ss-subtitle">Let it out. Nothing is saved. This is just for you.</p>
+    </header>
+
+    <div class="ss-container">
+        <div class="ss-intensity-meter">
+            <div class="ss-intensity-bar" id="ss-intensity-bar"></div>
+        </div>
+        
+        <textarea class="ss-typing-area" id="ss-typing-area" placeholder="Type your heart out... scream into the void... release your emotions..."></textarea>
+        
+        <div class="ss-controls">
+            <button class="ss-btn" id="ss-reset-btn">Clear Everything</button>
+            <div class="ss-sound-control">
+                <button class="ss-btn" id="ss-sound-toggle">Toggle Sound</button>
+                <input type="range" id="ss-volume-slider" min="0" max="1" step="0.1" value="0.5">
+            </div>
+        </div>
+        
+        <div class="ss-quote-display" id="ss-quote-display"></div>
     </div>
 
-    <div class="tt-app-container">
-        <h1><span style="color: var(--tt-secondary-accent);">Elite</span>Type ⚡</h1>
+    <div class="ss-screen-flash" id="ss-screen-flash"></div>
 
-        <div class="tt-controls-bar">
-            <div class="tt-time-options">
-                <button class="tt-time-btn" data-time="15">15s</button>
-                <button class="tt-time-btn tt-active-time" data-time="30">30s</button>
-                <button class="tt-time-btn" data-time="60">60s</button>
-                <button class="tt-time-btn" data-time="120">120s</button>
-            </div>
-            <div class="tt-timer-display">
-                <span id="tt-timer">30</span>s
-            </div>
-        </div>
-
-        <div id="tt-text-display" tabindex="0">
-            <div class="tt-cursor"></div>
-        </div>
-
-        <input type="text" id="tt-typing-area" aria-label="Typing input" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" disabled>
-
-        <div class="tt-stats-display">
-            <div class="tt-stat-item">
-                <span class="tt-stat-label">WPM</span>
-                <span id="tt-wpm" class="tt-stat-value">0</span>
-            </div>
-            <div class="tt-stat-item">
-                <span class="tt-stat-label">Accuracy</span>
-                <span id="tt-accuracy" class="tt-stat-value">0</span>%
-            </div>
-        </div>
-
-        <div id="tt-score-card"></div>
-
-        <div class="tt-action-buttons">
-            <button id="tt-start-btn">▶ Start Test</button>
-            <button id="tt-restart-btn">🔄 Restart Test</button>
-        </div>
-    </div>
+    <footer class="ss-footer">
+        This is your private space. Nothing is saved or shared. Breathe. Release. Continue.
+    </footer>
 
     <script>
-        // --- DOM Element References ---
-        const ttTextDisplay = document.getElementById("tt-text-display");
-        const ttTypingArea = document.getElementById("tt-typing-area");
-        const ttTimerDisplay = document.getElementById("tt-timer");
-        const ttWpmDisplay = document.getElementById("tt-wpm");
-        const ttAccuracyDisplay = document.getElementById("tt-accuracy");
-        const ttScoreCard = document.getElementById("tt-score-card");
-        const ttRestartBtn = document.getElementById("tt-restart-btn");
-        const ttStartBtn = document.getElementById("tt-start-btn"); // New Start Button
-        const ttTimeButtons = document.querySelectorAll(".tt-time-btn");
-        const ttLoaderOverlay = document.querySelector(".tt-loader-overlay");
-        const ttCursor = document.querySelector(".tt-cursor");
+        // DOM Elements
+        const ssTypingArea = document.getElementById('ss-typing-area');
+        const ssResetBtn = document.getElementById('ss-reset-btn');
+        const ssSoundToggle = document.getElementById('ss-sound-toggle');
+        const ssVolumeSlider = document.getElementById('ss-volume-slider');
+        const ssQuoteDisplay = document.getElementById('ss-quote-display');
+        const ssScreenFlash = document.getElementById('ss-screen-flash');
+        const ssIntensityBar = document.getElementById('ss-intensity-bar');
 
-        // --- Typing Test Data & State ---
-        const typingTexts = [
-            "The quick brown fox jumps over the lazy dog. This sentence contains every letter of the alphabet and is commonly used for typing tests.",
-            "Practice makes perfect when it comes to improving your typing speed and accuracy. Consistent daily effort will yield significant improvements over time.",
-            "In the realm of advanced computing, efficient data entry is paramount. Mastering keyboard shortcuts boosts productivity for developers and data analysts alike.",
-            "A disciplined approach to touch typing involves keeping your eyes on the screen and letting muscle memory guide your fingers. This reduces errors and increases pace.",
-            "The rapid growth of digital communication emphasizes the importance of swift and precise keyboarding skills for everyone in the modern workforce.",
-            "Technology continues to evolve at a breathtaking pace, requiring individuals to adapt quickly to new input methods and software interfaces.",
-            "To achieve true fluency in typing, focus on rhythm and consistency, rather than just raw speed. Smooth transitions between keys are crucial for high WPM.",
-            "Many online platforms offer interactive typing lessons and games designed to make the learning process engaging and effective for all skill levels.",
-            "The human brain is remarkably adaptable, capable of learning complex motor skills like typing through repetitive practice and immediate feedback.",
-            "Consider optimizing your workstation setup to ensure ergonomic comfort and reduce strain during long typing sessions, promoting both health and performance.",
-            "Life is a journey, not a destination. Find joy in the process and learn from every experience, for it is the journey that truly shapes us.",
-            "The sun always shines brightest after the rain. Embrace challenges as opportunities for growth and resilience.",
-            "Knowledge is power, and learning is the key to unlocking new possibilities. Never stop exploring, questioning, and growing.",
-            "Dream big, work hard, stay humble. Your dedication today builds the foundation for your success tomorrow.",
-            "Every moment is a fresh beginning. Let go of what was, and embrace the potential of what can be.",
-            "The only way to do great work is to love what you do. Find your passion and let it drive you forward.",
-            "Success is not final, failure is not fatal: it is the courage to continue that counts.",
-            "The future belongs to those who believe in the beauty of their dreams. Nurture your aspirations with unwavering faith.",
-            "Kindness is a language that the deaf can hear and the blind can see. Spread compassion and positivity wherever you go.",
-            "The strongest oak tree is not the one that is protected from the storm, but the one that stands in the open and is tested by the wind."
+        // App State
+        let ssLastKeyTime = Date.now();
+        let ssKeyCount = 0;
+        let ssTypingSpeed = 0;
+        let ssIntensity = 0;
+        let ssQuoteTimeout;
+        let ssSoundEnabled = false;
+        let ssAudioContext;
+        let ssOscillator;
+        let ssGainNode;
+
+        // Quotes Database
+        const ssQuotes = [
+            "You survived 100% of your worst days.",
+            "Caps lock is the scream of the keyboard.",
+            "Let it out. No one's watching.",
+            "This too shall pass.",
+            "Your feelings are valid.",
+            "Breathe in. Breathe out. Move on.",
+            "The storm will pass. It always does.",
+            "You're stronger than you think.",
+            "It's okay not to be okay.",
+            "Release what no longer serves you.",
+            "This moment is temporary.",
+            "You're doing better than you believe."
         ];
 
-        let ttCurrentText = ""; 
-        let ttAllCharElements = []; 
-        let ttCurrentCharIndex = 0; 
-        let ttCurrentWordIndex = 0; 
-        
-        let ttSelectedTime = 30; 
-        let ttTimeLeft = ttSelectedTime;
-        let ttTimer = null;
-        let ttIsTestActive = false;
-        let ttTestStarted = false; 
+        // Emojis for rain effect
+        const ssEmojis = ['😠', '🤬', '😤', '💢', '👿', '😾', '🗯', '💣', '💥', '🔥', '🌪', '⚡'];
 
-        let ttCorrectCharsCount = 0; 
-        let ttIncorrectCharsCount = 0; 
-        let ttTotalTypedKeyStrokes = 0; 
+        // Initialize Audio Context
+        function ssInitAudio() {
+            try {
+                ssAudioContext = new (window.AudioContext || window.webkitAudioContext)();
+                ssGainNode = ssAudioContext.createGain();
+                ssGainNode.gain.value = 0;
+                ssGainNode.connect(ssAudioContext.destination);
+            } catch (e) {
+                console.log("Web Audio API not supported");
+                ssSoundToggle.disabled = true;
+            }
+        }
 
-        // --- Core Functions ---
-
-        // Prepares the test for starting, loads text, resets UI
-        function ttPrepareTest() {
-            clearInterval(ttTimer);
-            ttTypingArea.value = "";
-            ttTypingArea.disabled = true; 
-
-            ttTimeLeft = ttSelectedTime;
-            ttTimerDisplay.innerText = ttTimeLeft;
-            ttWpmDisplay.innerText = "0";
-            ttAccuracyDisplay.innerText = "0";
-            ttScoreCard.style.display = "none";
-
-            ttCorrectCharsCount = 0;
-            ttIncorrectCharsCount = 0;
-            ttTotalTypedKeyStrokes = 0;
-            ttCurrentCharIndex = 0;
-            ttCurrentWordIndex = 0;
-            ttIsTestActive = false;
-            ttTestStarted = false; 
-
-            ttStartBtn.style.display = 'inline-block'; 
-            ttRestartBtn.textContent = '🔄 Restart Test'; 
-            ttCursor.style.animation = 'none'; 
-            ttCursor.style.opacity = '1'; 
-
-            ttLoadText();
-            ttUpdateCursorPosition(); 
-            ttUpdateStatsDisplay(); 
+        // Play sound based on typing intensity
+        function ssPlaySound(intensity) {
+            if (!ssSoundEnabled || !ssAudioContext) return;
             
-            // Highlight the first character to be typed
-            if (ttAllCharElements.length > 0) {
-                ttAllCharElements[0].classList.add('tt-next-char-highlight');
-            }
-        }
-
-        // Starts the test countdown and enables typing
-        function ttStartTest() {
-            if (ttTestStarted) return; 
-            ttTestStarted = true;
-            ttStartBtn.style.display = 'none'; 
-
-            ttTypingArea.disabled = false;
-            ttTypingArea.focus(); 
-
-            ttTimer = setInterval(() => {
-                if (ttTimeLeft > 0) {
-                    ttTimeLeft--;
-                    ttTimerDisplay.innerText = ttTimeLeft;
-                } else {
-                    ttEndTest();
-                }
-            }, 1000);
-            ttIsTestActive = true;
-            ttCursor.style.animation = 'tt-blink-cursor 1s infinite steps(1)'; 
-        }
-
-        // Ends the test and displays results
-        function ttEndTest() {
-            clearInterval(ttTimer);
-            ttTypingArea.disabled = true;
-            ttIsTestActive = false;
-            ttCursor.style.animation = 'none'; 
-            ttCursor.style.opacity = '1'; 
-            ttShowScoreCard();
-
-            // Remove highlight from any remaining target character
-            if (ttAllCharElements[ttCurrentCharIndex]) {
-                ttAllCharElements[ttCurrentCharIndex].classList.remove('tt-next-char-highlight');
-            }
-        }
-
-        // Loads a random text and renders it into the display area
-        function ttLoadText() {
-            const randomIndex = Math.floor(Math.random() * typingTexts.length);
-            ttCurrentText = typingTexts[randomIndex];
-            
-            ttTextDisplay.innerHTML = ''; 
-            ttAllCharElements = []; 
-
-            let currentWordDiv = document.createElement('span'); 
-            currentWordDiv.classList.add('tt-word');
-
-            for (let i = 0; i < ttCurrentText.length; i++) {
-                const char = ttCurrentText[i];
-                const charSpan = document.createElement('span');
-                charSpan.classList.add('tt-char');
-                charSpan.textContent = char;
-                currentWordDiv.appendChild(charSpan);
-                ttAllCharElements.push(charSpan);
-
-                if (char === ' ') {
-                    ttTextDisplay.appendChild(currentWordDiv);
-                    currentWordDiv = document.createElement('span');
-                    currentWordDiv.classList.add('tt-word');
-                }
-            }
-            ttTextDisplay.appendChild(currentWordDiv); 
-
-            // Mark the first word as current
-            if (ttTextDisplay.firstElementChild) {
-                ttTextDisplay.firstElementChild.classList.add('tt-current-word');
-            }
-        }
-
-        // Updates the visual cursor position
-        function ttUpdateCursorPosition() {
-            if (!ttAllCharElements[ttCurrentCharIndex]) {
-                 // If at the end of the text, position cursor after the last character
-                const lastCharElement = ttAllCharElements[ttAllCharElements.length - 1];
-                if (lastCharElement) {
-                    const rect = lastCharElement.getBoundingClientRect();
-                    const textDisplayRect = ttTextDisplay.getBoundingClientRect();
-                    ttCursor.style.left = (rect.right - textDisplayRect.left) + 'px';
-                    ttCursor.style.top = (rect.top - textDisplayRect.top + rect.height / 2) + 'px';
-                    ttCursor.style.transform = 'translateY(-50%)';
-                }
-                return;
-            }
-
-            const targetElement = ttAllCharElements[ttCurrentCharIndex];
-            const rect = targetElement.getBoundingClientRect();
-            const textDisplayRect = ttTextDisplay.getBoundingClientRect();
-
-            ttCursor.style.left = (rect.left - textDisplayRect.left) + 'px';
-            ttCursor.style.top = (rect.top - textDisplayRect.top + rect.height / 2) + 'px';
-            ttCursor.style.transform = 'translateY(-50%)';
-
-            ttScrollTextDisplay();
-        }
-
-        // Scrolls the text display to keep current typing position in view
-        function ttScrollTextDisplay() {
-            if (ttAllCharElements[ttCurrentCharIndex]) {
-                const currentElement = ttAllCharElements[ttCurrentCharIndex];
-                const displayRect = ttTextDisplay.getBoundingClientRect();
-                const charRect = currentElement.getBoundingClientRect();
-
-                // If char is below the viewable area, scroll down
-                if (charRect.bottom > displayRect.bottom - 20) { 
-                    ttTextDisplay.scrollTop += (charRect.bottom - (displayRect.bottom - 20));
-                }
-                // If char is above the viewable area, scroll up (less common in forward typing)
-                else if (charRect.top < displayRect.top + 20) { 
-                    ttTextDisplay.scrollTop -= ((displayRect.top + 20) - charRect.top);
-                }
-            }
-        }
-
-        // Handles user input
-        ttTypingArea.addEventListener("input", (e) => {
-            if (!ttIsTestActive) return;
-
-            // --- Remove highlight from current target character before processing ---
-            if (ttAllCharElements[ttCurrentCharIndex]) {
-                ttAllCharElements[ttCurrentCharIndex].classList.remove('tt-next-char-highlight');
-            }
-
-            // --- Disable Backspace ---
-            if (e.inputType === 'deleteContentBackward') {
-                ttTypingArea.value = ttCurrentText.substring(0, ttCurrentCharIndex); 
-                // Re-add highlight to the character that was just "deleted" from the input,
-                // as it's now the target again.
-                if (ttAllCharElements[ttCurrentCharIndex]) {
-                    ttAllCharElements[ttCurrentCharIndex].classList.add('tt-next-char-highlight');
-                }
-                return; 
-            }
-
-            const typedChar = e.data;
-            ttTotalTypedKeyStrokes++;
-
-            const originalCharElement = ttAllCharElements[ttCurrentCharIndex];
-            if (!originalCharElement) {
-                // User typed beyond the original text, treat as incorrect
-                ttIncorrectCharsCount++;
-                ttUpdateStatsDisplay();
-                return; 
-            }
-
-            const originalChar = originalCharElement.textContent;
-
-            originalCharElement.classList.add('tt-typed');
-
-            if (typedChar === originalChar) {
-                originalCharElement.classList.add('tt-correct');
-                originalCharElement.classList.remove('tt-incorrect');
-                ttCorrectCharsCount++;
-            } else {
-                originalCharElement.classList.add('tt-incorrect');
-                originalCharElement.classList.remove('tt-correct');
-                ttIncorrectCharsCount++;
-            }
-
-            ttCurrentCharIndex++; 
-
-            // Handle word completion and current word highlighting
-            if (ttCurrentCharIndex < ttAllCharElements.length) {
-                const currentTypedCharIsSpace = originalCharElement.textContent === ' ';
-
-                if (currentTypedCharIsSpace) {
-                    ttTextDisplay.children[ttCurrentWordIndex]?.classList.remove('tt-current-word');
-                    ttCurrentWordIndex++;
-                    ttTextDisplay.children[ttCurrentWordIndex]?.classList.add('tt-current-word');
-                }
-            } else {
-                ttEndTest();
+            if (ssOscillator) {
+                ssOscillator.stop();
             }
             
-            // --- Add highlight to the NEW target character ---
-            if (ttAllCharElements[ttCurrentCharIndex]) {
-                ttAllCharElements[ttCurrentCharIndex].classList.add('tt-next-char-highlight');
-            }
+            ssOscillator = ssAudioContext.createOscillator();
+            ssOscillator.type = 'sine';
+            ssOscillator.frequency.value = 100 + (intensity * 10);
+            ssOscillator.connect(ssGainNode);
+            ssOscillator.start();
+            
+            // Quick fade out
+            ssGainNode.gain.value = intensity * ssVolumeSlider.value;
+            ssGainNode.gain.exponentialRampToValueAtTime(0.001, ssAudioContext.currentTime + 0.3);
+        }
 
-            ttUpdateCursorPosition();
-            ttUpdateStatsDisplay();
+        // Toggle sound
+        ssSoundToggle.addEventListener('click', () => {
+            ssSoundEnabled = !ssSoundEnabled;
+            ssSoundToggle.textContent = ssSoundEnabled ? "Sound: ON" : "Sound: OFF";
+            
+            if (ssSoundEnabled && !ssAudioContext) {
+                ssInitAudio();
+            }
         });
-        
-        // Handles keydown events to prevent specific actions (like backspace)
-        ttTypingArea.addEventListener("keydown", (e) => {
-            if (!ttIsTestActive) return;
 
-            // --- Disable Backspace ---
-            if (e.key === 'Backspace') {
-                e.preventDefault(); 
-                return;
+        // Update volume
+        ssVolumeSlider.addEventListener('input', () => {
+            if (ssGainNode) {
+                ssGainNode.gain.value = ssVolumeSlider.value;
             }
+        });
 
-            // Handle Spacebar to advance words
-            if (e.key === ' ') {
-                e.preventDefault(); 
+        // Create emoji rain
+        function ssCreateEmojiRain(count) {
+            for (let i = 0; i < count; i++) {
+                const emoji = document.createElement('div');
+                emoji.className = 'ss-emoji';
+                emoji.textContent = ssEmojis[Math.floor(Math.random() * ssEmojis.length)];
+                
+                // Random position at top of screen
+                emoji.style.left = Math.random() * 100 + 'vw';
+                emoji.style.top = '-30px';
+                
+                // Random animation duration
+                const duration = 2 + Math.random() * 3;
+                emoji.style.animationDuration = duration + 's';
+                
+                document.body.appendChild(emoji);
+                
+                // Remove emoji after animation completes
+                setTimeout(() => {
+                    emoji.remove();
+                }, duration * 1000);
+            }
+        }
 
-                // --- Remove highlight from current target character before skipping word ---
-                if (ttAllCharElements[ttCurrentCharIndex]) {
-                    ttAllCharElements[ttCurrentCharIndex].classList.remove('tt-next-char-highlight');
-                }
-
-                const currentWordElement = ttTextDisplay.children[ttCurrentWordIndex];
-                if (currentWordElement) {
-                    const currentWordChars = Array.from(currentWordElement.querySelectorAll('.tt-char'));
-                    const wordStartCharIndex = ttAllCharElements.indexOf(currentWordChars[0]);
-
-                    for (let i = wordStartCharIndex; i < ttCurrentCharIndex; i++) {
-                        const charSpan = ttAllCharElements[i];
-                        if (!charSpan.classList.contains('tt-correct') && !charSpan.classList.contains('tt-incorrect')) {
-                            charSpan.classList.add('tt-incorrect');
-                            charSpan.classList.add('tt-typed'); 
-                            ttIncorrectCharsCount++;
-                        }
+        // Create particles
+        function ssCreateParticles(x, y, color, count) {
+            for (let i = 0; i < count; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'ss-particle';
+                particle.style.backgroundColor = color;
+                
+                // Random size
+                const size = 5 + Math.random() * 10;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                
+                // Position at click/touch point
+                particle.style.left = x + 'px';
+                particle.style.top = y + 'px';
+                
+                // Random velocity
+                const angle = Math.random() * Math.PI * 2;
+                const velocity = 1 + Math.random() * 3;
+                const vx = Math.cos(angle) * velocity;
+                const vy = Math.sin(angle) * velocity;
+                
+                document.body.appendChild(particle);
+                
+                // Animate particle
+                let posX = x;
+                let posY = y;
+                let opacity = 1;
+                let sizeDecay = size;
+                
+                const animate = () => {
+                    posX += vx;
+                    posY += vy;
+                    opacity -= 0.02;
+                    sizeDecay *= 0.98;
+                    
+                    particle.style.left = posX + 'px';
+                    particle.style.top = posY + 'px';
+                    particle.style.opacity = opacity;
+                    particle.style.width = sizeDecay + 'px';
+                    particle.style.height = sizeDecay + 'px';
+                    
+                    if (opacity > 0) {
+                        requestAnimationFrame(animate);
+                    } else {
+                        particle.remove();
                     }
-
-                    for (let i = ttCurrentCharIndex; i < wordStartCharIndex + currentWordChars.length; i++) {
-                        const charSpan = ttAllCharElements[i];
-                        if (charSpan.textContent !== ' ') { 
-                            charSpan.classList.add('tt-incorrect');
-                            charSpan.classList.add('tt-typed');
-                            ttIncorrectCharsCount++;
-                        }
-                    }
-                }
+                };
                 
-                let tempNextCharIndex = ttCurrentCharIndex;
-                while (tempNextCharIndex < ttAllCharElements.length && ttAllCharElements[tempNextCharIndex].textContent !== ' ') {
-                    tempNextCharIndex++; 
-                }
-                
-                if (tempNextCharIndex < ttAllCharElements.length && ttAllCharElements[tempNextCharIndex].textContent === ' ') {
-                    ttAllCharElements[tempNextCharIndex].classList.add('tt-correct'); 
-                    ttAllCharElements[tempNextCharIndex].classList.add('tt-typed');
-                    ttCorrectCharsCount++; 
-                    ttCurrentCharIndex = tempNextCharIndex + 1; 
-                } else if (tempNextCharIndex === ttAllCharElements.length) {
-                    ttCurrentCharIndex = ttAllCharElements.length;
-                }
-
-                ttTextDisplay.children[ttCurrentWordIndex]?.classList.remove('tt-current-word');
-                ttCurrentWordIndex++;
-                if (ttCurrentWordIndex < ttTextDisplay.children.length) {
-                    ttTextDisplay.children[ttCurrentWordIndex]?.classList.add('tt-current-word');
-                } else {
-                    ttEndTest(); 
-                }
-
-                ttTypingArea.value = ''; 
-                
-                // --- Add highlight to the NEW target character after spacebar jump ---
-                if (ttAllCharElements[ttCurrentCharIndex]) {
-                    ttAllCharElements[ttCurrentCharIndex].classList.add('tt-next-char-highlight');
-                }
-
-                ttUpdateCursorPosition();
-                ttUpdateStatsDisplay();
+                animate();
             }
-        });
-
-
-        // Updates WPM and Accuracy based on current state
-        function ttUpdateStatsDisplay() {
-            const elapsedTimeInMinutes = (ttSelectedTime - ttTimeLeft) / 60;
-            let wpm = 0;
-            if (elapsedTimeInMinutes > 0) {
-                wpm = Math.round((ttCorrectCharsCount / 5) / elapsedTimeInMinutes);
-            }
-            ttWpmDisplay.innerText = wpm;
-
-            let totalAttemptedChars = ttCorrectCharsCount + ttIncorrectCharsCount;
-            let accuracy = 0;
-            if (totalAttemptedChars > 0) {
-                accuracy = Math.round((ttCorrectCharsCount / totalAttemptedChars) * 100);
-            }
-            ttAccuracyDisplay.innerText = accuracy;
         }
 
-        // Displays the final score card
-        function ttShowScoreCard() {
-            const timeTaken = ttSelectedTime - ttTimeLeft; 
+        // Screen flash effect
+        function ssFlashScreen(color, duration) {
+            ssScreenFlash.style.backgroundColor = color;
+            ssScreenFlash.style.opacity = 0.7;
             
-            let finalCorrectChars = 0;
-            let finalIncorrectChars = 0;
-            let finalTotalAttemptedChars = 0;
-
-            for (let i = 0; i < ttCurrentCharIndex; i++) {
-                const charSpan = ttAllCharElements[i];
-                if (charSpan.classList.contains('tt-correct')) {
-                    finalCorrectChars++;
-                } else if (charSpan.classList.contains('tt-incorrect')) {
-                    finalIncorrectChars++;
-                }
-                finalTotalAttemptedChars++; 
-            }
-            
-            let finalWPM = 0;
-            if (timeTaken > 0) {
-                finalWPM = Math.round((finalCorrectChars / 5) / (timeTaken / 60));
-            }
-
-            let finalAccuracy = 0;
-            if (finalTotalAttemptedChars > 0) {
-                finalAccuracy = Math.round((finalCorrectChars / finalTotalAttemptedChars) * 100);
-            }
-
-            ttScoreCard.innerHTML = `
-                <h2>🎯 Test Results</h2>
-                <p><strong>WPM:</strong> <span class="tt-stat-value">${finalWPM}</span></p>
-                <p><strong>Accuracy:</strong> <span class="tt-stat-value">${finalAccuracy}</span>%</p>
-                <p><strong>Correct Chars:</strong> <span class="tt-stat-value">${finalCorrectChars}</span></p>
-                <p><strong>Incorrect Chars:</strong> <span class="tt-stat-value">${finalIncorrectChars}</span></p>
-                <p><strong>Time Taken:</strong> <span class="tt-stat-value">${timeTaken}</span> seconds</p>
-            `;
-            ttScoreCard.style.display = "block";
-        }
-
-        // --- Event Listeners ---
-
-        // Start button click
-        ttStartBtn.addEventListener("click", ttStartTest);
-
-        // Restart button click
-        ttRestartBtn.addEventListener("click", ttPrepareTest);
-
-        // Time selection buttons
-        ttTimeButtons.forEach(button => {
-            button.addEventListener("click", () => {
-                ttTimeButtons.forEach(btn => btn.classList.remove('tt-active-time'));
-                button.classList.add('tt-active-time');
-                ttSelectedTime = parseInt(button.dataset.time);
-                ttPrepareTest(); 
-            });
-        });
-
-        // Focus the hidden input when the text display area is clicked
-        ttTextDisplay.addEventListener('click', () => {
-            if (!ttTypingArea.disabled) { 
-                ttTypingArea.focus();
-            }
-        });
-
-        // Initial setup on page load
-        window.addEventListener("load", () => {
-            ttLoaderOverlay.style.opacity = "0";
             setTimeout(() => {
-                ttLoaderOverlay.style.display = "none";
-            }, 500); 
+                ssScreenFlash.style.opacity = 0;
+            }, duration);
+        }
 
-            ttPrepareTest(); 
+        // Show random quote
+        function ssShowRandomQuote() {
+            const quote = ssQuotes[Math.floor(Math.random() * ssQuotes.length)];
+            ssQuoteDisplay.textContent = `"${quote}"`;
+            ssQuoteDisplay.classList.add('show');
+            
+            setTimeout(() => {
+                ssQuoteDisplay.classList.remove('show');
+            }, 8000);
+        }
+
+        // Reset everything
+        function ssResetEverything() {
+            ssTypingArea.value = '';
+            ssIntensity = 0;
+            ssIntensityBar.style.width = '0%';
+            ssQuoteDisplay.classList.remove('show');
+            clearTimeout(ssQuoteTimeout);
+        }
+
+        // Typing speed detection
+        ssTypingArea.addEventListener('keydown', (e) => {
+            const now = Date.now();
+            const timeDiff = now - ssLastKeyTime;
+            
+            // Don't count modifier keys
+            if (e.key.length === 1 || e.key === 'Backspace' || e.key === 'Enter' || e.key === ' ') {
+                ssKeyCount++;
+                
+                // Calculate typing speed (keys per second)
+                if (timeDiff < 1000) {
+                    ssTypingSpeed = ssKeyCount / (timeDiff / 1000);
+                } else {
+                    ssTypingSpeed = ssKeyCount;
+                    ssKeyCount = 0;
+                    ssLastKeyTime = now;
+                }
+                
+                // Update intensity based on typing speed
+                ssIntensity = Math.min(ssTypingSpeed / 5, 1); // Normalize to 0-1 range
+                ssIntensityBar.style.width = (ssIntensity * 100) + '%';
+                
+                // Trigger effects based on intensity
+                if (ssIntensity > 0.7) {
+                    // High intensity effects
+                    ssCreateEmojiRain(5 + Math.floor(ssIntensity * 10));
+                    ssFlashScreen(`rgba(255, ${Math.floor(100 - ssIntensity * 100)}, ${Math.floor(100 - ssIntensity * 100)}, 0.5)`, 200);
+                    ssPlaySound(ssIntensity);
+                    
+                    // Add screen shake
+                    document.body.style.transform = `translate(${Math.random() * 10 - 5}px, ${Math.random() * 10 - 5}px)`;
+                    setTimeout(() => {
+                        document.body.style.transform = 'translate(0, 0)';
+                    }, 100);
+                } else if (ssIntensity > 0.3) {
+                    // Medium intensity effects
+                    if (Math.random() > 0.7) {
+                        ssCreateParticles(e.clientX || ssTypingArea.getBoundingClientRect().left + ssTypingArea.offsetWidth / 2, 
+                                      e.clientY || ssTypingArea.getBoundingClientRect().top + ssTypingArea.offsetHeight / 2, 
+                                      `hsl(${Math.random() * 60 + 0}, 100%, 50%)`, 
+                                      5);
+                    }
+                    ssPlaySound(ssIntensity * 0.5);
+                }
+                
+                // Reset quote timeout
+                clearTimeout(ssQuoteTimeout);
+                ssQuoteDisplay.classList.remove('show');
+            }
+            
+            // Special effect for Enter key
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                ssTypingArea.value += '\n';
+                ssCreateEmojiRain(3);
+                ssFlashScreen('rgba(255, 255, 255, 0.5)', 100);
+                ssPlaySound(0.8);
+            }
         });
 
-        // Ensure typing area is focused if clicked when test can start
+        // Check for typing pause to show quote
+        ssTypingArea.addEventListener('keyup', () => {
+            clearTimeout(ssQuoteTimeout);
+            ssQuoteTimeout = setTimeout(() => {
+                if (ssTypingArea.value.trim().length > 0) {
+                    ssShowRandomQuote();
+                }
+            }, 10000);
+        });
+
+        // Reset button
+        ssResetBtn.addEventListener('click', ssResetEverything);
+
+        // Initialize
+        ssInitAudio();
+
+        // Touch support for mobile
+        ssTypingArea.addEventListener('touchstart', (e) => {
+            ssCreateParticles(e.touches[0].clientX, e.touches[0].clientY, '#ff6b6b', 10);
+        });
+
+        // Initial random quote after delay
         setTimeout(() => {
-            ttTextDisplay.focus(); 
-        }, 600); 
+            if (ssTypingArea.value.trim().length === 0) {
+                ssShowRandomQuote();
+            }
+        }, 5000);
     </script>
 </body>
 </html>
