@@ -3,2013 +3,1244 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Advanced Button Generator - Create & Customize Unique Buttons</title>
-<meta name="description" content="Generate beautiful and responsive HTML & CSS buttons with advanced customization options. Design unique buttons for your website easily.">
-<meta name="keywords" content="Advanced Button Generator, HTML button, CSS button, custom button, button design, web development tool, responsive button, online button maker, button code">
-<meta property="og:title" content="Advanced Button Generator - Design Custom HTML/CSS Buttons">
-<meta property="og:description" content="Create unique and responsive buttons with custom styles, hover effects, and icons. Get instant HTML and CSS code.">
-<meta property="og:image" content="https://ehelpfultools.tech/assets/advanced-button-generator-tool.jpg">
-<meta property="og:url" content="https://ehelpfultools.tech/advance-button-generator.html">
-<meta name="twitter:title" content="Advanced Button Generator - HTML/CSS Button Tool">
-<meta name="twitter:description" content="Easily generate stunning HTML & CSS buttons with advanced customization. Perfect for web designers and developers.">
-<meta name="twitter:image" content="https://ehelpfultools.tech/assets/advanced-button-generator-tool.jpg">
-<meta name="google-adsense-account" content="ca-pub-8868584487794979">
-    <link rel="icon" href="icon.png" type="image/x-icon" />
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"/>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <meta name="description" content="Free online tools for productivity, creativity and fun. No signup needed. Use anywhere.">
+    <title>eHelpFulTools - Free Online Tools for Everyone</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
     
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            /* background: #f8f9fa; */
-            text-align: center;
-background-color: #f5f7fa;
-            margin: 0;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+        /* CSS Variables */
+        :root {
+            --primary: #0a6ef1;
+            --primary-light: #e6f0fd;
+            --secondary: #ff4757;
+            --dark: #2f3542;
+            --gray: #747d8c;
+            --light-gray: #f1f2f6;
+            --white: #ffffff;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
         }
-        /* tool css start */
-         :root {
-            --primary-color: #6a67ee; /* A vibrant, modern purple */
-            --secondary-color: #8c8aff;
-            --accent-color: #21d4fd; /* For highlights/interactive elements */
-            --bg-light: #f0f4f8;
-            --bg-medium: #e0e6ed;
-            --text-dark: #2c3e50;
-            --text-light: #ecf0f1;
-            --border-color: #d1d9e6;
-            --shadow-light: rgba(0, 0, 0, 0.08);
-            --shadow-medium: rgba(0, 0, 0, 0.15);
-            --transition-speed: 0.3s;
-            --border-radius-soft: 12px;
-            --border-radius-hard: 8px;
-        }
-
-    
-
-        .main-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-        }
-
-        .settings-panel {
-            background: var(--bg-light);
-            border-radius: var(--border-radius-soft);
-            padding: 2rem;
-            box-shadow: inset 0 2px 10px var(--shadow-light);
-        }
-
-        .preview-code-panel {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-.section-title {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--text-dark);
-            border-bottom: 2px solid var(--primary-color);
-            padding-bottom: 0.8rem;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            cursor: pointer;
-            user-select: none;
-            transition: color var(--transition-speed);
-        }
-
-        .section-title:hover {
-            color: var(--primary-color);
-        }
-
-        .section-title i {
-            color: var(--primary-color);
-            font-size: 1.7rem;
-            transition: transform var(--transition-speed);
-        }
-
-        .section-title .toggle-icon {
-            margin-left: auto;
-            font-size: 1.2rem;
-            color: var(--text-dark);
-        }
-
-        .section-title.collapsed .toggle-icon {
-            transform: rotate(-90deg);
-        }
-
-        .control-group {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.8rem;
-            transition: max-height 0.4s ease-out, opacity 0.4s ease-out, margin-bottom 0.4s ease-out;
-            overflow: hidden;
-            max-height: 1000px; /* Arbitrary large value to allow smooth transition */
-            opacity: 1;
-            margin-bottom: 2rem;
-        }
-
-        .control-group.collapsed {
-            max-height: 0;
-            opacity: 0;
-            margin-bottom: 0;
-        }
- .control {
-            display: flex;
-            flex-direction: column;
-        }
-         .ccontrol {
-            display: flex;
-        }
-
-        label {
-            font-weight: 600;
-            margin-bottom: 0.7rem;
-            color: var(--text-dark);
-            font-size: 0.95rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        input[type="text"],
-        input[type="number"],
-        input[type="color"],
-        select,
-        textarea {
-            padding: 0.9rem 1.2rem;
-            border-radius: var(--border-radius-hard);
-            border: 1px solid var(--border-color);
-            font-size: 0.95rem;
-            color: var(--text-dark);
-            background-color: #fff;
-            transition: border-color 0.2s ease, box-shadow 0.2s ease;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-        }
-
-        input:focus,
-        select:focus,
-        textarea:focus {
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 4px rgba(106, 103, 238, 0.2);
-            outline: none;
-            background-color: #fff;
-        }
-
-        input[type="color"] {
-            padding: 0.4rem;
-            height: 48px;
-            width: 100%;
-            cursor: pointer;
-        }
-
-        select {
-            background-image: url('data:image/svg+xml;utf8,<svg fill="%236a67ee" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
-            background-repeat: no-repeat;
-            background-position: right 10px center;
-            background-size: 24px;
-            cursor: pointer;
-        }
-input[type="range"] {
-            -webkit-appearance: none;
-            width: 100%;
-            height: 8px;
-            background: var(--border-color);
-            border-radius: 5px;
-            outline: none;
-            opacity: 0.9;
-            transition: opacity .2s;
-            margin-top: 0.5rem;
-        }
-
-        input[type="range"]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background: var(--primary-color);
-            cursor: pointer;
-            transition: background var(--transition-speed);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-
-        input[type="range"]::-moz-range-thumb {
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background: var(--primary-color);
-            cursor: pointer;
-            transition: background var(--transition-speed);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-
-        .range-value {
-            font-size: 0.9rem;
-            color: var(--text-dark);
-            margin-top: 0.5rem;
-            text-align: right;
-        }
-
-        .checkbox-control {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            margin-top: 0.5rem;
-        }
-
-        .checkbox-control input[type="checkbox"] {
-            width: 18px;
-            height: 18px;
-            accent-color: var(--primary-color);
-            cursor: pointer;
-        }
-
-        .preview {
-            text-align: center;
-            padding: 3rem;
-            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
-            border-radius: var(--border-radius-soft);
-            box-shadow: inset 0 2px 10px var(--shadow-light);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 200px;
-            margin-top: 0; /* Adjust for grid layout */
-        }
-/* Base button styles applied via a class */
-        .generated-button {
-            padding: 0.75rem 1.5rem;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all var(--transition-speed) ease;
-            border: none;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            background-color: var(--primary-color);
-            color: var(--text-light);
-            text-align: center;
-            display: inline-flex; /* Use flex for icon alignment */
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            font-weight: 600;
-            white-space: nowrap; /* Prevent button text from wrapping */
-        }
-
-        .generated-button .button-icon {
-            margin-right: 0.3em; /* Space between icon and text */
-        }
-
-        .code-section {
-            background: var(--text-dark);
-            padding: 1.5rem;
-            border-radius: var(--border-radius-hard);
-            overflow-x: auto;
-            position: relative;
-        }
-
-        .code-section pre {
+        
+        /* Base Styles */
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
-
-        .code-section code {
-            font-family: 'Fira Code', 'Cascadia Code', monospace;
-            font-size: 0.9rem;
-            line-height: 1.5;
+        
+        html {
+            scroll-behavior: smooth;
         }
-
-        .copy-btn {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            cursor: pointer;
-            color: var(--text-light);
-            background: var(--primary-color);
-            padding: 0.6rem 1rem;
-            border-radius: var(--border-radius-hard);
-            font-size: 0.85rem;
-            font-weight: 500;
-            transition: background 0.2s ease, color 0.2s ease, transform 0.1s ease;
-            z-index: 10;
-            border: none;
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            background-color: var(--white);
+            overflow-x: hidden;
         }
-
-        .copy-btn:hover {
-            background: var(--accent-color);
-            transform: translateY(-2px);
+        
+        img {
+            max-width: 100%;
+            height: auto;
         }
-        .copy-btn:active {
-            transform: translateY(0);
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
-
-        /* Tooltip styles */
-        .tooltip {
-            position: relative;
-            display: inline-block;
-            cursor: pointer;
-            color: var(--primary-color);
-            font-size: 0.8em;
-            margin-left: 0.2em;
-            vertical-align: super;
+        
+        section {
+            padding: 80px 0;
         }
-        .tooltip .tooltiptext {
-            visibility: hidden;
-            width: 200px;
-            background-color: var(--text-dark);
-            color: #fff;
+        
+        h1, h2, h3, h4 {
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            font-weight: 600;
             text-align: center;
-            border-radius: 6px;
-            padding: 10px 12px;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        h2:after {
+            content: '';
             position: absolute;
-            z-index: 2;
-            bottom: 125%;
+            bottom: -15px;
             left: 50%;
-            margin-left: -100px;
-            opacity: 0;
-            transition: opacity 0.3s;
-            font-size: 0.75rem;
-            line-height: 1.4;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
         }
-        .tooltip .tooltiptext::after {
-            content: "";
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            margin-left: -5px;
-            border-width: 5px;
-            border-style: solid;
-            border-color: var(--text-dark) transparent transparent transparent;
+        
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 500;
         }
-        .tooltip:hover .tooltiptext {
-            visibility: visible;
-            opacity: 1;
+        
+        p {
+            margin-bottom: 15px;
+            color: var(--gray);
         }
-
-        .reset-btn {
-            background: #e74c3c;
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: var(--border-radius-hard);
+        
+        a {
+            text-decoration: none;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 50px;
+            font-weight: 500;
+            transition: var(--transition);
             border: none;
             cursor: pointer;
             font-size: 1rem;
-            font-weight: 600;
-            margin-top: 2rem;
-            transition: background var(--transition-speed);
-            display: block;
-            width: fit-content;
-            margin-left: auto;
-            margin-right: auto;
-            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.2);
-        }
-
-        .reset-btn:hover {
-            background: #c0392b;
-            box-shadow: 0 8px 20px rgba(231, 76, 60, 0.3);
-        }
-
-        .input-group-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-            margin-top: 0.5rem;
-        }
-        .input-group-grid .control {
-            margin-bottom: 0.8; /* Override default margin */
-        }
-        .input-group-grid label {
-            margin-bottom: 0.5rem;
-        }
-
-  @media (max-width: 992px) {
-            .main-grid {
-                grid-template-columns: 1fr;
-            }
-            .icontainer {
-                padding: 2.5rem;
-            }
-            h1 {
-                font-size: 2.5rem;
-            }
-            h1 .fa-magic {
-                font-size: 3rem;
-            }
-            .section-title {
-                font-size: 1.3rem;
-            }
-            .control-group {
-                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            }
-            .input-group-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-           @media (max-width: 768px) {
-            body {
-                padding: 1.5rem;
-            }
-            .icontainer {
-                padding: 2rem 1.5rem;
-                gap: 2rem;
-            }
-            h1 {
-                font-size: 2rem;
-                margin-bottom: 2rem;
-            }
-            h1 .fa-magic {
-                font-size: 2.5rem;
-            }
-            .section-title {
-                font-size: 1.2rem;
-                margin-bottom: 1rem;
-            }
-            .control-group {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-                margin-bottom: 1.5rem;
-            }
-            .preview-code-panel {
-                gap: 1.5rem;
-            }
-            .copy-btn {
-                position: static; /* Make it static for mobile view */
-                margin-bottom: 10px;
-                width: 100%;
-                text-align: center;
-                padding: 0.8rem;
-            }
-            .code-section {
-                padding-top: 3.5rem; /* Adjust padding for static copy button */
-                padding: 1.5rem; /* Reset padding for smaller screens if copy button is static */
-            }
-            .input-group-grid {
-                grid-template-columns: 1fr;
-            }
-        }
- @media (max-width: 480px) {
-            body {
-                padding: 1rem;
-            }
-            .icontainer {
-                padding: 1.2rem 1rem;
-            }
-            h1 {
-                font-size: 1.8rem;
-                gap: 0.8rem;
-            }
-            
-            h1 .fa-magic {
-                font-size: 2rem;
-            }
-            .section-title {
-                font-size: 1.1rem;
-                padding-bottom: 0.5rem;
-            }
-            .generated-button {
-                font-size: 0.9rem;
-                padding: 0.6rem 1.2rem;
-            }
-            label {
-                font-size: 0.9rem;
-            }
-            input[type="text"],
-            input[type="number"],
-            input[type="color"],
-            select {
-                padding: 0.7rem 1rem;
-                font-size: 0.85rem;
-            }
-            .copy-btn {
-                font-size: 0.75rem;
-                padding: 0.7rem;
-            }
-            .reset-btn {
-                padding: 0.7rem 1.2rem;
-                font-size: 0.9rem;
-            }
-        }
-   
-
-
-
-
-
-.icontainer {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-    max-width: 1200px; /* Default max-width for large screens */
-    width: 100%;
-    margin: auto;
-    background: #ffffff;
-    padding: 3.5rem; /* Default padding for large screens */
-    border-radius: var(--border-radius-soft);
-    box-shadow: 0 20px 50px var(--shadow-medium);
-    box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
-}
-
-.main-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Default 2-column layout for large screens */
-    gap: 3rem;
-}
-
-/* Ensure all inner elements inherit box-sizing */
-*, *::before, *::after {
-  box-sizing: inherit;
-}
-
-/* For screens up to 1024px (laptops, large tablets) */
-@media (max-width: 1024px) {
-    .icontainer {
-        max-width: 900px; /* Constrain icontainer width a bit more */
-        padding: 3rem;
-        gap: 2.5rem;
-    }
-    .main-grid {
-        gap: 2.5rem;
-    }
-    h1 {
-        font-size: 2.8rem;
-    }
-    h1 .fa-magic {
-        font-size: 3.2rem;
-    }
-}
-/* For screens up to 992px (typical tablet landscape and smaller desktops) */
-@media (max-width: 992px) {
-    .main-grid {
-        grid-template-columns: 1fr; /* Stacks the settings and preview panels vertically */
-        gap: 2rem; /* Reduced gap for stacked sections */
-    }
-    .icontainer {
-        max-width: 700px; /* More aggressive icontainer width reduction */
-        padding: 2.5rem;
-        gap: 2rem;
-    }
-    h1 {
-        font-size: 2.3rem;
-        margin-bottom: 2rem;
-    }
-    h1 .fa-magic {
-        font-size: 2.8rem;
-    }
-    .section-title {
-        font-size: 1.25rem;
-        padding-bottom: 0.6rem;
-    }
-    .control-group {
-        /* Still allow two columns if possible, but they'll be smaller */
-        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-        gap: 1.2rem;
-        margin-bottom: 1.5rem;
-    }
-    .input-group-grid {
-        grid-template-columns: repeat(2, 1fr); /* Keeps 2 columns for sub-grids here */
-        gap: 0.7rem;
-    }
-    .preview-code-panel {
-        gap: 1.5rem;
-    }
-    .code-section {
-        padding: 1.2rem;
-    }
-    .copy-btn {
-        top: 10px;
-        right: 10px;
-        padding: 0.5rem 0.8rem;
-        font-size: 0.8rem;
-    }
-}
-@media (max-width: 768px) {
-    body {
-        padding: 1.2rem; /* Moderate body padding for good spacing */
-    }
-    .icontainer {
-        max-width: 95%; /* Make icontainer take almost full width, but with some margin */
-        padding: 1.5rem 1rem; /* Reduced inner padding */
-        gap: 1.5rem;
-    }
-    h1 {
-        font-size: 1.8rem;
-        margin-bottom: 1.5rem;
-        flex-direction: column; /* Stack icon and text */
-        gap: 0.3rem;
-    }
-    h1 .fa-magic {
-        font-size: 2rem;
-    }
-    .section-title {
-        font-size: 1.1rem;
-        margin-bottom: 0.8rem;
-        padding-bottom: 0.5rem;
-        gap: 0.7rem;
-    }
-    .control-group {
-        grid-template-columns: 1fr; /* Force all controls into a single column */
-        gap: 1rem; /* Tighten control spacing */
-        margin-bottom: 1.2rem;
-    }
-    /* Specific fix for controls overflowing: Ensure inputs/selects don't have min-widths */
-    input[type="text"],
-    input[type="number"],
-    select,
-    textarea {
-        min-width: 0; /* Allow input fields to shrink as much as needed */
-    }
-
-    .preview {
-        padding: 1.8rem; /* Adjusted preview padding */
-        min-height: 140px; /* Allow preview to be a bit shorter */
-        width: 70%;
-    }
-    .generated-button {
-        font-size: 0.9rem;
-        padding: 0.7rem 1.4rem;
-        white-space: normal; /* Allow button text to wrap if it's very long */
-        word-break: break-word; /* Ensure long words also break */
-        text-align: center; /* Re-center text after allowing wrap */
-    }
-    .copy-btn {
-        position: static; /* Make copy button part of the normal flow */
-        width: 100%; /* Take full width of parent */
-        margin: 1rem auto 0.8rem auto; /* Center it and add vertical spacing */
-        font-size: 0.75rem;
-        padding: 0.6rem 0.8rem;
-        display: block; /* Ensure it takes full width */
-        box-sizing: border-box; /* Crucial for width calculation */
-    }
-    .code-section {
-        padding: 1rem; /* Adjusted padding for code blocks */
-        overflow-x: auto; /* Allow horizontal scrolling for long code lines */
-    }
-    .code-section pre {
-        font-size: 0.82rem; /* Smaller code font */
-        word-wrap: normal; /* Prevent aggressive word wrap on pre */
-        white-space: pre; /* Keep whitespace as is */
-    }
-    .code-section code {
-        white-space: pre; /* Keep code on single line, rely on overflow-x */
-        min-width: 0; /* Allow code block to shrink */
-    }
-    .input-group-grid {
-        grid-template-columns: 1fr; /* Also stack these sub-grids vertically */
-        gap: 0.7rem;
-    }
-    label {
-        font-size: 0.85rem;
-        margin-bottom: 0.4rem;
-    }
-    input[type="text"],
-    input[type="number"],
-    input[type="color"],
-    select {
-        padding: 0.7rem 0.9rem;
-        font-size: 0.85rem;
-    }
-    input[type="color"] {
-        height: 40px; /* Maintain decent height for color picker */
-    }
-    .reset-btn {
-        padding: 0.7rem 1.2rem;
-        font-size: 0.9rem;
-        margin-top: 1.5rem;
-    }
-}
- .buttonh1 {
-            text-align: center;
-            margin-bottom: 3rem;
-            color: var(--primary-color);
-            font-size: 3rem;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1.2rem;
-            letter-spacing: -0.05em;
-            background: -webkit-linear-gradient(45deg, var(--primary-color), var(--accent-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .buttonh1 .fa-magic {
-            font-size: 3.5rem;
-            color: var(--primary-color); /* Fallback for browsers without text-fill-color */
-            background: -webkit-linear-gradient(45deg, var(--primary-color), var(--accent-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-@media (max-width: 480px) {
-    body {
-        padding: 0; /* Minimal body padding */
-    }
-    .icontainer {
-        max-width: 100%; /* Go full width (minus body padding) */
-        padding: 0.8rem; /* Minimal inner padding */
-        border-radius: 0; /* Remove border-radius for edge-to-edge feel */
-        box-shadow: none; /* Remove shadow for cleaner look on small screens */
-        gap: 1rem;
-    }
-    h1 {
-        font-size: 1.4rem; /* Smallest heading */
-        margin-bottom: 0.8rem;
-        gap: 0.2rem;
-    }
-    h1 .fa-magic {
-        font-size: 1.6rem;
-    }
-    .section-title {
-        font-size: 0.95rem; /* Smallest section titles */
-        padding-bottom: 0.3rem;
-        margin-bottom: 0.5rem;
-        gap: 0.6rem;
-    }
-    .settings-panel {
-        padding: 1rem; /* Reduced padding for settings panel */
-        border-radius: 0; /* Match icontainer, make it edge-to-edge */
-        box-shadow: none; /* Remove inner shadow */
-        width: 70%;
-    }
-    .control-group {
-        gap: 0.8rem; /* Very tight control spacing */
-        margin-bottom: 0.8rem;
-    }
-    .preview-code-panel {
-        gap: 1rem; /* Tighter spacing for preview/code */
-        width: 70%;
-    }
-    .preview {
-        padding: 1.2rem; /* Very minimal preview padding */
-        min-height: 100px;
-        border-radius: 0; /* Match icontainer */
-        width: 100%;
-    }
-    .generated-button {
-        font-size: 0.8rem;
-        padding: 0.6rem 1.2rem;
-    }
-    label {
-        font-size: 0.8rem;
-        margin-bottom: 0.3rem;
-    }
-    input[type="text"],
-    input[type="number"],
-    input[type="color"],
-    select {
-        padding: 0.5rem 0.7rem;
-        font-size: 0.75rem;
-    }
-    input[type="color"] {
-        height: 34px; /* Smallest height for color picker */
-        padding: 0.2rem; /* Adjust padding inside color input */
-    }
-    .copy-btn {
-        font-size: 0.65rem;
-        padding: 0.5rem 0.7rem;
-        margin: 0.7rem auto 0.5rem auto;
-    }
-    .code-section {
-        padding: 0.7rem;
-        border-radius: 0; /* Match icontainer */
-        width: 100%;
-    }
-    .code-section pre {
-        font-size: 0.75rem;
-    }
-    .reset-btn {
-        padding: 0.5rem 0.9rem;
-        font-size: 0.8rem;
-        margin-top: 1rem;
-    }
-}
-       /* tool css end */
-       .gbutton {
-    width: 150px;
-    background: #007bff;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: 10px;
-    transition: 0.3s;
-}
-
-.gbutton:hover {
-    background: #0056b3;
-}
-
-h2 {
-    margin-top: 20px;
-    color: #28a745;
-}
-        
-        /* Header section */
-.header {
-    background-image: url('navbar.jpg'); /* Replace with your background image path */
-    background-size: cover;
-    background-position: center;
-    height: 250px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    text-align: center;
-}
-.header h1 {
-    font-size: 3em;
-    margin: 0;
-    color: black;
-}
-
-/* Navigation */
-.navbar {
-    background-color: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    padding: 10px 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-.navbar a {
-    margin: 5px 40px;
-    color: #333;
-    text-decoration: none;
-}
-.navbar a.active{
-    color: #007BFF;
-}
-.navbar a:hover {
-    color: #007BFF;
-}
-
-/* Welcome Section */
-.welcome-section {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 50px;
-}
-.welcome-text {
-    flex: 1;
-    padding: 20px;
-    min-width: 300px;
-}
-.welcome-text h1 {
-    font-size: 2.5em;
-    margin-bottom: 50px; /* Adjusts space below the heading */
-}
-
-.welcome-text h3 {
-    font-size: 1.8em;
-    margin-bottom: 30px; /* Adds space below the subheading */
-}
-
-.welcome-text p {
-    line-height: 1.6;
-    color: #666;
-    font-size: 25px;
-    margin-bottom: 40px; /* Adjusts space below the paragraph */
-}
-
-.welcome-text .gbutton {
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: 50px; /* Adds space above the button */
-}
-
-.welcome-image {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 300px;
-}
-.welcome-image img {
-    max-width: 100%;
-    height: auto;
-}
-#bt{
-border-radius: 0%;
-display: flex;
- }
- .footer {
-    text-align: center;
-    padding: 10px;
-    font-size: 14px;
-    color: #666;
-}
-
-.footer hr {
-    width: 90%;
-    border: none;
-    border-top: 1px solid #e0e0e0;
-    margin: 0 auto 10px;
-}
-
-.footer p {
-    margin: 20px 0px;
-}
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .header h1 {
-        font-size: 2em;
-    }
-    .navbar a {
-        font-size: 0.9em;
-        margin: 0 10px;
-    }
-    .welcome-section {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        padding: 20px 10px;
-    }
-    .welcome-text h1 {
-        font-size: 1.8em;
-    }
-    .welcome-text {
-        padding: 10px;
-    }
-
-    .header h1{
-        color: white;
-        }}
-  * { box-sizing: border-box; margin: 0; padding: 0; }
- /* endsection css */
- .tool-info {
-        text-align: center;
-        padding: 50px 20px;
-        /* background: linear-gradient(135deg, #f8f9fa, #e3f2fd); */
-      
-        border-radius: 10px;
-        margin: 50px auto;
-        max-width: 900px;
-        /* box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15); */
-    }
-
-    .endicontainer {
-        max-width: 800px;
-        margin: auto;
-    }
-
-    .tool-info h2 {
-        font-size: 2.5rem;
-        color: #333;
-        margin-bottom: 15px;
-    }
-
-    .brand {
-        color: #007bff;
-        font-weight: bold;
-    }
-
-    .tool-info p {
-        font-size: 1.2rem;
-        color: #555;
-        margin-bottom: 25px;
-    }
-
-    
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-        .tool-info {
-            padding: 40px 15px;
-        }
-
-        .tool-info h2 {
-            font-size: 2rem;
-        }
-
-    }
-    .inicontainer {
-            max-width: 800px;
-            margin: 10px auto;
-            padding: 20px;
-        }
-    .tools {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-        .tool-card {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-            text-align: center;
-            
-        }
-        .tool-card:hover {
-            transform: scale(1.05);
-        }
-        .tool-card i {
-            font-size: 40px;
-            color: #007BFF;
-            margin-bottom: 10px;
-        }
-        .tool-card a {
-            display: block;
-            font-size: 1.2rem;
-            color: #333;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 10px;
-            
-        }
-        .tool-card a:hover {
-            color: #007BFF;
-        }
-        .tools-overview {
-            padding: 50px;
         }
         
-        .tools-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 15px;
-            max-width: 600px;
-            margin: auto;
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
         }
-   /* ========== Short Description Styling ========== */
-.short-description {
-    text-align: left;
-    background: #f9f9f9;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
-}
-
-.short-description h2 {
-    color: #007BFF;
-    font-size: 1.8rem;
-}
-
-.short-description h3 {
-    color: #333;
-    margin-top: 15px;
-}
-
-.short-description p {
-    font-size: 1rem;
-    color: #555;
-}
-
-.short-description ul {
-    list-style: none;
-    padding: 0;
-}
-
-.short-description ul li {
-    font-size: 1rem;
-    color: #555;
-    padding-left: 25px;
-    position: relative;
-    margin-bottom: 8px;
-}
-
-.short-description ul li::before {
-    content: " ";
-    position: absolute;
-    left: 0;
-    color: #007BFF;
-    font-size: 1.2rem;
-}
-/* Responsive adjustments for .result and .settlement */
-@media (max-width: 768px) {
-    .result, .settlement {
-        font-size: 14px; /* Decrease font size for smaller screens */
-        padding: 10px; /* Reduce padding for smaller screens */
-        margin-top: 15px; /* Adjust margin for better spacing */
-    }
-
-    .result {
-        background: #e6f7ff; /* Keep the same background color */
-    }
-
-    .settlement {
-        background: #d4edda; /* Keep the same background color */
-        text-align: left; /* Keep text alignment */
-    }
-}
-
-@media (max-width: 480px) {
-    .result, .settlement {
-        font-size: 12px; /* Further decrease font size for very small screens */
-        padding: 8px; /* Further reduce padding */
-        margin-top: 10px; /* Adjust margin for better spacing */
-    }
-
-    .result {
-        border-radius: 5px; /* Slightly reduce border radius */
-    }
-
-    .settlement {
-        border-radius: 5px; /* Slightly reduce border radius */
-    }
-}
-.ff{
-    justify-items: center;
-    margin: 15px auto;
-}
-/* loader css */
-/* Full-Screen Loader */
-.loader-icontainer {
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        /* Header */
+        .header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            padding: 20px 0;
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             z-index: 1000;
         }
-
-        .loader {
-            position: relative;
-            width: 100px;
-            height: 100px;
+        
+        .header__container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-
-        /* Rotating Hexagon */
-        .hexagon {
-            position: absolute;
-            width: 60px;
-            height: 60px;
-            background: rgba(255, 255, 255, 0.8);
-            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-            animation: rotateHexagon 2s linear infinite;
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
         }
-
-        @keyframes rotateHexagon {
-            0% { transform: rotate(0deg) scale(1); }
-            50% { transform: rotate(180deg) scale(1.2); }
-            100% { transform: rotate(360deg) scale(1); }
+        
+        .logo span {
+            color: var(--secondary);
         }
-
-        /* Spinning Triangle */
-        .triangle {
-            position: absolute;
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.7);
-            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-            top: 10px;
-            left: 10px;
-            animation: spinTriangle 1.5s ease-in-out infinite alternate;
+        
+        .nav__list {
+            display: flex;
+            list-style: none;
         }
-
-        @keyframes spinTriangle {
-            0% { transform: translateY(0px) rotate(0deg); }
-            100% { transform: translateY(-15px) rotate(30deg); }
+        
+        .nav__item {
+            margin-left: 30px;
         }
-
-        /* Pulsating Circle */
-        .circle {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background: white;
-            border-radius: 50%;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: pulseCircle 1.2s ease-in-out infinite;
+        
+        .nav__link {
+            font-weight: 500;
+            color: var(--dark);
         }
-
-        @keyframes pulseCircle {
-            0% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.4); opacity: 0.5; }
-            100% { transform: scale(1); opacity: 1; }
+        
+        .nav__link:hover {
+            color: var(--primary);
         }
-
-        /* Page Content (Hidden Initially) */
-        .content {
+        
+        .mobile-menu-btn {
             display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 180px 0 100px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero__content {
+            max-width: 600px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero__title {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero__subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: var(--gray);
+        }
+        
+        .hero__trust-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            background: var(--white);
+            padding: 8px 15px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            box-shadow: var(--shadow);
+        }
+        
+        .trust-badge i {
+            margin-right: 8px;
+            color: var(--primary);
+        }
+        
+        .hero__illustration {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50%;
+            max-width: 600px;
+            z-index: 1;
+            opacity: 0.9;
+        }
+        
+        /* Floating Icons Animation */
+        .floating-icons {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .floating-icon {
+            position: absolute;
+            font-size: 1.5rem;
+            opacity: 0.1;
+            animation: float 15s linear infinite;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+            }
+        }
+        
+        /* Tools Section */
+        .tools {
+            background: var(--white);
+        }
+        
+        .tools__filter {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .filter-btn {
+            padding: 8px 20px;
+            background: var(--light-gray);
+            border-radius: 50px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+        }
+        
+        .filter-btn.active {
+            background: var(--primary);
+            color: var(--white);
+        }
+        
+        .tools__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .tool-card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tool-card__header {
+            height: 150px;
+            background: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+        
+        .tool-card__body {
+            padding: 20px;
+        }
+        
+        .tool-card__category {
+            display: inline-block;
+            padding: 4px 10px;
+            background: var(--light-gray);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+            color: var(--gray);
+        }
+        
+        .tool-card__title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .tool-card__desc {
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            min-height: 60px;
+        }
+        
+        .tool-card__btn {
+            width: 100%;
             text-align: center;
-            padding: 50px;
-            font-size: 24px;
+            padding: 10px;
+            font-size: 0.9rem;
         }
-
-        /* Smooth Fade-In Effect */
+        
+        /* About Section */
+        .about {
+            background: var(--light-gray);
+        }
+        
+        .about__content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about__image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .about__text {
+            max-width: 500px;
+        }
+        
+        .about__milestones {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .milestone {
+            text-align: center;
+            padding: 20px;
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+        
+        .milestone__number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .milestone__text {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            background: var(--white);
+        }
+        
+        .testimonials__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .testimonial-card__header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-card__avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-right: 15px;
+            color: var(--primary);
+        }
+        
+        .testimonial-card__name {
+            font-weight: 600;
+        }
+        
+        .testimonial-card__role {
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+        
+        .testimonial-card__text {
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        
+        .testimonial-card__rating {
+            color: #ffc107;
+            font-size: 1rem;
+        }
+        
+        /* FAQ Section */
+        .faq {
+            background: var(--light-gray);
+        }
+        
+        .faq__container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            margin-bottom: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            background: var(--white);
+        }
+        
+        .faq-item__header {
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .faq-item__header:hover {
+            background: var(--primary-light);
+        }
+        
+        .faq-item__header i {
+            transition: var(--transition);
+        }
+        
+        .faq-item.active .faq-item__header i {
+            transform: rotate(180deg);
+        }
+        
+        .faq-item__content {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .faq-item.active .faq-item__content {
+            padding: 0 20px 20px;
+            max-height: 500px;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+        
+        .footer__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer__title {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+        
+        .footer__list {
+            list-style: none;
+        }
+        
+        .footer__item {
+            margin-bottom: 10px;
+        }
+        
+        .footer__link {
+            color: rgba(255, 255, 255, 0.7);
+            transition: var(--transition);
+        }
+        
+        .footer__link:hover {
+            color: var(--white);
+        }
+        
+        .footer__bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        /* Animations */
         .fade-in {
-            animation: fadeIn 1s ease-in-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
         }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        
+        .fade-in.active {
+            opacity: 1;
+            transform: translateY(0);
         }
-
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero__illustration {
+                opacity: 0.3;
+            }
+            
+            .about__content {
+                grid-template-columns: 1fr;
+            }
+            
+            .about__image {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+            
+            .about__text {
+                max-width: 100%;
+                text-align: center;
+            }
+            
+            .about__milestones {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin: 40px auto 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            section {
+                padding: 60px 0;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+                padding: 20px;
+                transform: translateY(-150%);
+                transition: var(--transition);
+                z-index: 999;
+            }
+            
+            .nav.active {
+                transform: translateY(0);
+            }
+            
+            .nav__list {
+                flex-direction: column;
+            }
+            
+            .nav__item {
+                margin: 15px 0;
+            }
+            
+            .hero {
+                padding: 150px 0 80px;
+                text-align: center;
+            }
+            
+            .hero__content {
+                max-width: 100%;
+            }
+            
+            .hero__illustration {
+                display: none;
+            }
+            
+            .hero__trust-badges {
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            section {
+                padding: 50px 0;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+            }
+            
+            .tools__filter {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .filter-btn {
+                width: 100%;
+                max-width: 200px;
+            }
+        }
     </style>
 </head>
 <body>
-    
-    <div class="loader-icontainer">
-        <div class="loader">
-            <div class="hexagon"></div>
-            <div class="triangle"></div>
-            <div class="circle"></div>
-        </div>
-    </div>
- <!-- Header -->
- <div class="header">
-    <h1>eHelpFullTools</h1>
-</div>
-
-<!-- Navbar -->
-<div class="navbar">
-    <a href="index.html">Home</a>
-    <a href="OnlineTools.html" class="active">Online Tools</a>
-    <a href="service.html">Services</a>
-    <a href="contact.html">Contact Us</a>
-</div>
-
-<!-- Short description about the Text to PDF Converter -->
-<div class="short-description">
-    <h2>About the Advanced Button Generator ✨🎨</h2>
-    <p>The <strong>Advanced Button Generator</strong> is a powerful and intuitive tool designed to help you effortlessly create stunning and responsive HTML and CSS buttons. Whether you're a web developer, designer, or just need a quick custom button, this tool simplifies the process of generating production-ready code with advanced customization options.</p>
-
-    <h3>🚀 How to Use This Tool:</h3>
-    <ul>
-        <li>🔹 <strong>Step 1:</strong> Adjust various settings in the left panel, such as text, colors, padding, borders, and shadows.</li>
-        <li>🔹 <strong>Step 2:</strong> See your button update instantly in the live preview area.</li>
-        <li>🔹 <strong>Step 3:</strong> Experiment with hover effects and transitions to make your button interactive.</li>
-        <li>🔹 <strong>Step 4:</strong> Copy the generated HTML and CSS code directly to use in your project.</li>
-        <li>🔹 The tool provides clear, concise code snippets that are ready to be integrated into your website.</li>
-    </ul>
-
-    <h3> Why Use This Tool?</h3>
-    <p>  <strong>Easy-to-Use:</strong> Intuitive interface with real-time updates—no manual coding required.<br>
-          <strong>Interactive & Instant:</strong> Design and visualize your buttons in seconds.<br>
-          <strong>Highly Customizable:</strong> Control every aspect from colors and fonts to shadows and hover effects.<br>
-          <strong>Responsive & Modern:</strong> Generated buttons are designed to look great on all devices.<br>
-          <strong>Time-Saving:</strong> Quickly generate complex CSS without writing a single line from scratch.</p>
-
-    <h3>Additional Features:</h3>
-    <ul>
-        <li>🔹 Live preview of your button as you adjust settings.</li>
-        <li>🔹 Customizable text, font family, font size, and text alignment.</li>
-        <li>🔹 Comprehensive color controls for background, text, borders, and hover states.</li>
-        <li>🔹 Detailed padding, border width, and border-radius adjustments.</li>
-        <li>🔹 Advanced box-shadow and hover transform effects.</li>
-        <li>🔹 Option to add Font Awesome icons directly to your button.</li>
-        <li>🔹 Convenient one-click copy buttons for both HTML and CSS code.</li>
-    </ul>
-</div>
-
-<div class="ff">
-    <p>Go down to explore more tools and Calculators.</p></div>
-<!-- tool code here -->
-<h1 class="buttonh1"><i class="fa fa-magic"></i> Advanced Button Generator Pro</h1>
-
-    <div class="icontainer">
-        <div class="main-grid">
-            <div class="settings-panel">
-                <div class="section-title" data-target="buttonSettings">
-                    <i class="fas fa-cog"></i> General Settings <i class="fas fa-chevron-down toggle-icon"></i>
-                </div>
-                <div class="control-group" id="buttonSettings">
-                    <div class="control">
-                        <label for="btnText"><i class="fas fa-font"></i> Button Text</label>
-                        <input type="text" id="btnText" value="Click Me!">
-                    </div>
-                    <div class="control">
-                        <label for="buttonIcon"><i class="fas fa-icons"></i> Icon Class
-                            <span class="tooltip">?
-                                <span class="tooltiptext">e.g., 'fas fa-arrow-right', 'fab fa-github'. Leave blank for no icon.</span>
-                            </span>
-                        </label>
-                        <input type="text" id="buttonIcon" value="" placeholder="fas fa-star">
-                    </div>
-                    <div class="control">
-                        <label for="fontFamily"><i class="fas fa-text-width"></i> Font Family</label>
-                        <select id="fontFamily">
-                            <option value="'Inter', sans-serif" selected>Inter (Web)</option>
-                            <option value="'Roboto', sans-serif">Roboto (Web)</option>
-                            <option value="Arial, sans-serif">Arial</option>
-                            <option value="'Courier New', monospace">Courier New</option>
-                            <option value="Georgia, serif">Georgia</option>
-                            <option value="Tahoma, sans-serif">Tahoma</option>
-                            <option value="Verdana, sans-serif">Verdana</option>
-                            <option value="'Segoe UI', sans-serif">Segoe UI</option>
-                            <option value="'Lucida Console', monospace">Lucida Console</option>
-                            <option value="'Open Sans', sans-serif">Open Sans (Web)</option>
-                        </select>
-                    </div>
-                    <div class="control">
-                        <label for="fontSize"><i class="fas fa-text-height"></i> Font Size (px)</label>
-                        <input type="number" id="fontSize" value="16" min="8" max="48">
-                    </div>
-                    <div class="control">
-                        <label for="btnSize"><i class="fas fa-expand-alt"></i> Button Preset Size</label>
-                        <select id="btnSize">
-                            <option value="custom" selected>Custom Padding</option>
-                            <option value="small">Small (5px 10px)</option>
-                            <option value="medium">Medium (12px 24px)</option>
-                            <option value="large">Large (16px 32px)</option>
-                        </select>
-                    </div>
-                    <div class="control">
-                        <label for="textAlign"><i class="fas fa-align-center"></i> Text Alignment</label>
-                        <select id="textAlign">
-                            <option value="left">Left</option>
-                            <option value="center" selected>Center</option>
-                            <option value="right">Right</option>
-                        </select>
-                    </div>
-                    <div class="control">
-                        <label for="cursorType"><i class="fas fa-mouse-pointer"></i> Cursor Type</label>
-                        <select id="cursorType">
-                            <option value="pointer" selected>Pointer</option>
-                            <option value="default">Default</option>
-                            <option value="grab">Grab</option>
-                            <option value="help">Help</option>
-                            <option value="not-allowed">Not Allowed</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="section-title" data-target="colorSettings">
-                    <i class="fas fa-palette"></i> Colors <i class="fas fa-chevron-down toggle-icon"></i>
-                </div>
-                <div class="control-group" id="colorSettings">
-                    <div class="control">
-                        <label for="bgColor"><i class="fas fa-fill-drip"></i> Background Color</label>
-                        <input type="color" id="bgColor" value="#6a67ee">
-                    </div>
-                    <div class="control">
-                        <label for="textColor"><i class="fas fa-paint-brush"></i> Text Color</label>
-                        <input type="color" id="textColor" value="#ffffff">
-                    </div>
-                    <div class="control">
-                        <label for="borderColor"><i class="fas fa-border-all"></i> Border Color</label>
-                        <input type="color" id="borderColor" value="#6a67ee">
-                    </div>
-                    <div class="control">
-                        <label for="hoverBgColor"><i class="fas fa-lightbulb"></i> Hover Background</label>
-                        <input type="color" id="hoverBgColor" value="#8c8aff">
-                    </div>
-                    <div class="control">
-                        <label for="hoverTextColor"><i class="fas fa-eye-dropper"></i> Hover Text Color</label>
-                        <input type="color" id="hoverTextColor" value="#ffffff">
-                    </div>
-                </div>
-
-                <div class="section-title" data-target="borderPaddingSettings">
-                    <i class="fas fa-ruler-combined"></i> Dimensions & Borders <i class="fas fa-chevron-down toggle-icon"></i>
-                </div>
-                <div class="control-group" id="borderPaddingSettings">
-                    <label style="grid-column: 1 / -1; margin-bottom: 0.5rem;"><i class="fas fa-text-width"></i> Padding (px)</label>
-                    <div class="input-group-grid">
-                        <div class="control">
-                            <label for="paddingTop">Top</label>
-                            <input type="number" id="paddingTop" value="12" min="0">
-                        </div>
-                        <div class="control">
-                            <label for="paddingRight">Right</label>
-                            <input type="number" id="paddingRight" value="24" min="0">
-                        </div>
-                        <div class="control">
-                            <label for="paddingBottom">Bottom</label>
-                            <input type="number" id="paddingBottom" value="12" min="0">
-                        </div>
-                        <div class="control">
-                            <label for="paddingLeft">Left</label>
-                            <input type="number" id="paddingLeft" value="24" min="0">
-                        </div>
-                    </div>
-
-                    <label style="grid-column: 1 / -1; margin-top: 1.5rem; margin-bottom: 0.5rem;"><i class="fas fa-border-style"></i> Border Width (px)</label>
-                    <div class="input-group-grid">
-                        <div class="control">
-                            <label for="borderWidthTop">Top</label>
-                            <input type="number" id="borderWidthTop" value="0" min="0">
-                        </div>
-                        <div class="control">
-                            <label for="borderWidthRight">Right</label>
-                            <input type="number" id="borderWidthRight" value="0" min="0">
-                        </div>
-                        <div class="control">
-                            <label for="borderWidthBottom">Bottom</label>
-                            <input type="number" id="borderWidthBottom" value="0" min="0">
-                        </div>
-                        <div class="control">
-                            <label for="borderWidthLeft">Left</label>
-                            <input type="number" id="borderWidthLeft" value="0" min="0">
-                        </div>
-                    </div>
-
-                    <label style="grid-column: 1 / -1; margin-top: 1.5rem; margin-bottom: 0.5rem;"><i class="fas fa-border-top-left"></i> Border Radius (px)</label>
-                    <div class="input-group-grid">
-                        <div class="control">
-                            <label for="borderRadiusTopLeft">Top Left</label>
-                            <input type="number" id="borderRadiusTopLeft" value="8" min="0">
-                        </div>
-                        <div class="control">
-                            <label for="borderRadiusTopRight">Top Right</label>
-                            <input type="number" id="borderRadiusTopRight" value="8" min="0">
-                        </div>
-                        <div class="control">
-                            <label for="borderRadiusBottomRight">Bottom Right</label>
-                            <input type="number" id="borderRadiusBottomRight" value="8" min="0">
-                        </div>
-                        <div class="control">
-                            <label for="borderRadiusBottomLeft">Bottom Left</label>
-                            <input type="number" id="borderRadiusBottomLeft" value="8" min="0">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="section-title" data-target="effectsSettings">
-                    <i class="fas fa-magic"></i> Effects <i class="fas fa-chevron-down toggle-icon"></i>
-                </div>
-                <div class="control-group" id="effectsSettings">
-                    <label style="grid-column: 1 / -1; margin-bottom: 0.5rem;"><i class="fas fa-cloud"></i> Box Shadow</label>
-                    <div class="input-group-grid">
-                        <div class="control">
-                            <label for="shadowOffsetX">Offset X (px)</label>
-                            <input type="number" id="shadowOffsetX" value="0">
-                        </div>
-                        <div class="control">
-                            <label for="shadowOffsetY">Offset Y (px)</label>
-                            <input type="number" id="shadowOffsetY" value="5">
-                        </div>
-                        <div class="control">
-                            <label for="shadowBlurRadius">Blur (px)</label>
-                            <input type="number" id="shadowBlurRadius" value="15" min="0">
-                        </div>
-                        <div class="control">
-                            <label for="shadowSpreadRadius">Spread (px)</label>
-                            <input type="number" id="shadowSpreadRadius" value="0">
-                        </div>
-                        <div class="control">
-                            <label for="shadowColor">Color</label>
-                            <input type="color" id="shadowColor" value="#000000">
-                        </div>
-                        <div class="control">
-                            <label for="shadowOpacity">Opacity (%)</label>
-                            <input type="range" id="shadowOpacity" value="15" min="0" max="100">
-                            <span class="range-value" id="shadowOpacityValue">15%</span>
-                        </div>
-                    </div>
-
-                    <label style="grid-column: 1 / -1; margin-top: 1.5rem; margin-bottom: 0.5rem;"><i class="fas fa-cloud-sun"></i> Hover Box Shadow</label>
-                    <div class="input-group-grid">
-                        <div class="control">
-                            <label for="hoverShadowOffsetX">Offset X (px)</label>
-                            <input type="number" id="hoverShadowOffsetX" value="0">
-                        </div>
-                        <div class="control">
-                            <label for="hoverShadowOffsetY">Offset Y (px)</label>
-                            <input type="number" id="hoverShadowOffsetY" value="8">
-                        </div>
-                        <div class="control">
-                            <label for="hoverShadowBlurRadius">Blur (px)</label>
-                            <input type="number" id="hoverShadowBlurRadius" value="20" min="0">
-                        </div>
-                        <div class="control">
-                            <label for="hoverShadowSpreadRadius">Spread (px)</label>
-                            <input type="number" id="hoverShadowSpreadRadius" value="0">
-                        </div>
-                        <div class="control">
-                            <label for="hoverShadowColor">Color</label>
-                            <input type="color" id="hoverShadowColor" value="#000000">
-                        </div>
-                        <div class="control">
-                            <label for="hoverShadowOpacity">Opacity (%)</label>
-                            <input type="range" id="hoverShadowOpacity" value="25" min="0" max="100">
-                            <span class="range-value" id="hoverShadowOpacityValue">25%</span>
-                        </div>
-                    </div>
-
-                    <div class="control" style="grid-column: 1 / -1;">
-                        <label for="hoverEffect"><i class="fas fa-rocket"></i> Hover Transform</label>
-                        <select id="hoverEffect">
-                            <option value="">None</option>
-                            <option value="scale(1.05)" selected>Slight Scale Up</option>
-                            <option value="scale(1.1)">Scale Up</option>
-                            <option value="translateY(-3px)">Lift Up (small)</option>
-                            <option value="translateY(-5px)">Lift Up (medium)</option>
-                            <option value="rotate(3deg)">Rotate (3deg)</option>
-                            <option value="rotate(-3deg)">Rotate (-3deg)</option>
-                        </select>
-                    </div>
-                    <div class="ccontrol" style="grid-column: 1 / -1;">
-                        <label for="transitionSpeed"><i class="fas fa-tachometer-alt"></i> Transition Speed (s)</label>
-                        <input type="range" id="transitionSpeed" value="0.3" min="0" max="2" step="0.05">
-                        <span class="range-value" id="transitionSpeedValue">0.3s</span>
-                    </div>
-                </div>
-                <button class="reset-btn" id="resetAll"><i class="fas fa-undo"></i> Reset All Settings</button>
-            </div>
-
-            <div class="preview-code-panel">
-                <div class="preview">
-                    <button id="generatedButton" class="generated-button">Click Me!</button>
-                </div>
-
-                <div class="section-title">
-                    <i class="fas fa-code"></i> Generated Code
-                </div>
-                <div class="code-section">
-                    <button class="copy-btn" data-target="htmlCode">📋 Copy HTML</button>
-                    <pre><code id="htmlCode" class="language-html"></code></pre>
-                </div>
-                <div class="code-section">
-                    <button class="copy-btn" data-target="cssCode">📋 Copy CSS</button>
-                    <pre><code id="cssCode" class="language-css"></code></pre>
-                </div>
-            </div>
-        </div>
-    </div>
-
-<!--about online tools-->
-<section class="tool-info">
-    <div class="endicontainer">
-        <h2>Welcome to <span class="brand">eHelpfullTools</span> 🚀</h2>
-        <p>eHelpfullTools is your ultimate online toolkit, offering a range of powerful and easy-to-use tools to
-            simplify your daily tasks. Whether you need to edit text, estimate fuel costs, or calculate loans, we’ve
-            got you covered!</p>
-
-        <h3>Explore More Tools 🔍</h3>
-
-    </div>
-
-    <div class="inicontainer">
-        <div class="tools">
-             <div class="tool-card">
-                <i class="fas fa-box"></i>
-                <a href="advance-button-generetor.html">📼 Advanced Button Generator</a>
-            </div>
-            <div class="tool-card">
-                <i class="fas fa-edit"></i>
-                <a href="text-editor.html">📝 Online Text Editor</a>
-            </div>
-            <div class="tool-card">
-                <a href="typing-test.html">⌨ Typing Speed Test</a>
-            </div>
-            <div class="tool-card">
-                <a href="FuelCalculator.html">⛽ Fuel Cost Estimator</a>
-            </div>
-            <div class="tool-card">
-                <a href="split-bill.html">💰 Advanced Split Bill Calculator</a>
-            </div>
-            <div class="tool-card">
-                <a href="cooking-converter.html">🥣 Cooking Measurement Converter</a>
-            </div>
-            <div class="tool-card">
-                <a href="unit-converter.html">📏 Unit Converter</a>
-            </div>
-            <div class="tool-card">
-                <a href="age-calculator.html">🎂 Advanced Age Calculator</a>
-            </div>
-            <div class="tool-card">
-                <a href="meditation-timer.html">🧘‍♂️ Meditation Timer</a>
-            </div>
-            <div class="tool-card">
-                <a href="text-to-pdf.html">📝➡️📄 Text File & PDF File Converter</a>
-            </div>
-            <div class="tool-card">
-                <a href="moore-machine-tool.html">⚙️📊 Moore Machine Table Generator</a>
-            </div>
-            <div class="tool-card">
-                <a href="mealy-machine-tool.html">📊⚙️ Mealy Machine Table Generator</a>
-            </div>
-            <div class="tool-card">
-                <a href="comingsoon.html">🌍 Language Translator</a>
-            </div>
-            <div class="tool-card">
-                <a href="comingsoon.html">🔢 Word & Character Counter</a>
-            </div>
-        </div>
-        
-        <h3 style="margin-top: 20px;">Explore Fun  Tools 😄</h3>
-        <div class="inicontainer">
+    <!-- Header -->
+    <header class="header">
+        <div class="container header__container">
+            <a href="index.html" class="logo">e<span>Helpful</span>Tools</a>
             
-            <div class="tools">
-                <div class="tool-card">
-                    <a href="colour-tool.html">😤 Silent Screamer - Anonymous Stress & Emotion Releaser</a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i>☰</i>
+            </button>
+            
+            <nav class="nav" id="nav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#tools" class="nav__link">Tools</a></li>
+                    <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
+                    <li class="nav__item"><a href="#testimonials" class="nav__link">Testimonials</a></li>
+                    <li class="nav__item"><a href="#faq" class="nav__link">FAQ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="floating-icons" id="floatingIcons"></div>
+        <div class="container">
+            <div class="hero__content fade-in">
+                <h1 class="hero__title">Powerful Tools for Everyone</h1>
+                <p class="hero__subtitle">Free online tools to boost your productivity, creativity, and fun. No signup required - use them anywhere, anytime!</p>
+                <a href="#tools" class="btn">Explore Tools</a>
+                
+                <div class="hero__trust-badges">
+                    <div class="trust-badge">
+                        <i>🔓</i> No Sign-Up
+                    </div>
+                    <div class="trust-badge">
+                        <i>💰</i> Free Forever
+                    </div>
+                    <div class="trust-badge">
+                        <i>📱</i> Mobile-Friendly
+                    </div>
                 </div>
-                <div class="tool-card">
-                    <a href="crossword-generator.html">🔠 Find the Word Crossword Generator</a>
-                </div>
-            <div class="tool-card">
-                <a href="colour-tool.html">🎨 Fun Color Picker & Mixer</a>
-            </div>
-            <div class="tool-card">
-                <a href="ascii-art.html">ᓚ₍ ^. .^₎ ASCII Art Generator</a>
             </div>
             
-            <div class="tool-card">
-                <a href="personalitycheck.html">🎭 Ultimate Personality Quiz</a>
+            <img src="https://via.placeholder.com/600x400" alt="Online tools illustration" class="hero__illustration" loading="lazy">
+        </div>
+    </section>
+
+    <!-- Tools Section -->
+    <section class="tools" id="tools">
+        <div class="container">
+            <h2 class="fade-in">Our Most Popular Tools</h2>
+            
+            <div class="tools__filter fade-in">
+                <button class="filter-btn active" data-filter="all">All Tools</button>
+                <button class="filter-btn" data-filter="productivity">Productivity</button>
+                <button class="filter-btn" data-filter="fun">Fun</button>
+                <button class="filter-btn" data-filter="developer">Developer</button>
             </div>
-            <div class="tool-card">
-                <a href="coin-flip.html">🪙 Flip the Coin</a>
-            </div>
-            <div class="tool-card">
-                <a href="drawing-board.html">🎨 Online Drawing Board</a>
+            
+            <div class="tools__grid">
+                <!-- Tool Card 1 -->
+                <div class="tool-card fade-in" data-category="productivity">
+                    <div class="tool-card__header">
+                        📝
+                    </div>
+                    <div class="tool-card__body">
+                        <span class="tool-card__category">Productivity</span>
+                        <h3 class="tool-card__title">Text Editor</h3>
+                        <p class="tool-card__desc">A clean, distraction-free text editor with formatting options and word count.</p>
+                        <a href="#" class="btn btn-outline tool-card__btn">Use Now</a>
+                    </div>
+                </div>
+                
+                <!-- Tool Card 2 -->
+                <div class="tool-card fade-in" data-category="productivity">
+                    <div class="tool-card__header">
+                        📄
+                    </div>
+                    <div class="tool-card__body">
+                        <span class="tool-card__category">Productivity</span>
+                        <h3 class="tool-card__title">PDF Converter</h3>
+                        <p class="tool-card__desc">Convert documents to PDF and vice versa without losing formatting.</p>
+                        <a href="#" class="btn btn-outline tool-card__btn">Use Now</a>
+                    </div>
+                </div>
+                
+                <!-- Tool Card 3 -->
+                <div class="tool-card fade-in" data-category="productivity">
+                    <div class="tool-card__header">
+                        ⛽
+                    </div>
+                    <div class="tool-card__body">
+                        <span class="tool-card__category">Productivity</span>
+                        <h3 class="tool-card__title">Fuel Cost Estimator</h3>
+                        <p class="tool-card__desc">Calculate fuel costs for your trips based on distance and vehicle efficiency.</p>
+                        <a href="#" class="btn btn-outline tool-card__btn">Use Now</a>
+                    </div>
+                </div>
+                
+                <!-- Tool Card 4 -->
+                <div class="tool-card fade-in" data-category="fun">
+                    <div class="tool-card__header">
+                        ✏️
+                    </div>
+                    <div class="tool-card__body">
+                        <span class="tool-card__category">Fun</span>
+                        <h3 class="tool-card__title">Crossword Generator</h3>
+                        <p class="tool-card__desc">Create custom crossword puzzles for fun or educational purposes.</p>
+                        <a href="#" class="btn btn-outline tool-card__btn">Use Now</a>
+                    </div>
+                </div>
+                
+                <!-- Tool Card 5 -->
+                <div class="tool-card fade-in" data-category="fun">
+                    <div class="tool-card__header">
+                        ⌨️
+                    </div>
+                    <div class="tool-card__body">
+                        <span class="tool-card__category">Fun</span>
+                        <h3 class="tool-card__title">Typing Speed Test</h3>
+                        <p class="tool-card__desc">Test and improve your typing speed with fun challenges and statistics.</p>
+                        <a href="#" class="btn btn-outline tool-card__btn">Use Now</a>
+                    </div>
+                </div>
+                
+                <!-- Tool Card 6 -->
+                <div class="tool-card fade-in" data-category="fun">
+                    <div class="tool-card__header">
+                        😤
+                    </div>
+                    <div class="tool-card__body">
+                        <span class="tool-card__category">Fun</span>
+                        <h3 class="tool-card__title">Silent Screamer</h3>
+                        <p class="tool-card__desc">Release stress by typing out your emotions in this anonymous tool.</p>
+                        <a href="#" class="btn btn-outline tool-card__btn">Use Now</a>
+                    </div>
+                </div>
+                
+                <!-- Tool Card 7 -->
+                <div class="tool-card fade-in" data-category="developer">
+                    <div class="tool-card__header">
+                        🛠️
+                    </div>
+                    <div class="tool-card__body">
+                        <span class="tool-card__category">Developer</span>
+                        <h3 class="tool-card__title">Button Generator</h3>
+                        <p class="tool-card__desc">Create beautiful CSS buttons with custom styles and copy the code.</p>
+                        <a href="#" class="btn btn-outline tool-card__btn">Use Now</a>
+                    </div>
+                </div>
+                
+                <!-- Tool Card 8 -->
+                <div class="tool-card fade-in" data-category="fun">
+                    <div class="tool-card__header">
+                        🎲
+                    </div>
+                    <div class="tool-card__body">
+                        <span class="tool-card__category">Fun</span>
+                        <h3 class="tool-card__title">Flip the Coin</h3>
+                        <p class="tool-card__desc">Can't decide? Let our virtual coin flip make the choice for you!</p>
+                        <a href="#" class="btn btn-outline tool-card__btn">Use Now</a>
+                    </div>
+                </div>
+                
+                <!-- Tool Card 9 -->
+                <div class="tool-card fade-in" data-category="productivity">
+                    <div class="tool-card__header">
+                        🎂
+                    </div>
+                    <div class="tool-card__body">
+                        <span class="tool-card__category">Productivity</span>
+                        <h3 class="tool-card__title">Age Calculator</h3>
+                        <p class="tool-card__desc">Calculate exact age in years, months, and days from birth date.</p>
+                        <a href="#" class="btn btn-outline tool-card__btn">Use Now</a>
+                    </div>
+                </div>
             </div>
         </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="fade-in">Our Story</h2>
+            
+            <div class="about__content">
+                <div class="about__image fade-in">
+                    <img src="https://via.placeholder.com/500x300" alt="About eHelpfulTools" loading="lazy">
+                </div>
+                
+                <div class="about__text fade-in">
+                    <h3>Why eHelpfulTools Exists</h3>
+                    <p>We started eHelpfulTools in 2020 with a simple mission: to create free, accessible tools that solve everyday problems without requiring signups or payments.</p>
+                    <p>Frustrated by websites that demanded personal information just to use basic tools, we built a collection of utilities that respect your privacy and work instantly.</p>
+                    <p>Today, eHelpfulTools serves thousands of users worldwide - students, teachers, freelancers, and professionals who value simplicity and efficiency.</p>
+                    
+                    <div class="about__milestones">
+                        <div class="milestone fade-in">
+                            <div class="milestone__number">25+</div>
+                            <div class="milestone__text">Free Tools</div>
+                        </div>
+                        <div class="milestone fade-in">
+                            <div class="milestone__number">100K+</div>
+                            <div class="milestone__text">Monthly Users</div>
+                        </div>
+                        <div class="milestone fade-in">
+                            <div class="milestone__number">0</div>
+                            <div class="milestone__text">Signups Required</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h2 class="fade-in">What Users Say</h2>
+            
+            <div class="testimonials__grid">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-card__header">
+                        <div class="testimonial-card__avatar">S</div>
+                        <div>
+                            <div class="testimonial-card__name">Sarah Johnson</div>
+                            <div class="testimonial-card__role">Teacher</div>
+                        </div>
+                    </div>
+                    <p class="testimonial-card__text">"The crossword generator saves me hours of work creating classroom activities. My students love it!"</p>
+                    <div class="testimonial-card__rating">⭐⭐⭐⭐⭐</div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-card__header">
+                        <div class="testimonial-card__avatar">R</div>
+                        <div>
+                            <div class="testimonial-card__name">Raj Patel</div>
+                            <div class="testimonial-card__role">Freelancer</div>
+                        </div>
+                    </div>
+                    <p class="testimonial-card__text">"As a freelancer, I use the PDF converter daily. It's fast, reliable, and doesn't ask for my email."</p>
+                    <div class="testimonial-card__rating">⭐⭐⭐⭐⭐</div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-card__header">
+                        <div class="testimonial-card__avatar">M</div>
+                        <div>
+                            <div class="testimonial-card__name">Miguel Rodriguez</div>
+                            <div class="testimonial-card__role">Developer</div>
+                        </div>
+                    </div>
+                    <p class="testimonial-card__text">"The button generator helps me prototype UIs quickly. I've bookmarked this site!"</p>
+                    <div class="testimonial-card__rating">⭐⭐⭐⭐</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <h2 class="fade-in">Frequently Asked Questions</h2>
+            
+            <div class="faq__container">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item fade-in">
+                    <div class="faq-item__header">
+                        <span>Do I need to create an account to use the tools?</span>
+                        <i>▼</i>
+                    </div>
+                    <div class="faq-item__content">
+                        <p>No! All our tools are completely free to use without any account creation. Just visit the tool you need and start using it immediately.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 2 -->
+                <div class="faq-item fade-in">
+                    <div class="faq-item__header">
+                        <span>Is there a limit to how much I can use the tools?</span>
+                        <i>▼</i>
+                    </div>
+                    <div class="faq-item__content">
+                        <p>No limits at all. Use our tools as much as you need, whenever you need them. We don't impose usage restrictions or require subscriptions.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 3 -->
+                <div class="faq-item fade-in">
+                    <div class="faq-item__header">
+                        <span>How do you keep the tools free?</span>
+                        <i>▼</i>
+                    </div>
+                    <div class="faq-item__content">
+                        <p>We support the site through non-intrusive ads and optional donations. Your data isn't sold to advertisers - we respect your privacy.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 4 -->
+                <div class="faq-item fade-in">
+                    <div class="faq-item__header">
+                        <span>Can I suggest a new tool?</span>
+                        <i>▼</i>
+                    </div>
+                    <div class="faq-item__content">
+                        <p>Absolutely! We welcome tool suggestions from our users. Visit our contact page to submit your idea.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 5 -->
+                <div class="faq-item fade-in">
+                    <div class="faq-item__header">
+                        <span>Do the tools work on mobile devices?</span>
+                        <i>▼</i>
+                    </div>
+                    <div class="faq-item__content">
+                        <p>Yes! All our tools are designed to work perfectly on smartphones and tablets as well as desktop computers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__col fade-in">
+                    <h3 class="footer__title">eHelpfulTools</h3>
+                    <p>Free online tools for productivity, creativity, and fun. No signup needed.</p>
+                </div>
+                
+                <div class="footer__col fade-in">
+                    <h3 class="footer__title">Tools</h3>
+                    <ul class="footer__list">
+                        <li class="footer__item"><a href="#" class="footer__link">Text Editor</a></li>
+                        <li class="footer__item"><a href="#" class="footer__link">PDF Converter</a></li>
+                        <li class="footer__item"><a href="#" class="footer__link">Typing Speed Test</a></li>
+                        <li class="footer__item"><a href="#" class="footer__link">All Tools</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer__col fade-in">
+                    <h3 class="footer__title">About</h3>
+                    <ul class="footer__list">
+                        <li class="footer__item"><a href="#" class="footer__link">Our Story</a></li>
+                        <li class="footer__item"><a href="#" class="footer__link">Privacy Policy</a></li>
+                        <li class="footer__item"><a href="#" class="footer__link">Terms of Service</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer__col fade-in">
+                    <h3 class="footer__title">Contact</h3>
+                    <ul class="footer__list">
+                        <li class="footer__item"><a href="#" class="footer__link">Suggest a Tool</a></li>
+                        <li class="footer__item"><a href="#" class="footer__link">Report an Issue</a></li>
+                        <li class="footer__item"><a href="#" class="footer__link">Twitter</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer__bottom fade-in">
+                <p>Made with ❤️ in India | © 2023 eHelpfulTools. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+        <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i>↑</i>
     </div>
-    <p>We're continuously improving and adding new tools for a <strong>smarter and faster experience</strong>. Stay
-        connected and explore our growing collection of useful tools!</p>
 
-</section>
-
-<!-- Welcome Section -->
-<section class="welcome-section">
-    <div class="welcome-text">
-        <h1>Welcome to eHelpFullTools</h1>
-        <h3>The platform for quick and efficient online tools and calculators</h3>
-        <p>eHelpFullTools is a convenient online platform that offers a variety of free tools and calculators,
-            including a text editor, fuel cost estimator, and unit converter. Designed for ease of use, the site
-            allows users to access these resources quickly without any downloads. Whether you need to edit
-            documents, estimate travel expenses, or convert measurements, eHelpFullTools provides reliable solutions
-            to enhance your productivity and simplify everyday tasks. Explore the site to discover how these helpful
-            tools can assist you!</p>
-        <a href="contact.html" style="text-decoration: none;"><button type="button" id="bt" class="gbutton">Get in Touch</button></a>
-    </div>
-    <div class="welcome-image">
-        <img src="home1.jpeg" alt="Illustration of eHelpFullTools features"> <!-- Replace with your image path -->
-    </div>
-</section>
-<hr>
-<footer class="footer">
-    <p>&copy; 2025 by eHelpFullTools. All rights reserved.</p>
-</footer>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
-
-    <style id="generatedButtonStyles"></style> <style id="googleFonts"></style>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+    <!-- JavaScript -->
     <script>
-       window.addEventListener("load", () => {
-    const loader = document.querySelector(".loader-icontainer");
-    const content = document.querySelector(".content");
-
-    // Smooth fade-out loader
-    loader.style.transition = "opacity 2.8s ease-out";
-        loader.style.opacity = "0";
-
-        setTimeout(() => {
-loader.style.display = "none";
-content.style.display = "block";
-content.classList.add("fade-in");
-}, 2800); // Loader hides after 800ms (0.8 seconds)
-
-});</script>
-<script type="module">
-    // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-analytics.js";
-    // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
-  
-    // Your web app's Firebase configuration
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    const firebaseConfig = {
-      apiKey: "AIzaSyDbNYKUKukHO38WrWfiZo2ARWwqjUf8OeI",
-      authDomain: "ehelpfultool.firebaseapp.com",
-      projectId: "ehelpfultool",
-      storageBucket: "ehelpfultool.firebasestorage.app",
-      messagingSenderId: "572405415507",
-      appId: "1:572405415507:web:9addd73fae3fb78973d0a6",
-      measurementId: "G-MN8GGWK084"
-    };
-  
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
-        const btn = document.getElementById('generatedButton');
-        const generatedButtonStyles = document.getElementById('generatedButtonStyles');
-        const htmlCode = document.getElementById('htmlCode');
-        const cssCode = document.getElementById('cssCode');
-        const googleFontsStyle = document.getElementById('googleFonts');
-        const resetBtn = document.getElementById('resetAll');
-
-        // Get all controls that will trigger updates
-        const allControls = document.querySelectorAll('input:not([type="checkbox"]), select, textarea, input[type="range"]');
-
-        // Input elements for easier access
-        const elements = {
-            btnText: document.getElementById('btnText'),
-            buttonIcon: document.getElementById('buttonIcon'),
-            bgColor: document.getElementById('bgColor'),
-            textColor: document.getElementById('textColor'),
-            fontFamily: document.getElementById('fontFamily'),
-            fontSize: document.getElementById('fontSize'),
-            btnSize: document.getElementById('btnSize'),
-            textAlign: document.getElementById('textAlign'),
-            cursorType: document.getElementById('cursorType'),
-
-            paddingTop: document.getElementById('paddingTop'),
-            paddingRight: document.getElementById('paddingRight'),
-            paddingBottom: document.getElementById('paddingBottom'),
-            paddingLeft: document.getElementById('paddingLeft'),
-
-            borderWidthTop: document.getElementById('borderWidthTop'),
-            borderWidthRight: document.getElementById('borderWidthRight'),
-            borderWidthBottom: document.getElementById('borderWidthBottom'),
-            borderWidthLeft: document.getElementById('borderWidthLeft'),
-            borderColor: document.getElementById('borderColor'),
-
-            borderRadiusTopLeft: document.getElementById('borderRadiusTopLeft'),
-            borderRadiusTopRight: document.getElementById('borderRadiusTopRight'),
-            borderRadiusBottomLeft: document.getElementById('borderRadiusBottomLeft'),
-            borderRadiusBottomRight: document.getElementById('borderRadiusBottomRight'),
-
-            shadowOffsetX: document.getElementById('shadowOffsetX'),
-            shadowOffsetY: document.getElementById('shadowOffsetY'),
-            shadowBlurRadius: document.getElementById('shadowBlurRadius'),
-            shadowSpreadRadius: document.getElementById('shadowSpreadRadius'),
-            shadowColor: document.getElementById('shadowColor'),
-            shadowOpacity: document.getElementById('shadowOpacity'),
-            shadowOpacityValueSpan: document.getElementById('shadowOpacityValue'),
-
-            hoverShadowOffsetX: document.getElementById('hoverShadowOffsetX'),
-            hoverShadowOffsetY: document.getElementById('hoverShadowOffsetY'),
-            hoverShadowBlurRadius: document.getElementById('hoverShadowBlurRadius'),
-            hoverShadowSpreadRadius: document.getElementById('hoverShadowSpreadRadius'),
-            hoverShadowColor: document.getElementById('hoverShadowColor'),
-            hoverShadowOpacity: document.getElementById('hoverShadowOpacity'),
-            hoverShadowOpacityValueSpan: document.getElementById('hoverShadowOpacityValue'),
-            
-            hoverBgColor: document.getElementById('hoverBgColor'),
-            hoverTextColor: document.getElementById('hoverTextColor'),
-            hoverEffect: document.getElementById('hoverEffect'),
-            transitionSpeed: document.getElementById('transitionSpeed'),
-            transitionSpeedValueSpan: document.getElementById('transitionSpeedValue'),
-        };
-
-        // Store initial values for reset functionality
-        const initialValues = {};
-        document.addEventListener('DOMContentLoaded', () => {
-            for (const key in elements) {
-                if (elements[key] && elements[key].tagName !== 'SPAN') { // Exclude spans
-                    initialValues[key] = elements[key].value;
-                }
-            }
-            updateButton(); // Trigger initial update
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const nav = document.getElementById('nav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            nav.classList.toggle('active');
         });
-
-        // Accordion functionality
-        const sectionTitles = document.querySelectorAll('.section-title');
-        sectionTitles.forEach(title => {
-            title.addEventListener('click', () => {
-                const targetId = title.dataset.target;
-                const targetGroup = document.getElementById(targetId);
-                const toggleIcon = title.querySelector('.toggle-icon');
-
-                if (targetGroup) {
-                    targetGroup.classList.toggle('collapsed');
-                    title.classList.toggle('collapsed'); // Also toggle class on title for icon animation
-                    toggleIcon.classList.toggle('fa-chevron-down');
-                    toggleIcon.classList.toggle('fa-chevron-up');
-                }
+        
+        // Close mobile menu when clicking on a link
+        const navLinks = document.querySelectorAll('.nav__link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('active');
             });
         });
-
-        // Function to convert hex to RGBA
-        function hexToRgba(hex, alpha) {
-            let r = 0, g = 0, b = 0;
-            // Handle #RRGGBB or #RGB
-            if (hex.length === 4) {
-                r = parseInt(hex[1] + hex[1], 16);
-                g = parseInt(hex[2] + hex[2], 16);
-                b = parseInt(hex[3] + hex[3], 16);
-            } else if (hex.length === 7) {
-                r = parseInt(hex.substring(1, 3), 16);
-                g = parseInt(hex.substring(3, 5), 16);
-                b = parseInt(hex.substring(5, 7), 16);
-            }
-            return `rgba(${r}, ${g}, ${b}, ${alpha / 100})`;
-        }
-
-
-        function updateButton() {
-            // Read values from elements
-            const btnText = elements.btnText.value;
-            const buttonIconClass = elements.buttonIcon.value;
-            const bgColor = elements.bgColor.value;
-            const textColor = elements.textColor.value;
-            const fontFamily = elements.fontFamily.value;
-            const fontSize = elements.fontSize.value;
-            const btnSize = elements.btnSize.value;
-            const textAlign = elements.textAlign.value;
-            const cursorType = elements.cursorType.value;
-
-            const paddingTop = elements.paddingTop.value;
-            const paddingRight = elements.paddingRight.value;
-            const paddingBottom = elements.paddingBottom.value;
-            const paddingLeft = elements.paddingLeft.value;
-
-            const borderWidthTop = elements.borderWidthTop.value;
-            const borderWidthRight = elements.borderWidthRight.value;
-            const borderWidthBottom = elements.borderWidthBottom.value;
-            const borderWidthLeft = elements.borderWidthLeft.value;
-            const borderColor = elements.borderColor.value;
-
-            const borderRadiusTopLeft = elements.borderRadiusTopLeft.value;
-            const borderRadiusTopRight = elements.borderRadiusTopRight.value;
-            const borderRadiusBottomLeft = elements.borderRadiusBottomLeft.value;
-            const borderRadiusBottomRight = elements.borderRadiusBottomRight.value;
-
-            // Box Shadow values
-            const currentShadowColor = hexToRgba(elements.shadowColor.value, elements.shadowOpacity.value);
-            const currentBoxShadow = `${elements.shadowOffsetX.value}px ${elements.shadowOffsetY.value}px ${elements.shadowBlurRadius.value}px ${elements.shadowSpreadRadius.value}px ${currentShadowColor}`;
-            elements.shadowOpacityValueSpan.textContent = `${elements.shadowOpacity.value}%`;
-
-            // Hover Box Shadow values
-            const hoverShadowColor = hexToRgba(elements.hoverShadowColor.value, elements.hoverShadowOpacity.value);
-            const hoverBoxShadow = `${elements.hoverShadowOffsetX.value}px ${elements.hoverShadowOffsetY.value}px ${elements.hoverShadowBlurRadius.value}px ${elements.hoverShadowSpreadRadius.value}px ${hoverShadowColor}`;
-            elements.hoverShadowOpacityValueSpan.textContent = `${elements.hoverShadowOpacity.value}%`;
-
-            const hoverBgColor = elements.hoverBgColor.value;
-            const hoverTextColor = elements.hoverTextColor.value;
-            const hoverEffect = elements.hoverEffect.value;
-            const transitionSpeed = elements.transitionSpeed.value;
-
-            elements.transitionSpeedValueSpan.textContent = `${transitionSpeed}s`;
-
-            // Load Google Fonts if selected
-            if (fontFamily.includes('Web')) {
-                const fontName = fontFamily.split(',')[0].replace(/'/g, '').trim();
-                googleFontsStyle.textContent = `@import url('https://fonts.googleapis.com/css2?family=${fontName.replace(/ /g, '+')}:wght@400;700&display=swap');`;
+        
+        // Back to Top Button
+        const backToTopBtn = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('active');
             } else {
-                googleFontsStyle.textContent = '';
+                backToTopBtn.classList.remove('active');
             }
-
-            // Update preview button HTML
-            let iconHtml = '';
-            if (buttonIconClass) {
-                iconHtml = `<i class="${buttonIconClass} button-icon"></i>`;
-            }
-            btn.innerHTML = `${iconHtml}<span>${btnText}</span>`;
-
-            // Generate CSS for the .generated-button class
-            const cleanFontFamily = fontFamily.replace(/'/g, ''); // Remove single quotes for CSS output
-            
-            let baseCss = `
-.generated-button {
-  background-color: ${bgColor};
-  color: ${textColor};
-  font-family: ${cleanFontFamily};
-  font-size: ${fontSize}px;
-  text-align: ${textAlign};
-  cursor: ${cursorType};
-  border-top: ${borderWidthTop}px solid ${borderColor};
-  border-right: ${borderWidthRight}px solid ${borderColor};
-  border-bottom: ${borderWidthBottom}px solid ${borderColor};
-  border-left: ${borderWidthLeft}px solid ${borderColor};
-  border-top-left-radius: ${borderRadiusTopLeft}px;
-  border-top-right-radius: ${borderRadiusTopRight}px;
-  border-bottom-left-radius: ${borderRadiusBottomLeft}px;
-  border-bottom-right-radius: ${borderRadiusBottomRight}px;
-  padding: ${paddingTop}px ${paddingRight}px ${paddingBottom}px ${paddingLeft}px;
-  box-shadow: ${currentBoxShadow};
-  transition: all ${transitionSpeed}s ease;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  white-space: nowrap;
-}
-`;
-            // Override padding if preset is used
-            if (btnSize === "small") {
-                baseCss = baseCss.replace(/padding:.*?;/, 'padding: 5px 10px;');
-            } else if (btnSize === "medium") {
-                baseCss = baseCss.replace(/padding:.*?;/, 'padding: 12px 24px;');
-            } else if (btnSize === "large") {
-                baseCss = baseCss.replace(/padding:.*?;/, 'padding: 16px 32px;');
-            }
-
-            let hoverCss = `
-.generated-button:hover {
-  background-color: ${hoverBgColor};
-  color: ${hoverTextColor};
-  transform: ${hoverEffect};
-  box-shadow: ${hoverBoxShadow};
-}
-`;
-
-            // If icon is present, add icon specific styles
-            if (buttonIconClass) {
-                baseCss += `
-.generated-button .button-icon {
-  /* margin-right: 0.3em; */ /* Already set in base CSS for preview */
-}
-`;
-            }
-
-            // Update the style tag in the head with the generated CSS
-            generatedButtonStyles.textContent = baseCss + hoverCss;
-
-            // Update the code blocks
-            htmlCode.textContent = `<button class="custom-button">${iconHtml ? `<i class="${buttonIconClass}"></i> ` : ''}${btnText}</button>`;
-            cssCode.textContent = baseCss.replace(/.generated-button/g, '.custom-button') + hoverCss.replace(/.generated-button/g, '.custom-button');
-
-            Prism.highlightAll(); // Re-highlight the code blocks
-        }
-
-        // Event listeners for all controls
-        allControls.forEach(control => {
-            control.addEventListener('input', updateButton);
         });
-
-        // Reset functionality
-        resetBtn.addEventListener('click', () => {
-            for (const key in initialValues) {
-                if (elements[key]) {
-                    elements[key].value = initialValues[key];
-                }
-            }
-            updateButton(); // Update button with reset values
-        });
-
-
-        // Copy function
-        const copyButtons = document.querySelectorAll('.copy-btn');
-        copyButtons.forEach(button => {
-            button.addEventListener('click', (event) => {
-                const targetId = event.target.dataset.target;
-                const codeElement = document.getElementById(targetId);
-                let textToCopy = codeElement.textContent;
-
-                // For HTML, remove leading/trailing whitespace if it's due to formatting
-                if (targetId === 'htmlCode') {
-                    textToCopy = textToCopy.trim();
-                }
-
-                // Use Clipboard API for modern browsers (HTTPS required)
-                if (navigator.clipboard && navigator.clipboard.writeText) {
-                    navigator.clipboard.writeText(textToCopy)
-                        .then(() => {
-                            event.target.textContent = 'Copied!';
-                            setTimeout(() => {
-                                event.target.textContent = '📋 Copy ' + (targetId === 'htmlCode' ? 'HTML' : 'CSS');
-                            }, 1500);
-                        })
-                        .catch(err => {
-                            console.error('Failed to copy text with Clipboard API: ', err);
-                            // Fallback for insecure contexts or failed copy
-                            fallbackCopyTextToClipboard(textToCopy, event.target);
-                        });
-                } else {
-                    // Fallback for older browsers or insecure contexts
-                    fallbackCopyTextToClipboard(textToCopy, event.target);
-                }
+        
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
             });
         });
-
-        function fallbackCopyTextToClipboard(text, buttonElement) {
-            const textArea = document.createElement("textarea");
-            textArea.value = text;
-            textArea.style.position = "fixed"; // Prevent scrolling to bottom of page in MS Edge.
-            textArea.style.left = "-9999px";
-            textArea.style.top = "-9999px";
-            document.body.appendChild(textArea);
-            textArea.focus();
-            textArea.select();
-
-            try {
-                const successful = document.execCommand('copy');
-                const msg = successful ? 'successful' : 'unsuccessful';
-                console.log('Fallback: Copying text command was ' + msg);
-                buttonElement.textContent = 'Copied!';
-                setTimeout(() => {
-                    buttonElement.textContent = '📋 Copy ' + (buttonElement.dataset.target === 'htmlCode' ? 'HTML' : 'CSS');
-                }, 1500);
-            } catch (err) {
-                console.error('Fallback: Oops, unable to copy', err);
-                alert('Copying not supported or failed. Please copy the code manually.');
-            } finally {
-                document.body.removeChild(textArea);
-            }
+        
+        // Tool Filtering
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const toolCards = document.querySelectorAll('.tool-card');
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active state
+                filterBtns.forEach(btn => btn.classList.remove('active'));
+                btn.classList.add('active');
+                
+                // Filter tools
+                const filter = btn.dataset.filter;
+                
+                toolCards.forEach(card => {
+                    if (filter === 'all' || card.dataset.category === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const header = item.querySelector('.faq-item__header');
+            
+            header.addEventListener('click', () => {
+                // Close other items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current item
+                item.classList.toggle('active');
+            });
+        });
+        
+        // Floating Icons Animation
+        const floatingIconsContainer = document.getElementById('floatingIcons');
+        const icons = ['📝', '📊', '🛠️', '⏱️', '📱', '💡', '🔍', '📌', '🎯', '📁'];
+        
+        for (let i = 0; i < 20; i++) {
+            const icon = document.createElement('div');
+            icon.className = 'floating-icon';
+            icon.textContent = icons[Math.floor(Math.random() * icons.length)];
+            icon.style.left = `${Math.random() * 100}%`;
+            icon.style.top = `${Math.random() * 100}%`;
+            icon.style.animationDuration = `${10 + Math.random() * 20}s`;
+            icon.style.animationDelay = `${Math.random() * 5}s`;
+            floatingIconsContainer.appendChild(icon);
         }
-
-        // Initialize once on load
-        window.addEventListener('DOMContentLoaded', updateButton);
+        
+        // Scroll Animation
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInOnScroll = () => {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('active');
+                }
+            });
+        };
+        
+        // Initial check
+        fadeInOnScroll();
+        
+        // Check on scroll
+        window.addEventListener('scroll', fadeInOnScroll);
+        
+        // Lazy Loading Images
+        const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+        
+        const lazyLoad = () => {
+            lazyImages.forEach(img => {
+                if (img.getBoundingClientRect().top < window.innerHeight + 200) {
+                    img.src = img.dataset.src || img.src;
+                    img.removeAttribute('data-src');
+                }
+            });
+        };
+        
+        // Initial load
+        lazyLoad();
+        
+        // Load on scroll
+        window.addEventListener('scroll', lazyLoad);
     </script>
-
 </body>
 </html>
