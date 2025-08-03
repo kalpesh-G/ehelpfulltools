@@ -3,531 +3,2013 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Silent Screamer – Anonymous Emotions Releaser</title>
+   <title>Advanced Button Generator - Create & Customize Unique Buttons</title>
+<meta name="description" content="Generate beautiful and responsive HTML & CSS buttons with advanced customization options. Design unique buttons for your website easily.">
+<meta name="keywords" content="Advanced Button Generator, HTML button, CSS button, custom button, button design, web development tool, responsive button, online button maker, button code">
+<meta property="og:title" content="Advanced Button Generator - Design Custom HTML/CSS Buttons">
+<meta property="og:description" content="Create unique and responsive buttons with custom styles, hover effects, and icons. Get instant HTML and CSS code.">
+<meta property="og:image" content="https://ehelpfultools.tech/assets/advanced-button-generator-tool.jpg">
+<meta property="og:url" content="https://ehelpfultools.tech/advance-button-generator.html">
+<meta name="twitter:title" content="Advanced Button Generator - HTML/CSS Button Tool">
+<meta name="twitter:description" content="Easily generate stunning HTML & CSS buttons with advanced customization. Perfect for web designers and developers.">
+<meta name="twitter:image" content="https://ehelpfultools.tech/assets/advanced-button-generator-tool.jpg">
+<meta name="google-adsense-account" content="ca-pub-8868584487794979">
+    <link rel="icon" href="icon.png" type="image/x-icon" />
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
     <style>
-        /* Reset and Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        body {
             font-family: 'Arial', sans-serif;
+            /* background: #f8f9fa; */
+            text-align: center;
+background-color: #f5f7fa;
+            margin: 0;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        /* tool css start */
+         :root {
+            --primary-color: #6a67ee; /* A vibrant, modern purple */
+            --secondary-color: #8c8aff;
+            --accent-color: #21d4fd; /* For highlights/interactive elements */
+            --bg-light: #f0f4f8;
+            --bg-medium: #e0e6ed;
+            --text-dark: #2c3e50;
+            --text-light: #ecf0f1;
+            --border-color: #d1d9e6;
+            --shadow-light: rgba(0, 0, 0, 0.08);
+            --shadow-medium: rgba(0, 0, 0, 0.15);
+            --transition-speed: 0.3s;
+            --border-radius-soft: 12px;
+            --border-radius-hard: 8px;
         }
 
-        body {
-            background: linear-gradient(135deg, #121212, #1a1a1a);
-            color: #e0e0e0;
-            min-height: 100vh;
+    
+
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .settings-panel {
+            background: var(--bg-light);
+            border-radius: var(--border-radius-soft);
+            padding: 2rem;
+            box-shadow: inset 0 2px 10px var(--shadow-light);
+        }
+
+        .preview-code-panel {
             display: flex;
             flex-direction: column;
+            gap: 2rem;
+        }
+.section-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.8rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            cursor: pointer;
+            user-select: none;
+            transition: color var(--transition-speed);
+        }
+
+        .section-title:hover {
+            color: var(--primary-color);
+        }
+
+        .section-title i {
+            color: var(--primary-color);
+            font-size: 1.7rem;
+            transition: transform var(--transition-speed);
+        }
+
+        .section-title .toggle-icon {
+            margin-left: auto;
+            font-size: 1.2rem;
+            color: var(--text-dark);
+        }
+
+        .section-title.collapsed .toggle-icon {
+            transform: rotate(-90deg);
+        }
+
+        .control-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.8rem;
+            transition: max-height 0.4s ease-out, opacity 0.4s ease-out, margin-bottom 0.4s ease-out;
+            overflow: hidden;
+            max-height: 1000px; /* Arbitrary large value to allow smooth transition */
+            opacity: 1;
+            margin-bottom: 2rem;
+        }
+
+        .control-group.collapsed {
+            max-height: 0;
+            opacity: 0;
+            margin-bottom: 0;
+        }
+ .control {
+            display: flex;
+            flex-direction: column;
+        }
+         .ccontrol {
+            display: flex;
+        }
+
+        label {
+            font-weight: 600;
+            margin-bottom: 0.7rem;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="color"],
+        select,
+        textarea {
+            padding: 0.9rem 1.2rem;
+            border-radius: var(--border-radius-hard);
+            border: 1px solid var(--border-color);
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            background-color: #fff;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 4px rgba(106, 103, 238, 0.2);
+            outline: none;
+            background-color: #fff;
+        }
+
+        input[type="color"] {
+            padding: 0.4rem;
+            height: 48px;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        select {
+            background-image: url('data:image/svg+xml;utf8,<svg fill="%236a67ee" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 24px;
+            cursor: pointer;
+        }
+input[type="range"] {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 8px;
+            background: var(--border-color);
+            border-radius: 5px;
+            outline: none;
+            opacity: 0.9;
+            transition: opacity .2s;
+            margin-top: 0.5rem;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            cursor: pointer;
+            transition: background var(--transition-speed);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        input[type="range"]::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            cursor: pointer;
+            transition: background var(--transition-speed);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .range-value {
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            margin-top: 0.5rem;
+            text-align: right;
+        }
+
+        .checkbox-control {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-top: 0.5rem;
+        }
+
+        .checkbox-control input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary-color);
+            cursor: pointer;
+        }
+
+        .preview {
+            text-align: center;
+            padding: 3rem;
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            border-radius: var(--border-radius-soft);
+            box-shadow: inset 0 2px 10px var(--shadow-light);
+            display: flex;
             align-items: center;
             justify-content: center;
-            overflow-x: hidden;
-            position: relative;
+            min-height: 200px;
+            margin-top: 0; /* Adjust for grid layout */
         }
-
-        /* Header Styles */
-        .ss-header {
-            text-align: center;
-            margin-bottom: 2rem;
-            z-index: 10;
-        }
-
-        .ss-title {
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
-            background: linear-gradient(to right, #ff6b6b, #ffa3a3);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-shadow: 0 0 10px rgba(255, 107, 107, 0.3);
-        }
-
-        .ss-subtitle {
+/* Base button styles applied via a class */
+        .generated-button {
+            padding: 0.75rem 1.5rem;
             font-size: 1rem;
-            opacity: 0.8;
-            margin-bottom: 1rem;
-        }
-
-        /* Main Container */
-        .ss-container {
-            width: 90%;
-            max-width: 800px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            position: relative;
-            z-index: 5;
-        }
-
-        /* Typing Area */
-        .ss-typing-area {
-            width: 100%;
-            height: 300px;
-            background-color: rgba(30, 30, 30, 0.7);
-            border: 2px solid #444;
-            border-radius: 10px;
-            padding: 20px;
-            font-size: 1.2rem;
-            color: #f0f0f0;
-            resize: none;
-            outline: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-            margin-bottom: 2rem;
-            overflow-y: auto;
-        }
-
-        .ss-typing-area:focus {
-            border-color: #ff6b6b;
-            box-shadow: 0 0 30px rgba(255, 107, 107, 0.3);
-        }
-
-        /* Controls */
-        .ss-controls {
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .ss-btn {
-            background-color: #ff6b6b;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: bold;
+            transition: all var(--transition-speed) ease;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            text-align: center;
+            display: inline-flex; /* Use flex for icon alignment */
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            white-space: nowrap; /* Prevent button text from wrapping */
         }
 
-        .ss-btn:hover {
-            background-color: #ff5252;
+        .generated-button .button-icon {
+            margin-right: 0.3em; /* Space between icon and text */
+        }
+
+        .code-section {
+            background: var(--text-dark);
+            padding: 1.5rem;
+            border-radius: var(--border-radius-hard);
+            overflow-x: auto;
+            position: relative;
+        }
+
+        .code-section pre {
+            margin: 0;
+            padding: 0;
+        }
+
+        .code-section code {
+            font-family: 'Fira Code', 'Cascadia Code', monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            cursor: pointer;
+            color: var(--text-light);
+            background: var(--primary-color);
+            padding: 0.6rem 1rem;
+            border-radius: var(--border-radius-hard);
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: background 0.2s ease, color 0.2s ease, transform 0.1s ease;
+            z-index: 10;
+            border: none;
+        }
+
+        .copy-btn:hover {
+            background: var(--accent-color);
             transform: translateY(-2px);
         }
-
-        .ss-sound-control {
-            display: flex;
-            align-items: center;
-            gap: 10px;
+        .copy-btn:active {
+            transform: translateY(0);
         }
 
-        /* Quote Display */
-        .ss-quote-display {
-            width: 100%;
-            text-align: center;
-            font-style: italic;
-            font-size: 1.5rem;
-            margin: 2rem 0;
-            min-height: 80px;
-            opacity: 0;
-            transition: opacity 1s ease;
+        /* Tooltip styles */
+        .tooltip {
             position: relative;
-            z-index: 2;
+            display: inline-block;
+            cursor: pointer;
+            color: var(--primary-color);
+            font-size: 0.8em;
+            margin-left: 0.2em;
+            vertical-align: super;
         }
-
-        .ss-quote-display.show {
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 200px;
+            background-color: var(--text-dark);
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 10px 12px;
+            position: absolute;
+            z-index: 2;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -100px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 0.75rem;
+            line-height: 1.4;
+        }
+        .tooltip .tooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: var(--text-dark) transparent transparent transparent;
+        }
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
             opacity: 1;
         }
 
-        /* Emoji Rain */
-        .ss-emoji {
-            position: absolute;
-            font-size: 24px;
-            pointer-events: none;
-            z-index: 1;
-            animation: ss-fall linear forwards;
+        .reset-btn {
+            background: #e74c3c;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: var(--border-radius-hard);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            transition: background var(--transition-speed);
+            display: block;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.2);
         }
 
-        @keyframes ss-fall {
-            to {
-                transform: translateY(100vh) rotate(360deg);
-                opacity: 0;
+        .reset-btn:hover {
+            background: #c0392b;
+            box-shadow: 0 8px 20px rgba(231, 76, 60, 0.3);
+        }
+
+        .input-group-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+        .input-group-grid .control {
+            margin-bottom: 0.8; /* Override default margin */
+        }
+        .input-group-grid label {
+            margin-bottom: 0.5rem;
+        }
+
+  @media (max-width: 992px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+            .icontainer {
+                padding: 2.5rem;
+            }
+            h1 {
+                font-size: 2.5rem;
+            }
+            h1 .fa-magic {
+                font-size: 3rem;
+            }
+            .section-title {
+                font-size: 1.3rem;
+            }
+            .control-group {
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            }
+            .input-group-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
+           @media (max-width: 768px) {
+            body {
+                padding: 1.5rem;
+            }
+            .icontainer {
+                padding: 2rem 1.5rem;
+                gap: 2rem;
+            }
+            h1 {
+                font-size: 2rem;
+                margin-bottom: 2rem;
+            }
+            h1 .fa-magic {
+                font-size: 2.5rem;
+            }
+            .section-title {
+                font-size: 1.2rem;
+                margin-bottom: 1rem;
+            }
+            .control-group {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+            .preview-code-panel {
+                gap: 1.5rem;
+            }
+            .copy-btn {
+                position: static; /* Make it static for mobile view */
+                margin-bottom: 10px;
+                width: 100%;
+                text-align: center;
+                padding: 0.8rem;
+            }
+            .code-section {
+                padding-top: 3.5rem; /* Adjust padding for static copy button */
+                padding: 1.5rem; /* Reset padding for smaller screens if copy button is static */
+            }
+            .input-group-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+ @media (max-width: 480px) {
+            body {
+                padding: 1rem;
+            }
+            .icontainer {
+                padding: 1.2rem 1rem;
+            }
+            h1 {
+                font-size: 1.8rem;
+                gap: 0.8rem;
+            }
+            
+            h1 .fa-magic {
+                font-size: 2rem;
+            }
+            .section-title {
+                font-size: 1.1rem;
+                padding-bottom: 0.5rem;
+            }
+            .generated-button {
+                font-size: 0.9rem;
+                padding: 0.6rem 1.2rem;
+            }
+            label {
+                font-size: 0.9rem;
+            }
+            input[type="text"],
+            input[type="number"],
+            input[type="color"],
+            select {
+                padding: 0.7rem 1rem;
+                font-size: 0.85rem;
+            }
+            .copy-btn {
+                font-size: 0.75rem;
+                padding: 0.7rem;
+            }
+            .reset-btn {
+                padding: 0.7rem 1.2rem;
+                font-size: 0.9rem;
+            }
+        }
+   
 
-        /* Particle Effects */
-        .ss-particle {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 1;
+
+
+
+
+.icontainer {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    max-width: 1200px; /* Default max-width for large screens */
+    width: 100%;
+    margin: auto;
+    background: #ffffff;
+    padding: 3.5rem; /* Default padding for large screens */
+    border-radius: var(--border-radius-soft);
+    box-shadow: 0 20px 50px var(--shadow-medium);
+    box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+}
+
+.main-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Default 2-column layout for large screens */
+    gap: 3rem;
+}
+
+/* Ensure all inner elements inherit box-sizing */
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* For screens up to 1024px (laptops, large tablets) */
+@media (max-width: 1024px) {
+    .icontainer {
+        max-width: 900px; /* Constrain icontainer width a bit more */
+        padding: 3rem;
+        gap: 2.5rem;
+    }
+    .main-grid {
+        gap: 2.5rem;
+    }
+    h1 {
+        font-size: 2.8rem;
+    }
+    h1 .fa-magic {
+        font-size: 3.2rem;
+    }
+}
+/* For screens up to 992px (typical tablet landscape and smaller desktops) */
+@media (max-width: 992px) {
+    .main-grid {
+        grid-template-columns: 1fr; /* Stacks the settings and preview panels vertically */
+        gap: 2rem; /* Reduced gap for stacked sections */
+    }
+    .icontainer {
+        max-width: 700px; /* More aggressive icontainer width reduction */
+        padding: 2.5rem;
+        gap: 2rem;
+    }
+    h1 {
+        font-size: 2.3rem;
+        margin-bottom: 2rem;
+    }
+    h1 .fa-magic {
+        font-size: 2.8rem;
+    }
+    .section-title {
+        font-size: 1.25rem;
+        padding-bottom: 0.6rem;
+    }
+    .control-group {
+        /* Still allow two columns if possible, but they'll be smaller */
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 1.2rem;
+        margin-bottom: 1.5rem;
+    }
+    .input-group-grid {
+        grid-template-columns: repeat(2, 1fr); /* Keeps 2 columns for sub-grids here */
+        gap: 0.7rem;
+    }
+    .preview-code-panel {
+        gap: 1.5rem;
+    }
+    .code-section {
+        padding: 1.2rem;
+    }
+    .copy-btn {
+        top: 10px;
+        right: 10px;
+        padding: 0.5rem 0.8rem;
+        font-size: 0.8rem;
+    }
+}
+@media (max-width: 768px) {
+    body {
+        padding: 1.2rem; /* Moderate body padding for good spacing */
+    }
+    .icontainer {
+        max-width: 95%; /* Make icontainer take almost full width, but with some margin */
+        padding: 1.5rem 1rem; /* Reduced inner padding */
+        gap: 1.5rem;
+    }
+    h1 {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+        flex-direction: column; /* Stack icon and text */
+        gap: 0.3rem;
+    }
+    h1 .fa-magic {
+        font-size: 2rem;
+    }
+    .section-title {
+        font-size: 1.1rem;
+        margin-bottom: 0.8rem;
+        padding-bottom: 0.5rem;
+        gap: 0.7rem;
+    }
+    .control-group {
+        grid-template-columns: 1fr; /* Force all controls into a single column */
+        gap: 1rem; /* Tighten control spacing */
+        margin-bottom: 1.2rem;
+    }
+    /* Specific fix for controls overflowing: Ensure inputs/selects don't have min-widths */
+    input[type="text"],
+    input[type="number"],
+    select,
+    textarea {
+        min-width: 0; /* Allow input fields to shrink as much as needed */
+    }
+
+    .preview {
+        padding: 1.8rem; /* Adjusted preview padding */
+        min-height: 140px; /* Allow preview to be a bit shorter */
+        width: 70%;
+    }
+    .generated-button {
+        font-size: 0.9rem;
+        padding: 0.7rem 1.4rem;
+        white-space: normal; /* Allow button text to wrap if it's very long */
+        word-break: break-word; /* Ensure long words also break */
+        text-align: center; /* Re-center text after allowing wrap */
+    }
+    .copy-btn {
+        position: static; /* Make copy button part of the normal flow */
+        width: 100%; /* Take full width of parent */
+        margin: 1rem auto 0.8rem auto; /* Center it and add vertical spacing */
+        font-size: 0.75rem;
+        padding: 0.6rem 0.8rem;
+        display: block; /* Ensure it takes full width */
+        box-sizing: border-box; /* Crucial for width calculation */
+    }
+    .code-section {
+        padding: 1rem; /* Adjusted padding for code blocks */
+        overflow-x: auto; /* Allow horizontal scrolling for long code lines */
+    }
+    .code-section pre {
+        font-size: 0.82rem; /* Smaller code font */
+        word-wrap: normal; /* Prevent aggressive word wrap on pre */
+        white-space: pre; /* Keep whitespace as is */
+    }
+    .code-section code {
+        white-space: pre; /* Keep code on single line, rely on overflow-x */
+        min-width: 0; /* Allow code block to shrink */
+    }
+    .input-group-grid {
+        grid-template-columns: 1fr; /* Also stack these sub-grids vertically */
+        gap: 0.7rem;
+    }
+    label {
+        font-size: 0.85rem;
+        margin-bottom: 0.4rem;
+    }
+    input[type="text"],
+    input[type="number"],
+    input[type="color"],
+    select {
+        padding: 0.7rem 0.9rem;
+        font-size: 0.85rem;
+    }
+    input[type="color"] {
+        height: 40px; /* Maintain decent height for color picker */
+    }
+    .reset-btn {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.9rem;
+        margin-top: 1.5rem;
+    }
+}
+ .buttonh1 {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+            font-size: 3rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.2rem;
+            letter-spacing: -0.05em;
+            background: -webkit-linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        /* Screen Flash Effect */
-        .ss-screen-flash {
+        .buttonh1 .fa-magic {
+            font-size: 3.5rem;
+            color: var(--primary-color); /* Fallback for browsers without text-fill-color */
+            background: -webkit-linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+@media (max-width: 480px) {
+    body {
+        padding: 0; /* Minimal body padding */
+    }
+    .icontainer {
+        max-width: 100%; /* Go full width (minus body padding) */
+        padding: 0.8rem; /* Minimal inner padding */
+        border-radius: 0; /* Remove border-radius for edge-to-edge feel */
+        box-shadow: none; /* Remove shadow for cleaner look on small screens */
+        gap: 1rem;
+    }
+    h1 {
+        font-size: 1.4rem; /* Smallest heading */
+        margin-bottom: 0.8rem;
+        gap: 0.2rem;
+    }
+    h1 .fa-magic {
+        font-size: 1.6rem;
+    }
+    .section-title {
+        font-size: 0.95rem; /* Smallest section titles */
+        padding-bottom: 0.3rem;
+        margin-bottom: 0.5rem;
+        gap: 0.6rem;
+    }
+    .settings-panel {
+        padding: 1rem; /* Reduced padding for settings panel */
+        border-radius: 0; /* Match icontainer, make it edge-to-edge */
+        box-shadow: none; /* Remove inner shadow */
+        width: 70%;
+    }
+    .control-group {
+        gap: 0.8rem; /* Very tight control spacing */
+        margin-bottom: 0.8rem;
+    }
+    .preview-code-panel {
+        gap: 1rem; /* Tighter spacing for preview/code */
+        width: 70%;
+    }
+    .preview {
+        padding: 1.2rem; /* Very minimal preview padding */
+        min-height: 100px;
+        border-radius: 0; /* Match icontainer */
+        width: 100%;
+    }
+    .generated-button {
+        font-size: 0.8rem;
+        padding: 0.6rem 1.2rem;
+    }
+    label {
+        font-size: 0.8rem;
+        margin-bottom: 0.3rem;
+    }
+    input[type="text"],
+    input[type="number"],
+    input[type="color"],
+    select {
+        padding: 0.5rem 0.7rem;
+        font-size: 0.75rem;
+    }
+    input[type="color"] {
+        height: 34px; /* Smallest height for color picker */
+        padding: 0.2rem; /* Adjust padding inside color input */
+    }
+    .copy-btn {
+        font-size: 0.65rem;
+        padding: 0.5rem 0.7rem;
+        margin: 0.7rem auto 0.5rem auto;
+    }
+    .code-section {
+        padding: 0.7rem;
+        border-radius: 0; /* Match icontainer */
+        width: 100%;
+    }
+    .code-section pre {
+        font-size: 0.75rem;
+    }
+    .reset-btn {
+        padding: 0.5rem 0.9rem;
+        font-size: 0.8rem;
+        margin-top: 1rem;
+    }
+}
+       /* tool css end */
+       .gbutton {
+    width: 150px;
+    background: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+.gbutton:hover {
+    background: #0056b3;
+}
+
+h2 {
+    margin-top: 20px;
+    color: #28a745;
+}
+        
+        /* Header section */
+.header {
+    background-image: url('navbar.jpg'); /* Replace with your background image path */
+    background-size: cover;
+    background-position: center;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+.header h1 {
+    font-size: 3em;
+    margin: 0;
+    color: black;
+}
+
+/* Navigation */
+.navbar {
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.navbar a {
+    margin: 5px 40px;
+    color: #333;
+    text-decoration: none;
+}
+.navbar a.active{
+    color: #007BFF;
+}
+.navbar a:hover {
+    color: #007BFF;
+}
+
+/* Welcome Section */
+.welcome-section {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 50px;
+}
+.welcome-text {
+    flex: 1;
+    padding: 20px;
+    min-width: 300px;
+}
+.welcome-text h1 {
+    font-size: 2.5em;
+    margin-bottom: 50px; /* Adjusts space below the heading */
+}
+
+.welcome-text h3 {
+    font-size: 1.8em;
+    margin-bottom: 30px; /* Adds space below the subheading */
+}
+
+.welcome-text p {
+    line-height: 1.6;
+    color: #666;
+    font-size: 25px;
+    margin-bottom: 40px; /* Adjusts space below the paragraph */
+}
+
+.welcome-text .gbutton {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 50px; /* Adds space above the button */
+}
+
+.welcome-image {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 300px;
+}
+.welcome-image img {
+    max-width: 100%;
+    height: auto;
+}
+#bt{
+border-radius: 0%;
+display: flex;
+ }
+ .footer {
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+    color: #666;
+}
+
+.footer hr {
+    width: 90%;
+    border: none;
+    border-top: 1px solid #e0e0e0;
+    margin: 0 auto 10px;
+}
+
+.footer p {
+    margin: 20px 0px;
+}
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 2em;
+    }
+    .navbar a {
+        font-size: 0.9em;
+        margin: 0 10px;
+    }
+    .welcome-section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 20px 10px;
+    }
+    .welcome-text h1 {
+        font-size: 1.8em;
+    }
+    .welcome-text {
+        padding: 10px;
+    }
+
+    .header h1{
+        color: white;
+        }}
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+ /* endsection css */
+ .tool-info {
+        text-align: center;
+        padding: 50px 20px;
+        /* background: linear-gradient(135deg, #f8f9fa, #e3f2fd); */
+      
+        border-radius: 10px;
+        margin: 50px auto;
+        max-width: 900px;
+        /* box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15); */
+    }
+
+    .endicontainer {
+        max-width: 800px;
+        margin: auto;
+    }
+
+    .tool-info h2 {
+        font-size: 2.5rem;
+        color: #333;
+        margin-bottom: 15px;
+    }
+
+    .brand {
+        color: #007bff;
+        font-weight: bold;
+    }
+
+    .tool-info p {
+        font-size: 1.2rem;
+        color: #555;
+        margin-bottom: 25px;
+    }
+
+    
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .tool-info {
+            padding: 40px 15px;
+        }
+
+        .tool-info h2 {
+            font-size: 2rem;
+        }
+
+    }
+    .inicontainer {
+            max-width: 800px;
+            margin: 10px auto;
+            padding: 20px;
+        }
+    .tools {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .tool-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            text-align: center;
+            
+        }
+        .tool-card:hover {
+            transform: scale(1.05);
+        }
+        .tool-card i {
+            font-size: 40px;
+            color: #007BFF;
+            margin-bottom: 10px;
+        }
+        .tool-card a {
+            display: block;
+            font-size: 1.2rem;
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 10px;
+            
+        }
+        .tool-card a:hover {
+            color: #007BFF;
+        }
+        .tools-overview {
+            padding: 50px;
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            max-width: 600px;
+            margin: auto;
+        }
+   /* ========== Short Description Styling ========== */
+.short-description {
+    text-align: left;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.short-description h2 {
+    color: #007BFF;
+    font-size: 1.8rem;
+}
+
+.short-description h3 {
+    color: #333;
+    margin-top: 15px;
+}
+
+.short-description p {
+    font-size: 1rem;
+    color: #555;
+}
+
+.short-description ul {
+    list-style: none;
+    padding: 0;
+}
+
+.short-description ul li {
+    font-size: 1rem;
+    color: #555;
+    padding-left: 25px;
+    position: relative;
+    margin-bottom: 8px;
+}
+
+.short-description ul li::before {
+    content: " ";
+    position: absolute;
+    left: 0;
+    color: #007BFF;
+    font-size: 1.2rem;
+}
+/* Responsive adjustments for .result and .settlement */
+@media (max-width: 768px) {
+    .result, .settlement {
+        font-size: 14px; /* Decrease font size for smaller screens */
+        padding: 10px; /* Reduce padding for smaller screens */
+        margin-top: 15px; /* Adjust margin for better spacing */
+    }
+
+    .result {
+        background: #e6f7ff; /* Keep the same background color */
+    }
+
+    .settlement {
+        background: #d4edda; /* Keep the same background color */
+        text-align: left; /* Keep text alignment */
+    }
+}
+
+@media (max-width: 480px) {
+    .result, .settlement {
+        font-size: 12px; /* Further decrease font size for very small screens */
+        padding: 8px; /* Further reduce padding */
+        margin-top: 10px; /* Adjust margin for better spacing */
+    }
+
+    .result {
+        border-radius: 5px; /* Slightly reduce border radius */
+    }
+
+    .settlement {
+        border-radius: 5px; /* Slightly reduce border radius */
+    }
+}
+.ff{
+    justify-items: center;
+    margin: 15px auto;
+}
+/* loader css */
+/* Full-Screen Loader */
+.loader-icontainer {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(255, 0, 0, 0.3);
-            pointer-events: none;
-            opacity: 0;
-            z-index: 100;
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
         }
 
-        /* Footer */
-        .ss-footer {
-            margin-top: 3rem;
+        .loader {
+            position: relative;
+            width: 100px;
+            height: 100px;
+        }
+
+        /* Rotating Hexagon */
+        .hexagon {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.8);
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            animation: rotateHexagon 2s linear infinite;
+        }
+
+        @keyframes rotateHexagon {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.2); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+
+        /* Spinning Triangle */
+        .triangle {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.7);
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            top: 10px;
+            left: 10px;
+            animation: spinTriangle 1.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes spinTriangle {
+            0% { transform: translateY(0px) rotate(0deg); }
+            100% { transform: translateY(-15px) rotate(30deg); }
+        }
+
+        /* Pulsating Circle */
+        .circle {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: pulseCircle 1.2s ease-in-out infinite;
+        }
+
+        @keyframes pulseCircle {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.4); opacity: 0.5; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* Page Content (Hidden Initially) */
+        .content {
+            display: none;
             text-align: center;
-            opacity: 0.6;
-            font-size: 0.9rem;
-            z-index: 10;
+            padding: 50px;
+            font-size: 24px;
         }
 
-        /* Responsive Adjustments */
-        @media (max-width: 768px) {
-            .ss-title {
-                font-size: 2rem;
-            }
-            
-            .ss-typing-area {
-                height: 200px;
-                font-size: 1rem;
-            }
-            
-            .ss-controls {
-                flex-direction: column;
-                align-items: center;
-            }
+        /* Smooth Fade-In Effect */
+        .fade-in {
+            animation: fadeIn 1s ease-in-out forwards;
         }
 
-        /* Intensity Meter */
-        .ss-intensity-meter {
-            width: 100%;
-            height: 10px;
-            background-color: #333;
-            border-radius: 5px;
-            margin-bottom: 1rem;
-            overflow: hidden;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        .ss-intensity-bar {
-            height: 100%;
-            width: 0%;
-            background: linear-gradient(to right, #4CAF50, #FFC107, #FF5722);
-            transition: width 0.3s ease;
-        }
     </style>
 </head>
 <body>
-    <header class="ss-header">
-        <h1 class="ss-title">SILENT SCREAMER</h1>
-        <p class="ss-subtitle">Let it out. Nothing is saved. This is just for you.</p>
-    </header>
-
-    <div class="ss-container">
-        <div class="ss-intensity-meter">
-            <div class="ss-intensity-bar" id="ss-intensity-bar"></div>
+    
+    <div class="loader-icontainer">
+        <div class="loader">
+            <div class="hexagon"></div>
+            <div class="triangle"></div>
+            <div class="circle"></div>
         </div>
-        
-        <textarea class="ss-typing-area" id="ss-typing-area" placeholder="Type your heart out... scream into the void... release your emotions..."></textarea>
-        
-        <div class="ss-controls">
-            <button class="ss-btn" id="ss-reset-btn">Clear Everything</button>
-            <div class="ss-sound-control">
-                <button class="ss-btn" id="ss-sound-toggle">Toggle Sound</button>
-                <input type="range" id="ss-volume-slider" min="0" max="1" step="0.1" value="0.5">
+    </div>
+ <!-- Header -->
+ <div class="header">
+    <h1>eHelpFullTools</h1>
+</div>
+
+<!-- Navbar -->
+<div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="OnlineTools.html" class="active">Online Tools</a>
+    <a href="service.html">Services</a>
+    <a href="contact.html">Contact Us</a>
+</div>
+
+<!-- Short description about the Text to PDF Converter -->
+<div class="short-description">
+    <h2>About the Advanced Button Generator ✨🎨</h2>
+    <p>The <strong>Advanced Button Generator</strong> is a powerful and intuitive tool designed to help you effortlessly create stunning and responsive HTML and CSS buttons. Whether you're a web developer, designer, or just need a quick custom button, this tool simplifies the process of generating production-ready code with advanced customization options.</p>
+
+    <h3>🚀 How to Use This Tool:</h3>
+    <ul>
+        <li>🔹 <strong>Step 1:</strong> Adjust various settings in the left panel, such as text, colors, padding, borders, and shadows.</li>
+        <li>🔹 <strong>Step 2:</strong> See your button update instantly in the live preview area.</li>
+        <li>🔹 <strong>Step 3:</strong> Experiment with hover effects and transitions to make your button interactive.</li>
+        <li>🔹 <strong>Step 4:</strong> Copy the generated HTML and CSS code directly to use in your project.</li>
+        <li>🔹 The tool provides clear, concise code snippets that are ready to be integrated into your website.</li>
+    </ul>
+
+    <h3> Why Use This Tool?</h3>
+    <p>  <strong>Easy-to-Use:</strong> Intuitive interface with real-time updates—no manual coding required.<br>
+          <strong>Interactive & Instant:</strong> Design and visualize your buttons in seconds.<br>
+          <strong>Highly Customizable:</strong> Control every aspect from colors and fonts to shadows and hover effects.<br>
+          <strong>Responsive & Modern:</strong> Generated buttons are designed to look great on all devices.<br>
+          <strong>Time-Saving:</strong> Quickly generate complex CSS without writing a single line from scratch.</p>
+
+    <h3>Additional Features:</h3>
+    <ul>
+        <li>🔹 Live preview of your button as you adjust settings.</li>
+        <li>🔹 Customizable text, font family, font size, and text alignment.</li>
+        <li>🔹 Comprehensive color controls for background, text, borders, and hover states.</li>
+        <li>🔹 Detailed padding, border width, and border-radius adjustments.</li>
+        <li>🔹 Advanced box-shadow and hover transform effects.</li>
+        <li>🔹 Option to add Font Awesome icons directly to your button.</li>
+        <li>🔹 Convenient one-click copy buttons for both HTML and CSS code.</li>
+    </ul>
+</div>
+
+<div class="ff">
+    <p>Go down to explore more tools and Calculators.</p></div>
+<!-- tool code here -->
+<h1 class="buttonh1"><i class="fa fa-magic"></i> Advanced Button Generator Pro</h1>
+
+    <div class="icontainer">
+        <div class="main-grid">
+            <div class="settings-panel">
+                <div class="section-title" data-target="buttonSettings">
+                    <i class="fas fa-cog"></i> General Settings <i class="fas fa-chevron-down toggle-icon"></i>
+                </div>
+                <div class="control-group" id="buttonSettings">
+                    <div class="control">
+                        <label for="btnText"><i class="fas fa-font"></i> Button Text</label>
+                        <input type="text" id="btnText" value="Click Me!">
+                    </div>
+                    <div class="control">
+                        <label for="buttonIcon"><i class="fas fa-icons"></i> Icon Class
+                            <span class="tooltip">?
+                                <span class="tooltiptext">e.g., 'fas fa-arrow-right', 'fab fa-github'. Leave blank for no icon.</span>
+                            </span>
+                        </label>
+                        <input type="text" id="buttonIcon" value="" placeholder="fas fa-star">
+                    </div>
+                    <div class="control">
+                        <label for="fontFamily"><i class="fas fa-text-width"></i> Font Family</label>
+                        <select id="fontFamily">
+                            <option value="'Inter', sans-serif" selected>Inter (Web)</option>
+                            <option value="'Roboto', sans-serif">Roboto (Web)</option>
+                            <option value="Arial, sans-serif">Arial</option>
+                            <option value="'Courier New', monospace">Courier New</option>
+                            <option value="Georgia, serif">Georgia</option>
+                            <option value="Tahoma, sans-serif">Tahoma</option>
+                            <option value="Verdana, sans-serif">Verdana</option>
+                            <option value="'Segoe UI', sans-serif">Segoe UI</option>
+                            <option value="'Lucida Console', monospace">Lucida Console</option>
+                            <option value="'Open Sans', sans-serif">Open Sans (Web)</option>
+                        </select>
+                    </div>
+                    <div class="control">
+                        <label for="fontSize"><i class="fas fa-text-height"></i> Font Size (px)</label>
+                        <input type="number" id="fontSize" value="16" min="8" max="48">
+                    </div>
+                    <div class="control">
+                        <label for="btnSize"><i class="fas fa-expand-alt"></i> Button Preset Size</label>
+                        <select id="btnSize">
+                            <option value="custom" selected>Custom Padding</option>
+                            <option value="small">Small (5px 10px)</option>
+                            <option value="medium">Medium (12px 24px)</option>
+                            <option value="large">Large (16px 32px)</option>
+                        </select>
+                    </div>
+                    <div class="control">
+                        <label for="textAlign"><i class="fas fa-align-center"></i> Text Alignment</label>
+                        <select id="textAlign">
+                            <option value="left">Left</option>
+                            <option value="center" selected>Center</option>
+                            <option value="right">Right</option>
+                        </select>
+                    </div>
+                    <div class="control">
+                        <label for="cursorType"><i class="fas fa-mouse-pointer"></i> Cursor Type</label>
+                        <select id="cursorType">
+                            <option value="pointer" selected>Pointer</option>
+                            <option value="default">Default</option>
+                            <option value="grab">Grab</option>
+                            <option value="help">Help</option>
+                            <option value="not-allowed">Not Allowed</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="section-title" data-target="colorSettings">
+                    <i class="fas fa-palette"></i> Colors <i class="fas fa-chevron-down toggle-icon"></i>
+                </div>
+                <div class="control-group" id="colorSettings">
+                    <div class="control">
+                        <label for="bgColor"><i class="fas fa-fill-drip"></i> Background Color</label>
+                        <input type="color" id="bgColor" value="#6a67ee">
+                    </div>
+                    <div class="control">
+                        <label for="textColor"><i class="fas fa-paint-brush"></i> Text Color</label>
+                        <input type="color" id="textColor" value="#ffffff">
+                    </div>
+                    <div class="control">
+                        <label for="borderColor"><i class="fas fa-border-all"></i> Border Color</label>
+                        <input type="color" id="borderColor" value="#6a67ee">
+                    </div>
+                    <div class="control">
+                        <label for="hoverBgColor"><i class="fas fa-lightbulb"></i> Hover Background</label>
+                        <input type="color" id="hoverBgColor" value="#8c8aff">
+                    </div>
+                    <div class="control">
+                        <label for="hoverTextColor"><i class="fas fa-eye-dropper"></i> Hover Text Color</label>
+                        <input type="color" id="hoverTextColor" value="#ffffff">
+                    </div>
+                </div>
+
+                <div class="section-title" data-target="borderPaddingSettings">
+                    <i class="fas fa-ruler-combined"></i> Dimensions & Borders <i class="fas fa-chevron-down toggle-icon"></i>
+                </div>
+                <div class="control-group" id="borderPaddingSettings">
+                    <label style="grid-column: 1 / -1; margin-bottom: 0.5rem;"><i class="fas fa-text-width"></i> Padding (px)</label>
+                    <div class="input-group-grid">
+                        <div class="control">
+                            <label for="paddingTop">Top</label>
+                            <input type="number" id="paddingTop" value="12" min="0">
+                        </div>
+                        <div class="control">
+                            <label for="paddingRight">Right</label>
+                            <input type="number" id="paddingRight" value="24" min="0">
+                        </div>
+                        <div class="control">
+                            <label for="paddingBottom">Bottom</label>
+                            <input type="number" id="paddingBottom" value="12" min="0">
+                        </div>
+                        <div class="control">
+                            <label for="paddingLeft">Left</label>
+                            <input type="number" id="paddingLeft" value="24" min="0">
+                        </div>
+                    </div>
+
+                    <label style="grid-column: 1 / -1; margin-top: 1.5rem; margin-bottom: 0.5rem;"><i class="fas fa-border-style"></i> Border Width (px)</label>
+                    <div class="input-group-grid">
+                        <div class="control">
+                            <label for="borderWidthTop">Top</label>
+                            <input type="number" id="borderWidthTop" value="0" min="0">
+                        </div>
+                        <div class="control">
+                            <label for="borderWidthRight">Right</label>
+                            <input type="number" id="borderWidthRight" value="0" min="0">
+                        </div>
+                        <div class="control">
+                            <label for="borderWidthBottom">Bottom</label>
+                            <input type="number" id="borderWidthBottom" value="0" min="0">
+                        </div>
+                        <div class="control">
+                            <label for="borderWidthLeft">Left</label>
+                            <input type="number" id="borderWidthLeft" value="0" min="0">
+                        </div>
+                    </div>
+
+                    <label style="grid-column: 1 / -1; margin-top: 1.5rem; margin-bottom: 0.5rem;"><i class="fas fa-border-top-left"></i> Border Radius (px)</label>
+                    <div class="input-group-grid">
+                        <div class="control">
+                            <label for="borderRadiusTopLeft">Top Left</label>
+                            <input type="number" id="borderRadiusTopLeft" value="8" min="0">
+                        </div>
+                        <div class="control">
+                            <label for="borderRadiusTopRight">Top Right</label>
+                            <input type="number" id="borderRadiusTopRight" value="8" min="0">
+                        </div>
+                        <div class="control">
+                            <label for="borderRadiusBottomRight">Bottom Right</label>
+                            <input type="number" id="borderRadiusBottomRight" value="8" min="0">
+                        </div>
+                        <div class="control">
+                            <label for="borderRadiusBottomLeft">Bottom Left</label>
+                            <input type="number" id="borderRadiusBottomLeft" value="8" min="0">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-title" data-target="effectsSettings">
+                    <i class="fas fa-magic"></i> Effects <i class="fas fa-chevron-down toggle-icon"></i>
+                </div>
+                <div class="control-group" id="effectsSettings">
+                    <label style="grid-column: 1 / -1; margin-bottom: 0.5rem;"><i class="fas fa-cloud"></i> Box Shadow</label>
+                    <div class="input-group-grid">
+                        <div class="control">
+                            <label for="shadowOffsetX">Offset X (px)</label>
+                            <input type="number" id="shadowOffsetX" value="0">
+                        </div>
+                        <div class="control">
+                            <label for="shadowOffsetY">Offset Y (px)</label>
+                            <input type="number" id="shadowOffsetY" value="5">
+                        </div>
+                        <div class="control">
+                            <label for="shadowBlurRadius">Blur (px)</label>
+                            <input type="number" id="shadowBlurRadius" value="15" min="0">
+                        </div>
+                        <div class="control">
+                            <label for="shadowSpreadRadius">Spread (px)</label>
+                            <input type="number" id="shadowSpreadRadius" value="0">
+                        </div>
+                        <div class="control">
+                            <label for="shadowColor">Color</label>
+                            <input type="color" id="shadowColor" value="#000000">
+                        </div>
+                        <div class="control">
+                            <label for="shadowOpacity">Opacity (%)</label>
+                            <input type="range" id="shadowOpacity" value="15" min="0" max="100">
+                            <span class="range-value" id="shadowOpacityValue">15%</span>
+                        </div>
+                    </div>
+
+                    <label style="grid-column: 1 / -1; margin-top: 1.5rem; margin-bottom: 0.5rem;"><i class="fas fa-cloud-sun"></i> Hover Box Shadow</label>
+                    <div class="input-group-grid">
+                        <div class="control">
+                            <label for="hoverShadowOffsetX">Offset X (px)</label>
+                            <input type="number" id="hoverShadowOffsetX" value="0">
+                        </div>
+                        <div class="control">
+                            <label for="hoverShadowOffsetY">Offset Y (px)</label>
+                            <input type="number" id="hoverShadowOffsetY" value="8">
+                        </div>
+                        <div class="control">
+                            <label for="hoverShadowBlurRadius">Blur (px)</label>
+                            <input type="number" id="hoverShadowBlurRadius" value="20" min="0">
+                        </div>
+                        <div class="control">
+                            <label for="hoverShadowSpreadRadius">Spread (px)</label>
+                            <input type="number" id="hoverShadowSpreadRadius" value="0">
+                        </div>
+                        <div class="control">
+                            <label for="hoverShadowColor">Color</label>
+                            <input type="color" id="hoverShadowColor" value="#000000">
+                        </div>
+                        <div class="control">
+                            <label for="hoverShadowOpacity">Opacity (%)</label>
+                            <input type="range" id="hoverShadowOpacity" value="25" min="0" max="100">
+                            <span class="range-value" id="hoverShadowOpacityValue">25%</span>
+                        </div>
+                    </div>
+
+                    <div class="control" style="grid-column: 1 / -1;">
+                        <label for="hoverEffect"><i class="fas fa-rocket"></i> Hover Transform</label>
+                        <select id="hoverEffect">
+                            <option value="">None</option>
+                            <option value="scale(1.05)" selected>Slight Scale Up</option>
+                            <option value="scale(1.1)">Scale Up</option>
+                            <option value="translateY(-3px)">Lift Up (small)</option>
+                            <option value="translateY(-5px)">Lift Up (medium)</option>
+                            <option value="rotate(3deg)">Rotate (3deg)</option>
+                            <option value="rotate(-3deg)">Rotate (-3deg)</option>
+                        </select>
+                    </div>
+                    <div class="ccontrol" style="grid-column: 1 / -1;">
+                        <label for="transitionSpeed"><i class="fas fa-tachometer-alt"></i> Transition Speed (s)</label>
+                        <input type="range" id="transitionSpeed" value="0.3" min="0" max="2" step="0.05">
+                        <span class="range-value" id="transitionSpeedValue">0.3s</span>
+                    </div>
+                </div>
+                <button class="reset-btn" id="resetAll"><i class="fas fa-undo"></i> Reset All Settings</button>
+            </div>
+
+            <div class="preview-code-panel">
+                <div class="preview">
+                    <button id="generatedButton" class="generated-button">Click Me!</button>
+                </div>
+
+                <div class="section-title">
+                    <i class="fas fa-code"></i> Generated Code
+                </div>
+                <div class="code-section">
+                    <button class="copy-btn" data-target="htmlCode">📋 Copy HTML</button>
+                    <pre><code id="htmlCode" class="language-html"></code></pre>
+                </div>
+                <div class="code-section">
+                    <button class="copy-btn" data-target="cssCode">📋 Copy CSS</button>
+                    <pre><code id="cssCode" class="language-css"></code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--about online tools-->
+<section class="tool-info">
+    <div class="endicontainer">
+        <h2>Welcome to <span class="brand">eHelpfullTools</span> 🚀</h2>
+        <p>eHelpfullTools is your ultimate online toolkit, offering a range of powerful and easy-to-use tools to
+            simplify your daily tasks. Whether you need to edit text, estimate fuel costs, or calculate loans, we’ve
+            got you covered!</p>
+
+        <h3>Explore More Tools 🔍</h3>
+
+    </div>
+
+    <div class="inicontainer">
+        <div class="tools">
+             <div class="tool-card">
+                <i class="fas fa-box"></i>
+                <a href="advance-button-generetor.html">📼 Advanced Button Generator</a>
+            </div>
+            <div class="tool-card">
+                <i class="fas fa-edit"></i>
+                <a href="text-editor.html">📝 Online Text Editor</a>
+            </div>
+            <div class="tool-card">
+                <a href="typing-test.html">⌨ Typing Speed Test</a>
+            </div>
+            <div class="tool-card">
+                <a href="FuelCalculator.html">⛽ Fuel Cost Estimator</a>
+            </div>
+            <div class="tool-card">
+                <a href="split-bill.html">💰 Advanced Split Bill Calculator</a>
+            </div>
+            <div class="tool-card">
+                <a href="cooking-converter.html">🥣 Cooking Measurement Converter</a>
+            </div>
+            <div class="tool-card">
+                <a href="unit-converter.html">📏 Unit Converter</a>
+            </div>
+            <div class="tool-card">
+                <a href="age-calculator.html">🎂 Advanced Age Calculator</a>
+            </div>
+            <div class="tool-card">
+                <a href="meditation-timer.html">🧘‍♂️ Meditation Timer</a>
+            </div>
+            <div class="tool-card">
+                <a href="text-to-pdf.html">📝➡️📄 Text File & PDF File Converter</a>
+            </div>
+            <div class="tool-card">
+                <a href="moore-machine-tool.html">⚙️📊 Moore Machine Table Generator</a>
+            </div>
+            <div class="tool-card">
+                <a href="mealy-machine-tool.html">📊⚙️ Mealy Machine Table Generator</a>
+            </div>
+            <div class="tool-card">
+                <a href="comingsoon.html">🌍 Language Translator</a>
+            </div>
+            <div class="tool-card">
+                <a href="comingsoon.html">🔢 Word & Character Counter</a>
             </div>
         </div>
         
-        <div class="ss-quote-display" id="ss-quote-display"></div>
+        <h3 style="margin-top: 20px;">Explore Fun  Tools 😄</h3>
+        <div class="inicontainer">
+            
+            <div class="tools">
+                <div class="tool-card">
+                    <a href="colour-tool.html">😤 Silent Screamer - Anonymous Stress & Emotion Releaser</a>
+                </div>
+                <div class="tool-card">
+                    <a href="crossword-generator.html">🔠 Find the Word Crossword Generator</a>
+                </div>
+            <div class="tool-card">
+                <a href="colour-tool.html">🎨 Fun Color Picker & Mixer</a>
+            </div>
+            <div class="tool-card">
+                <a href="ascii-art.html">ᓚ₍ ^. .^₎ ASCII Art Generator</a>
+            </div>
+            
+            <div class="tool-card">
+                <a href="personalitycheck.html">🎭 Ultimate Personality Quiz</a>
+            </div>
+            <div class="tool-card">
+                <a href="coin-flip.html">🪙 Flip the Coin</a>
+            </div>
+            <div class="tool-card">
+                <a href="drawing-board.html">🎨 Online Drawing Board</a>
+            </div>
+        </div>
     </div>
+    <p>We're continuously improving and adding new tools for a <strong>smarter and faster experience</strong>. Stay
+        connected and explore our growing collection of useful tools!</p>
 
-    <div class="ss-screen-flash" id="ss-screen-flash"></div>
+</section>
 
-    <footer class="ss-footer">
-        This is your private space. Nothing is saved or shared. Breathe. Release. Continue.
-    </footer>
+<!-- Welcome Section -->
+<section class="welcome-section">
+    <div class="welcome-text">
+        <h1>Welcome to eHelpFullTools</h1>
+        <h3>The platform for quick and efficient online tools and calculators</h3>
+        <p>eHelpFullTools is a convenient online platform that offers a variety of free tools and calculators,
+            including a text editor, fuel cost estimator, and unit converter. Designed for ease of use, the site
+            allows users to access these resources quickly without any downloads. Whether you need to edit
+            documents, estimate travel expenses, or convert measurements, eHelpFullTools provides reliable solutions
+            to enhance your productivity and simplify everyday tasks. Explore the site to discover how these helpful
+            tools can assist you!</p>
+        <a href="contact.html" style="text-decoration: none;"><button type="button" id="bt" class="gbutton">Get in Touch</button></a>
+    </div>
+    <div class="welcome-image">
+        <img src="home1.jpeg" alt="Illustration of eHelpFullTools features"> <!-- Replace with your image path -->
+    </div>
+</section>
+<hr>
+<footer class="footer">
+    <p>&copy; 2025 by eHelpFullTools. All rights reserved.</p>
+</footer>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+
+    <style id="generatedButtonStyles"></style> <style id="googleFonts"></style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
     <script>
-        // DOM Elements
-        const ssTypingArea = document.getElementById('ss-typing-area');
-        const ssResetBtn = document.getElementById('ss-reset-btn');
-        const ssSoundToggle = document.getElementById('ss-sound-toggle');
-        const ssVolumeSlider = document.getElementById('ss-volume-slider');
-        const ssQuoteDisplay = document.getElementById('ss-quote-display');
-        const ssScreenFlash = document.getElementById('ss-screen-flash');
-        const ssIntensityBar = document.getElementById('ss-intensity-bar');
+       window.addEventListener("load", () => {
+    const loader = document.querySelector(".loader-icontainer");
+    const content = document.querySelector(".content");
 
-        // App State
-        let ssLastKeyTime = Date.now();
-        let ssKeyCount = 0;
-        let ssTypingSpeed = 0;
-        let ssIntensity = 0;
-        let ssQuoteTimeout;
-        let ssSoundEnabled = false;
-        let ssAudioContext;
-        let ssOscillator;
-        let ssGainNode;
+    // Smooth fade-out loader
+    loader.style.transition = "opacity 2.8s ease-out";
+        loader.style.opacity = "0";
 
-        // Quotes Database
-        const ssQuotes = [
-            "You survived 100% of your worst days.",
-            "Caps lock is the scream of the keyboard.",
-            "Let it out. No one's watching.",
-            "This too shall pass.",
-            "Your feelings are valid.",
-            "Breathe in. Breathe out. Move on.",
-            "The storm will pass. It always does.",
-            "You're stronger than you think.",
-            "It's okay not to be okay.",
-            "Release what no longer serves you.",
-            "This moment is temporary.",
-            "You're doing better than you believe."
-        ];
-
-        // Emojis for rain effect
-        const ssEmojis = ['😠', '🤬', '😤', '💢', '👿', '😾', '🗯', '💣', '💥', '🔥', '🌪', '⚡'];
-
-        // Initialize Audio Context
-        function ssInitAudio() {
-            try {
-                ssAudioContext = new (window.AudioContext || window.webkitAudioContext)();
-                ssGainNode = ssAudioContext.createGain();
-                ssGainNode.gain.value = 0;
-                ssGainNode.connect(ssAudioContext.destination);
-            } catch (e) {
-                console.log("Web Audio API not supported");
-                ssSoundToggle.disabled = true;
-            }
-        }
-
-        // Play sound based on typing intensity
-        function ssPlaySound(intensity) {
-            if (!ssSoundEnabled || !ssAudioContext) return;
-            
-            if (ssOscillator) {
-                ssOscillator.stop();
-            }
-            
-            ssOscillator = ssAudioContext.createOscillator();
-            ssOscillator.type = 'sine';
-            ssOscillator.frequency.value = 100 + (intensity * 10);
-            ssOscillator.connect(ssGainNode);
-            ssOscillator.start();
-            
-            // Quick fade out
-            ssGainNode.gain.value = intensity * ssVolumeSlider.value;
-            ssGainNode.gain.exponentialRampToValueAtTime(0.001, ssAudioContext.currentTime + 0.3);
-        }
-
-        // Toggle sound
-        ssSoundToggle.addEventListener('click', () => {
-            ssSoundEnabled = !ssSoundEnabled;
-            ssSoundToggle.textContent = ssSoundEnabled ? "Sound: ON" : "Sound: OFF";
-            
-            if (ssSoundEnabled && !ssAudioContext) {
-                ssInitAudio();
-            }
-        });
-
-        // Update volume
-        ssVolumeSlider.addEventListener('input', () => {
-            if (ssGainNode) {
-                ssGainNode.gain.value = ssVolumeSlider.value;
-            }
-        });
-
-        // Create emoji rain
-        function ssCreateEmojiRain(count) {
-            for (let i = 0; i < count; i++) {
-                const emoji = document.createElement('div');
-                emoji.className = 'ss-emoji';
-                emoji.textContent = ssEmojis[Math.floor(Math.random() * ssEmojis.length)];
-                
-                // Random position at top of screen
-                emoji.style.left = Math.random() * 100 + 'vw';
-                emoji.style.top = '-30px';
-                
-                // Random animation duration
-                const duration = 2 + Math.random() * 3;
-                emoji.style.animationDuration = duration + 's';
-                
-                document.body.appendChild(emoji);
-                
-                // Remove emoji after animation completes
-                setTimeout(() => {
-                    emoji.remove();
-                }, duration * 1000);
-            }
-        }
-
-        // Create particles
-        function ssCreateParticles(x, y, color, count) {
-            for (let i = 0; i < count; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'ss-particle';
-                particle.style.backgroundColor = color;
-                
-                // Random size
-                const size = 5 + Math.random() * 10;
-                particle.style.width = size + 'px';
-                particle.style.height = size + 'px';
-                
-                // Position at click/touch point
-                particle.style.left = x + 'px';
-                particle.style.top = y + 'px';
-                
-                // Random velocity
-                const angle = Math.random() * Math.PI * 2;
-                const velocity = 1 + Math.random() * 3;
-                const vx = Math.cos(angle) * velocity;
-                const vy = Math.sin(angle) * velocity;
-                
-                document.body.appendChild(particle);
-                
-                // Animate particle
-                let posX = x;
-                let posY = y;
-                let opacity = 1;
-                let sizeDecay = size;
-                
-                const animate = () => {
-                    posX += vx;
-                    posY += vy;
-                    opacity -= 0.02;
-                    sizeDecay *= 0.98;
-                    
-                    particle.style.left = posX + 'px';
-                    particle.style.top = posY + 'px';
-                    particle.style.opacity = opacity;
-                    particle.style.width = sizeDecay + 'px';
-                    particle.style.height = sizeDecay + 'px';
-                    
-                    if (opacity > 0) {
-                        requestAnimationFrame(animate);
-                    } else {
-                        particle.remove();
-                    }
-                };
-                
-                animate();
-            }
-        }
-
-        // Screen flash effect
-        function ssFlashScreen(color, duration) {
-            ssScreenFlash.style.backgroundColor = color;
-            ssScreenFlash.style.opacity = 0.7;
-            
-            setTimeout(() => {
-                ssScreenFlash.style.opacity = 0;
-            }, duration);
-        }
-
-        // Show random quote
-        function ssShowRandomQuote() {
-            const quote = ssQuotes[Math.floor(Math.random() * ssQuotes.length)];
-            ssQuoteDisplay.textContent = `"${quote}"`;
-            ssQuoteDisplay.classList.add('show');
-            
-            setTimeout(() => {
-                ssQuoteDisplay.classList.remove('show');
-            }, 8000);
-        }
-
-        // Reset everything
-        function ssResetEverything() {
-            ssTypingArea.value = '';
-            ssIntensity = 0;
-            ssIntensityBar.style.width = '0%';
-            ssQuoteDisplay.classList.remove('show');
-            clearTimeout(ssQuoteTimeout);
-        }
-
-        // Typing speed detection
-        ssTypingArea.addEventListener('keydown', (e) => {
-            const now = Date.now();
-            const timeDiff = now - ssLastKeyTime;
-            
-            // Don't count modifier keys
-            if (e.key.length === 1 || e.key === 'Backspace' || e.key === 'Enter' || e.key === ' ') {
-                ssKeyCount++;
-                
-                // Calculate typing speed (keys per second)
-                if (timeDiff < 1000) {
-                    ssTypingSpeed = ssKeyCount / (timeDiff / 1000);
-                } else {
-                    ssTypingSpeed = ssKeyCount;
-                    ssKeyCount = 0;
-                    ssLastKeyTime = now;
-                }
-                
-                // Update intensity based on typing speed
-                ssIntensity = Math.min(ssTypingSpeed / 5, 1); // Normalize to 0-1 range
-                ssIntensityBar.style.width = (ssIntensity * 100) + '%';
-                
-                // Trigger effects based on intensity
-                if (ssIntensity > 0.7) {
-                    // High intensity effects
-                    ssCreateEmojiRain(5 + Math.floor(ssIntensity * 10));
-                    ssFlashScreen(`rgba(255, ${Math.floor(100 - ssIntensity * 100)}, ${Math.floor(100 - ssIntensity * 100)}, 0.5)`, 200);
-                    ssPlaySound(ssIntensity);
-                    
-                    // Add screen shake
-                    document.body.style.transform = `translate(${Math.random() * 10 - 5}px, ${Math.random() * 10 - 5}px)`;
-                    setTimeout(() => {
-                        document.body.style.transform = 'translate(0, 0)';
-                    }, 100);
-                } else if (ssIntensity > 0.3) {
-                    // Medium intensity effects
-                    if (Math.random() > 0.7) {
-                        ssCreateParticles(e.clientX || ssTypingArea.getBoundingClientRect().left + ssTypingArea.offsetWidth / 2, 
-                                      e.clientY || ssTypingArea.getBoundingClientRect().top + ssTypingArea.offsetHeight / 2, 
-                                      `hsl(${Math.random() * 60 + 0}, 100%, 50%)`, 
-                                      5);
-                    }
-                    ssPlaySound(ssIntensity * 0.5);
-                }
-                
-                // Reset quote timeout
-                clearTimeout(ssQuoteTimeout);
-                ssQuoteDisplay.classList.remove('show');
-            }
-            
-            // Special effect for Enter key
-            if (e.key === 'Enter' && !e.shiftKey) {
-                e.preventDefault();
-                ssTypingArea.value += '\n';
-                ssCreateEmojiRain(3);
-                ssFlashScreen('rgba(255, 255, 255, 0.5)', 100);
-                ssPlaySound(0.8);
-            }
-        });
-
-        // Check for typing pause to show quote
-        ssTypingArea.addEventListener('keyup', () => {
-            clearTimeout(ssQuoteTimeout);
-            ssQuoteTimeout = setTimeout(() => {
-                if (ssTypingArea.value.trim().length > 0) {
-                    ssShowRandomQuote();
-                }
-            }, 10000);
-        });
-
-        // Reset button
-        ssResetBtn.addEventListener('click', ssResetEverything);
-
-        // Initialize
-        ssInitAudio();
-
-        // Touch support for mobile
-        ssTypingArea.addEventListener('touchstart', (e) => {
-            ssCreateParticles(e.touches[0].clientX, e.touches[0].clientY, '#ff6b6b', 10);
-        });
-
-        // Initial random quote after delay
         setTimeout(() => {
-            if (ssTypingArea.value.trim().length === 0) {
-                ssShowRandomQuote();
+loader.style.display = "none";
+content.style.display = "block";
+content.classList.add("fade-in");
+}, 2800); // Loader hides after 800ms (0.8 seconds)
+
+});</script>
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyDbNYKUKukHO38WrWfiZo2ARWwqjUf8OeI",
+      authDomain: "ehelpfultool.firebaseapp.com",
+      projectId: "ehelpfultool",
+      storageBucket: "ehelpfultool.firebasestorage.app",
+      messagingSenderId: "572405415507",
+      appId: "1:572405415507:web:9addd73fae3fb78973d0a6",
+      measurementId: "G-MN8GGWK084"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+        const btn = document.getElementById('generatedButton');
+        const generatedButtonStyles = document.getElementById('generatedButtonStyles');
+        const htmlCode = document.getElementById('htmlCode');
+        const cssCode = document.getElementById('cssCode');
+        const googleFontsStyle = document.getElementById('googleFonts');
+        const resetBtn = document.getElementById('resetAll');
+
+        // Get all controls that will trigger updates
+        const allControls = document.querySelectorAll('input:not([type="checkbox"]), select, textarea, input[type="range"]');
+
+        // Input elements for easier access
+        const elements = {
+            btnText: document.getElementById('btnText'),
+            buttonIcon: document.getElementById('buttonIcon'),
+            bgColor: document.getElementById('bgColor'),
+            textColor: document.getElementById('textColor'),
+            fontFamily: document.getElementById('fontFamily'),
+            fontSize: document.getElementById('fontSize'),
+            btnSize: document.getElementById('btnSize'),
+            textAlign: document.getElementById('textAlign'),
+            cursorType: document.getElementById('cursorType'),
+
+            paddingTop: document.getElementById('paddingTop'),
+            paddingRight: document.getElementById('paddingRight'),
+            paddingBottom: document.getElementById('paddingBottom'),
+            paddingLeft: document.getElementById('paddingLeft'),
+
+            borderWidthTop: document.getElementById('borderWidthTop'),
+            borderWidthRight: document.getElementById('borderWidthRight'),
+            borderWidthBottom: document.getElementById('borderWidthBottom'),
+            borderWidthLeft: document.getElementById('borderWidthLeft'),
+            borderColor: document.getElementById('borderColor'),
+
+            borderRadiusTopLeft: document.getElementById('borderRadiusTopLeft'),
+            borderRadiusTopRight: document.getElementById('borderRadiusTopRight'),
+            borderRadiusBottomLeft: document.getElementById('borderRadiusBottomLeft'),
+            borderRadiusBottomRight: document.getElementById('borderRadiusBottomRight'),
+
+            shadowOffsetX: document.getElementById('shadowOffsetX'),
+            shadowOffsetY: document.getElementById('shadowOffsetY'),
+            shadowBlurRadius: document.getElementById('shadowBlurRadius'),
+            shadowSpreadRadius: document.getElementById('shadowSpreadRadius'),
+            shadowColor: document.getElementById('shadowColor'),
+            shadowOpacity: document.getElementById('shadowOpacity'),
+            shadowOpacityValueSpan: document.getElementById('shadowOpacityValue'),
+
+            hoverShadowOffsetX: document.getElementById('hoverShadowOffsetX'),
+            hoverShadowOffsetY: document.getElementById('hoverShadowOffsetY'),
+            hoverShadowBlurRadius: document.getElementById('hoverShadowBlurRadius'),
+            hoverShadowSpreadRadius: document.getElementById('hoverShadowSpreadRadius'),
+            hoverShadowColor: document.getElementById('hoverShadowColor'),
+            hoverShadowOpacity: document.getElementById('hoverShadowOpacity'),
+            hoverShadowOpacityValueSpan: document.getElementById('hoverShadowOpacityValue'),
+            
+            hoverBgColor: document.getElementById('hoverBgColor'),
+            hoverTextColor: document.getElementById('hoverTextColor'),
+            hoverEffect: document.getElementById('hoverEffect'),
+            transitionSpeed: document.getElementById('transitionSpeed'),
+            transitionSpeedValueSpan: document.getElementById('transitionSpeedValue'),
+        };
+
+        // Store initial values for reset functionality
+        const initialValues = {};
+        document.addEventListener('DOMContentLoaded', () => {
+            for (const key in elements) {
+                if (elements[key] && elements[key].tagName !== 'SPAN') { // Exclude spans
+                    initialValues[key] = elements[key].value;
+                }
             }
-        }, 5000);
+            updateButton(); // Trigger initial update
+        });
+
+        // Accordion functionality
+        const sectionTitles = document.querySelectorAll('.section-title');
+        sectionTitles.forEach(title => {
+            title.addEventListener('click', () => {
+                const targetId = title.dataset.target;
+                const targetGroup = document.getElementById(targetId);
+                const toggleIcon = title.querySelector('.toggle-icon');
+
+                if (targetGroup) {
+                    targetGroup.classList.toggle('collapsed');
+                    title.classList.toggle('collapsed'); // Also toggle class on title for icon animation
+                    toggleIcon.classList.toggle('fa-chevron-down');
+                    toggleIcon.classList.toggle('fa-chevron-up');
+                }
+            });
+        });
+
+        // Function to convert hex to RGBA
+        function hexToRgba(hex, alpha) {
+            let r = 0, g = 0, b = 0;
+            // Handle #RRGGBB or #RGB
+            if (hex.length === 4) {
+                r = parseInt(hex[1] + hex[1], 16);
+                g = parseInt(hex[2] + hex[2], 16);
+                b = parseInt(hex[3] + hex[3], 16);
+            } else if (hex.length === 7) {
+                r = parseInt(hex.substring(1, 3), 16);
+                g = parseInt(hex.substring(3, 5), 16);
+                b = parseInt(hex.substring(5, 7), 16);
+            }
+            return `rgba(${r}, ${g}, ${b}, ${alpha / 100})`;
+        }
+
+
+        function updateButton() {
+            // Read values from elements
+            const btnText = elements.btnText.value;
+            const buttonIconClass = elements.buttonIcon.value;
+            const bgColor = elements.bgColor.value;
+            const textColor = elements.textColor.value;
+            const fontFamily = elements.fontFamily.value;
+            const fontSize = elements.fontSize.value;
+            const btnSize = elements.btnSize.value;
+            const textAlign = elements.textAlign.value;
+            const cursorType = elements.cursorType.value;
+
+            const paddingTop = elements.paddingTop.value;
+            const paddingRight = elements.paddingRight.value;
+            const paddingBottom = elements.paddingBottom.value;
+            const paddingLeft = elements.paddingLeft.value;
+
+            const borderWidthTop = elements.borderWidthTop.value;
+            const borderWidthRight = elements.borderWidthRight.value;
+            const borderWidthBottom = elements.borderWidthBottom.value;
+            const borderWidthLeft = elements.borderWidthLeft.value;
+            const borderColor = elements.borderColor.value;
+
+            const borderRadiusTopLeft = elements.borderRadiusTopLeft.value;
+            const borderRadiusTopRight = elements.borderRadiusTopRight.value;
+            const borderRadiusBottomLeft = elements.borderRadiusBottomLeft.value;
+            const borderRadiusBottomRight = elements.borderRadiusBottomRight.value;
+
+            // Box Shadow values
+            const currentShadowColor = hexToRgba(elements.shadowColor.value, elements.shadowOpacity.value);
+            const currentBoxShadow = `${elements.shadowOffsetX.value}px ${elements.shadowOffsetY.value}px ${elements.shadowBlurRadius.value}px ${elements.shadowSpreadRadius.value}px ${currentShadowColor}`;
+            elements.shadowOpacityValueSpan.textContent = `${elements.shadowOpacity.value}%`;
+
+            // Hover Box Shadow values
+            const hoverShadowColor = hexToRgba(elements.hoverShadowColor.value, elements.hoverShadowOpacity.value);
+            const hoverBoxShadow = `${elements.hoverShadowOffsetX.value}px ${elements.hoverShadowOffsetY.value}px ${elements.hoverShadowBlurRadius.value}px ${elements.hoverShadowSpreadRadius.value}px ${hoverShadowColor}`;
+            elements.hoverShadowOpacityValueSpan.textContent = `${elements.hoverShadowOpacity.value}%`;
+
+            const hoverBgColor = elements.hoverBgColor.value;
+            const hoverTextColor = elements.hoverTextColor.value;
+            const hoverEffect = elements.hoverEffect.value;
+            const transitionSpeed = elements.transitionSpeed.value;
+
+            elements.transitionSpeedValueSpan.textContent = `${transitionSpeed}s`;
+
+            // Load Google Fonts if selected
+            if (fontFamily.includes('Web')) {
+                const fontName = fontFamily.split(',')[0].replace(/'/g, '').trim();
+                googleFontsStyle.textContent = `@import url('https://fonts.googleapis.com/css2?family=${fontName.replace(/ /g, '+')}:wght@400;700&display=swap');`;
+            } else {
+                googleFontsStyle.textContent = '';
+            }
+
+            // Update preview button HTML
+            let iconHtml = '';
+            if (buttonIconClass) {
+                iconHtml = `<i class="${buttonIconClass} button-icon"></i>`;
+            }
+            btn.innerHTML = `${iconHtml}<span>${btnText}</span>`;
+
+            // Generate CSS for the .generated-button class
+            const cleanFontFamily = fontFamily.replace(/'/g, ''); // Remove single quotes for CSS output
+            
+            let baseCss = `
+.generated-button {
+  background-color: ${bgColor};
+  color: ${textColor};
+  font-family: ${cleanFontFamily};
+  font-size: ${fontSize}px;
+  text-align: ${textAlign};
+  cursor: ${cursorType};
+  border-top: ${borderWidthTop}px solid ${borderColor};
+  border-right: ${borderWidthRight}px solid ${borderColor};
+  border-bottom: ${borderWidthBottom}px solid ${borderColor};
+  border-left: ${borderWidthLeft}px solid ${borderColor};
+  border-top-left-radius: ${borderRadiusTopLeft}px;
+  border-top-right-radius: ${borderRadiusTopRight}px;
+  border-bottom-left-radius: ${borderRadiusBottomLeft}px;
+  border-bottom-right-radius: ${borderRadiusBottomRight}px;
+  padding: ${paddingTop}px ${paddingRight}px ${paddingBottom}px ${paddingLeft}px;
+  box-shadow: ${currentBoxShadow};
+  transition: all ${transitionSpeed}s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+`;
+            // Override padding if preset is used
+            if (btnSize === "small") {
+                baseCss = baseCss.replace(/padding:.*?;/, 'padding: 5px 10px;');
+            } else if (btnSize === "medium") {
+                baseCss = baseCss.replace(/padding:.*?;/, 'padding: 12px 24px;');
+            } else if (btnSize === "large") {
+                baseCss = baseCss.replace(/padding:.*?;/, 'padding: 16px 32px;');
+            }
+
+            let hoverCss = `
+.generated-button:hover {
+  background-color: ${hoverBgColor};
+  color: ${hoverTextColor};
+  transform: ${hoverEffect};
+  box-shadow: ${hoverBoxShadow};
+}
+`;
+
+            // If icon is present, add icon specific styles
+            if (buttonIconClass) {
+                baseCss += `
+.generated-button .button-icon {
+  /* margin-right: 0.3em; */ /* Already set in base CSS for preview */
+}
+`;
+            }
+
+            // Update the style tag in the head with the generated CSS
+            generatedButtonStyles.textContent = baseCss + hoverCss;
+
+            // Update the code blocks
+            htmlCode.textContent = `<button class="custom-button">${iconHtml ? `<i class="${buttonIconClass}"></i> ` : ''}${btnText}</button>`;
+            cssCode.textContent = baseCss.replace(/.generated-button/g, '.custom-button') + hoverCss.replace(/.generated-button/g, '.custom-button');
+
+            Prism.highlightAll(); // Re-highlight the code blocks
+        }
+
+        // Event listeners for all controls
+        allControls.forEach(control => {
+            control.addEventListener('input', updateButton);
+        });
+
+        // Reset functionality
+        resetBtn.addEventListener('click', () => {
+            for (const key in initialValues) {
+                if (elements[key]) {
+                    elements[key].value = initialValues[key];
+                }
+            }
+            updateButton(); // Update button with reset values
+        });
+
+
+        // Copy function
+        const copyButtons = document.querySelectorAll('.copy-btn');
+        copyButtons.forEach(button => {
+            button.addEventListener('click', (event) => {
+                const targetId = event.target.dataset.target;
+                const codeElement = document.getElementById(targetId);
+                let textToCopy = codeElement.textContent;
+
+                // For HTML, remove leading/trailing whitespace if it's due to formatting
+                if (targetId === 'htmlCode') {
+                    textToCopy = textToCopy.trim();
+                }
+
+                // Use Clipboard API for modern browsers (HTTPS required)
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(textToCopy)
+                        .then(() => {
+                            event.target.textContent = 'Copied!';
+                            setTimeout(() => {
+                                event.target.textContent = '📋 Copy ' + (targetId === 'htmlCode' ? 'HTML' : 'CSS');
+                            }, 1500);
+                        })
+                        .catch(err => {
+                            console.error('Failed to copy text with Clipboard API: ', err);
+                            // Fallback for insecure contexts or failed copy
+                            fallbackCopyTextToClipboard(textToCopy, event.target);
+                        });
+                } else {
+                    // Fallback for older browsers or insecure contexts
+                    fallbackCopyTextToClipboard(textToCopy, event.target);
+                }
+            });
+        });
+
+        function fallbackCopyTextToClipboard(text, buttonElement) {
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            textArea.style.position = "fixed"; // Prevent scrolling to bottom of page in MS Edge.
+            textArea.style.left = "-9999px";
+            textArea.style.top = "-9999px";
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+
+            try {
+                const successful = document.execCommand('copy');
+                const msg = successful ? 'successful' : 'unsuccessful';
+                console.log('Fallback: Copying text command was ' + msg);
+                buttonElement.textContent = 'Copied!';
+                setTimeout(() => {
+                    buttonElement.textContent = '📋 Copy ' + (buttonElement.dataset.target === 'htmlCode' ? 'HTML' : 'CSS');
+                }, 1500);
+            } catch (err) {
+                console.error('Fallback: Oops, unable to copy', err);
+                alert('Copying not supported or failed. Please copy the code manually.');
+            } finally {
+                document.body.removeChild(textArea);
+            }
+        }
+
+        // Initialize once on load
+        window.addEventListener('DOMContentLoaded', updateButton);
     </script>
+
 </body>
 </html>
