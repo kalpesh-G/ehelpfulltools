@@ -1,0 +1,39 @@
+# ehelpfultools.tech robots.txt file
+#
+# This file provides directives for web crawlers and search engine bots,
+# guiding them on which parts of the site they can access and crawl.
+#
+# --- Global Directives ---
+# The asterisk (*) is a wildcard that applies these rules to all web crawlers.
+User-agent: *
+
+# Allow crawling of all content by default.
+# This ensures all public-facing pages, including your tools, are discoverable.
+Allow: /
+
+# --- Disallowed Directories (Blocking Unnecessary System Files) ---
+# These directives prevent crawlers from accessing common system or administrative
+# directories that do not contain publicly visible or useful content.
+# This helps conserve your crawl budget for important pages.
+Disallow: /admin/
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /includes/
+Disallow: /private/
+
+# --- Specific Directives for Search Engines ---
+# Google, Bing, and other modern search engines require access to CSS and JS
+# files to properly render and understand your pages.
+# We explicitly allow these directories to ensure proper indexing.
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.png$
+Allow: /*.gif$
+Allow: /*.webp$
+
+# --- Sitemap Reference ---
+# This line points search engines to the location of your XML sitemap.
+# A sitemap helps crawlers discover and index all of your important pages.
+Sitemap: https://ehelpfultools.tech/sitemap.xml
