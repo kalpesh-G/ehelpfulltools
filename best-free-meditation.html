@@ -3,9 +3,64 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Meditation Timer — Calm & Focus</title>
-  <meta name="description" content="A clean, modern meditation timer with presets, ambience, breathing guide, interval bells, stats & journal. Vanilla HTML/CSS/JS." />
-  <style>
+ <title>Free Meditation Timer with Sounds, Breathing Guide & Interval Bells | eHelpFulTools</title>
+  <meta name="description" content="Relax with our free Meditation Timer. Includes custom session lengths, interval bells, ambient sounds, breathing guide, streak tracker & journaling. Perfect for mindfulness and focus." />
+  <meta name="keywords" content="meditation timer, free meditation timer online, mindfulness timer, interval bells meditation, breathing guide, meditation streak tracker, guided meditation, ambient sounds for meditation" />
+  <meta name="author" content="eHelpFulTools" />
+  <meta name="robots" content="index, follow" />
+
+  <meta name="google-adsense-account" content="ca-pub-8868584487794979">
+
+  <!-- Open Graph for Social Media -->
+  <meta property="og:title" content="Free Meditation Timer with Sounds & Breathing Guide | eHelpFulTools" />
+  <meta property="og:description" content="Try our free Meditation Timer with breathing guide, ambient sounds, interval bells & journaling. Track your streaks and meditate anytime, anywhere." />
+  <meta property="og:url" content="https://ehelpfultools.tech/best-free-meditation.html" />
+  <meta property="og:image" content="https://ehelpfultools.tech/iamges/meditation-timer-preview.jpg" />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free Meditation Timer with Sounds & Breathing Guide | eHelpFulTools" />
+  <meta name="twitter:description" content="Free online Meditation Timer with interval bells, ambient sounds, breathing guide & streak tracking." />
+  <meta name="twitter:image" content="https://ehelpfultools.tech/iamges/meditation-timer-preview.jpg" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="images/logo.png" type="image/png" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Meditation Timer",
+  "url": "https://ehelpfultools.tech/best-free-meditation.html",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "All",
+  "description": "Free Meditation Timer with customizable session lengths, interval bells, breathing guide, ambient sounds, streak tracker & journaling. Perfect for mindfulness practice.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "eHelpFulTools",
+    "url": "https://ehelpfultools.tech",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ehelpfultools.tech/iamges/logo.png"
+    }
+  },
+  "featureList": [
+    "Custom meditation session length",
+    "Interval bells for mindfulness",
+    "Ambient sound selection",
+    "Breathing guide animation",
+    "Meditation streak tracking",
+    "Session journaling"
+  ]
+}
+</script>
+
+    <style>
     /* =============================
        DESIGN SYSTEM (CSS Variables)
        ============================= */
@@ -1168,5 +1223,28 @@
   });
 })();
 </script>
+ <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyDbNYKUKukHO38WrWfiZo2ARWwqjUf8OeI",
+            authDomain: "ehelpfultool.firebaseapp.com",
+            projectId: "ehelpfultool",
+            storageBucket: "ehelpfultool.firebasestorage.app",
+            messagingSenderId: "572405415507",
+            appId: "1:572405415507:web:9addd73fae3fb78973d0a6",
+            measurementId: "G-MN8GGWK084"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+    </script>
 </body>
 </html>
