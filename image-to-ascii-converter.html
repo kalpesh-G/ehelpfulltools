@@ -1,0 +1,1514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ✅ SEO Meta Tags for Advanced Image to ASCII Art Generator -->
+<title>Advanced Image to ASCII Art Generator | Free Online Tool</title>
+<meta name="description" content="Convert any image into stunning ASCII art instantly! Customize resolution, colors, and styles. Free, fast, and easy-to-use ASCII art generator online.">
+<meta name="keywords" content="ASCII art generator, image to ASCII, convert image to text, online ASCII tool, free ASCII generator, ASCII converter, text art, image to characters, ASCII editor, fun tools">
+<meta name="author" content="eHelpFulTools">
+<meta name="robots" content="index, follow">
+
+<!-- ✅ Open Graph / Facebook -->
+<meta property="og:title" content="Advanced Image to ASCII Art Generator | Free Online Tool">
+<meta property="og:description" content="Transform your images into beautiful ASCII art with customizable resolution, color modes, and character sets. 100% free online tool.">
+<meta property="og:url" content="https://ehelpfultools.tech/ascii-art-generator.html">
+<meta property="og:image" content="https://ehelpfultools.tech/assets/ascii-preview.png">
+<meta property="og:type" content="website">
+
+<!-- ✅ Twitter Cards -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Advanced Image to ASCII Art Generator | Free Online Tool">
+<meta name="twitter:description" content="Turn your images into ASCII art instantly. Choose from color, grayscale, or emoji mode. Free & fun ASCII generator!">
+<meta name="twitter:image" content="https://ehelpfultools.tech/assets/ascii-preview.png">
+
+  <meta name="google-adsense-account" content="ca-pub-8868584487794979">
+    <link rel="icon" href="images/logo.png" type="image/png" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #79e0c9;     /* green */
+            --secondary:  #70c3ff;     /* blue */
+            --accent: #2de2e6;
+            --accent-alt: #ff9d00;
+            --dark-bg: #0a0a1a;
+            --dark-card: rgba(25, 25, 50, 0.7);
+            --dark-text: #ffffff;
+            --light-bg: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            --light-card: rgba(255, 255, 255, 0.85);
+            --light-text: #2d2d5a;
+            --light-accent: #8b5cf6;
+            --transition: all 0.3s ease;
+            --border-radius: 16px;
+            --glow: 0 0 15px currentColor;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        [data-theme="light"] {
+            --bg: var(--light-bg);
+            --card: var(--light-card);
+            --text: var(--light-text);
+            --primary: var(--light-accent);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        [data-theme="dark"] {
+            --bg: var(--dark-bg);
+            --card: var(--dark-card);
+            --text: var(--dark-text);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: var(--transition);
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 40px 20px;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--border-radius);
+            background: var(--card);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        .floating-ascii {
+            position: absolute;
+            font-family: monospace;
+            opacity: 0.1;
+            pointer-events: none;
+            animation: float 20s infinite linear;
+            z-index: -1;
+            font-weight: bold;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) translateX(0) rotate(0deg); }
+            100% { transform: translateY(-100vh) translateX(100vw) rotate(360deg); }
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: var(--card);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(10px);
+            color: var(--text);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px var(--primary);
+        }
+
+        /* Main Layout */
+        .main-content {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 992px) {
+            .main-content {
+                flex-direction: column;
+            }
+        }
+
+        /* Control Panel */
+        .control-panel {
+            flex: 1;
+            max-width: 400px;
+        }
+
+        @media (max-width: 992px) {
+            .control-panel {
+                max-width: 100%;
+            }
+        }
+
+        .panel-card {
+            background: var(--card);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .panel-title {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .panel-title i {
+            font-size: 1.4rem;
+        }
+
+        /* Upload Area */
+        .upload-area {
+            border: 2px dashed var(--primary);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .upload-area:hover, .upload-area.drag-over {
+            border-color: var(--accent);
+            box-shadow: var(--glow);
+            transform: translateY(-3px);
+        }
+
+        .upload-icon {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .upload-text {
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .upload-btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(110, 68, 255, 0.4);
+        }
+
+        .upload-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(110, 68, 255, 0.5);
+        }
+
+        #image-upload {
+            display: none;
+        }
+
+        .image-preview {
+            margin-top: 20px;
+            display: none;
+        }
+
+        .preview-img {
+            max-width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Controls */
+        .control-group {
+            margin-bottom: 20px;
+        }
+
+        .control-label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--text);
+            opacity: 0.9;
+        }
+
+        .slider-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 8px;
+            border-radius: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            outline: none;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: var(--accent);
+            cursor: pointer;
+            box-shadow: 0 0 10px var(--accent);
+            transition: var(--transition);
+            border: 2px solid white;
+        }
+
+        .slider::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+        }
+
+        .slider-value {
+            min-width: 40px;
+            text-align: center;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .select-wrapper {
+            position: relative;
+        }
+
+        .select-wrapper::after {
+            content: "▼";
+            font-size: 0.8rem;
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            color: var(--primary);
+        }
+
+        select {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 30px;
+            border: 1px solid var(--primary);
+            background: var(--card);
+            color: var(--text);
+            appearance: none;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        select:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(138, 43, 226, 0.3);
+        }
+
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 55px;
+            height: 28px;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 20px;
+            width: 20px;
+            left: 4px;
+            bottom: 4px;
+            background: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .toggle-slider {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+
+        input:checked + .toggle-slider:before {
+            transform: translateX(27px);
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+
+        .radio-option input {
+            display: none;
+        }
+
+        .radio-custom {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            display: inline-block;
+            position: relative;
+        }
+
+        .radio-option input:checked + .radio-custom::after {
+            content: "";
+            width: 10px;
+            height: 10px;
+            background: var(--primary);
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Output Panel */
+        .output-panel {
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .ascii-container {
+            background: #000;
+            border-radius: var(--border-radius);
+            overflow: auto;
+            padding: 25px;
+            flex: 1;
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+            position: relative;
+            font-family: 'Courier New', monospace;
+            line-height: 1;
+            min-height: 450px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ascii-output {
+            white-space: pre;
+            text-align: center;
+            transition: opacity 0.5s ease;
+            opacity: 0;
+            max-width: 100%;
+            overflow: auto;
+        }
+
+        .ascii-output.visible {
+            opacity: 1;
+        }
+
+        .split-view {
+            display: flex;
+            gap: 20px;
+        }
+
+        .split-view .image-preview, .split-view .ascii-container {
+            flex: 1;
+        }
+
+        /* Export Options */
+        .export-options {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+
+        .export-btn {
+            flex: 1;
+            min-width: 140px;
+            background: var(--card);
+            border: 1px solid var(--primary);
+            color: var(--text);
+            padding: 12px 15px;
+            border-radius: 30px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: var(--transition);
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+        }
+
+        .export-btn:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: var(--glow);
+        }
+
+        /* History */
+        .history-container {
+            display: flex;
+            gap: 12px;
+            margin-top: 15px;
+            overflow-x: auto;
+            padding: 5px;
+        }
+
+        .history-item {
+            min-width: 70px;
+            height: 70px;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            opacity: 0.8;
+            transition: var(--transition);
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: monospace;
+            font-size: 5px;
+            line-height: 1;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .history-item:hover {
+            opacity: 1;
+            transform: scale(1.05);
+            box-shadow: 0 0 10px var(--primary);
+        }
+
+        /* Loading Animation */
+        .loading-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.85);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            border-radius: var(--border-radius);
+        }
+
+        .loading-overlay.visible {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .matrix-rain {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            overflow: hidden;
+            pointer-events: none;
+            border-radius: var(--border-radius);
+        }
+
+        .matrix-column {
+            position: absolute;
+            top: 0;
+            width: 16px;
+            animation: matrixRain 2s infinite linear;
+            color: #0f0;
+            font-family: monospace;
+            font-size: 20px;
+            text-shadow: 0 0 10px #0f0;
+        }
+
+        @keyframes matrixRain {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100vh); }
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .split-view {
+                flex-direction: column;
+            }
+            
+            .export-btn {
+                min-width: 100%;
+            }
+            
+            .panel-card {
+                padding: 20px;
+            }
+        }
+
+        /* Ripple effect for buttons */
+        .ripple {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ripple:after {
+            content: "";
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            background-image: radial-gradient(circle, #fff 10%, transparent 10.01%);
+            background-repeat: no-repeat;
+            background-position: 50%;
+            transform: scale(10, 10);
+            opacity: 0;
+            transition: transform .5s, opacity 1s;
+        }
+
+        .ripple:active:after {
+            transform: scale(0, 0);
+            opacity: .3;
+            transition: 0s;
+        }
+
+        /* Accordion for mobile */
+        .accordion-toggle {
+            display: none;
+            background: var(--card);
+            border: none;
+            padding: 15px 20px;
+            border-radius: var(--border-radius);
+            margin-bottom: 15px;
+            width: 100%;
+            text-align: left;
+            font-weight: 600;
+            color: var(--primary);
+            cursor: pointer;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @media (max-width: 992px) {
+            .accordion-toggle {
+                display: flex;
+            }
+            
+            .control-panel.collapsed {
+                display: none;
+            }
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--secondary);
+        }
+
+        /* Input range for other browsers */
+        .slider::-moz-range-thumb {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: var(--accent);
+            cursor: pointer;
+            box-shadow: 0 0 10px var(--accent);
+            border: 2px solid white;
+        }
+
+        /* Text input styling */
+        input[type="text"] {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 30px;
+            border: 1px solid var(--primary);
+            background: var(--card);
+            color: var(--text);
+            margin-top: 10px;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(138, 43, 226, 0.3);
+        }
+    </style>
+</head>
+<body data-theme="dark">
+    <button class="theme-toggle" id="theme-toggle">🌙</button>
+    
+    <div class="container">
+        <header class="hero">
+            <h1>Advance ASCII ART GENERATOR</h1>
+            <p>Transform your images into stunning ASCII art with our advanced generator</p>
+            
+            <!-- Floating ASCII characters for background -->
+            <div class="floating-ascii" style="top: 10%; left: 5%; animation-duration: 25s;">@#%&</div>
+            <div class="floating-ascii" style="top: 30%; left: 80%; animation-duration: 30s;">*+-.</div>
+            <div class="floating-ascii" style="top: 70%; left: 15%; animation-duration: 40s;">:/\|</div>
+            <div class="floating-ascii" style="top: 50%; left: 60%; animation-duration: 35s;">╬╪╣</div>
+        </header>
+        
+        <button class="accordion-toggle" id="controls-toggle">
+            <span>Controls</span>
+            <span>▼</span>
+        </button>
+        
+        <div class="main-content">
+            <div class="control-panel" id="control-panel">
+                <div class="panel-card">
+                    <h3 class="panel-title">
+                        <i class="fas fa-file-upload"></i>
+                        Image Upload
+                    </h3>
+                    
+                    <div class="upload-area" id="upload-area">
+                        <div class="upload-icon"><i class="fas fa-cloud-upload-alt"></i></div>
+                        <p class="upload-text">Drag & drop your image here</p>
+                        <p class="upload-text">or</p>
+                        <button class="upload-btn ripple" id="upload-btn">Choose File</button>
+                        <input type="file" id="image-upload" accept="image/jpeg,image/png,image/webp">
+                    </div>
+                    
+                    <div class="image-preview" id="image-preview">
+                        <img class="preview-img" id="preview-img" src="" alt="Preview">
+                    </div>
+                </div>
+                
+                <div class="panel-card">
+                    <h3 class="panel-title">
+                        <i class="fas fa-sliders-h"></i>
+                        Conversion Settings
+                    </h3>
+                    
+                    <div class="control-group">
+                        <label class="control-label">Resolution</label>
+                        <div class="slider-container">
+                            <input type="range" min="20" max="200" value="80" class="slider" id="resolution-slider">
+                            <span class="slider-value" id="resolution-value">80</span>
+                        </div>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label class="control-label">Character Set</label>
+                        <div class="select-wrapper">
+                            <select id="char-set">
+                                <option value="classic">Classic ASCII (@#$%&*+-. )</option>
+                                <option value="minimal">Minimal Dots (·:.,)</option>
+                                <option value="blocks">Blocks (█▓▒░ )</option>
+                                <option value="detailed">Detailed (╬╪╣╩╦╠═╬╪)</option>
+                                <option value="custom">Custom...</option>
+                            </select>
+                        </div>
+                        <input type="text" id="custom-chars" placeholder="Enter custom characters" style="display: none;">
+                    </div>
+                    
+                    <div class="control-group">
+                        <label class="control-label">Color Mode</label>
+                        <div class="radio-group">
+                            <label class="radio-option">
+                                <input type="radio" name="color-mode" value="bw" checked>
+                                <span class="radio-custom"></span>
+                                <span>B&W</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="color-mode" value="grayscale">
+                                <span class="radio-custom"></span>
+                                <span>Grayscale</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="color-mode" value="color">
+                                <span class="radio-custom"></span>
+                                <span>Color</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label class="control-label">Font Size</label>
+                        <div class="slider-container">
+                            <input type="range" min="1" max="20" value="6" class="slider" id="font-size-slider">
+                            <span class="slider-value" id="font-size-value">6px</span>
+                        </div>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label class="control-label">Font Family</label>
+                        <div class="select-wrapper">
+                            <select id="font-family">
+                                <option value="monospace">Monospace</option>
+                                <option value="'Courier New'">Courier New</option>
+                                <option value="'Source Code Pro'">Source Code Pro</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="panel-card">
+                    <h3 class="panel-title">
+                        <i class="fas fa-cog"></i>
+                        Advanced Options
+                    </h3>
+                    
+                    <div class="control-group" style="display: flex; justify-content: space-between; align-items: center;">
+                        <label class="control-label">Inverted Mode</label>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="invert-toggle">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    
+                    <div class="control-group" style="display: flex; justify-content: space-between; align-items: center;">
+                        <label class="control-label">Emoji Mode</label>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="emoji-toggle">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    
+                    <div class="control-group" style="display: flex; justify-content: space-between; align-items: center;">
+                        <label class="control-label">Split Preview</label>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="split-toggle">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label class="control-label">Background Style</label>
+                        <div class="select-wrapper">
+                            <select id="bg-style">
+                                <option value="plain">Plain</option>
+                                <option value="gradient">Gradient</option>
+                                <option value="pixel">Pixel Grid</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="panel-card">
+                    <h3 class="panel-title">
+                        <i class="fas fa-history"></i>
+                        History
+                    </h3>
+                    
+                    <div class="history-container" id="history-container">
+                        <!-- History items will be added here -->
+                    </div>
+                </div>
+            </div>
+            
+            <div class="output-panel">
+                <div class="ascii-container" id="ascii-container">
+                    <div class="loading-overlay" id="loading-overlay">
+                        <div class="matrix-rain" id="matrix-rain"></div>
+                    </div>
+                    <div class="ascii-output" id="ascii-output"></div>
+                </div>
+                
+                <div class="export-options">
+                    <button class="export-btn ripple" id="copy-btn">
+                        <i class="fas fa-copy"></i>
+                        Copy Text
+                    </button>
+                    <button class="export-btn ripple" id="download-txt-btn">
+                        <i class="fas fa-download"></i>
+                        Download TXT
+                    </button>
+                    <button class="export-btn ripple" id="download-png-btn">
+                        <i class="fas fa-image"></i>
+                        Download PNG
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // DOM Elements
+        const themeToggle = document.getElementById('theme-toggle');
+        const controlsToggle = document.getElementById('controls-toggle');
+        const controlPanel = document.getElementById('control-panel');
+        const uploadArea = document.getElementById('upload-area');
+        const uploadBtn = document.getElementById('upload-btn');
+        const imageUpload = document.getElementById('image-upload');
+        const imagePreview = document.getElementById('image-preview');
+        const previewImg = document.getElementById('preview-img');
+        const asciiOutput = document.getElementById('ascii-output');
+        const asciiContainer = document.getElementById('ascii-container');
+        const loadingOverlay = document.getElementById('loading-overlay');
+        const matrixRain = document.getElementById('matrix-rain');
+        const resolutionSlider = document.getElementById('resolution-slider');
+        const resolutionValue = document.getElementById('resolution-value');
+        const charSet = document.getElementById('char-set');
+        const customChars = document.getElementById('custom-chars');
+        const colorModeRadios = document.querySelectorAll('input[name="color-mode"]');
+        const fontSizeSlider = document.getElementById('font-size-slider');
+        const fontSizeValue = document.getElementById('font-size-value');
+        const fontFamily = document.getElementById('font-family');
+        const invertToggle = document.getElementById('invert-toggle');
+        const emojiToggle = document.getElementById('emoji-toggle');
+        const splitToggle = document.getElementById('split-toggle');
+        const bgStyle = document.getElementById('bg-style');
+        const copyBtn = document.getElementById('copy-btn');
+        const downloadTxtBtn = document.getElementById('download-txt-btn');
+        const downloadPngBtn = document.getElementById('download-png-btn');
+        const historyContainer = document.getElementById('history-container');
+
+        // State variables
+        let currentImage = null;
+        let asciiHistory = JSON.parse(localStorage.getItem('asciiHistory')) || [];
+
+        // Initialize the page
+        function init() {
+            // Set theme from localStorage or default to dark
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            document.body.setAttribute('data-theme', savedTheme);
+            themeToggle.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+            
+            // Initialize matrix rain effect
+            initMatrixRain();
+            
+            // Load history if available
+            renderHistory();
+            
+            // Set up event listeners
+            setupEventListeners();
+            
+            // Initialize values
+            updateResolutionValue();
+            updateFontSizeValue();
+        }
+
+        // Set up all event listeners
+        function setupEventListeners() {
+            // Theme toggle
+            themeToggle.addEventListener('click', toggleTheme);
+            
+            // Controls accordion for mobile
+            controlsToggle.addEventListener('click', () => {
+                controlPanel.classList.toggle('collapsed');
+                controlsToggle.querySelector('span:last-child').textContent = 
+                    controlPanel.classList.contains('collapsed') ? '►' : '▼';
+            });
+            
+            // Upload functionality
+            uploadBtn.addEventListener('click', () => imageUpload.click());
+            imageUpload.addEventListener('change', handleImageUpload);
+            
+            // Drag and drop
+            uploadArea.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                uploadArea.classList.add('drag-over');
+            });
+            
+            uploadArea.addEventListener('dragleave', () => {
+                uploadArea.classList.remove('drag-over');
+            });
+            
+            uploadArea.addEventListener('drop', (e) => {
+                e.preventDefault();
+                uploadArea.classList.remove('drag-over');
+                
+                if (e.dataTransfer.files.length) {
+                    handleDroppedFile(e.dataTransfer.files[0]);
+                }
+            });
+            
+            // Paste from clipboard
+            document.addEventListener('paste', (e) => {
+                if (e.clipboardData.files.length) {
+                    handleDroppedFile(e.clipboardData.files[0]);
+                }
+            });
+            
+            // Settings change listeners
+            resolutionSlider.addEventListener('input', updateResolutionValue);
+            resolutionSlider.addEventListener('change', generateAsciiArt);
+            
+            charSet.addEventListener('change', () => {
+                if (charSet.value === 'custom') {
+                    customChars.style.display = 'block';
+                    customChars.addEventListener('input', generateAsciiArt);
+                } else {
+                    customChars.style.display = 'none';
+                    generateAsciiArt();
+                }
+            });
+            
+            colorModeRadios.forEach(radio => {
+                radio.addEventListener('change', generateAsciiArt);
+            });
+            
+            fontSizeSlider.addEventListener('input', updateFontSizeValue);
+            fontSizeSlider.addEventListener('change', updateAsciiStyle);
+            
+            fontFamily.addEventListener('change', updateAsciiStyle);
+            invertToggle.addEventListener('change', updateAsciiStyle);
+            emojiToggle.addEventListener('change', generateAsciiArt);
+            splitToggle.addEventListener('change', toggleSplitView);
+            bgStyle.addEventListener('change', updateBackgroundStyle);
+            
+            // Export buttons
+            copyBtn.addEventListener('click', copyToClipboard);
+            downloadTxtBtn.addEventListener('click', downloadTxt);
+            downloadPngBtn.addEventListener('click', downloadPng);
+        }
+
+        // Initialize matrix rain effect
+        function initMatrixRain() {
+            const chars = "01010101日ﾊﾐﾋｰｳｼﾅﾓﾆｻﾜﾂｵﾘｱﾎﾃﾏｹﾒｴｶｷﾑﾕﾗｾﾈｽﾀﾇﾍ";
+            const columns = Math.floor(asciiContainer.offsetWidth / 16);
+            
+            for (let i = 0; i < columns; i++) {
+                const column = document.createElement('div');
+                column.className = 'matrix-column';
+                column.style.left = (i * 16) + 'px';
+                column.style.animationDelay = (Math.random() * 5) + 's';
+                
+                // Add random characters to the column
+                let content = '';
+                const height = Math.ceil(asciiContainer.offsetHeight / 20);
+                for (let j = 0; j < height; j++) {
+                    content += chars[Math.floor(Math.random() * chars.length)];
+                }
+                
+                column.textContent = content;
+                matrixRain.appendChild(column);
+            }
+        }
+
+        // Toggle between dark and light theme
+        function toggleTheme() {
+            const currentTheme = document.body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            themeToggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+            
+            // Update the UI elements that need to change with theme
+            updateAsciiStyle();
+            updateBackgroundStyle();
+        }
+
+        // Handle image upload
+        function handleImageUpload(e) {
+            const file = e.target.files[0];
+            if (file && isImageFile(file)) {
+                processImageFile(file);
+            }
+        }
+
+        // Handle dropped file
+        function handleDroppedFile(file) {
+            if (file && isImageFile(file)) {
+                processImageFile(file);
+            }
+        }
+
+        // Check if file is an image
+        function isImageFile(file) {
+            return /^image\/(jpeg|png|webp)$/.test(file.type);
+        }
+
+        // Process the image file
+        function processImageFile(file) {
+            const reader = new FileReader();
+            
+            reader.onload = function(e) {
+                const img = new Image();
+                img.onload = function() {
+                    currentImage = img;
+                    previewImg.src = e.target.result;
+                    imagePreview.style.display = 'block';
+                    generateAsciiArt();
+                };
+                img.src = e.target.result;
+            };
+            
+            reader.readAsDataURL(file);
+        }
+
+        // Update resolution value display
+        function updateResolutionValue() {
+            resolutionValue.textContent = resolutionSlider.value;
+        }
+
+        // Update font size value display
+        function updateFontSizeValue() {
+            fontSizeValue.textContent = `${fontSizeSlider.value}px`;
+        }
+
+        // Update ASCII art style
+        function updateAsciiStyle() {
+            asciiOutput.style.fontSize = `${fontSizeSlider.value}px`;
+            asciiOutput.style.fontFamily = fontFamily.value;
+            
+            if (invertToggle.checked) {
+                asciiContainer.style.backgroundColor = '#fff';
+                asciiOutput.style.color = '#000';
+            } else {
+                asciiContainer.style.backgroundColor = '#000';
+                asciiOutput.style.color = '#fff';
+            }
+        }
+
+        // Toggle split view
+        function toggleSplitView() {
+            if (splitToggle.checked) {
+                asciiContainer.classList.add('split-view');
+                imagePreview.style.display = 'block';
+            } else {
+                asciiContainer.classList.remove('split-view');
+            }
+        }
+
+        // Update background style
+        function updateBackgroundStyle() {
+            asciiContainer.style.backgroundImage = 'none';
+            
+            switch (bgStyle.value) {
+                case 'gradient':
+                    asciiContainer.style.backgroundImage = 'linear-gradient(135deg, #000, #222)';
+                    break;
+                case 'pixel':
+                    asciiContainer.style.backgroundImage = `
+                        linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px)
+                    `;
+                    asciiContainer.style.backgroundSize = '20px 20px';
+                    break;
+                default:
+                    // Plain background, already set to none
+            }
+        }
+
+        // Generate ASCII art from the image
+        function generateAsciiArt() {
+            if (!currentImage) return;
+            
+            showLoading();
+            
+            // Use setTimeout to allow the UI to update before the heavy processing
+            setTimeout(() => {
+                const resolution = parseInt(resolutionSlider.value);
+                const width = resolution;
+                const height = Math.floor(resolution * (currentImage.height / currentImage.width) * 0.5);
+                
+                // Get the appropriate character set
+                let characters;
+                if (charSet.value === 'custom' && customChars.value) {
+                    characters = customChars.value;
+                } else {
+                    characters = getCharacterSet(charSet.value);
+                }
+                
+                // Get color mode
+                const colorMode = document.querySelector('input[name="color-mode"]:checked').value;
+                
+                // Check if emoji mode is enabled
+                const useEmojis = emojiToggle.checked;
+                
+                // Create off-screen canvas to process the image
+                const canvas = document.createElement('canvas');
+                canvas.width = width;
+                canvas.height = height;
+                const ctx = canvas.getContext('2d');
+                ctx.drawImage(currentImage, 0, 0, width, height);
+                
+                const imageData = ctx.getImageData(0, 0, width, height);
+                const data = imageData.data;
+                
+                let ascii = '';
+                
+                // Generate ASCII based on color mode
+                if (colorMode === 'color') {
+                    ascii = generateColorAscii(data, width, height, characters, useEmojis);
+                } else if (colorMode === 'grayscale') {
+                    ascii = generateGrayscaleAscii(data, width, height, characters, useEmojis);
+                } else {
+                    ascii = generateBlackWhiteAscii(data, width, height, characters, useEmojis);
+                }
+                
+                asciiOutput.innerHTML = ascii;
+                asciiOutput.classList.add('visible');
+                
+                updateAsciiStyle();
+                updateBackgroundStyle();
+                
+                hideLoading();
+                
+                // Save to history
+                saveToHistory(ascii, width, height);
+            }, 50);
+        }
+
+        // Get character set based on selection
+        function getCharacterSet(setName) {
+            switch (setName) {
+                case 'classic': return '@#$%&*+-. ';
+                case 'minimal': return '·:., ';
+                case 'blocks': return '█▓▒░ ';
+                case 'detailed': return '╬╪╣╩╦╠═╬╪';
+                default: return '@#$%&*+-. ';
+            }
+        }
+
+        // Generate black and white ASCII
+        function generateBlackWhiteAscii(data, width, height, characters, useEmojis) {
+            let result = '';
+            const charsLength = characters.length;
+            
+            for (let y = 0; y < height; y++) {
+                for (let x = 0; x < width; x++) {
+                    const index = (y * width + x) * 4;
+                    const r = data[index];
+                    const g = data[index + 1];
+                    const b = data[index + 2];
+                    
+                    // Calculate brightness (weighted average)
+                    const brightness = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+                    
+                    // Map brightness to character
+                    const charIndex = Math.floor(brightness * (charsLength - 1));
+                    const char = characters.charAt(charIndex);
+                    
+                    if (useEmojis) {
+                        result += getEmojiForBrightness(brightness);
+                    } else {
+                        result += char;
+                    }
+                }
+                result += '\n';
+            }
+            
+            return result;
+        }
+
+        // Generate grayscale ASCII
+        function generateGrayscaleAscii(data, width, height, characters, useEmojis) {
+            let result = '';
+            const charsLength = characters.length;
+            
+            for (let y = 0; y < height; y++) {
+                for (let x = 0; x < width; x++) {
+                    const index = (y * width + x) * 4;
+                    const r = data[index];
+                    const g = data[index + 1];
+                    const b = data[index + 2];
+                    
+                    // Calculate brightness
+                    const brightness = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+                    
+                    // Map brightness to character
+                    const charIndex = Math.floor(brightness * (charsLength - 1));
+                    const char = characters.charAt(charIndex);
+                    
+                    if (useEmojis) {
+                        result += `<span style="color: rgb(${r},${g},${b})">${getEmojiForBrightness(brightness)}</span>`;
+                    } else {
+                        const grayValue = Math.floor(brightness * 255);
+                        result += `<span style="color: rgb(${grayValue},${grayValue},${grayValue})">${char}</span>`;
+                    }
+                }
+                result += '\n';
+            }
+            
+            return result;
+        }
+
+        // Generate color ASCII
+        function generateColorAscii(data, width, height, characters, useEmojis) {
+            let result = '';
+            const charsLength = characters.length;
+            
+            for (let y = 0; y < height; y++) {
+                for (let x = 0; x < width; x++) {
+                    const index = (y * width + x) * 4;
+                    const r = data[index];
+                    const g = data[index + 1];
+                    const b = data[index + 2];
+                    
+                    // Calculate brightness
+                    const brightness = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+                    
+                    // Map brightness to character
+                    const charIndex = Math.floor(brightness * (charsLength - 1));
+                    const char = characters.charAt(charIndex);
+                    
+                    if (useEmojis) {
+                        result += `<span style="color: rgb(${r},${g},${b})">${getEmojiForBrightness(brightness)}</span>`;
+                    } else {
+                        result += `<span style="color: rgb(${r},${g},${b})">${char}</span>`;
+                    }
+                }
+                result += '\n';
+            }
+            
+            return result;
+        }
+
+        // Get emoji based on brightness
+        function getEmojiForBrightness(brightness) {
+            const emojis = ['⬛', '🔳', '🔲', '⚪', '⚫', '🟤', '🟠', '🟡', '🟢', '🟣', '🟥', '🟦', '⭐', '🌟', '✨'];
+            const index = Math.floor(brightness * (emojis.length - 1));
+            return emojis[index];
+        }
+
+        // Show loading animation
+        function showLoading() {
+            loadingOverlay.classList.add('visible');
+            asciiOutput.classList.remove('visible');
+        }
+
+        // Hide loading animation
+        function hideLoading() {
+            loadingOverlay.classList.remove('visible');
+        }
+
+        // Save ASCII art to history
+        function saveToHistory(ascii, width, height) {
+            // Create a thumbnail (first few lines)
+            const lines = ascii.split('\n');
+            const thumbnail = lines.slice(0, 5).join('\n');
+            
+            // Add to history
+            asciiHistory.unshift({
+                ascii: ascii,
+                thumbnail: thumbnail,
+                width: width,
+                height: height,
+                timestamp: new Date().toISOString()
+            });
+            
+            // Keep only last 3 items
+            asciiHistory = asciiHistory.slice(0, 3);
+            
+            // Save to localStorage
+            localStorage.setItem('asciiHistory', JSON.stringify(asciiHistory));
+            
+            // Update history UI
+            renderHistory();
+        }
+
+        // Render history items
+        function renderHistory() {
+            historyContainer.innerHTML = '';
+            
+            asciiHistory.forEach((item, index) => {
+                const historyItem = document.createElement('div');
+                historyItem.className = 'history-item';
+                historyItem.innerHTML = item.thumbnail;
+                historyItem.title = 'Click to restore';
+                
+                historyItem.addEventListener('click', () => {
+                    asciiOutput.innerHTML = item.ascii;
+                    asciiOutput.classList.add('visible');
+                    updateAsciiStyle();
+                });
+                
+                historyContainer.appendChild(historyItem);
+            });
+        }
+
+        // Copy ASCII to clipboard
+        function copyToClipboard() {
+            // Create a temporary textarea to copy from
+            const textarea = document.createElement('textarea');
+            textarea.value = asciiOutput.textContent;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+            
+            // Show feedback
+            const originalText = copyBtn.innerHTML;
+            copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            setTimeout(() => {
+                copyBtn.innerHTML = originalText;
+            }, 2000);
+        }
+
+        // Download ASCII as text file
+        function downloadTxt() {
+            const blob = new Blob([asciiOutput.textContent], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'ascii-art.txt';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        // Download ASCII as PNG image
+        function downloadPng() {
+            // Create a canvas to render the ASCII art
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            
+            // Calculate canvas size based on ASCII dimensions and font size
+            const fontSize = parseInt(fontSizeSlider.value);
+            const lines = asciiOutput.textContent.split('\n');
+            const width = Math.max(...lines.map(line => line.length)) * fontSize * 0.6;
+            const height = lines.length * fontSize;
+            
+            canvas.width = width;
+            canvas.height = height;
+            
+            // Set canvas background
+            ctx.fillStyle = invertToggle.checked ? '#fff' : '#000';
+            ctx.fillRect(0, 0, width, height);
+            
+            // Set text properties
+            ctx.font = `${fontSize}px ${fontFamily.value}`;
+            ctx.textBaseline = 'top';
+            
+            // Draw the ASCII art
+            if (asciiOutput.innerHTML.includes('span')) {
+                // Handle colored ASCII (more complex)
+                // This would require parsing the HTML and drawing each colored character
+                // For simplicity, we'll just draw the text without color
+                ctx.fillStyle = invertToggle.checked ? '#000' : '#fff';
+                lines.forEach((line, y) => {
+                    ctx.fillText(line, 0, y * fontSize);
+                });
+            } else {
+                // Handle monochrome ASCII
+                ctx.fillStyle = invertToggle.checked ? '#000' : '#fff';
+                lines.forEach((line, y) => {
+                    ctx.fillText(line, 0, y * fontSize);
+                });
+            }
+            
+            // Create download link
+            const url = canvas.toDataURL('image/png');
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'ascii-art.png';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+
+        // Initialize the application
+        init();
+    </script>
+     <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyDbNYKUKukHO38WrWfiZo2ARWwqjUf8OeI",
+            authDomain: "ehelpfultool.firebaseapp.com",
+            projectId: "ehelpfultool",
+            storageBucket: "ehelpfultool.firebasestorage.app",
+            messagingSenderId: "572405415507",
+            appId: "1:572405415507:web:9addd73fae3fb78973d0a6",
+            measurementId: "G-MN8GGWK084"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+    </script>
+</body>
+</html>
