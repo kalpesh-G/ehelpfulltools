@@ -1,0 +1,1169 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Personality Checker | Free Online Tool</title>
+  <meta name="description" content="Discover your personality, traits, and strengths through a beautiful interactive journey." />
+<meta name="title" content="MindMirror – Free Advanced Personality Test App">
+<meta name="description" content="Discover your true personality with MindMirror – the most advanced free personality test app. Experience a beautiful, interactive quiz with animations, charts, and detailed results. No signup required. Try it now!">
+<meta name="keywords" content="personality test, free personality quiz, online personality test, personality type test, MBTI alternative, Big Five test, interactive quiz, advanced personality app">
+<meta name="robots" content="index, follow">
+<meta name="author" content="eHelpFulTools">
+<meta property="og:title" content="MindMirror – Free Advanced Personality Test App">
+<meta property="og:description" content="Discover your true personality with MindMirror – the most advanced interactive quiz. Beautiful UI, animated charts, detailed insights, and free forever.">
+<meta property="og:url" content="https://ehelpfultools.tech/free-personality-check.html">
+<meta property="og:image" content="https://ehelpfultools.tech/images/personality-test.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MindMirror – Free Advanced Personality Test App">
+<meta name="twitter:description" content="Take the free interactive personality test with beautiful UI, animations, and insights. Discover your type today.">
+<meta name="twitter:image" content="https://ehelpfultools.tech/images/personality-test.jpg">
+
+  <meta name="google-adsense-account" content="ca-pub-8868584487794979">
+    <link rel="icon" href="images/logo.png" type="image/png" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "MindMirror – Advanced Personality Test",
+  "url": "https://ehelpfultools.tech/free-personality-check.html",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "All",
+  "description": "Take the MindMirror Personality Test online for free. A modern, interactive personality quiz with animations, charts, and detailed results to help you understand your strengths and traits.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+ 
+}</script>
+<style>
+    /* -------------------------------
+   MindMirror – Advanced Personality Explorer
+   Pure CSS (no frameworks). Mobile-first.
+   ------------------------------- */
+
+:root {
+  --bg: #0b0b12;
+  --bg-2: #10101a;
+  --card: #141426;
+  --card-2: #191933;
+  --text: #f2f5ff;
+  --muted: #b8c0ff;
+  --accent: #7b6cff;
+  --accent-2: #28c7fa;
+  --accent-3: #ff4ecd;
+  --ok: #14d68f;
+  --warn: #ffb020;
+  --bad: #ff5b5b;
+  --ring: rgba(255,255,255,0.08);
+  --shadow: 0 20px 80px rgba(0,0,0,.35);
+}
+
+[data-theme="light"] {
+  --bg: #f6f7fb;
+  --bg-2: #eef0fb;
+  --card: #ffffff;
+  --card-2: #f7f8ff;
+  --text: #0a0a0f;
+  --muted: #3a3f66;
+  --accent: #5b4bff;
+  --accent-2: #0aa7d7;
+  --accent-3: #e31b8d;
+  --ring: rgba(0,0,0,.08);
+  --shadow: 0 20px 70px rgba(10,10,15,.12);
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background: radial-gradient(1200px 800px at 20% 10%, rgba(123,108,255,.18), transparent),
+              radial-gradient(900px 600px at 90% 10%, rgba(40,199,250,.18), transparent),
+              radial-gradient(800px 500px at 50% 90%, rgba(255,78,205,.15), transparent),
+              var(--bg);
+  color: var(--text);
+  font: 16px/1.45 "Inter", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
+  overflow-x: hidden;
+}
+
+/* Background floating particles canvas */
+#bg-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  filter: blur(0.2px) saturate(110%);
+  opacity: .85;
+}
+
+/* Header */
+.app-header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  backdrop-filter: blur(10px);
+  background: linear-gradient(180deg, rgba(10,10,18,.65), rgba(10,10,18,.25));
+  border-bottom: 1px solid var(--ring);
+  z-index: 50;
+}
+.brand { display:flex; align-items:center; gap: 10px; }
+.logo-orb {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: conic-gradient(from 0deg, var(--accent), var(--accent-2), var(--accent-3), var(--accent));
+  box-shadow: 0 0 24px rgba(123,108,255,.6), inset 0 0 10px rgba(255,255,255,.25);
+  animation: spin 6s linear infinite;
+}
+.brand-title { font-weight: 800; letter-spacing: .4px; margin: 0; }
+.brand-sub { font-size: 12px; opacity: .8; }
+
+.header-actions { display:flex; gap: 8px; align-items:center; }
+
+/* Buttons */
+.btn {
+  --pad-y: 12px;
+  --pad-x: 18px;
+  background: var(--card-2);
+  color: var(--text);
+  padding: var(--pad-y) var(--pad-x);
+  border-radius: 14px;
+  border: 1px solid var(--ring);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease, opacity .18s ease;
+  font-weight: 700;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn:active { transform: translateY(0); }
+.btn.primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  border: none;
+}
+.btn.glow { box-shadow: 0 0 0 0 rgba(123,108,255,.6); animation: pulse 2.2s ease-in-out infinite; }
+.btn.ghost {
+  background: transparent; border: 1px solid var(--ring);
+}
+.btn.small { --pad-y: 8px; --pad-x: 14px; font-size: 14px; }
+.btn.icon-btn { padding: 8px 10px; font-size: 18px; }
+.btn:disabled { opacity: .5; cursor: not-allowed; }
+
+/* Hero */
+.full-viewport { min-height: calc(100vh - 64px); }
+.hero {
+  display:grid; place-items:center;
+  padding: 48px 16px;
+  position: relative;
+}
+.hero-inner { max-width: 980px; text-align:center; }
+.hero-title {
+  font-size: clamp(28px, 6vw, 56px);
+  line-height: 1.05;
+  margin: 0 0 8px 0;
+  font-weight: 900;
+}
+.hero-title span { background: linear-gradient(135deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; background-clip:text; color: transparent; }
+.hero-sub { font-size: clamp(16px, 2.8vw, 22px); opacity:.92; margin: 8px auto 24px auto; max-width: 740px; }
+.hero-cta { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+.hero-extras { margin-top: 16px; display:flex; gap:10px; justify-content:center; flex-wrap:wrap; }
+.hero-chip {
+  font-size: 12px; padding: 8px 12px; border:1px solid var(--ring); border-radius: 9999px; background: rgba(255,255,255,.03);
+}
+
+/* Soft shapes */
+.bg-shape {
+  position:absolute; filter: blur(34px); opacity:.35; z-index:-1; border-radius: 50%;
+}
+.bg-shape.s1 { width: 300px; height: 300px; background: var(--accent); left: -80px; top: 20%; animation: float 9s ease-in-out infinite; }
+.bg-shape.s2 { width: 380px; height: 380px; background: var(--accent-3); right: -100px; bottom: 10%; animation: float 11s ease-in-out infinite reverse; }
+
+/* Progress */
+.progress-strip {
+  position: sticky; top: 58px;
+  z-index: 40;
+  padding: 10px 14px;
+  background: linear-gradient(180deg, rgba(10,10,18,.65), rgba(10,10,18,.25));
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--ring);
+  display: grid; gap: 8px;
+}
+.progress-bar { height: 8px; background: rgba(255,255,255,.06); border-radius: 9999px; overflow:hidden; }
+#progressFill { height: 100%; width: 0%; background: linear-gradient(90deg, var(--accent), var(--accent-2)); transition: width .45s cubic-bezier(.2,.9,.2,1); }
+.progress-info { font-size: 13px; opacity: .9; }
+
+/* Flow / Question */
+.flow { padding: 24px 14px 80px; max-width: 980px; margin: 0 auto; }
+.q-wrap { min-height: 58vh; display:grid; place-items:center; }
+.q-card {
+  width: min(880px, 100%);
+  background: linear-gradient(180deg, var(--card), var(--card-2));
+  border: 1px solid var(--ring);
+  border-radius: 22px;
+  padding: 22px;
+  box-shadow: var(--shadow);
+}
+.q-head { display:flex; gap:14px; align-items:flex-start; margin-bottom: 14px; }
+.q-icon { font-size: 22px; padding: 8px; background: rgba(255,255,255,.06); border-radius: 12px; }
+.q-title { margin: 0; font-size: clamp(20px, 3.6vw, 28px); line-height: 1.2; }
+.q-sub { margin: 6px 0 0 0; opacity:.8; }
+
+/* Option cards */
+.opt-grid { display:grid; gap: 12px; grid-template-columns: 1fr; }
+@media (min-width: 680px) { .opt-grid { grid-template-columns: repeat(2, 1fr); } }
+.opt-card {
+  display:flex; gap:12px; align-items:center; padding:16px; border-radius:16px; border:1px solid var(--ring);
+  background: rgba(255,255,255,.03);
+  cursor: pointer;
+  transition: transform .2s ease, background .2s ease, border-color .2s ease, outline .2s ease;
+  outline: 2px solid transparent;
+}
+.opt-card .ico { font-size: 22px; }
+.opt-card .txt { font-weight: 700; }
+.opt-card:hover { transform: translateY(-2px); }
+.opt-card.active { background: linear-gradient(135deg, rgba(123,108,255,.18), rgba(40,199,250,.18)); border-color: transparent; outline: 2px solid rgba(123,108,255,.4); }
+
+/* Slider */
+.slider-row { display:grid; gap: 10px; }
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%; height: 12px; background: linear-gradient(90deg, rgba(123,108,255,.3), rgba(40,199,250,.3));
+  border-radius: 999px; outline: none; opacity: .95;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none; appearance:none;
+  width: 28px; height:28px; border-radius:50%; background: conic-gradient(from 0deg, var(--accent), var(--accent-2), var(--accent-3), var(--accent));
+  border: 2px solid white; box-shadow: 0 6px 22px rgba(0,0,0,.25);
+}
+.slider-value { font-weight: 800; text-align:right; opacity:.85; }
+
+/* Emoji row */
+.emoji-row { display:flex; gap: 10px; flex-wrap: wrap; }
+.emoji-btn {
+  font-size: 26px; line-height: 1;
+  background: rgba(255,255,255,.06);
+  border: 1px solid var(--ring);
+  border-radius: 14px;
+  padding: 10px 12px;
+  cursor: pointer;
+  transition: transform .2s ease, background .2s ease;
+}
+.emoji-btn.active, .emoji-btn:hover { background: rgba(123,108,255,.22); transform: translateY(-2px); }
+
+/* Swipe card */
+.swipe-zone { position: relative; height: 240px; }
+.swipe-card {
+  position:absolute; inset: 0;
+  background: linear-gradient(180deg, var(--card), var(--card-2));
+  border: 1px solid var(--ring);
+  border-radius: 20px; display:grid; place-items:center; text-align:center; padding: 24px;
+  box-shadow: var(--shadow);
+  touch-action: none; user-select: none;
+}
+.swipe-hint { position: absolute; bottom: 8px; left: 0; right:0; text-align:center; font-size: 12px; opacity:.7; }
+.swipe-yes, .swipe-no {
+  position:absolute; top: 12px; font-weight: 900; font-size: 14px; padding: 6px 8px; border-radius: 999px;
+}
+.swipe-yes { left: 12px; background: rgba(20,214,143,.18); border:1px solid rgba(20,214,143,.35); }
+.swipe-no { right: 12px; background: rgba(255,91,91,.18); border:1px solid rgba(255,91,91,.35); }
+
+/* Nav row */
+.nav-row { display:flex; justify-content: space-between; gap: 10px; margin-top: 18px; }
+
+/* Results */
+.results { padding: 24px 14px 120px; max-width: 1100px; margin: 0 auto; position: relative; }
+.results-inner { display:grid; gap: 18px; grid-template-columns: 1fr; }
+@media (min-width: 960px) {
+  .results-inner { grid-template-columns: 1.2fr .8fr; align-items: start; }
+}
+.persona-card {
+  background: linear-gradient(180deg, var(--card), var(--card-2));
+  border: 1px solid var(--ring);
+  border-radius: 22px;
+  padding: 20px;
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+.persona-card .badge {
+  position:absolute; right: 16px; top: 16px; width: 48px; height: 48px; border-radius: 16px;
+  display:grid; place-items:center; font-size: 22px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  box-shadow: 0 10px 26px rgba(0,0,0,.25);
+}
+.persona-card h3 { margin: 0 0 8px 0; font-size: clamp(22px, 3.4vw, 34px); }
+.blurb { margin: 0; opacity: .92; }
+
+.viz-card {
+  background: linear-gradient(180deg, var(--card), var(--card-2));
+  border: 1px solid var(--ring);
+  border-radius: 22px;
+  padding: 16px;
+  box-shadow: var(--shadow);
+  display:grid; place-items:center;
+}
+.traits-grid {
+  grid-column: 1 / -1;
+  display:grid; gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+.trait {
+  background: linear-gradient(180deg, var(--card), var(--card-2));
+  border: 1px solid var(--ring);
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: var(--shadow);
+}
+.trait .label { font-weight: 800; margin-bottom: 8px; }
+.ring {
+  width: 100%; aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background:
+    radial-gradient(closest-side, transparent 78%, rgba(255,255,255,.08) 80%, transparent 0),
+    conic-gradient(var(--accent) var(--deg,0deg), rgba(255,255,255,.08) 0deg);
+  display:grid; place-items:center; font-weight: 900; font-size: 22px;
+}
+
+/* Mood Pulse */
+.mood-pulse {
+  grid-column: 1 / -1;
+  background: linear-gradient(180deg, var(--card), var(--card-2));
+  border: 1px solid var(--ring);
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: var(--shadow);
+}
+.mood-qs { display:grid; gap: 12px; grid-template-columns: 1fr; }
+@media (min-width: 640px) { .mood-qs { grid-template-columns: repeat(3, 1fr); } }
+.mood-q { display:grid; gap: 8px; }
+.mood-card {
+  margin-top: 12px;
+  background: rgba(123,108,255,.12);
+  border: 1px solid rgba(123,108,255,.35);
+  border-radius: 14px;
+  padding: 12px;
+}
+
+/* FAB */
+.fab {
+  position: fixed; right: 16px; bottom: 16px;
+  width: 56px; height: 56px; border-radius: 50%;
+  border: none; cursor: pointer; font-size: 20px; font-weight: 900;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: white; box-shadow: 0 14px 34px rgba(0,0,0,.25);
+}
+
+/* Confetti canvas */
+#confetti { position: fixed; inset: 0; z-index: 100; pointer-events: none; }
+
+/* Helpers */
+.hidden { display: none !important; }
+.muted { color: var(--muted); }
+
+/* Animations */
+@keyframes spin { from { transform: rotate(0); } to { transform: rotate(360deg); } }
+@keyframes float {
+  0%, 100% { transform: translateY(0) }
+  50% { transform: translateY(-16px) }
+}
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(123,108,255,.55) }
+  70% { box-shadow: 0 0 0 18px rgba(123,108,255,0) }
+  100% { box-shadow: 0 0 0 0 rgba(123,108,255,0) }
+}
+.animate-in {
+  animation: fadeSlide .5s cubic-bezier(.2,.9,.2,1) both;
+}
+@keyframes fadeSlide {
+  from { opacity:0; transform: translateY(6px) scale(.98) }
+  to { opacity:1; transform: translateY(0) scale(1) }
+}
+</style>
+</head>
+<body>
+  <!-- Floating, animated background canvas -->
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+  <header class="app-header">
+    <div class="brand">
+      <div class="logo-orb" aria-hidden="true"></div>
+      <h1 class="brand-title">eHelpFulTools</h1>
+      <span class="brand-sub">Advanced Personality Checker</span>
+    </div>
+
+    <div class="header-actions">
+      <button id="themeToggle" class="btn icon-btn" aria-label="Toggle theme" title="Toggle Dark/Light">
+        <span class="icon">☀️</span>
+      </button>
+      <button id="resumeBtn" class="btn ghost small" title="View last result">Last Result</button>
+    </div>
+  </header>
+
+  <!-- PROGRESS STRIP -->
+  <div id="progressStrip" class="progress-strip hidden" aria-hidden="true">
+    <div class="progress-info">
+      <span id="progressText">Question 1/12</span>
+    </div>
+    <div class="progress-bar">
+      <div id="progressFill"></div>
+    </div>
+  </div>
+
+  <!-- HERO / WELCOME -->
+  <main id="hero" class="hero full-viewport">
+    <div class="hero-inner">
+      <h2 class="hero-title">eHelpFulTools – <span>Advanced Personality Check</span></h2>
+      <p class="hero-sub">Discover your personality, traits, and strengths through a beautiful interactive journey.</p>
+
+      <div class="hero-cta">
+        <button id="startBtn" class="btn primary glow">Start Test</button>
+        <button id="aboutBtn" class="btn ghost">What is this?</button>
+      </div>
+
+      <div class="hero-extras">
+        <div class="hero-chip">No login • No ads • No tracking</div>
+        <div class="hero-chip">100% Frontend • LocalStorage</div>
+      </div>
+    </div>
+
+    <!-- Subtle decorative shapes -->
+    <div class="bg-shape s1"></div>
+    <div class="bg-shape s2"></div>
+  </main>
+
+  <!-- QUESTION FLOW -->
+  <section id="flow" class="flow hidden" aria-live="polite" aria-atomic="true">
+    <div id="questionWrap" class="q-wrap"></div>
+    <div class="nav-row">
+      <button id="prevBtn" class="btn ghost" disabled>Back</button>
+      <button id="nextBtn" class="btn primary">Next</button>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section id="results" class="results hidden">
+    <div class="results-inner">
+      <div class="persona-card" id="personaCard">
+        <div class="badge" id="personaBadge" aria-hidden="true">★</div>
+        <h3 id="personaTitle">Your Archetype</h3>
+        <p id="personaBlurb" class="blurb"></p>
+      </div>
+
+      <div class="viz-card">
+        <canvas id="radar" width="520" height="520" aria-label="Big Five Radar Chart"></canvas>
+      </div>
+
+      <div class="traits-grid" id="traitsGrid">
+        <!-- Filled by JS with animated rings/values -->
+      </div>
+
+      <div class="mood-pulse" id="moodPulse">
+        <h4>Today’s Mood Pulse</h4>
+        <p class="muted">How are you feeling right now?</p>
+        <div class="mood-qs">
+          <div class="mood-q">
+            <span>Energy</span>
+            <input type="range" min="0" max="100" value="60" class="mood-range" data-key="energy">
+          </div>
+          <div class="mood-q">
+            <span>Calm</span>
+            <input type="range" min="0" max="100" value="50" class="mood-range" data-key="calm">
+          </div>
+          <div class="mood-q">
+            <span>Optimism</span>
+            <input type="range" min="0" max="100" value="70" class="mood-range" data-key="optimism">
+          </div>
+        </div>
+        <button id="saveMoodBtn" class="btn small">Save Today’s Mood</button>
+        <div id="moodCard" class="mood-card hidden"></div>
+      </div>
+
+      <div class="actions">
+        <button id="restartBtn" class="fab">↻</button>
+        <button id="downloadBtn" class="btn ghost">Download Result</button>
+      </div>
+    </div>
+    <canvas id="confetti" aria-hidden="true"></canvas>
+  </section>
+
+  <template id="tpl-question">
+    <div class="q-card animate-in">
+      <div class="q-head">
+        <div class="q-icon" aria-hidden="true">❖</div>
+        <h3 class="q-title"></h3>
+        <p class="q-sub"></p>
+      </div>
+      <div class="q-body"></div>
+    </div>
+  </template>
+
+  <script>// MindMirror – Advanced Personality Explorer
+// Pure JavaScript (no libraries). Handles flow, scoring, charts, theming, confetti, etc.
+
+(function(){
+  const $ = (s,root=document)=>root.querySelector(s);
+  const $$ = (s,root=document)=>Array.from(root.querySelectorAll(s));
+
+  // -------------------- THEME --------------------
+  const themeToggle = $("#themeToggle");
+  const root = document.documentElement;
+  const THEME_KEY = "mm_theme";
+  const LAST_RESULT_KEY = "mm_last_result";
+  const MOOD_KEY = "mm_mood_today";
+
+  function applyTheme(t){ root.setAttribute("data-theme", t); themeToggle.querySelector(".icon").textContent = t==="light" ? "🌙" : "☀️"; }
+  const savedTheme = localStorage.getItem(THEME_KEY) || (matchMedia('(prefers-color-scheme: light)').matches ? "light":"dark");
+  applyTheme(savedTheme);
+  themeToggle.addEventListener("click", ()=>{
+    const t = root.getAttribute("data-theme")==="light" ? "dark":"light";
+    localStorage.setItem(THEME_KEY, t);
+    applyTheme(t);
+  });
+
+  // -------------------- BACKGROUND PARTICLES --------------------
+  const bgCanvas = $("#bg-canvas");
+  const bctx = bgCanvas.getContext("2d");
+  function resizeBg(){ bgCanvas.width = innerWidth; bgCanvas.height = innerHeight; }
+  addEventListener("resize", resizeBg); resizeBg();
+  const particles = new Array(80).fill(0).map(()=> ({
+    x: Math.random()*innerWidth,
+    y: Math.random()*innerHeight,
+    r: Math.random()*2 + .4,
+    vx: (Math.random()-.5)*.35,
+    vy: (Math.random()-.5)*.35,
+    hue: 200 + Math.random()*160
+  }));
+  function tickBg(){
+    bctx.clearRect(0,0,bgCanvas.width,bgCanvas.height);
+    particles.forEach(p=>{
+      p.x += p.vx; p.y += p.vy;
+      if(p.x<0||p.x>innerWidth) p.vx*=-1;
+      if(p.y<0||p.y>innerHeight) p.vy*=-1;
+      const g = bctx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r*8);
+      g.addColorStop(0, `hsla(${p.hue},90%,60%,.25)`);
+      g.addColorStop(1, `hsla(${p.hue},90%,60%,0)`);
+      bctx.fillStyle = g;
+      bctx.beginPath(); bctx.arc(p.x,p.y,p.r*8,0,Math.PI*2); bctx.fill();
+    });
+    requestAnimationFrame(tickBg);
+  } tickBg();
+
+  // -------------------- QUESTIONS --------------------
+  // Each question maps to Big Five traits via weights.
+  // Traits: O, C, E, A, N (Openness, Conscientiousness, Extraversion, Agreeableness, Neuroticism reverse)
+  const QUESTIONS = [
+    {
+      type: "choice",
+      icon: "🎯",
+      title: "When starting a new project, what excites you most?",
+      sub: "Pick the option that best describes you.",
+      options: [
+        { ico:"🧪", text:"Exploring fresh ideas and creative angles", weight:{O:+2} },
+        { ico:"📋", text:"Making a plan and organizing tasks", weight:{C:+2} },
+        { ico:"🗣️", text:"Meeting people and gathering feedback", weight:{E:+2} },
+        { ico:"🤝", text:"Collaborating smoothly with the team", weight:{A:+2} }
+      ]
+    },
+    {
+      type: "slider",
+      icon: "🧭",
+      title: "How open are you to trying unfamiliar experiences?",
+      sub: "Slide to set your comfort level with novelty.",
+      range: [0,100],
+      map: v => ({ O: (v-50)/25 }) // -2..+2
+    },
+    {
+      type: "emoji",
+      icon: "💬",
+      title: "Social settings energize me.",
+      sub: "Choose how much you agree.",
+      emojis: ["😴","😐","🙂","😄","🤩"],
+      mapIndex: i => ({ E: (i-2)/1 }) // 0..4 -> -2..+2
+    },
+    {
+      type: "choice",
+      icon: "⏱️",
+      title: "Deadlines are approaching. You usually…",
+      sub: "Pick what’s most like you.",
+      options: [
+        { ico:"✅", text:"Finish early with checklist done", weight:{C:+2} },
+        { ico:"🧘", text:"Stay calm and pace yourself", weight:{N:-1, C:+1} },
+        { ico:"⚡", text:"Sprint at the end (and make it!)", weight:{E:+1, C:+1} },
+        { ico:"🎨", text:"Polish the creative edge last minute", weight:{O:+1, C:0} }
+      ]
+    },
+    {
+      type: "swipe",
+      icon: "🃏",
+      title: "Swipe right for YES, left for NO:",
+      sub: "“I would enjoy hosting a game night for friends.”",
+      yes: { E:+2, A:+1 },
+      no:  { E:-1 }
+    },
+    {
+      type: "emoji",
+      icon: "🧡",
+      title: "I avoid conflicts, even if I’m right.",
+      sub: "Your tendency in tough conversations.",
+      emojis: ["🙅","😕","😐","🙂","🕊️"],
+      mapIndex: i => ({ A: (i-2)/1, E: (i-2)/4 })
+    },
+    {
+      type: "slider",
+      icon: "🧼",
+      title: "How tidy and organized is your workspace right now?",
+      sub: "Be honest!",
+      range: [0,100],
+      map: v => ({ C: (v-50)/20 }) // -2.5..+2.5 clipped later
+    },
+    {
+      type: "choice",
+      icon: "🔍",
+      title: "Which description feels closest?",
+      sub: "Choose one.",
+      options: [
+        { ico:"🧩", text:"Curious analyst who connects patterns", weight:{O:+2, E:-0.5} },
+        { ico:"🛡️", text:"Reliable guardian who keeps promises", weight:{C:+2, A:+0.5} },
+        { ico:"🔥", text:"Bold explorer who takes the lead", weight:{E:+2, O:+0.5} },
+        { ico:"🌿", text:"Warm harmonizer who values peace", weight:{A:+2, N:-0.5} }
+      ]
+    },
+    {
+      type: "swipe",
+      icon: "🌧️",
+      title: "Swipe right for YES, left for NO:",
+      sub: "“I often worry about things beyond my control.”",
+      yes: { N:+2 },
+      no:  { N:-1 }
+    },
+    {
+      type: "emoji",
+      icon: "🧠",
+      title: "I enjoy abstract ideas and thought experiments.",
+      sub: "Your honest reaction.",
+      emojis: ["😵","😕","😐","🙂","🧠"],
+      mapIndex: i => ({ O: (i-2)/1 })
+    },
+    {
+      type: "slider",
+      icon: "🤗",
+      title: "How empathetic do you feel you are in daily life?",
+      sub: "Move the slider.",
+      range: [0,100],
+      map: v => ({ A: (v-50)/20 })
+    },
+    {
+      type: "choice",
+      icon: "🎛️",
+      title: "Preferred weekend vibe?",
+      sub: "All can be great—pick what feels most you.",
+      options: [
+        { ico:"📚", text:"Cozy at home, deep-diving a topic", weight:{O:+1, E:-1} },
+        { ico:"🏞️", text:"Outdoor adventure with friends", weight:{E:+2, O:+0.5} },
+        { ico:"🧹", text:"Reset, organize, plan the week", weight:{C:+2} },
+        { ico:"🍲", text:"Cooking and quality time", weight:{A:+1, E:+0.5} }
+      ]
+    }
+  ];
+
+  // -------------------- STATE --------------------
+  const state = {
+    i: 0,
+    answers: {}, // index -> value/context
+    scores: {O:50, C:50, E:50, A:50, N:50} // start neutral (0..100 scale later)
+  };
+
+  // Mapping weights accumulate on a -2..+2-ish scale; convert to 0..100 later
+  function clamp(v, min, max){ return Math.max(min, Math.min(max, v)); }
+
+  // -------------------- UI ELEMENTS --------------------
+  const hero = $("#hero");
+  const flow = $("#flow");
+  const qWrap = $("#questionWrap");
+  const progressStrip = $("#progressStrip");
+  const progressFill = $("#progressFill");
+  const progressText = $("#progressText");
+  const nextBtn = $("#nextBtn");
+  const prevBtn = $("#prevBtn");
+  const startBtn = $("#startBtn");
+  const aboutBtn = $("#aboutBtn");
+  const results = $("#results");
+  const personaTitle = $("#personaTitle");
+  const personaBlurb = $("#personaBlurb");
+  const personaBadge = $("#personaBadge");
+  const personaCard = $("#personaCard");
+  const traitsGrid = $("#traitsGrid");
+  const radarCanvas = $("#radar");
+  const confettiCanvas = $("#confetti");
+  const resumeBtn = $("#resumeBtn");
+  const downloadBtn = $("#downloadBtn");
+  const restartBtn = $("#restartBtn");
+  const saveMoodBtn = $("#saveMoodBtn");
+  const moodCard = $("#moodCard");
+
+  startBtn.addEventListener("click", startFlow);
+  aboutBtn.addEventListener("click", ()=> alert("MindMirror uses 12 thoughtfully crafted questions to infer your Big Five tendencies (O, C, E, A, N). No data leaves your browser. Enjoy the journey!"));
+  resumeBtn.addEventListener("click", loadLastResult);
+  downloadBtn.addEventListener("click", downloadResult);
+  restartBtn.addEventListener("click", resetAll);
+  saveMoodBtn.addEventListener("click", saveMood);
+
+  function startFlow(){
+    hero.classList.add("hidden");
+    flow.classList.remove("hidden");
+    progressStrip.classList.remove("hidden");
+    state.i = 0; state.answers = {}; state.scores = {O:0,C:0,E:0,A:0,N:0};
+    renderQuestion();
+    updateNav();
+  }
+
+  function updateProgress(){
+    progressText.textContent = `Question ${state.i+1}/${QUESTIONS.length}`;
+    const pct = ((state.i) / (QUESTIONS.length)) * 100;
+    progressFill.style.width = pct + "%";
+  }
+
+  function updateNav(){
+    prevBtn.disabled = state.i === 0;
+    nextBtn.textContent = (state.i === QUESTIONS.length-1) ? "See Results" : "Next";
+  }
+
+  nextBtn.addEventListener("click", ()=> {
+    if(!hasAnswer(state.i)) { pulseWarn(nextBtn); return; }
+    if(state.i < QUESTIONS.length-1){
+      state.i++;
+      renderQuestion();
+      updateNav();
+    } else {
+      showResults();
+    }
+  });
+  prevBtn.addEventListener("click", ()=> {
+    if(state.i>0){ state.i--; renderQuestion(); updateNav(); }
+  });
+
+  function hasAnswer(i){ return state.answers[i] != null; }
+
+  function pulseWarn(el){
+    el.animate([{ transform:"scale(1)" }, { transform:"scale(1.05)" }, { transform:"scale(1)" }], { duration: 260, easing:"ease-out" });
+  }
+
+  // -------------------- QUESTION RENDERERS --------------------
+  function renderQuestion(){
+    qWrap.innerHTML = "";
+    updateProgress();
+    const q = QUESTIONS[state.i];
+    const tpl = $("#tpl-question").content.cloneNode(true);
+    $(".q-title", tpl).textContent = q.title;
+    $(".q-sub", tpl).textContent = q.sub || "";
+    $(".q-icon", tpl).textContent = q.icon || "❖";
+    const body = $(".q-body", tpl);
+
+    if(q.type==="choice"){
+      const grid = document.createElement("div");
+      grid.className = "opt-grid";
+      q.options.forEach((op, idx)=>{
+        const card = document.createElement("button");
+        card.type="button"; card.className="opt-card";
+        card.innerHTML = `<div class="ico">${op.ico}</div><div class="txt">${op.text}</div>`;
+        if(state.answers[state.i]?.index === idx) card.classList.add("active");
+        card.addEventListener("click", ()=>{
+          $$(".opt-card", grid).forEach(c=>c.classList.remove("active"));
+          card.classList.add("active");
+          state.answers[state.i] = { type:"choice", index: idx };
+          nextBtn.focus({preventScroll:true});
+        });
+        grid.appendChild(card);
+      });
+      body.appendChild(grid);
+    }
+
+    if(q.type==="slider"){
+      const row = document.createElement("div");
+      row.className = "slider-row";
+      const value = document.createElement("div");
+      value.className = "slider-value";
+      const [min,max] = q.range || [0,100];
+      const input = document.createElement("input");
+      input.type="range"; input.min=min; input.max=max; input.value = state.answers[state.i]?.value ?? 50;
+      value.textContent = input.value;
+      input.addEventListener("input", ()=>{
+        value.textContent = input.value;
+        state.answers[state.i] = { type:"slider", value: +input.value };
+      });
+      row.append("Value: ", value, input);
+      body.appendChild(row);
+    }
+
+    if(q.type==="emoji"){
+      const row = document.createElement("div");
+      row.className = "emoji-row";
+      q.emojis.forEach((emo, idx)=>{
+        const b = document.createElement("button");
+        b.type="button"; b.className="emoji-btn"; b.textContent = emo;
+        if(state.answers[state.i]?.index === idx) b.classList.add("active");
+        b.addEventListener("click", ()=>{
+          $$(".emoji-btn", row).forEach(e=>e.classList.remove("active"));
+          b.classList.add("active");
+          state.answers[state.i] = { type:"emoji", index: idx };
+          nextBtn.focus({preventScroll:true});
+        });
+        row.appendChild(b);
+      });
+      body.appendChild(row);
+    }
+
+    if(q.type==="swipe"){
+      const zone = document.createElement("div");
+      zone.className = "swipe-zone";
+      const card = document.createElement("div");
+      card.className = "swipe-card";
+      card.innerHTML = `
+        <div class="swipe-yes">YES</div>
+        <div class="swipe-no">NO</div>
+        <div class="q-sub">${q.sub||""}</div>
+        <div class="swipe-hint">Drag right for YES, left for NO</div>
+      `;
+      zone.appendChild(card);
+      body.appendChild(zone);
+
+      let startX=0, x=0, dragging=false;
+      const threshold = 80;
+      function setX(dx){
+        x = dx;
+        card.style.transform = `translateX(${x}px) rotate(${x/25}deg)`;
+        card.style.borderColor = x>0 ? "rgba(20,214,143,.6)" : "rgba(255,91,91,.6)";
+      }
+      function end(){
+        dragging=false;
+        if(Math.abs(x)>threshold){
+          state.answers[state.i] = { type:"swipe", value: x>0 ? "yes":"no" };
+          card.animate([{ opacity:1, transform:`translateX(${x}px)` }, { opacity:0, transform:`translateX(${x>0?400:-400}px)` }], { duration: 260, easing:"ease-out" }).onfinish=()=>{
+            nextBtn.click();
+          };
+        } else {
+          card.style.transition = "transform .2s ease"; setX(0);
+          setTimeout(()=> card.style.transition="", 220);
+        }
+      }
+      card.addEventListener("pointerdown", e=>{ dragging=true; startX=e.clientX; card.setPointerCapture(e.pointerId); });
+      card.addEventListener("pointermove", e=>{ if(!dragging) return; setX(e.clientX-startX); });
+      card.addEventListener("pointerup", end);
+      card.addEventListener("pointercancel", end);
+    }
+
+    qWrap.appendChild(tpl);
+  }
+
+  // -------------------- SCORING --------------------
+  function computeScores(){
+    // Start at neutral 50; accumulate +/-; then normalize to 0..100
+    let acc = {O:0,C:0,E:0,A:0,N:0};
+    QUESTIONS.forEach((q, i)=>{
+      const a = state.answers[i];
+      if(!a) return;
+      if(q.type==="choice"){
+        const w = q.options[a.index].weight || {};
+        for(const k in acc){ acc[k] += (w[k]||0); }
+      }
+      if(q.type==="slider"){
+        const w = q.map ? q.map(a.value) : {};
+        for(const k in acc){ acc[k] += (w[k]||0); }
+      }
+      if(q.type==="emoji"){
+        const w = q.mapIndex ? q.mapIndex(a.index) : {};
+        for(const k in acc){ acc[k] += (w[k]||0); }
+      }
+      if(q.type==="swipe"){
+        const w = (a.value==="yes") ? q.yes : q.no;
+        for(const k in acc){ acc[k] += (w[k]||0); }
+      }
+    });
+
+    // Convert from approx -? .. +? range to 0..100
+    // Assume range about -10..+10 => map: 50 + acc*5
+    const scores = {};
+    ["O","C","E","A","N"].forEach(k=>{
+      scores[k] = clamp( Math.round(50 + acc[k]*8), 0, 100);
+    });
+    return scores;
+  }
+
+  // -------------------- RESULTS --------------------
+  function showResults(){
+    const scores = computeScores();
+    state.scores = scores;
+
+    flow.classList.add("hidden");
+    progressStrip.classList.add("hidden");
+    results.classList.remove("hidden");
+
+    // Determine archetype
+    const arch = decideArchetype(scores);
+    personaTitle.textContent = `${arch.name} — ${arch.tagline}`;
+    personaBlurb.textContent = arch.desc;
+    personaBadge.textContent = arch.emoji;
+
+    // Adaptive theme accent by archetype
+    personaCard.style.background = arch.bg;
+    personaCard.style.borderColor = "transparent";
+
+    // Trait rings
+    traitsGrid.innerHTML = "";
+    const labels = {O:"Openness", C:"Conscientiousness", E:"Extraversion", A:"Agreeableness", N:"Emotional Stability"};
+    ["O","C","E","A","N"].forEach(k=>{
+      const d = document.createElement("div");
+      d.className = "trait";
+      d.innerHTML = `<div class="label">${labels[k]}</div>
+                     <div class="ring" id="ring-${k}">0%</div>`;
+      traitsGrid.appendChild(d);
+    });
+    animateRings(scores);
+
+    // Radar chart
+    drawRadar(scores, { animate:true });
+
+    // Save to LocalStorage
+    const payload = { ts: Date.now(), scores, archetype: arch };
+    localStorage.setItem(LAST_RESULT_KEY, JSON.stringify(payload));
+
+    // Confetti!
+    burstConfetti();
+  }
+
+  function decideArchetype(s){
+    // Simple rule-based picking
+    // Candidates
+    const types = [
+      { key:"Visionary", emoji:"🌈", tint:"#7b6cff", rule: s.O>70 && s.E>55, desc:"Imaginative, future-focused, and energized by possibilities. You connect dots others miss and love shaping what’s next.", tag:"Creates the future" },
+      { key:"Analyst", emoji:"🧠", tint:"#28c7fa", rule: s.O>65 && s.E<55, desc:"Curious and precise, you enjoy patterns, depth, and clarity. You thrive on understanding how things work.", tag:"Sees the hidden patterns" },
+      { key:"Guardian", emoji:"🛡️", tint:"#14d68f", rule: s.C>70 && s.A>55, desc:"Dependable and steady, you bring order and trust. People rely on your consistency and care.", tag:"Keeps promises" },
+      { key:"Explorer", emoji:"🧭", tint:"#ffb020", rule: s.E>70 && s.O>55, desc:"Bold and energetic, you seek experiences and connection. You spark momentum and rally people.", tag:"Leads the adventure" },
+      { key:"Harmonizer", emoji:"🌿", tint:"#ff4ecd", rule: s.A>70 && s.N>55, desc:"Empathetic and calming, you hold space for others and reduce friction. You value warmth and balance.", tag:"Builds safe spaces" }
+    ];
+    let chosen = types.find(t=>t.rule) || types.sort((a,b)=>scoreFit(b)-scoreFit(a))[0];
+    function scoreFit(t){
+      // distance to trait centers
+      let c=0;
+      if(t.key==="Visionary") c = (s.O-80)**2 + (s.E-65)**2;
+      if(t.key==="Analyst") c = (s.O-75)**2 + (s.E-40)**2;
+      if(t.key==="Guardian") c = (s.C-80)**2 + (s.A-65)**2;
+      if(t.key==="Explorer") c = (s.E-80)**2 + (s.O-65)**2;
+      if(t.key==="Harmonizer") c = (s.A-78)**2 + (100-s.N-35)**2;
+      return -c;
+    }
+    return {
+      name: chosen.key,
+      emoji: chosen.emoji,
+      tint: chosen.tint,
+      tagline: chosen.tag,
+      desc: chosen.desc,
+      bg: `linear-gradient(135deg, ${chosen.tint}33, transparent)`
+    };
+  }
+
+  function animateRings(scores){
+    Object.entries(scores).forEach(([k,val])=>{
+      const el = $("#ring-"+k);
+      let t=0, d=900;
+      const start = performance.now();
+      (function step(now){
+        const p = Math.min(1, (now-start)/d);
+        const cur = Math.round(val*p);
+        el.textContent = cur + "%";
+        el.style.setProperty("--deg", (cur/100*360)+"deg");
+        if(p<1) requestAnimationFrame(step);
+      })(start);
+    });
+  }
+
+  // -------------------- RADAR CHART --------------------
+  function drawRadar(scores, {animate=false}={}){
+    const c = radarCanvas, ctx = c.getContext("2d");
+    const W = c.width, H = c.height;
+    const cx = W/2, cy = H/2, R = Math.min(W,H)/2 - 44;
+    const axes = ["O","C","E","A","N"];
+    ctx.clearRect(0,0,W,H);
+
+    // Grid
+    ctx.save();
+    ctx.translate(cx,cy);
+    ctx.strokeStyle = "rgba(255,255,255,.18)";
+    ctx.lineWidth = 1;
+    for(let ring=0; ring<=5; ring++){
+      const r = (ring/5)*R;
+      ctx.beginPath();
+      for(let i=0;i<axes.length;i++){
+        const a = (i/axes.length)*Math.PI*2 - Math.PI/2;
+        const x = Math.cos(a)*r, y = Math.sin(a)*r;
+        if(i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+      }
+      ctx.closePath(); ctx.stroke();
+    }
+    // Axis labels
+    ctx.fillStyle = "rgba(255,255,255,.9)";
+    ctx.font = "700 14px Inter, sans-serif";
+    axes.forEach((k,i)=>{
+      const a = (i/axes.length)*Math.PI*2 - Math.PI/2;
+      const x = Math.cos(a)*(R+16), y = Math.sin(a)*(R+16);
+      ctx.textAlign = x>0 ? "left" : (x<0 ? "right" : "center");
+      ctx.textBaseline = y>0 ? "top" : (y<0 ? "bottom" : "middle");
+      ctx.fillText(k, x, y);
+    });
+
+    // Polygon animation
+    let start=null;
+    function frame(ts){
+      if(!start) start=ts;
+      const p = animate ? Math.min(1,(ts-start)/900) : 1;
+      ctx.save();
+      ctx.translate(0,0);
+      ctx.fillStyle = "rgba(123,108,255,"+(0.18*p)+")";
+      ctx.strokeStyle = "rgba(40,199,250,"+(0.9*p)+")";
+      ctx.lineWidth = 2;
+
+      ctx.beginPath();
+      axes.forEach((k,i)=>{
+        const a = (i/axes.length)*Math.PI*2 - Math.PI/2;
+        const r = ( (scores[k]*p)/100 ) * R;
+        const x = Math.cos(a)*r, y = Math.sin(a)*r;
+        if(i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+      });
+      ctx.closePath();
+      ctx.fill();
+      ctx.stroke();
+      ctx.restore();
+
+      if(p<1) requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+    ctx.restore();
+  }
+
+  // -------------------- CONFETTI --------------------
+  function burstConfetti(){
+    const c = confettiCanvas, ctx = c.getContext("2d");
+    c.width = innerWidth; c.height = innerHeight;
+    const pieces = Array.from({length: 180}).map(()=> ({
+      x: Math.random()*c.width,
+      y: -20 - Math.random()*c.height*0.5,
+      r: 4 + Math.random()*6,
+      vy: 2 + Math.random()*3,
+      vx: (Math.random()-.5)*2,
+      rot: Math.random()*Math.PI*2,
+      vr: (Math.random()-.5)*0.2,
+      hue: Math.random()*360
+    }));
+    let running = true;
+    setTimeout(()=> running=false, 2000);
+    (function loop(){
+      ctx.clearRect(0,0,c.width,c.height);
+      pieces.forEach(p=>{
+        p.x+=p.vx; p.y+=p.vy; p.rot+=p.vr;
+        ctx.save();
+        ctx.translate(p.x,p.y);
+        ctx.rotate(p.rot);
+        ctx.fillStyle = `hsl(${p.hue},90%,60%)`;
+        ctx.fillRect(-p.r/2,-p.r/2,p.r,p.r);
+        ctx.restore();
+      });
+      if(running) requestAnimationFrame(loop);
+      else setTimeout(()=>{ ctx.clearRect(0,0,c.width,c.height); }, 300);
+    })();
+  }
+
+  // -------------------- LOCALSTORAGE: LAST RESULT --------------------
+  function loadLastResult(){
+    const raw = localStorage.getItem(LAST_RESULT_KEY);
+    if(!raw){ alert("No saved result yet. Take the test!"); return; }
+    const d = JSON.parse(raw);
+    hero.classList.add("hidden");
+    flow.classList.add("hidden");
+    progressStrip.classList.add("hidden");
+    results.classList.remove("hidden");
+    personaTitle.textContent = `${d.archetype.name} — ${d.archetype.tagline}`;
+    personaBlurb.textContent = d.archetype.desc;
+    personaBadge.textContent = d.archetype.emoji;
+    personaCard.style.background = d.archetype.bg;
+    drawRadar(d.scores, {animate:false});
+    traitsGrid.innerHTML = "";
+    const labels = {O:"Openness", C:"Conscientiousness", E:"Extraversion", A:"Agreeableness", N:"Emotional Stability"};
+    ["O","C","E","A","N"].forEach(k=>{
+      const dEl = document.createElement("div");
+      dEl.className = "trait";
+      dEl.innerHTML = `<div class="label">${labels[k]}</div><div class="ring" style="--deg:${d.scores[k]/100*360}deg">${d.scores[k]}%</div>`;
+      traitsGrid.appendChild(dEl);
+    });
+    // Show mood card if present
+    const moodRaw = localStorage.getItem(MOOD_KEY);
+    if(moodRaw){
+      const m = JSON.parse(moodRaw);
+      renderMoodCard(m);
+      moodCard.classList.remove("hidden");
+    }
+  }
+
+  // -------------------- DOWNLOAD RESULT (as JSON) --------------------
+  function downloadResult(){
+    const raw = localStorage.getItem(LAST_RESULT_KEY);
+    if(!raw){ alert("No saved result yet."); return; }
+    const blob = new Blob([raw], {type:"application/json"});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url; a.download = "mindmirror_result.json";
+    document.body.appendChild(a); a.click(); a.remove();
+    URL.revokeObjectURL(url);
+  }
+
+  // -------------------- RESET --------------------
+  function resetAll(){
+    results.classList.add("hidden");
+    hero.classList.remove("hidden");
+    state.i=0; state.answers={};
+  }
+
+  // -------------------- MOOD PULSE --------------------
+  function saveMood(){
+    const values = {};
+    $$(".mood-range").forEach(r=> values[r.dataset.key] = +r.value);
+    const today = new Date(); const iso = today.toISOString().slice(0,10);
+    const payload = { date: iso, ...values, score: Math.round((values.energy + values.calm + values.optimism)/3) };
+    localStorage.setItem(MOOD_KEY, JSON.stringify(payload));
+    renderMoodCard(payload);
+    moodCard.classList.remove("hidden");
+  }
+  function renderMoodCard(m){
+    moodCard.innerHTML = `
+      <div><strong>${m.date}</strong></div>
+      <div>Energy: ${m.energy} • Calm: ${m.calm} • Optimism: ${m.optimism}</div>
+      <div><strong>Today’s Mood Score:</strong> ${m.score}</div>
+    `;
+  }
+
+})();</script>
+ <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyDbNYKUKukHO38WrWfiZo2ARWwqjUf8OeI",
+            authDomain: "ehelpfultool.firebaseapp.com",
+            projectId: "ehelpfultool",
+            storageBucket: "ehelpfultool.firebasestorage.app",
+            messagingSenderId: "572405415507",
+            appId: "1:572405415507:web:9addd73fae3fb78973d0a6",
+            measurementId: "G-MN8GGWK084"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+    </script>
+</body>
+</html>
